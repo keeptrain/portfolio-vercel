@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import {useEffect, useState} from 'react'
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import About from '@/components/About'
@@ -9,30 +9,31 @@ import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 
 const PortfolioContent = () => {
-  const [mounted, setMounted] = useState(false)
+    const [mounted, setMounted] = useState(false)
 
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+    useEffect(() => {
+        setMounted(true)
+    }, [])
 
-  if (!mounted) {
+    // Loading
+    if (!mounted) {
+        return (
+            <div className="min-h-screen flex items-center justify-center">
+                <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary-600"></div>
+            </div>
+        )
+    }
+
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary-600"></div>
-      </div>
+        <>
+            <Header/>
+            <Hero/>
+            <About/>
+            <Projects/>
+            <Contact/>
+            <Footer/>
+        </>
     )
-  }
-
-  return (
-    <>
-      <Header />
-      <Hero />
-      <About />
-      <Projects />
-      <Contact />
-      <Footer />
-    </>
-  )
 }
 
 export default PortfolioContent
