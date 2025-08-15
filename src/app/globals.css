@@ -3,93 +3,107 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  body {
-    @apply text-gray-900 bg-white dark:text-gray-100 dark:bg-gray-900 transition-colors duration-300;
-  }
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply text-gray-900 bg-white dark:text-gray-100 dark:bg-gray-900 transition-colors duration-300;
+    }
 }
 
 @layer components {
-  .section-padding {
-    @apply px-4 sm:px-6 lg:px-8;
-  }
-  
-  .container-max {
-    @apply max-w-7xl mx-auto;
-  }
-  
-  .btn-primary {
-    @apply inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 dark:focus:ring-offset-gray-900 transition-colors duration-200;
-  }
-  
-  .btn-secondary {
-    @apply inline-flex items-center px-6 py-3 border border-gray-300 dark:border-gray-600 text-base font-medium rounded-lg text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 dark:focus:ring-offset-gray-900 transition-colors duration-200;
-  }
-  
-  .card {
-    @apply bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 transition-colors duration-300;
-  }
-  
-  .text-primary {
-    @apply text-gray-900 dark:text-gray-100;
-  }
-  
-  .text-secondary {
-    @apply text-gray-600 dark:text-gray-400;
-  }
-  
-  .markdown-content {
-    @apply text-gray-900 dark:text-gray-100;
-  }
-  
-  .markdown-content h1 {
-    @apply text-3xl font-bold mb-6 mt-8 text-gray-900 dark:text-gray-100;
-  }
-  
-  .markdown-content h2 {
-    @apply text-2xl font-bold mb-4 mt-6 text-gray-900 dark:text-gray-100;
-  }
-  
-  .markdown-content h3 {
-    @apply text-xl font-bold mb-3 mt-4 text-gray-900 dark:text-gray-100;
-  }
-  
-  .markdown-content p {
-    @apply mb-4 leading-relaxed;
-  }
-  
-  .markdown-content ul {
-    @apply mb-4 pl-6 space-y-2;
-  }
-  
-  .markdown-content li {
-    @apply list-disc;
-  }
-  
-  .markdown-content code {
-    @apply px-2 py-1 bg-gray-100 dark:bg-gray-800 text-primary-600 dark:text-primary-400 rounded text-sm font-mono;
-  }
-  
-  .markdown-content pre {
-    @apply mb-4 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg overflow-x-auto;
-  }
-  
-  .markdown-content pre code {
-    @apply p-0 bg-transparent text-gray-900 dark:text-gray-100;
-  }
-  
-  .markdown-content a {
-    @apply text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 underline;
-  }
-  
-  .markdown-content strong {
-    @apply font-bold text-gray-900 dark:text-gray-100;
-  }
-  
-  .markdown-content em {
-    @apply italic;
-  }
+    .scrollbar-hide {
+        -ms-overflow-style: none; /* IE & Edge */
+        scrollbar-width: none; /* Firefox */
+    }
+
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+
+    .section-padding {
+        @apply px-4 sm:px-6 lg:px-8;
+    }
+
+    .container-max {
+        @apply max-w-7xl mx-auto;
+    }
+
+    .btn-primary {
+        @apply inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 dark:focus:ring-offset-gray-900 transition-colors duration-200;
+    }
+
+    .btn-secondary {
+        @apply inline-flex items-center px-6 py-3 border border-gray-300 dark:border-gray-600 text-base font-medium rounded-lg text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 dark:focus:ring-offset-gray-900 transition-colors duration-200;
+    }
+
+    .card {
+        @apply bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 transition-colors duration-300;
+    }
+
+    .text-primary {
+        @apply text-gray-900 dark:text-gray-100;
+    }
+
+    .text-secondary {
+        @apply text-gray-600 dark:text-gray-400;
+    }
+
+    .markdown-content {
+        @apply text-gray-900 dark:text-gray-100;
+    }
+
+    .markdown-content h1 {
+        @apply text-3xl font-bold mb-6 mt-8 text-gray-900 dark:text-gray-100;
+    }
+
+    .markdown-content h2 {
+        @apply text-2xl font-bold mb-4 mt-6 text-gray-900 dark:text-gray-100;
+    }
+
+    .markdown-content h3 {
+        @apply text-xl font-bold mb-3 mt-4 text-gray-900 dark:text-gray-100;
+    }
+
+    .markdown-content p {
+        @apply mb-4 leading-relaxed;
+    }
+
+    .markdown-content ul {
+        @apply mb-4 pl-6 space-y-2;
+    }
+
+    .markdown-content li {
+        @apply list-disc;
+    }
+
+    .markdown-content code {
+        @apply px-2 py-1 bg-gray-100 dark:bg-gray-800 text-primary-600 dark:text-primary-400 rounded text-sm font-mono;
+    }
+
+    .markdown-content pre {
+        @apply mb-4 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg overflow-x-auto;
+    }
+
+    .markdown-content pre code {
+        @apply p-0 bg-transparent text-gray-900 dark:text-gray-100;
+    }
+
+    .markdown-content a {
+        @apply text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 underline;
+    }
+
+    .markdown-content strong {
+        @apply font-bold text-gray-900 dark:text-gray-100;
+    }
+
+    .markdown-content em {
+        @apply italic;
+    }
+
+    .overline-border {
+        @apply relative before:absolute before:top-0 before:h-px before:w-[200vw] before:bg-gray-200 before:left-[-100vw]
+        after:absolute after:bottom-0 after:h-px after:w-[200vw] after:bg-gray-200 after:left-[-100vw];
+    }
 }

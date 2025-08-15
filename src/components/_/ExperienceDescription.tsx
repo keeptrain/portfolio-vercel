@@ -1,17 +1,48 @@
-export default function ExperienceDescription() {
+import Image from "next/image";
+
+type Props = {
+  index: number | null;
+  onClear: () => void;
+}
+
+type Item = {
+  description: string,
+}
+const items: Item[] = [
+  {description: "Test 1"},
+  {description: "Test 2"}
+]
+
+const ExperienceDescription = (
+  {index, onClear}: Props
+) => {
+  if (index === null) {
+    return (
+      <>
+        <div className="relative flex items-center space-x-4">
+          <Image alt='logo' width={50} height={50} src='/dinas_jakarta.ico'/>
+          <p>Pusat Data dan Teknologi Informasi Daerah</p>
+        </div>
+        <p>
+          Fresh graduate Information Systems, Very interested and enthusiastic about programming.
+          Passionate to innovative
+          projects while expanding knowledge.
+        </p>
+      </>
+    );
+  }
+
+  const selected = items[index];
+  if (!selected) return null;
 
   return (
-    <div className="flex gap-4 sm:p-8 justify-between">
-
-      <div className="flex flex-col">
-        <h3 className="text-lg font-bold">6+ month</h3>
-        <h3 className="text-lg font-bold">Experience</h3>
-      </div>
-
-      <div className="flex flex-col">
-        <h3 className="text-lg font-bold">3</h3>
-        <h3 className="text-lg font-bold">Projects</h3>
-      </div>
-    </div>
+    <>
+      <a onClick={onClear}>X</a>
+      <span>
+          {selected.description}
+        </span>
+    </>
   );
 }
+
+export default ExperienceDescription;

@@ -1,7 +1,7 @@
 export default function OpenToWorkBadge() {
-    return (
-        <span
-            className="
+  return (
+    <span
+      className="
         inline-flex items-center gap-2
         rounded-full border border-gray-300/70 dark:border-white/10
         bg-white/70 dark:bg-white/5
@@ -10,17 +10,18 @@ export default function OpenToWorkBadge() {
         shadow-sm
         backdrop-blur-[2px]
       "
-        >
+    >
 
-            {/* dot */}
-            <span className="relative inline-flex h-3.5 w-3.5">
-            {/* glow */}
-                <span className="absolute inset-0 rounded-full bg-emerald-600/40 blur-[3px] animate-pulse"/>
-                {/* core */}
-                <span
-                    className="relative inline-block h-3.5 w-3.5 rounded-full bg-emerald-300 ring-2 ring-white dark:ring-gray-900 animate-pulse"/>
-      </span>
+
       Open to work
+      {/* dot */}
+      <span className="relative inline-flex h-3.5 w-3.5">
+            {/* glow */}
+        <span className="absolute inset-0 rounded-full bg-emerald-600/40 blur-[3px] animate-pulse"/>
+        {/* core */}
+        <span
+          className="relative inline-block h-3.5 w-3.5 rounded-full bg-emerald-300 ring-2 ring-white dark:ring-gray-900 animate-pulse"/>
+      </span>
     </span>
-    );
+  );
 }
