@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -102,8 +104,32 @@
         @apply italic;
     }
 
+    .heading-mono {
+        @apply text-sm font-mono uppercase;
+    }
+
     .overline-border {
-        @apply relative before:absolute before:top-0 before:h-px before:w-[200vw] before:bg-gray-200 before:left-[-100vw]
-        after:absolute after:bottom-0 after:h-px after:w-[200vw] after:bg-gray-200 after:left-[-100vw];
+        @apply relative;
+    }
+
+    /* garis atas-bawah yang mengikuti lebar elemen */
+    .overline-border::before,
+    .overline-border::after {
+        content: '';
+        @apply absolute left-0 w-full h-px bg-gray-200;
+    }
+
+    .overline-border::before {
+        @apply top-0;
+    }
+
+    .overline-border::after {
+        @apply bottom-0;
+    }
+
+    /* varian bleed (kalau butuh full-bleed di halaman tertentu) */
+    .overline-border--bleed::before,
+    .overline-border--bleed::after {
+        @apply left-[-100vw] w-[200vw];
     }
 }

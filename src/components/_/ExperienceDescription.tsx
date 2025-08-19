@@ -10,7 +10,9 @@ type Item = {
 }
 const items: Item[] = [
   {description: "Test 1"},
-  {description: "Test 2"}
+  {description: "Test 2"},
+  {description: "Test 3"},
+  {description: "Test 4"},
 ]
 
 const ExperienceDescription = (
@@ -19,10 +21,6 @@ const ExperienceDescription = (
   if (index === null) {
     return (
       <>
-        <div className="relative flex items-center space-x-4">
-          <Image alt='logo' width={50} height={50} src='/dinas_jakarta.ico'/>
-          <p>Pusat Data dan Teknologi Informasi Daerah</p>
-        </div>
         <p>
           Fresh graduate Information Systems, Very interested and enthusiastic about programming.
           Passionate to innovative
@@ -36,12 +34,11 @@ const ExperienceDescription = (
   if (!selected) return null;
 
   return (
-    <>
+    <div className="relative flex items-center space-x-4">
       <a onClick={onClear}>X</a>
-      <span>
-          {selected.description}
-        </span>
-    </>
+      <Image alt='logo' width={50} height={50} src='/dinas_jakarta.ico'/>
+      <p>{selected.description}</p>
+    </div>
   );
 }
 

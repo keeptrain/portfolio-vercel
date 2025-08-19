@@ -3,7 +3,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 
 interface Props {
-  onItemClick: (index: number) => void;
+  onItemClick: (index: number) => () => void;
 }
 
 type Item = { role: string; year: string; meta: string };
@@ -12,7 +12,7 @@ const items: Item[] = [
   {role: 'Laravel Developer', year: 'Current', meta: 'Freelance · Full time'},
   {role: 'Laravel Developer', year: '2025', meta: 'On site · Full time'},
   {role: 'Laravel Developer', year: '2024', meta: 'Hybrid · Full time'},
-  {role: 'Android Developer', year: '2022', meta: 'Online · Full time'},
+  {role: 'View more', year: '', meta: ''},
 ];
 
 export default function ExperienceTimeline({onItemClick}: Props) {
@@ -32,47 +32,41 @@ export default function ExperienceTimeline({onItemClick}: Props) {
   }, []);
 
   return (
-    <div className="relative dark:bg-gray-950">
-      <div ref={scrollRef} className="
-        max-h-64 sm:max-h-80
-        overflow-y-auto
-        scroll-smooth
-        scrollbar-hide">
+    <div className="relative">
+      <div ref={scrollRef} className="scroll-smooth scrollbar-hide">
 
         {/* Garis vertikal — selalu sepanjang konten */}
         <div aria-hidden
-             className="absolute top-0 bottom-0 left-2 sm:left-2 w-px bg-gray-300/70 dark:bg-white/10"/>
+             className="absolute top-0 bottom-0 left-0 w-px bg-gray-300/70 dark:bg-white/10"/>
 
-        <ul className="space-y-0 sm:space-y-6">
+        <ul className="space-y-6">
           {items.map((item, idx) => (
             <li
               key={idx}
-              onClick={() => onItemClick(idx)}
-              className="relative pl-10 sm:pl-14 overflow-visible">
+              onClick={onItemClick(idx)}
+              className="relative space-x-12 cursor-pointer hover:bg-zinc-50"
+            >
+              {/* Dot */}
               <span
-                className="
-                  mt-5
-                  absolute top-2 left-2 sm:left-2 -translate-x-1/2
-                  h-3.5 w-3.5 rounded-full
-                  bg-black dark:bg-white
-                  ring-4 ring-white dark:ring-gray-950
-                "
+                className="absolute -translate-x-1/2
+                left-0 sm:left-0 mt-2 h-3 w-3 rounded-full bg-black dark:bg-white"
               />
               {/* Konten */}
-              <h3 className="pt-5 text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">
-                {item.role}
-              </h3>
-              <p className="mt-1 text-sm sm:text-base text-gray-500 dark:text-gray-400">
-                {item.year} — {item.meta}
-              </p>
+              <div>
+                <h3 className="text-lg font-semibold">
+                  {item.role}
+                </h3>
+                <p className="mt-1 text-sm sm:text-base text-gray-500 dark:text-gray-400">
+                  {item.year} — {item.meta}
+                </p>
+              </div>
             </li>
           ))}
         </ul>
 
-
         {/* Bottom fadder */}
         <div
-          className={`pointer-events-none sticky bottom-0 h-32 -mb-10 z-10
+          className={`pointer-events-none sticky -bottom-1 h-16 lg:h-32 -mb-10 z-10
             ${atBottom ? 'opacity-0' : 'opacity-100'}
             transition-opacity duration-200
             bg-gradient-to-t from-white to-transparent dark:from-gray-950`}/>
