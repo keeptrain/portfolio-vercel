@@ -3,7 +3,7 @@
 import {useEffect, useState} from 'react'
 import Link from 'next/link'
 import {useLanguage} from '@/contexts/LanguageContext'
-import Switchers from './Switchers'
+import LanguageSwitcher from "@/components/button/LanguageSwitcher";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -39,7 +39,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-10 transition-all duration-300 border-b transform
+      className={`fixed top-0 left-0 right-0 z-10 transition-all duration-300 transform
         ${isVisible ? 'translate-y-0' : '-translate-y-full'}
         ${isScrolled ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm' : 'bg-transparent'}
       `}
@@ -54,12 +54,12 @@ const Header = () => {
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
-            <Switchers/>
+            <LanguageSwitcher/>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center gap-2">
-            <Switchers/>
+            <LanguageSwitcher/>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400"
