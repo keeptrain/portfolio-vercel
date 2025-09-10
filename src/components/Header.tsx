@@ -3,12 +3,14 @@
 import {useEffect, useState} from 'react'
 import Link from 'next/link'
 import {useLanguage} from '@/contexts/LanguageContext'
-import LanguageSwitcher from "@/components/button/LanguageSwitcher";
+import LanguageSwitcher from "@/components/ui/button/LanguageSwitcher";
+import {Bars3BottomRight, XMark} from "@/components/icons/heroicons";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
+  const [isOpenDropdown, setIsOpenDropdown] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const {t} = useLanguage()
 
@@ -32,30 +34,60 @@ const Header = () => {
 
   const navItems = [
     {href: '#about', label: t('nav.about')},
-    {href: '#projects', label: t('nav.projects')},
     {href: '/blog', label: 'Blog'},
-    {href: '#contact', label: t('nav.contact')},
+    {href: '#projects', label: t('nav.projects')},
   ]
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-10 transition-all duration-300 transform
         ${isVisible ? 'translate-y-0' : '-translate-y-full'}
-        ${isScrolled ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm' : 'bg-transparent'}
-      `}
-    >
-      <nav className="container-max section-padding">
-        <div className="flex items-center justify-between h-16 bg-white border-l border-r pl-4 pr-4">
+      `}>
+      <nav className="max-w-7xl mx-auto px-12">
+        <div className="flex items-center justify-between h-16 px-12">
           <Link
             href="/"
             className="text-sm font-bold text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
           >
-            Glad you&#39;re here ^_^
           </Link>
 
-          <div className="hidden md:flex items-center space-x-8">
-            <LanguageSwitcher/>
+          <div
+            className="hidden md:flex bg-white/80 text-sm font-medium items-center space-x-8 shadow-sm rounded-full px-4 py-2">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200 font-medium"
+              >
+                {item.label}
+              </Link>
+            ))}
+
           </div>
+
+          <ul className="hidden md:flex relative">
+            <button
+              onClick={() => setIsOpenDropdown(!isOpenDropdown)}
+              className="cursor-pointer">
+              {isOpenDropdown ? (
+                <XMark color="black"/>
+              ) : (
+                <Bars3BottomRight color="black"/>
+              )}
+            </button>
+            <div
+              className={`absolute top-16 left-0 right-0 -translate-x-1/2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 shadow-lg rounded-lg w-48 transition-all duration-300 ${isOpenDropdown ? 'block' : 'hidden'}`}>
+              <li>
+                test
+              </li>
+              <li>
+                test
+              </li>
+
+            </div>
+          </ul>
+
+          {/*<LanguageSwitcher/>*/}
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center gap-2">
