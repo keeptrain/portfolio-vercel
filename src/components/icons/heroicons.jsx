@@ -12,7 +12,7 @@ export const ArrowLeft = ({color}) => {
 export const Bars3BottomRight = ({color}) => {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
-             className="size-6">
+             className="size-8">
             <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25"/>
         </svg>
     )
@@ -81,7 +81,7 @@ export const MultiStarts = ({color}) => {
 export const XMark = ({color}) => {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
-             className="size-6">
+             className="size-8">
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12"/>
         </svg>
     )
