@@ -1,130 +1,174 @@
-'use client'
+'use client';
 
-import {useEffect, useState} from 'react'
-import Link from 'next/link'
-import {useLanguage} from '@/contexts/LanguageContext'
-import LanguageSwitcher from "@/components/ui/button/LanguageSwitcher";
+import {useEffect, useRef, useState} from 'react';
+import Link from 'next/link';
 import {Bars3BottomRight, XMark} from "@/components/icons/heroicons";
+import Image from "next/image";
 
-const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isVisible, setIsVisible] = useState(true)
-  const [lastScrollY, setLastScrollY] = useState(0)
-  const [isOpenDropdown, setIsOpenDropdown] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const {t} = useLanguage()
+export default function Header() {
+  const [openMobileMenu, setOpenMobileMenu] = useState(false);
+  const [openDesktopMenu, setOpenDesktopMenu] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
 
+  const btnRef = useRef<HTMLButtonElement>(null);
+  const dropRef = useRef<HTMLDivElement>(null);
+
+  // Lock/unlock scroll when mobile menu open/close
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY
-      setIsScrolled(currentScrollY > 50)
+    const html = document.documentElement;
+    if (openMobileMenu) html.style.overflow = 'hidden';
+    else html.style.overflow = '';
+    return () => {
+      html.style.overflow = '';
+    };
+  }, [openMobileMenu]);
 
-      if (currentScrollY > lastScrollY && currentScrollY > 50) {
-        setIsVisible(false)
+  // Listen to viewport width changes
+  useEffect(() => {
+    const mql = window.matchMedia('(min-width: 768px)');
+    const apply = () => {
+      const d = mql.matches;
+      setIsDesktop(d);
+
+      if (d) {
+        // Enter desktop mode -> mobile overlay must be closed & unlock
+        setOpenMobileMenu(false);
+        document.documentElement.style.overflow = '';
       } else {
-        setIsVisible(true)
+        // Enter mobile mode -> desktop dropdown must be closed
+        setOpenDesktopMenu(false);
       }
+    };
+    apply();
+    mql.addEventListener('change', apply);
+    return () => mql.removeEventListener('change', apply);
+  }, []);
 
-      setLastScrollY(currentScrollY)
-    }
+  // Outside click behavior for desktop dropdown
+  useEffect(() => {
+    if (!openDesktopMenu) return;
+    const onDocClick = (e: MouseEvent) => {
+      const t = e.target as Node;
+      if (!dropRef.current?.contains(t) && !btnRef.current?.contains(t)) {
+        setOpenDesktopMenu(false);
+      }
+    };
+    document.addEventListener('mousedown', onDocClick);
+    return () => document.removeEventListener('mousedown', onDocClick);
+  }, [openDesktopMenu]);
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [lastScrollY])
+  // X Icon only if the active menu in the current viewport is open
+  const isOpenHere = isDesktop ? openDesktopMenu : openMobileMenu;
 
-  const navItems = [
-    {href: '#about', label: t('nav.about')},
-    {href: '/blog', label: 'Blog'},
-    {href: '#projects', label: t('nav.projects')},
-  ]
+  const items = [
+    {href: '/', label: 'Home'},
+    {href: '#about', label: 'My Experience'},
+    {href: '#projects', label: 'My Resume'},
+    {href: '#contact', label: 'Contact'},
+  ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-10 transition-all duration-300 transform
-        ${isVisible ? 'translate-y-0' : '-translate-y-full'}
-      `}>
-      <nav className="max-w-7xl mx-auto px-12">
-        <div className="flex items-center justify-between h-16 px-12">
-          <Link
-            href="/"
-            className="text-sm font-bold text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
-          >
-          </Link>
+    <>
+      {/* HEADER */}
+        <header
+          className="fixed inset-x-0 top-0 z-50 border-b border-black/5 dark:border-white/10 bg-white/80 dark:bg-gray-900/80 backdrop-blur">
+          <div className="mx-auto max-w-7xl h-16 px-4 md:px-12 flex items-center justify-between">
+            {/* Left Logo */}
+            <Link href="/">
+              <Image alt="logo" src="/logo-border.png" width={60} height={10}/>
+            </Link>
 
-          <div
-            className="hidden md:flex bg-white/80 text-sm font-medium items-center space-x-8 shadow-sm rounded-full px-4 py-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200 font-medium"
+            {/* Right button */}
+            <div className="relative">
+              <button
+                ref={btnRef}
+                onClick={() => {
+                  if (isDesktop) setOpenDesktopMenu(v => !v);
+                  else setOpenMobileMenu(v => !v);
+                }}
+                className="p-2 text-gray-800 dark:text-gray-200"
+                aria-label={isOpenHere ? 'Close menu' : 'Open menu'}
+                aria-expanded={isOpenHere}
+                aria-controls="menu"
               >
-                {item.label}
+                {isOpenHere ? (
+                  <XMark color={"text-black"}/>
+                ) : (
+                  <Bars3BottomRight color={"text-black"}/>
+                )}
+              </button>
+
+              {/* Dropdown kecil DESKTOP (absolute di kanan) */}
+              <div
+                id="menu"
+                ref={dropRef}
+                className={`absolute right-0 top-0 z-[60]
+              w-72 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900
+              transition-all duration-200 origin-top-right
+              ${openDesktopMenu ? 'opacity-100 scale-100' : 'pointer-events-none opacity-0 scale-95'}
+            `}
+              >
+                <div className="flex justify-end">
+                  <button
+                    onClick={() => setOpenDesktopMenu(false)}
+                    className="p-2 text-gray-800 dark:text-gray-200"
+                    aria-label="Close menu"
+                  >
+                    <XMark color={"text-black"}/>
+                  </button>
+                </div>
+                <ul className="p-10 text-xl text-gray-700 dark:text-gray-200">
+                  {items.map(it => (
+                    <li key={it.href} className="hover:text-purple-500">
+                      <Link
+                        href={it.href}
+                        className="block p-4"
+                        onClick={() => setOpenDesktopMenu(false)}
+                      >
+                        {it.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        {/* OVERLAY MOBILE (FULLSCREEN) */}
+        <div
+          className={`md:hidden fixed inset-0 z-[55] transition-opacity duration-200
+          ${openMobileMenu ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}
+        `}
+        >
+          {/* background */}
+          <div className="absolute inset-0 bg-white dark:bg-gray-900"/>
+
+          {/* bar atas di overlay (posisi sama) */}
+          <div className="relative z-10 mx-auto max-w-7xl h-16 px-4 md:px-12 flex items-center justify-end">
+            <button
+              onClick={() => setOpenMobileMenu(false)}
+              className="p-2 text-gray-800 dark:text-gray-200"
+              aria-label="Close menu"
+            >
+              <XMark color={"text-black"}/>
+            </button>
+          </div>
+
+          {/* isi overlay */}
+          <nav className="relative z-10 h-[calc(100vh-4rem)] flex flex-col items-center justify-center gap-8">
+            {items.map(it => (
+              <Link
+                key={it.href}
+                href={it.href}
+                onClick={() => setOpenMobileMenu(false)}
+                className="text-2xl font-bold text-gray-900 dark:text-white hover:text-sky-600 dark:hover:text-sky-300"
+              >
+                {it.label}
               </Link>
             ))}
-
-          </div>
-
-          <ul className="hidden md:flex relative">
-            <button
-              onClick={() => setIsOpenDropdown(!isOpenDropdown)}
-              className="cursor-pointer">
-              {isOpenDropdown ? (
-                <XMark color="black"/>
-              ) : (
-                <Bars3BottomRight color="black"/>
-              )}
-            </button>
-            <div
-              className={`absolute top-16 left-0 right-0 -translate-x-1/2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 shadow-lg rounded-lg w-48 transition-all duration-300 ${isOpenDropdown ? 'block' : 'hidden'}`}>
-              <li>
-                test
-              </li>
-              <li>
-                test
-              </li>
-
-            </div>
-          </ul>
-
-          {/*<LanguageSwitcher/>*/}
-
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center gap-2">
-            <LanguageSwitcher/>
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                      d="M4 6h16M4 12h16M4 18h16"/>
-              </svg>
-            </button>
-          </div>
+          </nav>
         </div>
-
-        {/* Mobile menu */}
-        {isMobileMenuOpen && (
-          <div
-            className="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-lg">
-            <div className="py-4 space-y-2">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="block px-4 py-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-200 font-medium"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
-      </nav>
-    </header>
-  )
+    </>
+  );
 }
-
-export default Header
