@@ -6,7 +6,7 @@ export type Theme = 'system' | 'light' | 'dark'
 
 interface ThemeContextType {
   theme: Theme
-  toggleTheme: (theme: string) => void
+  toggleTheme: (theme: Theme) => void
 }
 
 const ThemeContext =
