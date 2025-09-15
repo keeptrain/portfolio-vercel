@@ -1,8 +1,8 @@
 import type {Metadata} from 'next'
 import {Inter} from 'next/font/google'
-import './globals.css'
 import {ThemeProvider} from '@/contexts/ThemeContext'
 import {LanguageProvider} from '@/contexts/LanguageContext'
+import '@/app/globals.css'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -13,11 +13,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'KeepTrain',
   description: 'A modern, minimalist portfolio showcasing my work and skills.',
-  keywords: 'portfolio, web developer, designer, projects',
-  authors: [{name: 'Your Name'}],
-  creator: 'Your Name',
+  keywords: 'portfolio junior developer',
+  authors: [{name: 'Gilang'}],
+  creator: 'Gilang',
   openGraph: {
-    title: 'Portfolio | Your Name',
+    title: 'Portfolio | Gilang',
     description: 'A modern, minimalist portfolio showcasing my work and skills.',
     type: 'website',
     locale: 'en_US',
@@ -36,20 +36,19 @@ export const metadata: Metadata = {
 export default function RootLayout(
   {
     children,
-  }: {
-    children: React.ReactNode
-  }) {
+  }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={inter.variable}>
-    <body className="font-sans antialiased">
-    <div
-      className="inset-0 z-0 bg-[repeating-linear-gradient(45deg,theme(colors.gray.100)_0,theme(colors.gray.200)_1px,transparent_1px,transparent_12px)] dark:bg-[repeating-linear-gradient(45deg,theme(colors.blue.900)_0,theme(colors.blue.900)_1px,transparent_1px,transparent_12px)]">
-      <ThemeProvider>
-        <LanguageProvider>
-          {children}
-        </LanguageProvider>
-      </ThemeProvider>
-    </div>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title>Portfolio</title>
+    </head>
+    <body className="font-sans antialiased bg-zinc-100">
+    <ThemeProvider>
+      <LanguageProvider>
+        {children}
+      </LanguageProvider>
+    </ThemeProvider>
     </body>
     </html>
   )
