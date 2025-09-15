@@ -1,14 +1,13 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import {useEffect, useState} from 'react'
 import Link from 'next/link'
-import { useLanguage } from '@/contexts/LanguageContext'
-import Switchers from '../Switchers'
+import {useLanguage} from '@/contexts/LanguageContext'
 
 const BlogHeader = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const { t } = useLanguage()
+  const {t} = useLanguage()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,29 +19,29 @@ const BlogHeader = () => {
   }, [])
 
   const navItems = [
-    { href: '/', label: 'Portfolio' },
-    { href: '/blog', label: 'Blog' },
-    { href: '/#about', label: t('nav.about') },
-    { href: '/#contact', label: t('nav.contact') },
+    {href: '/', label: 'Portfolio'},
+    {href: '/blog', label: 'Blog'},
+    {href: '/#about', label: t('nav.about')},
+    {href: '/#contact', label: t('nav.contact')},
   ]
 
   return (
-    <header 
+    <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm' 
+        isScrolled
+          ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm'
           : 'bg-transparent'
       }`}
     >
       <nav className="container-max section-padding">
         <div className="flex items-center justify-between h-16">
-          <Link 
-            href="/" 
+          <Link
+            href="/"
             className="text-xl font-bold text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
           >
             Portfolio
           </Link>
-          
+
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
@@ -53,18 +52,16 @@ const BlogHeader = () => {
                 {item.label}
               </Link>
             ))}
-            <Switchers />
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center gap-2">
-            <Switchers />
-            <button 
+            <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16"/>
               </svg>
             </button>
           </div>
@@ -72,7 +69,8 @@ const BlogHeader = () => {
 
         {/* Mobile menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-lg">
+          <div
+            className="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-lg">
             <div className="py-4 space-y-2">
               {navItems.map((item) => (
                 <Link

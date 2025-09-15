@@ -39,45 +39,40 @@ export default function HowIWork() {
   const [active, setActive] = useState(0);
 
   return (
-    <section id="howIWork" className="relative">
-      <div
-        className="p-6 sm:p-8">
+    <section id="howIWork" className="  w-full shadow">
+      {/* Konten step */}
+      <div className="">
+        <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
+          {steps[active].title}
+        </h3>
+        <p className="mt-3 text-gray-600 dark:text-gray-400 max-w-2xl h-16">
+          {steps[active].desc}
+        </p>
+      </div>
 
-        {/* Konten step */}
-        <div className="mt-6 sm:mt-8">
-          <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
-            {steps[active].title}
-          </h3>
-          <p className="mt-3 text-gray-600 dark:text-gray-400 max-w-2xl h-16">
-            {steps[active].desc}
-          </p>
-        </div>
-
-        {/* Segmented control */}
-        <div className="mt-6 sm:mt-8">
-          <div
-            className="inline-flex w-full sm:w-auto items-center rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-gray-900 p-1">
-            {steps.map((_, i) => {
-              const isActive = i === active;
-              return (
-                <button
-                  key={i}
-                  type="button"
-                  onClick={() => setActive(i)}
-                  className={`px-4 sm:px-5 py-2 rounded-full text-sm font-medium transition-all
+      {/* Segmented control */}
+      <div className="mt-6 sm:mt-8">
+        <div
+          className="inline-flex w-full sm:w-auto items-center rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-gray-900 p-1">
+          {steps.map((_, i) => {
+            const isActive = i === active;
+            return (
+              <button
+                key={i}
+                type="button"
+                onClick={() => setActive(i)}
+                className={`px-4 sm:px-5 py-2 rounded-full text-sm font-medium transition-all
                     ${isActive
-                    ? 'bg-black text-white dark:bg-white dark:text-black shadow-sm'
-                    : 'text-gray-800 dark:text-gray-100 hover:bg-gray-100/80 dark:hover:bg-white/10'
-                  }`}
-                  aria-current={isActive ? 'step' : undefined}
-                >
-                  {`Step ${String(i + 1).padStart(2, '0')}`}
-                </button>
-              );
-            })}
-          </div>
+                  ? 'bg-black text-white dark:bg-white dark:text-black shadow-sm'
+                  : 'text-gray-800 dark:text-gray-100 hover:bg-gray-100/80 dark:hover:bg-white/10'
+                }`}
+                aria-current={isActive ? 'step' : undefined}
+              >
+                {`Step ${String(i + 1).padStart(2, '0')}`}
+              </button>
+            );
+          })}
         </div>
-
       </div>
     </section>
   );

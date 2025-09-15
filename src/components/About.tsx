@@ -1,69 +1,75 @@
 'use client'
 
-import {useState} from "react";
 import {useLanguage} from '@/contexts/LanguageContext'
-import ExperienceTimeline from "@/components/_/ExperienceTimeline";
-import ExperienceDescription from "@/components/_/ExperienceDescription";
-import HowIWork from "@/components/_/HowIWork";
+import SectionContainer from "@/components/_/SectionContainer";
+import HowIWork from "@/components/about/HowIWork";
+import SkillCards from "@/components/ui/SkillCards";
+import {DesktopComputer, DevicePhoneMobile, RectangleGroup} from "@/components/icons/heroicons";
+
+const skillsData = [
+  {
+    icon: <RectangleGroup color={"text-white dark:text-chartreuse"}/>,
+    title: "Responsive Design",
+    description: "Designing web pages that look good on and perform equally well on all devices screen sizes.",
+  },
+  {
+    icon: <DesktopComputer color={"text-white dark:text-chartreuse"}/>,
+    title: "Web",
+    description: "Designing web pages that look good on and perform equally well on all devices screen sizes.",
+  },
+  {
+    icon: <DevicePhoneMobile color={"text-white dark:text-chartreuse"}/>,
+    title: "Mobile apps",
+    description: "Designing web pages that look good on and perform equally well on all devices screen sizes.",
+  },
+  // {
+  //   icon: <MultiStarts color={"text-chartreuse"}/>,
+  //   title: "More skills",
+  //   description: "Hungryyy!",
+  // }
+]
 
 const About = () => {
   const {t} = useLanguage()
-  const [selectedTimeline, setSelectedTimeline] = useState<number | null>(null)
-
-  const handleSelectedTimeline =
-    (index: number) => {
-      setSelectedTimeline(index);
-    };
 
   return (
-    <section id="about" className="dark:bg-gray-900">
-      <div className="min-h-screen grid sm:grid-rows-2 gap-10">
-        {/*Top grid*/}
-        <div className="border-b bg-white">
-
-          {/*My experience overline border*/}
-          <div className="overline-border">
-            <div className="container-max section-padding pl-20">
-              <span
-                className="text-sm font-mono uppercase text-sky-500  dark:text-gray-100">
-                My Experience
-              </span>
+    <section id="about" className="min-h-screen bg-zinc-50 dark:bg-[#080808]">
+      <div className="grid grid-rows-1 lg:grid-rows-2 md:h-screen gap-4">
+        <div className="flex items-center mt-12">
+          <SectionContainer width="7xl">
+            <div
+              className="flex flex-col items-center justify-center h-50 hover:scale-105 transition-transform duration-300">
+              <h1
+                className="text-xl font-bold font-mono uppercase text-gray-400 dark:text-white ">
+                What can I do?
+              </h1>
+              <h1
+                className="text-xl font-bold font-mono uppercase text-black dark:text-chartreuse ">
+                What can I do?
+              </h1>
             </div>
-          </div>
-
-          {/*3 grid at top grid*/}
-          <div className="container-max section-padding grid grid-cols-1 lg:grid-cols-3">
-            {/* Left column */}
-            <div className="col-span-1 -ml-2">
-              <ExperienceTimeline onItemClick={handleSelectedTimeline}/>
+            <div className="grid grid-rows-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {skillsData.map((item, index) => (
+                <div
+                  key={index}
+                  className="col-span-1 backdrop-blur-md bg-black  dark:bg-[#ccf381]/10 border border-[#ccf381]/20 rounded-2xl p-6 shadow-sm
+                  flex flex-col justify-center items-start px-6 pt-10 pb-6 h-50 space-y-2 ">
+                  <SkillCards
+                    icons={item.icon}
+                    description={item.description} title={item.title}/>
+                </div>
+              ))}
             </div>
-            {/* Right column */}
-            <div className="col-span-2 flex items-center">
-              <div className="space-y-4">
-                <ExperienceDescription
-                  index={selectedTimeline}
-                  onClear={() => setSelectedTimeline(null)}
-                />
-              </div>
-            </div>
-          </div>
+          </SectionContainer>
         </div>
-
-        {/*Bottom grid*/}
-        <div className="relative">
-          {/* Label */}
-          <div className="overline-border top-14">
-            <div className="container-max section-padding">
-          <span
-            className="text-sm font-mono uppercase text-fuchsia-500 dark:text-gray-100">
-            How I work
-          </span>
-            </div>
-          </div>
-
-          <div className="bg-zinc-50 container-max w-full  ">
+        <div className="flex flex-col items-center justify-center overflow-x-scroll scrollbar-hide">
+          <SectionContainer>
+            <h1
+              className="flex text-xl font-bold font-mono uppercase text-black dark:text-chartreuse">
+              How I Work
+            </h1>
             <HowIWork/>
-          </div>
+          </SectionContainer>
         </div>
       </div>
     </section>
