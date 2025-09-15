@@ -33,27 +33,27 @@ export default function ExperienceTimeline({onItemClick}: Props) {
 
   return (
     <div className="relative">
-      <div ref={scrollRef} className="scroll-smooth scrollbar-hide">
-
+      <div ref={scrollRef}>
         {/* Garis vertikal — selalu sepanjang konten */}
-        <div aria-hidden
-             className="absolute top-0 bottom-0 left-0 w-px bg-gray-300/70 dark:bg-white/10"/>
+        <div
+          aria-hidden
+          className="absolute top-0 bottom-0 left-0 w-px bg-gray-200 dark:bg-white/10"
+        />
 
-        <ul className="space-y-6">
+        <ul className="space-y-4">
           {items.map((item, idx) => (
             <li
               key={idx}
-              onClick={onItemClick(idx)}
-              className="relative space-x-12 cursor-pointer hover:bg-zinc-50"
-            >
+              className="relative">
               {/* Dot */}
               <span
-                className="absolute -translate-x-1/2
-                left-0 sm:left-0 mt-2 h-3 w-3 rounded-full bg-black dark:bg-white"
-              />
-              {/* Konten */}
-              <div>
-                <h3 className="text-lg font-semibold">
+                className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 h-3 w-3
+                rounded-full bg-black/50 dark:bg-white"/>
+
+              {/* Content */}
+              <div className="px-12">
+                <h3 className="text-lg font-semibold cursor-pointer hover:underline"
+                    onClick={onItemClick(idx)}>
                   {item.role}
                 </h3>
                 <p className="mt-1 text-sm sm:text-base text-gray-500 dark:text-gray-400">
@@ -63,13 +63,46 @@ export default function ExperienceTimeline({onItemClick}: Props) {
             </li>
           ))}
         </ul>
+        {/*<div className="">*/}
+        {/*  <span*/}
+        {/*    className="text-sm font-mono uppercase text-sky-500 tracking-tighter">*/}
+        {/*    Experience*/}
+        {/*  </span>*/}
+        {/*  <div className="mt-4 space-y-3">*/}
+        {/*    <div className="flex items-baseline space-x-3">*/}
+        {/*      <div className="w-2 h-2 bg-sky-500 rounded-full"></div>*/}
+        {/*      <div className="flex flex-col">*/}
+        {/*        <span className="text-sm text-gray-700">Frontend Developer</span>*/}
+        {/*        <span className="text-sm text-gray-700">Current - Freelance . Full time</span>*/}
+        {/*      </div>*/}
+        {/*    </div>*/}
+        {/*    <div className="flex items-baseline space-x-3">*/}
+        {/*      <div className="w-2 h-2 bg-sky-500 rounded-full"></div>*/}
+        {/*      <div className="flex flex-col">*/}
+        {/*        <span className="text-sm text-gray-700">Frontend Developer</span>*/}
+        {/*        <span className="text-sm text-gray-700">Company A (2023-2024)</span>*/}
+        {/*      </div>*/}
+        {/*    </div>*/}
+        {/*  </div>*/}
+        {/*  <div className="mt-4 space-y-3">*/}
+        {/*    <div className="flex items-baseline space-x-3">*/}
+        {/*      <div className="w-2 h-2 bg-sky-500 rounded-full"></div>*/}
+        {/*      <div className="flex flex-col">*/}
+        {/*        <span className="text-sm text-gray-700">Frontend Developer</span>*/}
+        {/*        <span className="text-sm text-gray-700">Current - Freelance . Full time</span>*/}
+        {/*      </div>*/}
+        {/*    </div>*/}
+        {/*    <div className="flex items-baseline space-x-3">*/}
+        {/*      <div className="w-2 h-2 bg-sky-500 rounded-full"></div>*/}
+        {/*      <div className="flex flex-col">*/}
+        {/*        <span className="text-sm text-gray-700">Frontend Developer</span>*/}
+        {/*        <span className="text-sm text-gray-700">Company A (2023-2024)</span>*/}
+        {/*      </div>*/}
+        {/*    </div>*/}
+        {/*  </div>*/}
+        {/*  Read more*/}
 
-        {/* Bottom fadder */}
-        <div
-          className={`pointer-events-none sticky -bottom-1 h-16 lg:h-32 -mb-10 z-10
-            ${atBottom ? 'opacity-0' : 'opacity-100'}
-            transition-opacity duration-200
-            bg-gradient-to-t from-white to-transparent dark:from-gray-950`}/>
+        {/*</div>*/}
       </div>
     </div>
   );
