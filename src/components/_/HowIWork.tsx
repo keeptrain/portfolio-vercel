@@ -39,7 +39,7 @@ export default function HowIWork() {
   const [active, setActive] = useState(0);
 
   return (
-    <section id="howIWork" className="lg:px-12 py-8 bg-zinc-50 w-full shadow border-l">
+    <section id="howIWork" className="  w-full shadow">
       {/* Konten step */}
       <div className="">
         <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
