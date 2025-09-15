@@ -3,6 +3,8 @@
 @source '../../src/app/**/*.{js,ts,jsx,tsx,mdx}';
 @source '../../src/components/**/*.{js,ts,jsx,tsx,mdx}';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
     /* font */
     --font-inter: 'Inter', system-ui, sans-serif;
@@ -20,14 +22,18 @@
     --color-primary-800: #1e40af;
     --color-primary-900: #1e3a8a;
 
-}
+    --color-chartreuse: #ccf381;
 
+    --color-mint-cream: #DDF4E7;
+    --color-green-forest: #67C090;
+    --color-blue-grey: #26667F;
+    --color-blue-old: #124170;
+}
 
 @layer base {
     html {
         scroll-behavior: smooth;
     }
-
 }
 
 @layer components {
@@ -91,6 +97,35 @@
             opacity: 1;
             transform: translateY(0)
         }
+    }
+
+    @keyframes headerHideFromPeek {
+        0% {
+            transform: translateY(0);
+        }
+        25% {
+            transform: translateY(3px);
+        }
+        50% {
+            transform: translateY(7px);
+        }
+        100% {
+            transform: translateY(-100%);
+        }
+    }
+
+    @keyframes headerShow {
+        0% {
+            transform: translateY(-100%);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    /* (opsional) biar margin ikut transisi halus */
+    .header-transition {
+        transition: transform 300ms, margin 300ms, background-color 200ms, border-color 200ms;
     }
 
     /* Utilities (shortcut class) */
