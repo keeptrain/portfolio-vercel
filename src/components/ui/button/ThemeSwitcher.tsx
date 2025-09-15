@@ -28,7 +28,7 @@ const ThemeSwitcher = () => {
 
   return (
     <div role="radiogroup" aria-label="Theme switcher"
-         className="flex rounded-full p-1.5 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400">
+         className="flex rounded-full p-1.5 bg-white dark:bg-zinc-800">
       <div className="inline-grid grid-cols-3 gap-1">
         {options.map((option) => {
           return (
@@ -36,7 +36,8 @@ const ThemeSwitcher = () => {
               key={option}
               role="radio"
               aria-checked={theme === option}
-              className={`rounded-full p-1.5 transition-all duration-150 ${theme === option ? 'bg-black/5 border-gray-200' : 'bg-transparent border-transparent'}`}
+              className={`rounded-full p-1.5 text-gray-500 dark:text-zinc-50 hover:text-gray-800 transition-all duration-150 cursor-pointer  
+                ${theme === option ? 'bg-black/5 dark:bg-zinc-700 border-gray-200 text-gray-800 ' : 'bg-transparent border-transparent'}`}
               aria-label={`Switch to ${option} theme`}
               onClick={() => {
                 toggleTheme(option)
