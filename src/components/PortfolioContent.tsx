@@ -4,36 +4,35 @@ import {useEffect, useState} from 'react'
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import About from '@/components/About'
-import Projects from '@/components/Projects'
-import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
+import ProjectsBlogs from "@/components/ProjectsBlogs";
 
 const PortfolioContent = () => {
-    const [mounted, setMounted] = useState(false)
+  const [mounted, setMounted] = useState(false)
 
-    useEffect(() => {
-        setMounted(true)
-    }, [])
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
-    // Loading
-    if (!mounted) {
-        return (
-            <div className="min-h-screen flex items-center justify-center">
-                <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary-600"></div>
-            </div>
-        )
-    }
-
+  // Loading
+  if (!mounted) {
     return (
-        <>
-            <Header/>
-            <Hero/>
-            <About/>
-            <Projects/>
-            <Contact/>
-            <Footer/>
-        </>
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary-600"></div>
+      </div>
     )
+  }
+
+  return (
+    <>
+      <Header/>
+      <Hero/>
+      <About/>
+      {/*<Projects/>*/}
+      <ProjectsBlogs/>
+      <Footer/>
+    </>
+  )
 }
 
 export default PortfolioContent
