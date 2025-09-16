@@ -1,11 +1,10 @@
 'use client'
 
+import Image from "next/image";
 import {useLanguage} from '@/contexts/LanguageContext'
 import ProfileImage from "@/components/_/ProfileImage";
 import SectionContainer from "@/components/_/SectionContainer";
-import {AlpineJs, Android, Javascript, Kotlin, Laravel, Php} from "@/components/icons/DevIcons";
 import OpenToWorkBadge from "@/components/_/OpenToWorkBadge";
-import Image from "next/image";
 import {MultiStarts} from "@/components/icons/HeroIcons";
 
 const Hero = () => {
