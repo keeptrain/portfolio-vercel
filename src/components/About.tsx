@@ -45,11 +45,13 @@ const About = () => {
                 className="text-md md:text-3xl font-bold text-black dark:text-chartreuse uppercase">
                 Experience
               </h1>
-              <p className="flex md:text-center text-sm md:text-lg font-light text-black dark:text-white">
-                I have been in these fields for 8 months of professional experience in a fast-paced. <br/>
-                My focus has been on rapidly acquiring foundational skills, contributing to meaningful projects, and <br/>
-                upholding a philosophy of continuous learning.
-              </p>
+              <div className="max-w-prose">
+                <p className="flex md:text-center text-sm md:text-lg font-light text-black dark:text-white">
+                  I have been in these fields for 8 months of professional experience in a fast-paced.
+                  My focus has been on rapidly acquiring foundational skills, contributing to meaningful projects,
+                  and upholding a philosophy of continuous learning.
+                </p>
+              </div>
               <TechStack/>
             </div>
           </SectionContainer>
@@ -60,10 +62,7 @@ const About = () => {
               className="text-md md:text-3xl font-bold uppercase text-black dark:text-chartreuse">
               How I Work
             </h1>
-
-            {/* This is the new container for scrolling content */}
-              {/* And this is the div that holds your scrollable cards */}
-            <HowIWork />
+            <HowIWork/>
           </SectionContainer>
         </div>
       </div>

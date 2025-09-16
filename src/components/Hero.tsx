@@ -44,7 +44,7 @@ const Hero = () => {
 
           {/* Baris Kedua */}
           <div
-            className="flex flex-row justify-center items-end mb-8 md:mb-16 border-b gap-2 md:gap-4 text-black dark:text-white">
+            className="flex flex-row justify-center items-end my-8 md:mb-16 border-b gap-2 md:gap-4 text-black dark:text-white">
             <h1 className="font-serif text-lg md:text-2xl">Less is More</h1>
             <MultiStarts color={""}/>
           </div>
@@ -60,21 +60,15 @@ export const TechStack = () => {
     <div className="flex flex-wrap md:flex-nowrap gap-8 md:gap-24 items-center justify-center">
       <div className="relative w-20 h-20 md:w-30 md:h-30">
         <Image alt="logo" src="/images/logo/bangkit.svg" fill
-               className="object-contain filter invert dark:invert-0 dark:brightness-0" style={{
-          filter: 'grayscale(100%)'
-        }}/>
+               className="object-contain grayscale dark:invert"/>
       </div>
       <div className="relative w-20 h-20 md:w-30 md:h-30">
         <Image alt="logo" src="/images/logo/rptra.png" fill
-               className="object-contain filter invert dark:invert-0 dark:brightness-0" style={{
-          filter: 'grayscale(100%)'
-        }}/>
+               className="object-contain grayscale dark:invert"/>
       </div>
       <div className="relative w-20 h-20 md:w-30 md:h-30">
         <Image alt="logo" src="/images/logo/pusdatin.png" fill
-               className="object-contain filter invert dark:invert-0 dark:brightness-0" style={{
-          filter: 'grayscale(100%)'
-        }}/>
+               className="object-contain grayscale dark:invert"/>
       </div>
     </div>
   )

@@ -65,7 +65,7 @@ const HowIWork = () => {
       <div
         ref={containerRef}
         className="mt-6 pb-4 grid grid-cols-1 md:flex gap-4
-        cursor-grab touch-pan-x select-none overflow-x-auto scrollbar-hide"
+        cursor-grab touch-pan-x select-none md:overflow-x-auto scrollbar-hide"
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={endDrag}
