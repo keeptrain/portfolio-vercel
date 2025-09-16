@@ -3,6 +3,7 @@ import {Inter} from 'next/font/google'
 import {ThemeProvider} from '@/contexts/ThemeContext'
 import {LanguageProvider} from '@/contexts/LanguageContext'
 import '@/app/globals.css'
+import Header from "@/components/Header";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -39,11 +40,11 @@ export default function RootLayout(
   }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={inter.variable}>
-    <head>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      <title>Portfolio</title>
-    </head>
-    <body className="font-sans antialiased bg-zinc-100">
+    {/*<head>*/}
+    {/*  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>*/}
+    {/*  <title>Portfolio</title>*/}
+    {/*</head>*/}
+    <body className="font-sans antialiased bg-zinc-50 dark:bg-black">
     <ThemeProvider>
       <LanguageProvider>
         {children}

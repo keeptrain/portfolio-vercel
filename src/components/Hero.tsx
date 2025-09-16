@@ -3,29 +3,29 @@
 import {useLanguage} from '@/contexts/LanguageContext'
 import ProfileImage from "@/components/_/ProfileImage";
 import SectionContainer from "@/components/_/SectionContainer";
-import {AlpineJs, Android, Javascript, Kotlin, Laravel, Php} from "@/components/icons/devicons";
+import {AlpineJs, Android, Javascript, Kotlin, Laravel, Php} from "@/components/icons/DevIcons";
 import OpenToWorkBadge from "@/components/_/OpenToWorkBadge";
+import Image from "next/image";
+import {MultiStarts} from "@/components/icons/HeroIcons";
 
 const Hero = () => {
   const {t} = useLanguage()
 
   return (
-    <section id="hero" className="min-h-screen bg-zinc-50 dark:bg-[#080808]">
+    <section id="hero" className="md:min-h-screen  bg-zinc-50 dark:bg-[#080808]">
       <SectionContainer>
-        <div className="h-screen grid grid-rows-[1fr,auto] gap-4 pt-16">
+        <div className="h-screen grid grid-rows-[1fr,auto] gap-4 pt-16 md:pt-16">
           {/* Baris Pertama: Hero Role dan Profile Image */}
-          <div className="grid grid-cols-1 md:grid-cols-2">
-
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:pt-16">
             {/* Role and Description */}
             <div
-              className="col-span-1 flex flex-col items-start justify-center space-y-4 order-2 md:order-1 md:ml-16">
+              className="col-span-1 flex flex-col items-start justify-center space-y-4 order-2 md:order-1 md:ml-16 ">
               <h1
-                className=" text-start text-3xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100">
-                Junior Developer
+                className="flex flex-col text-start text-md sm:text-3xl md:text-4xl font-bold t
+                ext-gray-900 dark:text-gray-100 tracking-widest  uppercase">
+                <span className="text-zinc-800">Hi , I am </span>
+                Junior Developer who like minimalistm design.
               </h1>
-              <h2 className="text-xl text-zinc-500 dark:text-gray-100 mb-6">
-                {t('hero.description')}
-              </h2>
               <OpenToWorkBadge/>
             </div>
 
@@ -33,16 +33,17 @@ const Hero = () => {
             <div
               className="col-span-1 flex flex-col items-center justify-center relative order-1 md:order-2">
               <div
-                className="w-72 h-72 md:w-100 md:h-[450px] border p-2">
+                className="w-full h-85 md:w-80 md:h-[360px]">
                 <ProfileImage/>
               </div>
             </div>
           </div>
 
-          {/* Baris Kedua: TechStack */}
+          {/* Baris Kedua */}
           <div
-            className="flex items-center justify-center overflow-x-hidden ">
-            <TechStack/>
+            className="flex flex-row justify-center items-end mb-8 md:mb-16 border-b gap-4 text-black dark:text-white">
+            <h1 className="font-serif text-lg md:text-2xl">Less is More</h1>
+            <MultiStarts color={""}/>
           </div>
         </div>
       </SectionContainer>
@@ -50,16 +51,28 @@ const Hero = () => {
   )
 }
 
-const TechStack = () => {
+export const TechStack = () => {
   const color = "text-black/20 dark:text-white/20"
   return (
-    <div className="flex items-center gap-12 md:gap-24 justify-center z-10">
-      <Php color={color}/>
-      <Kotlin color={color}/>
-      <Javascript color={color}/>
-      <Laravel color={color}/>
-      <AlpineJs color={color}/>
-      <Android color={color}/>
+    <div className="flex flex-wrap md:flex-nowrap gap-8 md:gap-24 items-center justify-center">
+      <div className="relative w-20 h-20 md:w-30 md:h-30">
+        <Image alt="logo" src="/images/logo/bangkit.svg" fill
+               className="object-contain filter invert dark:invert-0 dark:brightness-0" style={{
+          filter: 'grayscale(100%)'
+        }}/>
+      </div>
+      <div className="relative w-20 h-20 md:w-30 md:h-30">
+        <Image alt="logo" src="/images/logo/rptra.png" fill
+               className="object-contain filter invert dark:invert-0 dark:brightness-0" style={{
+          filter: 'grayscale(100%)'
+        }}/>
+      </div>
+      <div className="relative w-20 h-20 md:w-30 md:h-30">
+        <Image alt="logo" src="/images/logo/pusdatin.png" fill
+               className="object-contain filter invert dark:invert-0 dark:brightness-0" style={{
+          filter: 'grayscale(100%)'
+        }}/>
+      </div>
     </div>
   )
 }
