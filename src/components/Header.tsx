@@ -164,7 +164,7 @@ export default function Header() {
       {/* HEADER */}
       <header className={
         ['fixed inset-x-0 top-0 z-11',
-          'bg-zinc-50/10 dark:bg-black backdrop-blur-lg',
+          'bg-zinc-50/10  dark:bg-black backdrop-blur-lg',
           'header-transition',
           animClass,
           headerPhase === 'hidden' ? '' : headerPhase === 'peek' ? 'translate-y-[15px]' :
@@ -178,7 +178,7 @@ export default function Header() {
         `}>
           {/* Left Logo */}
           <Link href="/">
-            <div className="relative w-12 h-6 md:w-12 md:h-7">
+            <div className="hidden md:block relative w-12 h-6 md:w-10 md:h-10">
               <Image
                 src="/logo-border.png"
                 alt="KeepTrain logo"
