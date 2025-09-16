@@ -4,7 +4,8 @@ import {useLanguage} from '@/contexts/LanguageContext'
 import SectionContainer from "@/components/_/SectionContainer";
 import HowIWork from "@/components/about/HowIWork";
 import SkillCards from "@/components/ui/SkillCards";
-import {DesktopComputer, DevicePhoneMobile, RectangleGroup} from "@/components/icons/heroicons";
+import {DesktopComputer, DevicePhoneMobile, RectangleGroup} from "@/components/icons/HeroIcons";
+import {TechStack} from "@/components/Hero";
 
 const skillsData = [
   {
@@ -33,42 +34,36 @@ const About = () => {
   const {t} = useLanguage()
 
   return (
-    <section id="about" className="min-h-screen bg-zinc-50 dark:bg-[#080808]">
-      <div className="grid grid-rows-1 lg:grid-rows-2 md:h-screen gap-4">
-        <div className="flex items-center mt-12">
+    <section id="about" className="md:min-h-screen bg-zinc-50 dark:bg-[#080808]">
+      <div className="grid grid-rows-1 lg:grid-rows-2 md:h-screen gap-12">
+        <div className="col-span-1 flex items-center mt-12">
           <SectionContainer width="7xl">
             <div
-              className="flex flex-col items-center justify-center h-50 hover:scale-105 transition-transform duration-300">
+              className="flex flex-col md:items-center justify-center hover:scale-105
+              transition-transform duration-300 space-y-4 md:space-y-8">
               <h1
-                className="text-xl font-bold font-mono uppercase text-gray-400 dark:text-white ">
-                What can I do?
+                className="text-md md:text-3xl font-bold text-black dark:text-chartreuse uppercase">
+                Experience
               </h1>
-              <h1
-                className="text-xl font-bold font-mono uppercase text-black dark:text-chartreuse ">
-                What can I do?
-              </h1>
-            </div>
-            <div className="grid grid-rows-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {skillsData.map((item, index) => (
-                <div
-                  key={index}
-                  className="col-span-1 backdrop-blur-md bg-black  dark:bg-[#ccf381]/10 border border-[#ccf381]/20 rounded-2xl p-6 shadow-sm
-                  flex flex-col justify-center items-start px-6 pt-10 pb-6 h-50 space-y-2 ">
-                  <SkillCards
-                    icons={item.icon}
-                    description={item.description} title={item.title}/>
-                </div>
-              ))}
+              <p className="flex md:text-center text-sm md:text-lg font-light text-black dark:text-white">
+                I have been in these fields for 8 months of professional experience in a fast-paced. <br/>
+                My focus has been on rapidly acquiring foundational skills, contributing to meaningful projects, and <br/>
+                upholding a philosophy of continuous learning.
+              </p>
+              <TechStack/>
             </div>
           </SectionContainer>
         </div>
-        <div className="flex flex-col items-center justify-center overflow-x-scroll scrollbar-hide">
+        <div className="col-span-1 items-center justify-center">
           <SectionContainer>
             <h1
-              className="flex text-xl font-bold font-mono uppercase text-black dark:text-chartreuse">
+              className="text-md md:text-3xl font-bold uppercase text-black dark:text-chartreuse">
               How I Work
             </h1>
-            <HowIWork/>
+
+            {/* This is the new container for scrolling content */}
+              {/* And this is the div that holds your scrollable cards */}
+            <HowIWork />
           </SectionContainer>
         </div>
       </div>
