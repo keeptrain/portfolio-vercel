@@ -7,20 +7,20 @@ type DataItem = {
 
 const data: DataItem[] = [
   {
-    title: 'Clean Code',
-    desc: 'Write clean, maintainable, and efficient code following best practices and coding standards'
+    title: 'Plan',
+    desc: 'Before writing any code, I take the time to fully understand the problem or feature requirements.'
   },
   {
-    title: 'Collaboration',
-    desc: 'Work closely with cross-functional teams including designers, product managers, and other developers'
+    title: 'Develop',
+    desc: 'I focus on writing clean, readable code and practice an iterative approach.'
   },
   {
-    title: 'Continuous Learning',
-    desc: 'Stay updated with the latest industry trends, technologies, and best practices to continuously improve skills'
+    title: 'Validate',
+    desc: 'Once my code is written, I perform thorough self-testing to verify that it functions as expected and meets all requirements.'
   },
   {
-    title: 'Problem Solving',
-    desc: 'Approach challenges with a problem-solving mindset, finding innovative solutions to complex issues'
+    title: 'Collaborate',
+    desc: 'I believe in the power of teamwork. I submit my work for code review, viewing feedback as an invaluable opportunity for growth.'
   },
 ]
 
@@ -75,7 +75,7 @@ const HowIWork = () => {
         {data.map((item, index) => (
           <div
             key={index}
-            className="relative flex-none w-full h-full md:w-1/4 md:h-50 lg:w-126
+            className="relative flex-none w-full h-full md:w-1/2 md:h-50 lg:w-126
             border border-gray-400 dark:border-chartreuse rounded-2xl p-4 md:p-6"
           >
             <h3 className="text-md md:text-2xl font-semibold mb-2 text-black dark:text-chartreuse">{item.title}</h3>

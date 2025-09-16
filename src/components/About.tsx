@@ -39,17 +39,17 @@ const About = () => {
         <div className="col-span-1 flex items-center mt-12">
           <SectionContainer width="7xl">
             <div
-              className="flex flex-col md:items-center justify-center hover:scale-105
-              transition-transform duration-300 space-y-4 md:space-y-8">
+              className="flex flex-col md:items-center justify-center space-y-4 md:space-y-8">
               <h1
                 className="text-md md:text-3xl font-bold text-black dark:text-chartreuse uppercase">
                 Experience
               </h1>
               <div className="max-w-prose">
                 <p className="flex md:text-center text-sm md:text-lg font-light text-black dark:text-white">
-                  I have been in these fields for 8 months of professional experience in a fast-paced.
-                  My focus has been on rapidly acquiring foundational skills, contributing to meaningful projects,
-                  and upholding a philosophy of continuous learning.
+                  I&#39;ve spent the last 8 months actively contributing as a Junior Developer in a fast-paced setting.
+                  I have a proven ability to quickly learn and apply new skills,
+                  and my work on various projects reflects my dedication to continuous improvement and
+                  delivering value.
                 </p>
               </div>
               <TechStack/>
