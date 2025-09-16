@@ -3,7 +3,10 @@
 import {useEffect, useRef, useState} from 'react';
 import Link from 'next/link';
 import Image from "next/image";
-import {Bars3BottomRight, XMark} from "@/components/icons/heroicons";
+import {Bars3BottomRight, XMark} from "@/components/icons/HeroIcons";
+import ThemeSwitcher from "@/components/ui/button/ThemeSwitcher";
+import LanguageSwitcher from "@/components/ui/button/LanguageSwitcher";
+import {IndonesiaFlag} from "@/components/icons/FlagIcons";
 
 export default function Header() {
   /*
@@ -151,7 +154,7 @@ export default function Header() {
 
   const items = [
     {href: '/', label: 'Home'},
-    {href: '#about', label: 'My Experience'},
+    {href: '#about', label: 'My Skills'},
     {href: '#projects', label: 'My Resume'},
     {href: '#contact', label: 'Contact'},
   ];
@@ -159,25 +162,31 @@ export default function Header() {
   return (
     <>
       {/* HEADER */}
-      <header
-        className={[
-          'fixed inset-x-0 top-0 z-11',
-          'bg-white/90 dark:bg-black backdrop-blur-sm',
+      <header className={
+        ['fixed inset-x-0 top-0 z-11',
+          'bg-zinc-50/10 dark:bg-black backdrop-blur-lg',
           'header-transition',
           animClass,
           headerPhase === 'hidden' ? '' : headerPhase === 'peek' ? 'translate-y-[15px]' :
             headerPhase === 'afterTop' ? 'translate-y-[15px]' : !isAtTop ? 'translate-y-[15px]' : 'translate-y-0',
           // If not on the top , always using mx-1
-          !isAtTop && 'mx-4 md:mx-12 rounded-md  border-r-1 border-black/10 '
+          !isAtTop && 'mx-4 md:mx-12 lg:mx-28 rounded-lg border-r border-black/10'
         ].join(' ')}
       >
-        <div className={`mx-auto max-w-7xl h-16 flex items-center justify-between
+        <div className={`mx-auto max-w-7xl h-12 md:h-16 flex items-center justify-between
         ${isAtTop ? 'px-4 md:px-12' : 'px-4'}
         `}>
           {/* Left Logo */}
           <Link href="/">
-            <Image alt="logo" src="/logo-border.png" width={60} height={10}
-                   className="dark:invert dark:brightness-0"/>
+            <div className="relative w-12 h-6 md:w-12 md:h-7">
+              <Image
+                src="/logo-border.png"
+                alt="KeepTrain logo"
+                fill
+                className="object-contain dark:invert dark:brightness-0"
+                priority
+              />
+            </div>
           </Link>
 
           {/* Right button */}
@@ -200,7 +209,7 @@ export default function Header() {
               )}
             </button>
 
-            {/* Dropdown kecil DESKTOP (absolute di kanan) */}
+            {/* Desktop Dropdown on the right */}
             <div
               id="menu"
               ref={dropRef}
@@ -231,6 +240,10 @@ export default function Header() {
                     </Link>
                   </li>
                 ))}
+                <div className="flex items-center justify-between mt-4">
+                  <ThemeSwitcher />
+                  <IndonesiaFlag color={""} />
+                </div>
               </ul>
             </div>
           </div>
@@ -269,6 +282,10 @@ export default function Header() {
               {it.label}
             </Link>
           ))}
+          <IndonesiaFlag color={""} />
+          <div className="flex gap-12 items-center justify-between mt-4">
+            <ThemeSwitcher />
+          </div>
         </nav>
       </div>
     </>

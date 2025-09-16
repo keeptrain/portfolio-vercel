@@ -50,14 +50,13 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({children
   const toggleTheme = (theme: Theme) => {
     setTheme(theme)
   }
-
-  if (!mounted) {
-    return <>{children}</>
-  }
-
+// ⚠️ Provider SELALU dirender
   return (
     <ThemeContext.Provider value={{theme, toggleTheme}}>
-      {children}
+      {/* Opsional: cegah flicker UI sebelum mount, tapi tetap di dalam Provider */}
+      <div style={!mounted ? {visibility: 'hidden'} : undefined}>
+        {children}
+      </div>
     </ThemeContext.Provider>
   )
 }

@@ -28,7 +28,7 @@ const ThemeSwitcher = () => {
 
   return (
     <div role="radiogroup" aria-label="Theme switcher"
-         className="flex rounded-full p-1.5 bg-white dark:bg-zinc-800">
+         className="flex rounded-full px-2 bg-zinc-50 dark:bg-zinc-800">
       <div className="inline-grid grid-cols-3 gap-1">
         {options.map((option) => {
           return (
