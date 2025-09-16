@@ -22,7 +22,7 @@ const translations = {
     'hero.name': 'Chef Gilang',
     'hero.role.greeting': "I'am a",
     'hero.role': 'Junior Developer',
-    'hero.description': 'A passionate Developer creating beautiful, functional, and user-centered digital experiences.',
+    'hero.description': 'Iam a passionate Junior Developer creating beautiful, functional, and user-centered digital experiences.',
     'hero.viewWork': 'View My Work',
     'hero.getInTouch': 'Get In Touch',
 

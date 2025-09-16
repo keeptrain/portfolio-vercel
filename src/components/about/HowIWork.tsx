@@ -64,13 +64,8 @@ const HowIWork = () => {
     <>
       <div
         ref={containerRef}
-        className="
-          mt-6 pb-4
-          flex gap-4
-          overflow-x-auto scrollbar-hide
-          cursor-grab
-          touch-pan-x select-none
-        "
+        className="mt-6 pb-4 grid grid-cols-1 md:flex gap-4
+        cursor-grab touch-pan-x select-none overflow-x-auto scrollbar-hide"
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={endDrag}
@@ -80,19 +75,15 @@ const HowIWork = () => {
         {data.map((item, index) => (
           <div
             key={index}
-            className="
-              relative flex-none w-80 md:w-1/4 lg:w-126 h-50
-              border border-gray-400 dark:border-chartreuse rounded-2xl p-6  overflow-hidden
-            "
+            className="relative flex-none w-full h-full md:w-1/4 md:h-50 lg:w-126
+            border border-gray-400 dark:border-chartreuse rounded-2xl p-4 md:p-6"
           >
-            <h3 className="text-lg font-semibold mb-2 text-black dark:text-chartreuse">{item.title}</h3>
-            <p className="text-black dark:text-white">{item.desc}</p>
-            <h2 className="absolute -bottom-3 text-6xl text-black/10 dark:text-chartreuse/50">0{index + 1}</h2>
+            <h3 className="text-md md:text-2xl font-semibold mb-2 text-black dark:text-chartreuse">{item.title}</h3>
+            <p className="text-xs md:text-lg font-light text-black dark:text-white mb-6">{item.desc}</p>
+            <h2 className="absolute -bottom-2 md:-bottom-2 text-4xl md:text-6xl text-black/10 dark:text-chartreuse/50">0{index + 1}</h2>
           </div>
         ))}
       </div>
-
-
     </>
   );
 }

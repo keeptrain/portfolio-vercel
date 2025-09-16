@@ -11,7 +11,7 @@ type Props = {
 const MoreButton = ({route, label}: Props) => {
   return (
     <Link href={"/" + route}
-          className="border border-black dark:border-white p-4 relative text-black dark:text-white overflow-hidden group hover:text-white dark:hover:text-black">
+          className="relative md:border border-black dark:border-white p-2 md:p-4 text-black dark:text-white overflow-hidden group hover:text-white dark:hover:text-black">
       <span className="relative z-10">
         {label}
         <span className="inline-block ml-1">

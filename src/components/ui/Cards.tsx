@@ -1,5 +1,5 @@
 import React from "react";
-import {Clock, HandThumbUp} from "@/components/icons/heroicons";
+import {Clock, HandThumbUp} from "@/components/icons/HeroIcons";
 
 type Props = {
   overflowX?: boolean,

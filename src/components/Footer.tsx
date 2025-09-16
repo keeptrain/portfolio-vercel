@@ -15,12 +15,12 @@ const Footer = () => {
 
   return (
     <footer
-      className="relative  bg-zinc-50 dark:bg-zinc-800">
+      className="relative bg-zinc-50 dark:bg-black">
       <SectionContainer>
-        <div className="h-40 md:h-30 relative">
+        <div className="relative h-40 md:h-30">
           <div
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:-translate-y-[25%] w-full md:w-1/2 border dark:border-none border-gray-200
-            p-4 md:p-12 flex flex-col md:flex-row md:justify-between md:gap-12 bg-white dark:bg-zinc-800 rounded-2xl h-30 shadow-md shadow-chartreuse/50 dark:shadow-chartreuse">
+            p-4 md:p-12 flex flex-col md:flex-row md:justify-between md:gap-12 bg-white dark:bg-black rounded-2xl h-30 shadow-md shadow-chartreuse/50 dark:shadow-chartreuse">
             <h2
               className="flex text-lg md:text-xl font-serif text-blue-grey dark:text-lime-100 items-center text-center md:text-start justify-center md:justify-start">
               Got a question,
@@ -34,21 +34,21 @@ const Footer = () => {
         </div>
       </SectionContainer>
       <div
-        className="shadow-[0_-1px_3px_rgba(0,0,0,0.08)] dark:shadow-[0_-1px_3px_rgba(255,255,255,0.08)] rounded-4xl lg:p-12  bg-white dark:bg-zinc-800">
+        className="shadow-[0_-1px_3px_rgba(0,0,0,0.08)] dark:shadow-[0_-1px_3px_rgba(255,255,255,0.08)] rounded-4xl lg:p-12  bg-white dark:bg-black">
         <div
-          className="flex border-1 border-gray-200 dark:border-none rounded-4xl lg:mx-12 p-10 md:justify-between shadow-lg shadow-zinc-200/50 dark:shadow-zinc-700">
-          <div className="space-y-4">
+          className="flex flex-col md:flex-row border-1 border-gray-200 dark:border-none rounded-4xl lg:mx-12 p-10 md:justify-between
+          shadow-lg shadow-zinc-200/50 dark:shadow-zinc-700">
+          <div className="md:space-y-4">
             <Image alt={"logo"} src={"/signature.svg"} width={90} height={16}
                    className="pointer-none dark:filter dark:invert dark:brightness-0"/>
-            <p className="text-sm text-gray-400 dark:text-zinc-2200">Blend of continuous learning, focused discipline,
-              and <br/> the
-              compounding
-              power of
-              small, consistent effort.</p>
+            <p className="hidden md:block text-sm text-gray-400 dark:text-zinc-2200">
+              Blend of continuous learning, focused discipline, and <br/> the compounding
+              power of small, consistent effort.
+            </p>
             <SocialLink/>
           </div>
-          <div className="flex items-baseline">
-            <ThemeSwitcher/>
+          <div className="flex items-baseline mt-2">
+            <h1 className="font-bold tracking-widest">Resources</h1>
           </div>
         </div>
       </div>

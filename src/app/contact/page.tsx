@@ -1,5 +1,5 @@
 import Link from "next/link";
-import {ArrowLeft, Bars3BottomRight} from "@/components/icons/heroicons";
+import {ArrowLeft, Bars3BottomRight} from "@/components/icons/HeroIcons";
 import InputUnderline from "@/components/ui/input/InputUnderline";
 import Image from "next/image";
 
