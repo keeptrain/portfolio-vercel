@@ -18,13 +18,13 @@ const projectData: ProjectAdapterProps[] = [
   {
     links: "",
     imageSrc: "/test-png.jpg",
-    stack: [<GlobeAlt color={""} />, "Laravel,", "Livewire"],
+    stack: ["Laravel,", "Livewire"],
     title: "JakReq - A apps for bla bla bla bla"
   },
   {
     links: "",
     imageSrc: "/test-png.jpg",
-    stack: [<DevicePhoneMobile color={""} />, "Android,", "Kotlin,", "XML"],
+    stack: ["Android,", "Kotlin,", "XML"],
     title: "Cullinarix - A apps for bla bla bla bla"
   },
 ]
