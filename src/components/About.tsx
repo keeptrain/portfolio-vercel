@@ -37,7 +37,7 @@ const About = () => {
     <section id="about" className="md:min-h-screen bg-zinc-50 dark:bg-[#080808]">
       <div className="grid grid-rows-1 lg:grid-rows-2 md:h-screen gap-12">
         <div className="col-span-1 flex items-center mt-12">
-          <SectionContainer width="7xl">
+          <SectionContainer>
             <div
               className="flex flex-col md:items-center justify-center space-y-4 md:space-y-8">
               <h1
