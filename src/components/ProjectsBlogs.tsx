@@ -61,8 +61,12 @@ const ProjectsBlogs = () => {
                                 title={project.title} links={project.links}/>
               </div>
             ))}
-            <div className="flex justify-end">
-              <MoreButton route={"projects"} label={'See my projects'}/>
+            <div className="flex justify-center">
+              <Link href={""} className="bg-white rounded-4xl px-4 py-2 md:px-8 md:py-3
+              text-sm md:text-lg font-semibold shadow-sm">
+                View more
+              </Link>
+              {/*<MoreButton route={"projects"} label={'See my projects'}/>*/}
             </div>
           </div>
         </div>
@@ -71,7 +75,7 @@ const ProjectsBlogs = () => {
   )
 }
 
-export const ProjectAdapter = ({imageSrc,title,stack}: ProjectAdapterProps ) => {
+export const ProjectAdapter = ({imageSrc, title, stack}: ProjectAdapterProps) => {
   return (
     <>
       <div className="relative h-20 w-32 md:h-[250px] md:w-[375px]">
