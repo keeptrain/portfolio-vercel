@@ -65,7 +65,7 @@ const HowIWork = () => {
       <div
         ref={containerRef}
         className="mt-6 pb-4 grid grid-cols-1 md:flex gap-4
-        md:cursor-grab md:touch-pan-x select-none md:overflow-x-auto scrollbar-hide"
+        md:cursor-grab md:touch-pan-x md:select-none md:overflow-x-auto scrollbar-hide"
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={endDrag}
@@ -75,7 +75,7 @@ const HowIWork = () => {
         {data.map((item, index) => (
           <div
             key={index}
-            className="relative flex-none w-full h-full md:w-1/2 md:h-50 lg:w-126
+            className="relative flex-none w-full h-full md:w-1/2 md:h-60 lg:w-126
             border border-gray-400 dark:border-chartreuse rounded-2xl p-4 md:p-6"
           >
             <h3 className="text-md md:text-2xl font-semibold mb-2 text-black dark:text-chartreuse">{item.title}</h3>
