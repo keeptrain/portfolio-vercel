@@ -8,6 +8,8 @@ import Image from "next/image";
 import MoreButton from "@/components/ui/button/MoreButton";
 import Link from "next/link";
 import ThemeSwitcher from "@/components/ui/button/ThemeSwitcher";
+import {IndonesiaFlag} from "@/components/icons/FlagIcons";
+import {ArrowUp} from "@/components/icons/HeroIcons";
 
 const Footer = () => {
   const {t} = useLanguage()
@@ -15,40 +17,82 @@ const Footer = () => {
 
   return (
     <footer
-      className="relative bg-zinc-50 dark:bg-black">
-      <SectionContainer>
-        <div className="relative h-40 md:h-30">
-          <div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:-translate-y-[25%] w-full md:w-1/2 border dark:border-none border-gray-200
-            p-4 md:p-12 flex flex-col md:flex-row md:justify-between md:gap-12 bg-white dark:bg-black rounded-2xl h-30 shadow-md shadow-blue-old/30 dark:shadow-chartreuse">
-            <h2
-              className="flex text-md md:text-xl font-serif text-blue-grey dark:text-lime-100 items-center text-center md:text-start justify-center md:justify-start">
-              Got a question,
-              <br/> or just want to say hello?
-            </h2>
-            <Link href={"/contact"}
-                  className="flex text-lg md:text-xl font-bold text-blue-old dark:text-lime-200 hover:decoration-wavy underline items-center text-center justify-center md:justify-start">
-              Send me a message!
-            </Link>
-          </div>
-        </div>
-      </SectionContainer>
-      <div
-        className="shadow-[0_-1px_3px_rgba(0,0,0,0.08)] dark:shadow-[0_-1px_3px_rgba(255,255,255,0.08)] rounded-4xl lg:p-12  bg-white dark:bg-black">
+      className="bg-zinc-50 dark:bg-black">
+      <div className="relative h-50 md:h-30 mx-4 md:mx-0">
         <div
-          className="flex flex-col md:flex-row items-center md:items-start border-1 border-gray-200 dark:border-none rounded-4xl lg:mx-12 p-10 md:justify-between
-          shadow-lg shadow-zinc-200/50 dark:shadow-zinc-700">
-          <div className="md:space-y-4">
-            <Image alt={"logo"} src={"/signature.svg"} width={90} height={16}
-                   className="pointer-none dark:filter dark:invert dark:brightness-0"/>
-            <p className="hidden md:block text-sm text-gray-400 dark:text-zinc-200">
-              Blend of continuous learning, focused discipline, and <br/> the compounding
-              power of small, consistent effort.
-            </p>
-            <SocialLink/>
-          </div>
-          <div className="flex items-baseline mt-2">
-            <h1 className="font-bold tracking-widest">Resources</h1>
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:-translate-y-[25%] w-full md:w-1/2 border dark:border-none border-gray-200
+            p-4 md:p-12 flex flex-col md:flex-row justify-center md:justify-between md:gap-12 bg-white dark:bg-black rounded-2xl h-30
+            shadow-md shadow-blue-old/30 dark:shadow-chartreuse space-y-2">
+          <h2
+            className="flex text-sm md:text-xl font-serif text-blue-grey dark:text-lime-100
+              items-center text-center md:text-start justify-center md:justify-start">
+            Got a question, or <br/> just want to say hello?
+          </h2>
+          <Link href={"/contact"}
+                className="flex text-sm md:text-xl font-bold text-blue-old dark:text-lime-200 hover:decoration-wavy
+                  underline items-center text-center justify-center md:justify-start">
+            Send me a message!
+          </Link>
+        </div>
+      </div>
+      <div
+        className="rounded-4xl p-2 lg:p-12 bg-white dark:bg-black
+        shadow-[0_-1px_3px_rgba(0,0,0,0.08)] dark:shadow-[0_-1px_3px_rgba(255,255,255,0.08)]">
+        <div
+          className="flex flex-col md:flex-row px-6 md:px-8 py-6 md:x-12 border-1 border-gray-200 dark:border-none
+          rounded-4xl md:justify-between shadow-lg shadow-zinc-200/50 dark:shadow-zinc-700">
+          <div className="flex flex-1 flex-col">
+            <div className="flex items-baseline justify-between">
+              <div>
+                <div className="text-black dark:text-white font-serif tracking-widest">
+                  Based
+                  in Jakarta,
+                  <span className="flex  gap-2">
+                    Indonesia
+                    <IndonesiaFlag color={""}/>
+                  </span>
+                  { new Date().getHours() + ":" + new Date().getMinutes() }
+                </div>
+              </div>
+
+              <div className="flex gap-8">
+                <a href={"#hero"} className="flex items-end justify-center font-serif
+                gap-2 text-zinc-500 dark:text-gray-400 hover:text-black">
+                  Back to Top
+                  <ArrowUp color={""}/>
+                </a>
+              </div>
+            </div>
+            <div className="hidden md:flex items-center justify-center h-40">
+              <div className="relative h-full w-full">
+                <span className="text-zinc-300 absolute top-0 left-1/4 font-serif">&copy; 2025</span>
+                <Image
+                  alt={"logo"}
+                  src={"/signature.svg"}
+                  fill
+                  className="object-fill opacity-5 pointer-none dark:filter dark:invert dark:brightness-0"
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-3">
+              <div className="text-black dark:text-white font-serif tracking-widest">
+                <SocialLink />
+              </div>
+
+              <div className="flex flex-col justify-start items-end">
+                {/*<div className="flex flex-col items-end gap-2">*/}
+                {/*  <span className="text-md font-serif">Stay connected</span>*/}
+                {/*  <div className="flex flex-wrap gap-4">*/}
+                {/*    <span className="text-sm text-zinc-400">guestbook</span>*/}
+                {/*  </div>*/}
+                {/*</div>*/}
+              </div>
+              <div className="hidden md:flex flex-col justify-start items-end
+              font-light text-xs text-black dark:text-white tracking-widest">
+                <p>Icons by Heroicons,Devicons,Flagicons</p>
+                <p>Inspiration design by Heroicons,Devicons,Flagicons</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -71,7 +115,7 @@ const SocialLink = () => {
     // },
     {
       name: 'GitHub',
-      href: 'https://github.com',
+      href: 'https://github.com/keeptrain',
       icon: (
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
           <path
@@ -81,7 +125,7 @@ const SocialLink = () => {
     },
     {
       name: 'LinkedIn',
-      href: 'https://linkedin.com',
+      href: 'https://linkedin.com/ggilang',
       icon: (
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
           <path
@@ -92,14 +136,14 @@ const SocialLink = () => {
   ]
 
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-2 pt-2">
       {socialLinks.map((link, i) => (
         <a
           key={i}
           href={link.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-700 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+          className="text-zinc-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
           aria-label={`Follow me on ${link.name}`}>
           {link.icon}
         </a>
