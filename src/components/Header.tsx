@@ -174,7 +174,7 @@ export default function Header() {
         ].join(' ')}
       >
         <div className={`mx-auto max-w-7xl h-12 md:h-16 flex items-center justify-between
-        ${isAtTop ? 'px-4 md:px-12' : 'px-4'}
+        ${isAtTop ? 'px-4 md:px-12' : 'px-2'}
         `}>
           {/* Left Logo */}
           <Link href="/">
