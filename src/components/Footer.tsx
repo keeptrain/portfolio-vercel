@@ -9,7 +9,7 @@ import MoreButton from "@/components/ui/button/MoreButton";
 import Link from "next/link";
 import ThemeSwitcher from "@/components/ui/button/ThemeSwitcher";
 import {IndonesiaFlag} from "@/components/icons/FlagIcons";
-import {ArrowUp} from "@/components/icons/HeroIcons";
+import {ArrowRight, ArrowUp} from "@/components/icons/HeroIcons";
 
 const Footer = () => {
   const {t} = useLanguage()
@@ -27,18 +27,20 @@ const Footer = () => {
       {/*Contact Section*/}
       <div className="relative h-50 md:h-30 mx-4 md:mx-0">
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:-translate-y-[25%] w-full md:w-1/2 border dark:border-none border-gray-200
-            p-4 md:p-12 flex flex-col md:flex-row justify-center md:justify-between md:gap-12 bg-white dark:bg-black rounded-2xl h-30
-            shadow-md shadow-blue-old/30 dark:shadow-chartreuse space-y-2">
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:-translate-y-[25%] w-full md:w-1/2
+            border dark:border-none border-gray-200 px-6 md:p-12 flex  justify-between
+            gap-12 bg-white dark:bg-black rounded-2xl h-30
+            shadow-sm md:shadow-md shadow-blue-old/30 dark:shadow-chartreuse space-y-2">
           <h2
             className="flex text-sm md:text-xl font-serif text-blue-grey dark:text-lime-100
-              items-center text-center md:text-start justify-center md:justify-start">
+              items-center text-start justify-center md:justify-start">
             Got a question, or <br/> just want to say hello?
           </h2>
           <Link href={"/contact"}
-                className="flex text-sm md:text-xl font-bold text-blue-old dark:text-lime-200 hover:decoration-wavy
-                  underline items-center text-center justify-center md:justify-start">
-            Send me a message!
+                className="flex text-sm md:text-xl font-bold text-blue-old dark:text-lime-200  items-center text-center justify-center md:justify-start">
+            <span className="hidden md:flex hover:decoration-wavy
+                  underline">Send me a message!</span>
+            <ArrowRight color={"text-blue-old"}/>
           </Link>
         </div>
       </div>
@@ -55,7 +57,7 @@ const Footer = () => {
             <div className="flex items-baseline justify-between">
               <div className="text-sm md:text-lg
               text-black dark:text-white font-serif tracking-widest">
-                <span className="text-black gap-2">
+                <span className="text-black dark:text-white gap-2">
                  &copy; 2025 <br/>
                 </span>
                 Based in Jakarta,
@@ -67,7 +69,7 @@ const Footer = () => {
 
               <div className="flex gap-8">
                 <a href={"#hero"} className="flex items-end  font-serif
-                gap-2 text-sm md:text-lg text-zinc-700 dark:text-gray-400 hover:text-black">
+                gap-2 text-sm md:text-lg text-zinc-700 dark:text-white hover:text-black dark:hover:text-white">
                   <span className="hidden md:flex">Back to Top</span>
                   <ArrowUp color={""}/>
                 </a>
@@ -75,7 +77,7 @@ const Footer = () => {
             </div>
             <div className="flex items-center justify-center h-10 relative">
               {/* Left border */}
-              <div className="flex-grow border-b border-black/10 dark:border-white/10"/>
+              <div className="flex-grow border-b border-black/10 dark:border-white/30"/>
 
               {/* Center signature */}
               <div className="relative w-15 md:w-24 h-1/2 md:h-full mx-4">
@@ -83,12 +85,13 @@ const Footer = () => {
                   alt={"logo"}
                   src={"/signature.svg"}
                   fill
-                  className="opacity-30 pointer-none dark:filter dark:invert dark:brightness-0"
+                  className="opacity-30 dark:opacity-100 select-none pointer-none
+                  dark:filter dark:invert dark:brightness-0"
                 />
               </div>
 
               {/* Right border */}
-              <div className="flex-grow border-b border-black/10 dark:border-white/10"/>
+              <div className="flex-grow border-b border-black/10 dark:border-white/30"/>
             </div>
             <div className="grid grid-cols-2">
               <div className="flex text-black dark:text-white font-serif tracking-widest">
