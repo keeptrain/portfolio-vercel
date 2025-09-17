@@ -13,11 +13,18 @@ import {ArrowUp} from "@/components/icons/HeroIcons";
 
 const Footer = () => {
   const {t} = useLanguage()
-  const currentYear = new Date().getFullYear()
+
+  const options: Intl.DateTimeFormatOptions = {
+    hour: "numeric",
+    minute: "numeric",
+    timeZone: 'Asia/Jakarta'
+  };
+
+  const jakartaTime = new Intl.DateTimeFormat('id-ID', options).format(new Date());
 
   return (
-    <footer
-      className="bg-zinc-50 dark:bg-black">
+    <footer id="footer">
+      {/*Contact Section*/}
       <div className="relative h-50 md:h-30 mx-4 md:mx-0">
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:-translate-y-[25%] w-full md:w-1/2 border dark:border-none border-gray-200
@@ -35,62 +42,66 @@ const Footer = () => {
           </Link>
         </div>
       </div>
+
+      {/* Footer Section */}
       <div
-        className="rounded-4xl p-2 lg:p-12 bg-white dark:bg-black
-        shadow-[0_-1px_3px_rgba(0,0,0,0.08)] dark:shadow-[0_-1px_3px_rgba(255,255,255,0.08)]">
+        className="bg-white dark:bg-black rounded-4xl p-2 md:p-12
+        shadow-[0_-1px_3px_rgba(0,0,0,0.08)]
+        dark:shadow-[0_-1px_3px_rgba(255,255,255,0.08)]">
         <div
-          className="flex flex-col md:flex-row px-6 md:px-8 py-6 md:x-12 border-1 border-gray-200 dark:border-none
+          className="flex flex-col md:flex-row mx-2 md:mx-14 border-1 border-gray-200 dark:border-none
           rounded-4xl md:justify-between shadow-lg shadow-zinc-200/50 dark:shadow-zinc-700">
-          <div className="flex flex-1 flex-col">
+          <div className="flex flex-1 flex-col px-6 py-6 md:px-8">
             <div className="flex items-baseline justify-between">
-              <div>
-                <div className="text-black dark:text-white font-serif tracking-widest">
-                  Based
-                  in Jakarta,
-                  <span className="flex  gap-2">
-                    Indonesia
-                    <IndonesiaFlag color={""}/>
-                  </span>
-                  { new Date().getHours() + ":" + new Date().getMinutes() }
-                </div>
+              <div className="text-sm md:text-lg
+              text-black dark:text-white font-serif tracking-widest">
+                <span className="text-black gap-2">
+                 &copy; 2025 <br/>
+                </span>
+                Based in Jakarta,
+                <span className="flex gap-2 items-start">
+                  Indonesia
+                </span>
+                {jakartaTime}
               </div>
 
               <div className="flex gap-8">
-                <a href={"#hero"} className="flex items-end justify-center font-serif
-                gap-2 text-zinc-500 dark:text-gray-400 hover:text-black">
-                  Back to Top
+                <a href={"#hero"} className="flex items-end  font-serif
+                gap-2 text-sm md:text-lg text-zinc-700 dark:text-gray-400 hover:text-black">
+                  <span className="hidden md:flex">Back to Top</span>
                   <ArrowUp color={""}/>
                 </a>
               </div>
             </div>
-            <div className="hidden md:flex items-center justify-center h-40">
-              <div className="relative h-full w-full">
-                <span className="text-zinc-300 absolute top-0 left-1/4 font-serif">&copy; 2025</span>
+            <div className="flex items-center justify-center h-10 relative">
+              {/* Left border */}
+              <div className="flex-grow border-b border-black/10 dark:border-white/10"/>
+
+              {/* Center signature */}
+              <div className="relative w-15 md:w-24 h-1/2 md:h-full mx-4">
                 <Image
                   alt={"logo"}
                   src={"/signature.svg"}
                   fill
-                  className="object-fill opacity-5 pointer-none dark:filter dark:invert dark:brightness-0"
+                  className="opacity-30 pointer-none dark:filter dark:invert dark:brightness-0"
                 />
               </div>
-            </div>
-            <div className="grid grid-cols-3">
-              <div className="text-black dark:text-white font-serif tracking-widest">
-                <SocialLink />
-              </div>
 
-              <div className="flex flex-col justify-start items-end">
-                {/*<div className="flex flex-col items-end gap-2">*/}
-                {/*  <span className="text-md font-serif">Stay connected</span>*/}
-                {/*  <div className="flex flex-wrap gap-4">*/}
-                {/*    <span className="text-sm text-zinc-400">guestbook</span>*/}
-                {/*  </div>*/}
-                {/*</div>*/}
+              {/* Right border */}
+              <div className="flex-grow border-b border-black/10 dark:border-white/10"/>
+            </div>
+            <div className="grid grid-cols-2">
+              <div className="flex text-black dark:text-white font-serif tracking-widest">
+                <SocialLink/>
               </div>
               <div className="hidden md:flex flex-col justify-start items-end
-              font-light text-xs text-black dark:text-white tracking-widest">
-                <p>Icons by Heroicons,Devicons,Flagicons</p>
-                <p>Inspiration design by Heroicons,Devicons,Flagicons</p>
+              font-light text-xs text-zinc-500 dark:text-white tracking-widest">
+                <p>Icons by
+                  <a href={"https://heroicons.com/"} className="text-black font-semibold"> Heroicons,</a>
+                  <a className="text-black font-semibold">Devicons,</a>
+                  <a className="text-black font-semibold">Flagicons</a>
+                </p>
+                {/*<p>Design by <a className="text-black font-semibold">me</a> </p>*/}
               </div>
             </div>
           </div>
@@ -102,17 +113,6 @@ const Footer = () => {
 
 const SocialLink = () => {
   const socialLinks = [
-    // {
-    //   name: 'Email',
-    //   href: 'https://gmail.com',
-    //   icon: (
-    //     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    //
-    //       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
-    //             d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-    //     </svg>
-    //   )
-    // },
     {
       name: 'GitHub',
       href: 'https://github.com/keeptrain',
@@ -215,48 +215,6 @@ const EmailInput = () => {
           </button>
         </div>
       </div>
-
-      {/*<h3>{t('contact.title')}</h3>*/}
-      {/*<label htmlFor="email" className="text-sm block text-black/50">*/}
-      {/*  {t('contact.subtitle')}*/}
-      {/*</label>*/}
-      {/*<div className="relative">*/}
-      {/*  /!* Icon di kiri *!/*/}
-      {/*  <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none text-gray-400">*/}
-      {/*    <svg*/}
-      {/*      className="w-5 h-5"*/}
-      {/*      fill="none"*/}
-      {/*      stroke="currentColor"*/}
-      {/*      viewBox="0 0 24 24"*/}
-      {/*    >*/}
-      {/*      <path*/}
-      {/*        strokeLinecap="round"*/}
-      {/*        strokeLinejoin="round"*/}
-      {/*        strokeWidth={1.5}*/}
-      {/*        d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"*/}
-      {/*      />*/}
-      {/*    </svg>*/}
-      {/*  </div>*/}
-
-      {/*  /!* Input *!/*/}
-      {/*  <input*/}
-      {/*    type="email"*/}
-      {/*    id="email"*/}
-      {/*    name="email"*/}
-      {/*    className="block w-full px-2 py-1 ps-10 text-sm text-gray-900 border border-gray-300 rounded-sm bg-black/5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"*/}
-      {/*    placeholder="you@domail.com"*/}
-      {/*    required*/}
-      {/*  />*/}
-
-      {/*  /!* Tombol Send *!/*/}
-      {/*  <button*/}
-      {/*    type="submit"*/}
-      {/*    className="absolute top-1/2 -translate-y-1/2 end-1 text-gray-500 bg-zinc-50  focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-sm text-xs px-1.5 py-1 hover:text-black"*/}
-      {/*  >*/}
-      {/*    Send*/}
-      {/*  </button>*/}
-      {/*</div>*/}
-
     </div>
   )
 }
