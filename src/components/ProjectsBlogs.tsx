@@ -1,11 +1,7 @@
 import SectionContainer from "@/components/_/SectionContainer";
 import React, {useState} from "react";
-import MoreButton from "@/components/ui/button/MoreButton";
 import Image from "next/image";
 import Link from "next/link";
-import {number} from "prop-types";
-import {LaravelWithText} from "@/components/icons/DevIcons";
-import {DevicePhoneMobile, GlobeAlt} from "@/components/icons/HeroIcons";
 
 type ProjectAdapterProps = {
   links: string;
@@ -62,7 +58,7 @@ const ProjectsBlogs = () => {
               </div>
             ))}
             <div className="flex justify-center">
-              <Link href={""} className="bg-white rounded-4xl px-4 py-2 md:px-8 md:py-3
+              <Link href={"/projects"} className="bg-white rounded-4xl px-4 py-2 md:px-8 md:py-3
               text-sm md:text-lg font-semibold shadow-sm">
                 View more
               </Link>
