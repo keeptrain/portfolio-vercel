@@ -2,14 +2,12 @@
 
 import React from "react";
 import {useLanguage} from '@/contexts/LanguageContext'
-import SectionContainer from "@/components/_/SectionContainer";
 import InputUnderline from "@/components/ui/input/InputUnderline";
 import Image from "next/image";
 import MoreButton from "@/components/ui/button/MoreButton";
 import Link from "next/link";
-import ThemeSwitcher from "@/components/ui/button/ThemeSwitcher";
-import {IndonesiaFlag} from "@/components/icons/FlagIcons";
-import {ArrowRight, ArrowUp} from "@/components/icons/HeroIcons";
+import {ArrowUp} from "@/components/icons/HeroIcons";
+import {ArrowUpRight} from "@/components/icons/HandyArrows";
 
 const Footer = () => {
   const {t} = useLanguage()
@@ -40,7 +38,7 @@ const Footer = () => {
                 className="flex text-sm md:text-xl font-bold text-blue-old dark:text-lime-200  items-center text-center justify-center md:justify-start">
             <span className="hidden md:flex hover:decoration-wavy
                   underline">Send me a message!</span>
-            <ArrowRight color={"text-blue-old"}/>
+            <ArrowUpRight color={"text-blue-old"}/>
           </Link>
         </div>
       </div>
