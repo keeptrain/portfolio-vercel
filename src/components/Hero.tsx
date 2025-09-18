@@ -68,7 +68,7 @@ const Hero = () => {
               <h1 className="font-medium-ex text-md md:text-2xl">Less is More</h1>
               <MultiStarts color={""}/>
             </div>
-            <Underline color={""}/>
+            <Underline color={"text-black dark:text-zinc-700"}/>
           </div>
         </div>
       </SectionContainer>
