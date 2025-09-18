@@ -6,47 +6,56 @@ import ProfileImage from "@/components/_/ProfileImage";
 import SectionContainer from "@/components/_/SectionContainer";
 import OpenToWorkBadge from "@/components/_/OpenToWorkBadge";
 import {MultiStarts} from "@/components/icons/HeroIcons";
+import {Underline} from "@/components/icons/HandyArrows";
 
 const Hero = () => {
   const {t} = useLanguage()
 
   return (
-    <section id="hero" className="md:min-h-screen  bg-zinc-50 dark:bg-[#080808]">
+    <section id="hero" className="md:min-h-screen bg-zinc-50 dark:bg-[#080808]">
       <SectionContainer>
-        <div className="md:h-screen grid grid-rows-[1fr,auto] gap-4 pt-24 md:pt-16">
-          {/* Baris Pertama: Hero Role dan Profile Image */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:pt-16">
+        <div className="md:h-screen grid grid-rows-[1fr,auto] gap-4 pt-20 md:pt-16">
+          {/* First row */}
+          <div className="grid grid-cols-1 md:grid-cols-2 md:pt-16">
             {/* Role and Description */}
             <div
               className="col-span-1 flex flex-col items-start justify-center space-y-4 order-2 md:order-1 md:ml-16">
               <h1
-                className="flex flex-col text-start text-md sm:text-3xl md:text-4xl font-semibold
-                text-gray-900 dark:text-gray-100 w-80 md:w-full tracking-widest  uppercase">
+                className="flex flex-col text-start text-sm sm:text-3xl md:text-4xl font-semibold
+                text-gray-900 dark:text-gray-100 w-80 md:w-full tracking-widest uppercase">
                 <div
-                  className="md:hidden size-30 mb-4">
-                  <ProfileImage/>
+                  className="flex flex-row md:hidden  mb-4">
                 </div>
                 <span className="text-zinc-800">Hi , I am </span>
                 Junior Developer who like minimalist design.
               </h1>
-              <OpenToWorkBadge/>
+              <div className="hidden md:block">
+                <OpenToWorkBadge/>
+              </div>
             </div>
 
             {/* Profile Image */}
             <div
-              className="col-span-1 md:flex flex-col items-center justify-center relative hidden md:order-2">
+              className="col-span-1 relative flex flex-row md:flex-col
+              items-end md:items-center justify-start md:justify-center order-1 md:order-2">
               <div
-                className="w-full h-85 md:w-80 md:h-[360px]">
+                className="w-40 h-40 md:w-80 md:h-[360px]">
                 <ProfileImage/>
+              </div>
+              <div className="md:hidden">
+                <OpenToWorkBadge/>
               </div>
             </div>
           </div>
 
-          {/* Baris Kedua */}
+          {/* Second row */}
           <div
-            className="flex flex-row justify-center items-end my-8 md:mb-16 border-b md:border-b-2 md:border-dashed gap-2 md:gap-4 text-black dark:text-white pb-4">
-            <h1 className="font-serif text-lg md:text-2xl">Less is More</h1>
-            <MultiStarts color={""}/>
+            className="flex flex-col items-start md:items-center justify-center text-black dark:text-white">
+            <div className="flex flex-row gap-2">
+              <h1 className="font-semibold text-md md:text-2xl">Less is More</h1>
+              <MultiStarts color={""}/>
+            </div>
+            <Underline color={""}/>
           </div>
         </div>
       </SectionContainer>
