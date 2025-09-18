@@ -33,18 +33,18 @@ const ProjectsBlogs = () => {
       <SectionContainer>
         <div className="flex items-center md:h-screen">
           <div className="w-full space-y-2 md:space-y-4">
-            <h1 className="md:text-3xl font-medium-ex text-black dark:text-chartreuse leading-tight ">
+            <h1 className="md:text-3xl font-medium-ex text-black dark:text-white leading-tight ">
               I build &
               <br/>
               design stuff
             </h1>
             <div className="flex flex-col md:flex-row md:justify-between space-y-2">
-              <p className="text-sm md:text-2xl text-black dark:text-lime-100">
+              <p className="text-sm md:text-2xl text-black dark:text-white/80">
                 Open source projects, web apps <br/> and experimentals.
               </p>
               <span onClick={() => setIsLatest(!isLatest)}>
                 <p className={`text-md md:text-2xl
-                ${isLatest ? 'text-black dark:text-lime-100 underline' : 'text-gray-400'} cursor-pointer`}>
+                ${isLatest ? 'text-black dark:text-white underline' : 'text-zinc-400'} cursor-pointer`}>
                   Latest
                 </p>
               </span>
@@ -58,8 +58,8 @@ const ProjectsBlogs = () => {
               </div>
             ))}
             <div className="flex justify-center">
-              <Link href={"/projects"} className="bg-white rounded-4xl px-4 py-2 md:px-8 md:py-3
-              text-sm md:text-lg font-semibold shadow-sm">
+              <Link href={"/projects"} className="bg-white dark:bg-zinc-900 rounded-4xl px-4 py-2 md:px-8 md:py-3
+              text-sm md:text-lg dark:text-white font-medium-ex shadow-sm">
                 View more
               </Link>
             </div>
@@ -77,12 +77,12 @@ export const ProjectAdapter = ({imageSrc, title, stack}: ProjectAdapterProps) =>
         <Image alt={"logo"} src={imageSrc} fill className="rounded-lg opacity-80 hover:opacity-100"/>
       </div>
       <div className="flex flex-col justify-center pl-4 md:pl-12 lg:pl-16 space-y-1 md:space-y-2">
-        <div className="flex items-center gap-2 text-xs md:text-sm text-zinc-500 dark:text-lime-100">
+        <div className="flex items-center gap-2 text-xs md:text-sm text-zinc-500 dark:text-white/80">
           {stack.map((tech, index) => (
             <p key={index}>{tech}</p>
           ))}
         </div>
-        <h2 className="flex items-center text-sm md:text-3xl dark:text-lime-100 max-w-prose">{title}</h2>
+        <h2 className="flex items-center text-sm md:text-3xl dark:text-white max-w-prose">{title}</h2>
       </div>
     </>
   )

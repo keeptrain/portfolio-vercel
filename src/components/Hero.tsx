@@ -24,25 +24,25 @@ const Hero = () => {
               className="col-span-1 flex flex-col items-start justify-center
               order-2 md:order-1 pt-6 md:pt-4 md:pl-16 gap-6">
               {/* Badge and Reach out in mobile mode */}
-              <div className="flex md:hidden flex-row items-center gap-2">
+              <div className="flex md:hidden flex-wrap items-center gap-2">
                 <OpenToWorkBadge/>
                 <Link href={"/contact"}
                       className="inline-flex items-center text-xs md:text-md font-medium border
-                        border-gray-300 text-black px-4 py-2 rounded-3xl
-                        gap-2">
+                        border-gray-300 dark:border-zinc-800 text-black dark:text-white/80 px-4 py-2 rounded-3xl
+                        gap-2 bg-white dark:bg-zinc-900">
                   <PaperAirplane color={""}/> Reach out
                 </Link>
                 <Link href={"/contact"}
                       className="inline-flex items-center text-xs md:text-md font-medium border
-                        border-gray-300 text-black px-4 py-2 rounded-3xl
-                        gap-2">
+                        border-gray-300 dark:border-zinc-800 text-black dark:text-white/80 px-4 py-2 rounded-3xl
+                        gap-2 bg-white dark:bg-zinc-900">
                   <DocumentText color={""}/> Resume
                 </Link>
               </div>
 
               <p
                 className="text-md sm:text-3xl md:text-5xl font-medium
-                text-gray-900 dark:text-gray-100 w-60 md:w-full">
+                text-gray-900 dark:text-white/90 w-60 md:w-full">
                 Hi i&#39;m junior developer
                 who like minimalist design
               </p>

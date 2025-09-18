@@ -5,7 +5,7 @@ export default function OpenToWorkBadge() {
     <div
       className="inline-flex px-4 py-2 items-center gap-2
         rounded-full border border-gray-300/70 dark:border-white/10
-        bg-white/50 dark:bg-white/5 text-gray-900 dark:text-gray-100
+        bg-white dark:bg-zinc-900 text-gray-900 dark:text-white/80
         transition-all duration-300"
     >
       {/* dot */}

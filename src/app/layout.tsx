@@ -50,7 +50,7 @@ export default function RootLayout(
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <title>KeepDev</title>
     </head>
-    <body className={`${montserrat.className} bg-zinc-50`}>
+    <body className={`${montserrat.className} bg-zinc-50 dark:bg-[#080808]`}>
     <ThemeProvider>
       <LanguageProvider>
         {children}

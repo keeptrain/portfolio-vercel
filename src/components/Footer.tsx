@@ -21,21 +21,21 @@ const Footer = () => {
   const jakartaTime = new Intl.DateTimeFormat('id-ID', options).format(new Date());
 
   return (
-    <footer id="footer">
+    <footer id="footer" className="dark:bg-black">
       {/*Contact Section*/}
       <div className="relative h-50 md:h-30 mx-4 md:mx-0">
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:-translate-y-[25%] w-full md:w-1/2
             border dark:border-none border-gray-200 px-6 md:p-12 flex  justify-between
             gap-12 bg-white dark:bg-black rounded-2xl h-30
-            shadow-sm md:shadow-md shadow-blue-old/30 dark:shadow-chartreuse space-y-2">
+            shadow-sm md:shadow-md shadow-blue-old/30 dark:shadow-blue-old space-y-2">
           <h2
-            className="flex text-sm md:text-xl font-serif text-blue-grey dark:text-lime-100
+            className="flex text-sm md:text-xl font-serif text-blue-grey dark:text-blue-300/80 dark:shadow-blue-old
               items-center text-start justify-center md:justify-start">
             Got a question, or <br/> just want to say hello?
           </h2>
           <Link href={"/contact"}
-                className="flex text-sm md:text-xl font-medium-ex text-blue-old dark:text-lime-200
+                className="flex text-sm md:text-xl font-medium-ex text-blue-old dark:text-blue-300/80
                 items-center text-center justify-center md:justify-start tracking-tight">
             <span className="hidden md:flex hover:decoration-wavy
                   underline">Send me a message!</span>
@@ -162,7 +162,7 @@ const EmailInput = () => {
   const year = currentDate.getFullYear()
 
   return (
-    <div className="grid lg:grid-cols-3 gap-6 w-full">
+    <div className="grid lg:grid-cols-3 gap-6">
       <div className="col-span-1 space-y-6">
         <Image
           src="/tokyo_postal.png"
