@@ -18,7 +18,7 @@ export default function OpenToWorkBadge() {
         <span
           className="relative inline-block h-3.5 w-3.5 rounded-full bg-emerald-400 ring-2 ring-white dark:ring-gray-900 animate-pulse"/>
       </span>
-      <span className="text-xs md:text-sm font-light md:font-bold tracking-widest">
+      <span className="text-xs md:text-sm font-semibold">
         {isHovered ? "Hire me" : "Open to work"}
       </span>
     </div>
