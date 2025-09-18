@@ -33,7 +33,7 @@ const ProjectsBlogs = () => {
       <SectionContainer>
         <div className="flex items-center md:h-screen">
           <div className="w-full space-y-2 md:space-y-4">
-            <h1 className="md:text-3xl font-bold text-black dark:text-chartreuse uppercase">
+            <h1 className="md:text-3xl font-medium-ex text-black dark:text-chartreuse leading-tight ">
               I build &
               <br/>
               design stuff
@@ -62,7 +62,6 @@ const ProjectsBlogs = () => {
               text-sm md:text-lg font-semibold shadow-sm">
                 View more
               </Link>
-              {/*<MoreButton route={"projects"} label={'See my projects'}/>*/}
             </div>
           </div>
         </div>

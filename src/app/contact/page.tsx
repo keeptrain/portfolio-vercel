@@ -4,7 +4,7 @@ import InputUnderline from "@/components/ui/input/InputUnderline";
 import Image from "next/image";
 
 export default function ProjectsPage() {
-  return <body className="min-h-screen">
+  return <main className="min-h-screen">
   <nav className="flex justify-between h-24 px-12 items-center">
     <div>
       <Link href={`/`} className="flex items-center gap-2 rounded-full hover:bg-zinc-200 p-2">
@@ -29,7 +29,7 @@ export default function ProjectsPage() {
       <EmailInput/>
     </div>
   </main>
-  </body>
+  </main>
 }
 
 const RadioGroup = () => {

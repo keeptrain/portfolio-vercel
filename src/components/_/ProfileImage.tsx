@@ -7,7 +7,7 @@ export default function ProfileImage() {
         src="/photos.png"
         alt="Profile"
         fill
-        className="object-cover object-top rounded-full md:rounded-none"
+        className="object-cover object-top rounded-4xl md:rounded-4xl shadow-md bg-white p-1 md:p-2"
       />
     </div>
   );

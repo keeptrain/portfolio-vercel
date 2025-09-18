@@ -7,6 +7,7 @@ import {Bars3BottomRight, XMark} from "@/components/icons/HeroIcons";
 import ThemeSwitcher from "@/components/ui/button/ThemeSwitcher";
 import LanguageSwitcher from "@/components/ui/button/LanguageSwitcher";
 import {IndonesiaFlag} from "@/components/icons/FlagIcons";
+import OpenToWorkBadge from "@/components/_/OpenToWorkBadge";
 
 export default function Header() {
   /*
@@ -163,29 +164,35 @@ export default function Header() {
     <>
       {/* HEADER */}
       <header className={
-        ['fixed inset-x-0 top-0 z-11',
+        ['fixed md:inset-x-0 top-0 right-0 z-11',
           'bg-zinc-50/10  dark:bg-black backdrop-blur-lg',
           'header-transition',
           animClass,
           headerPhase === 'hidden' ? '' : headerPhase === 'peek' ? 'translate-y-[15px]' :
             headerPhase === 'afterTop' ? 'translate-y-[15px]' : !isAtTop ? 'translate-y-[15px]' : 'translate-y-0',
           // If not on the top , always using mx-1
-          !isAtTop && 'mx-4 md:mx-12 lg:mx-28 rounded-lg border-r border-black/10'
+          !isAtTop && 'mx-4 md:mx-12 lg:mx-28 rounded-4xl border-r border-black/10'
         ].join(' ')}
       >
         <div className={`mx-auto max-w-7xl h-12 md:h-16 flex items-center justify-between
         ${isAtTop ? 'px-4 md:px-12' : 'px-2'}
         `}>
           {/* Left Logo */}
+          {/*<Link href="/">*/}
+          {/*  <div className="hidden md:block relative w-12 h-6 md:w-10 md:h-10">*/}
+          {/*    <Image*/}
+          {/*      src="/logo-border.png"*/}
+          {/*      alt="KeepTrain logo"*/}
+          {/*      fill*/}
+          {/*      className="object-contain dark:invert dark:brightness-0"*/}
+          {/*      priority*/}
+          {/*    />*/}
+          {/*  </div>*/}
+          {/*</Link>*/}
+
           <Link href="/">
-            <div className="hidden md:block relative w-12 h-6 md:w-10 md:h-10">
-              <Image
-                src="/logo-border.png"
-                alt="KeepTrain logo"
-                fill
-                className="object-contain dark:invert dark:brightness-0"
-                priority
-              />
+            <div className="hidden md:block relative w-12 h-6 md:w-100 md:h-10">
+             <OpenToWorkBadge />
             </div>
           </Link>
 

@@ -35,7 +35,8 @@ const Footer = () => {
             Got a question, or <br/> just want to say hello?
           </h2>
           <Link href={"/contact"}
-                className="flex text-sm md:text-xl font-bold text-blue-old dark:text-lime-200  items-center text-center justify-center md:justify-start">
+                className="flex text-sm md:text-xl font-medium-ex text-blue-old dark:text-lime-200
+                items-center text-center justify-center md:justify-start tracking-tight">
             <span className="hidden md:flex hover:decoration-wavy
                   underline">Send me a message!</span>
             <ArrowUpRight color={"text-blue-old"}/>
@@ -163,7 +164,6 @@ const EmailInput = () => {
   return (
     <div className="grid lg:grid-cols-3 gap-6 w-full">
       <div className="col-span-1 space-y-6">
-
         <Image
           src="/tokyo_postal.png"
           alt="postal"
@@ -171,7 +171,6 @@ const EmailInput = () => {
           width={200}
           height={200}
         />
-
         <Image
           src="/wavy.png"
           alt="postal"
@@ -180,22 +179,17 @@ const EmailInput = () => {
           height={500}
           className="absolute top-10 left-0 opacity-10 select-none pointer-events-none "
         />
-
-        {/*<h2 className="text-2xl text-blue-grey">*/}
-        {/*  Got a question or proposal, or just want*/}
-        {/*  <br/>*/}
-        {/*  to say hello? Go ahead.*/}
-        {/*</h2>*/}
       </div>
 
       <div className="col-span-2 lg:grid grid-cols-2 gap-6">
         <h1
-          className="col-span-2 flex text-3xl font-bold text-blue-old decoration-wavy underline">
+          className="col-span-2 flex text-3xl font-medium-ex text-blue-old
+          ">
           Send me a message!
         </h1>
         <h2 className="col-span-2 text-xl text-blue-grey">
           Got a question or proposal, or just want
-          to say hello? Go ahead.
+          to say hello? Go aheads.
         </h2>
         <InputUnderline label="Subject" type="text" id="subject" placeholder="Your name - Purpose"/>
         <InputUnderline label="Your Email" type="email" id="email" placeholder="example@domain.com"/>

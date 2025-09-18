@@ -36,12 +36,12 @@ const About = () => {
   return (
     <section id="about" className="md:min-h-screen bg-zinc-50 dark:bg-[#080808]">
       <div className="grid grid-rows-1 lg:grid-rows-2 md:h-screen gap-12">
-        <div className="col-span-1 flex items-center mt-12">
+        <div className="col-span-1 flex items-center mt-6 md:mt-8">
           <SectionContainer>
             <div
               className="flex flex-col md:items-center justify-center space-y-4 md:space-y-8">
               <h1
-                className="text-md md:text-3xl font-bold text-black dark:text-chartreuse uppercase">
+                className="text-md md:text-3xl font-medium  text-black dark:text-chartreuse">
                 Experience
               </h1>
               <div className="max-w-prose">
@@ -59,7 +59,7 @@ const About = () => {
         <div className="col-span-1 items-center justify-center">
           <SectionContainer>
             <h1
-              className="text-md md:text-3xl font-bold uppercase text-black dark:text-chartreuse">
+              className="text-md md:text-3xl font-medium-ex text-black dark:text-chartreuse">
               How I Work
             </h1>
             <HowIWork/>

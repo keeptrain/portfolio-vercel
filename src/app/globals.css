@@ -64,6 +64,11 @@
 }
 
 @layer utilities {
+    .font-medium-ex {
+        font-weight: 550;
+        font-variation-settings: "wght" 550;
+    }
+
     @keyframes typing {
         from {
             width: 0

@@ -1,11 +1,9 @@
-import React, {useState} from "react";
+import React from "react";
 
 export default function OpenToWorkBadge() {
-  const [isHovered, setIsHovered] = useState(false);
-
   return (
     <div
-      className="px-4 py-2 inline-flex items-center gap-2
+      className="inline-flex px-4 py-2 items-center gap-2
         rounded-full border border-gray-300/70 dark:border-white/10
         bg-white/50 dark:bg-white/5 text-gray-900 dark:text-gray-100
         transition-all duration-300"
@@ -18,8 +16,8 @@ export default function OpenToWorkBadge() {
         <span
           className="relative inline-block h-3.5 w-3.5 rounded-full bg-emerald-400 ring-2 ring-white dark:ring-gray-900 animate-pulse"/>
       </span>
-      <span className="text-xs md:text-sm font-semibold">
-        {isHovered ? "Hire me" : "Open to work"}
+      <span className="text-xs md:text-sm font-medium md:font-medium-ex">
+        Open to Work
       </span>
     </div>
   );

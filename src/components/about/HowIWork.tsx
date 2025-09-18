@@ -78,7 +78,7 @@ const HowIWork = () => {
             className="relative flex-none w-full h-full md:w-1/2 md:h-60 lg:w-126
             border border-gray-400 dark:border-chartreuse rounded-2xl p-4 md:p-6"
           >
-            <h3 className="text-md md:text-2xl font-semibold mb-2 text-black dark:text-chartreuse">{item.title}</h3>
+            <h3 className="text-md md:text-2xl font-medium mb-2 text-black dark:text-chartreuse">{item.title}</h3>
             <p className="text-xs md:text-lg font-light text-black dark:text-white mb-6">{item.desc}</p>
             <h2 className="absolute -bottom-2 md:-bottom-2 text-4xl md:text-6xl text-black/10 dark:text-chartreuse/50">0{index + 1}</h2>
           </div>

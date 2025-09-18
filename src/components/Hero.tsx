@@ -5,54 +5,67 @@ import {useLanguage} from '@/contexts/LanguageContext'
 import ProfileImage from "@/components/_/ProfileImage";
 import SectionContainer from "@/components/_/SectionContainer";
 import OpenToWorkBadge from "@/components/_/OpenToWorkBadge";
-import {MultiStarts} from "@/components/icons/HeroIcons";
+import {DocumentText, MultiStarts, PaperAirplane} from "@/components/icons/HeroIcons";
 import {Underline} from "@/components/icons/HandyArrows";
+import Link from "next/link";
+
 
 const Hero = () => {
   const {t} = useLanguage()
 
   return (
-    <section id="hero" className="md:min-h-screen bg-zinc-50 dark:bg-[#080808]">
+    <section id="hero" className="md:min-h-screen dark:bg-[#080808] pt-20 md:pt-16">
       <SectionContainer>
-        <div className="md:h-screen grid grid-rows-[1fr,auto] gap-4 pt-20 md:pt-16">
+        <div className="md:h-screen grid grid-rows-[1fr,auto]">
           {/* First row */}
           <div className="grid grid-cols-1 md:grid-cols-2 md:pt-16">
             {/* Role and Description */}
             <div
-              className="col-span-1 flex flex-col items-start justify-center space-y-4 order-2 md:order-1 md:ml-16">
-              <h1
-                className="flex flex-col text-start text-sm sm:text-3xl md:text-4xl font-semibold
-                text-gray-900 dark:text-gray-100 w-80 md:w-full tracking-widest uppercase">
-                <div
-                  className="flex flex-row md:hidden  mb-4">
-                </div>
-                <span className="text-zinc-800">Hi , I am </span>
-                Junior Developer who like minimalist design.
-              </h1>
-              <div className="hidden md:block">
+              className="col-span-1 flex flex-col items-start justify-center
+              order-2 md:order-1 pt-6 md:pt-4 md:pl-16 gap-6">
+              {/* Badge and Reach out in mobile mode */}
+              <div className="flex md:hidden flex-row items-center gap-2">
                 <OpenToWorkBadge/>
+                <Link href={"/contact"}
+                      className="inline-flex items-center text-xs md:text-md font-medium border
+                        border-gray-300 text-black px-4 py-2 rounded-3xl
+                        gap-2">
+                  <PaperAirplane color={""}/> Reach out
+                </Link>
+                <Link href={"/contact"}
+                      className="inline-flex items-center text-xs md:text-md font-medium border
+                        border-gray-300 text-black px-4 py-2 rounded-3xl
+                        gap-2">
+                  <DocumentText color={""}/> Resume
+                </Link>
               </div>
+
+              <p
+                className="text-md sm:text-3xl md:text-5xl font-medium
+                text-gray-900 dark:text-gray-100 w-60 md:w-full">
+                Hi i&#39;m junior developer
+                who like minimalist design
+              </p>
             </div>
 
-            {/* Profile Image */}
             <div
-              className="col-span-1 relative flex flex-row md:flex-col
-              items-end md:items-center justify-start md:justify-center order-1 md:order-2">
-              <div
-                className="w-40 h-40 md:w-80 md:h-[360px]">
-                <ProfileImage/>
-              </div>
-              <div className="md:hidden">
-                <OpenToWorkBadge/>
+              className="col-span-1 flex md:flex-col items-end
+               md:items-center justify-start md:justify-center order-1 md:order-2">
+              {/* Container untuk gambar profil, badge, dan tombol */}
+              <div className="flex flex-row items-end md:flex-col md:items-center">
+                {/* Profile Image */}
+                <div className="w-40 h-40 md:w-80 md:h-[360px]">
+                  <ProfileImage/>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Second row */}
           <div
-            className="flex flex-col items-start md:items-center justify-center text-black dark:text-white">
-            <div className="flex flex-row gap-2">
-              <h1 className="font-semibold text-md md:text-2xl">Less is More</h1>
+            className="flex flex-col md:items-center justify-center text-black dark:text-white pb-10 md:pb-6">
+            <div className="flex flex-row gap-1 md:gap-2">
+              <h1 className="font-medium-ex text-md md:text-2xl">Less is More</h1>
               <MultiStarts color={""}/>
             </div>
             <Underline color={""}/>
