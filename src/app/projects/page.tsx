@@ -46,15 +46,16 @@ export default function ProjectsPage() {
     <>
       <div className="md:min-h-screen pt-24 bg-zinc-50 dark:bg-black">
         <SectionContainer>
-          <h1 className="flex items-center justify-between text-lg md:text-3xl font-serif p-6">
-            <div>
+          <h1 className="flex items-center justify-between text-lg md:text-3xl font-serif">
+              <h2>
+                List of Projects
+              </h2>
 
-            </div>
             <div className="flex gap-2">
-              <Link href={`/`}>
-                <span className="text-gray-400 hover:text-black">..</span>
-              </Link>
-              <span className="text-black dark:text-white">/ Projects</span>
+              {/*<Link href={`/`}>*/}
+              {/*  <span className="text-gray-400 hover:text-black">..</span>*/}
+              {/*</Link>*/}
+              {/*<span className="text-black dark:text-white">/ Projects</span>*/}
             </div>
             <span onClick={() => setIsLatest(!isLatest)} className="flex items-center gap-2">
                 <p className={`text-md md:text-2xl

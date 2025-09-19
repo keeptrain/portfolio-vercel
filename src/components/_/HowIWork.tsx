@@ -39,8 +39,8 @@ export default function HowIWork() {
   const [active, setActive] = useState(0);
 
   return (
-    <section id="howIWork" className="  w-full shadow">
-      {/* Konten step */}
+    <section id="howIWork" >
+      {/* Content step */}
       <div className="">
         <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
           {steps[active].title}

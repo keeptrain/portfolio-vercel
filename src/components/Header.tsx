@@ -1,6 +1,6 @@
 'use client';
 
-import {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Link from 'next/link';
 import Image from "next/image";
 import {Bars3BottomRight, XMark} from "@/components/icons/HeroIcons";
@@ -153,6 +153,8 @@ export default function Header() {
   // X Icon only if the active menu in the current viewport is open
   const isOpenHere = isDesktop ? openDesktopMenu : openMobileMenu;
 
+  const isRootRoute = window.location.pathname === '/';
+
   const items = [
     {href: '/', label: 'Home'},
     {href: '#about', label: 'My Skills'},
@@ -190,11 +192,19 @@ export default function Header() {
           {/*  </div>*/}
           {/*</Link>*/}
 
-          <Link href="/">
-            <div className="hidden md:block relative w-12 h-6 md:w-100 md:h-10">
-             <OpenToWorkBadge />
-            </div>
-          </Link>
+          {isRootRoute ?
+            <Link href="/">
+              <div className="hidden md:block relative w-12 h-6 md:w-100 md:h-10">
+                <OpenToWorkBadge/>
+              </div>
+            </Link> :
+            <span className="text-lg font-medium-ex gap-4 flex items-center">
+              <Link href={`/`}>
+                <span className="text-gray-400 hover:text-black">..</span>
+              </Link>
+              <span className="text-black dark:text-white">/ Projects</span>
+            </span>
+          }
 
           {/* Right button */}
           <div className="relative">
@@ -248,8 +258,8 @@ export default function Header() {
                   </li>
                 ))}
                 <div className="flex items-center justify-between mt-4">
-                  <ThemeSwitcher />
-                  <IndonesiaFlag color={""} />
+                  <ThemeSwitcher/>
+                  <IndonesiaFlag color={""}/>
                 </div>
               </ul>
             </div>
@@ -289,9 +299,9 @@ export default function Header() {
               {it.label}
             </Link>
           ))}
-          <IndonesiaFlag color={""} />
+          <IndonesiaFlag color={""}/>
           <div className="flex gap-12 items-center justify-between mt-4">
-            <ThemeSwitcher />
+            <ThemeSwitcher/>
           </div>
         </nav>
       </div>
