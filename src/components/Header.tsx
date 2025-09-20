@@ -10,6 +10,8 @@ import { IndonesiaFlag } from "@/components/icons/FlagIcons";
 import OpenToWorkBadge from "@/components/_/OpenToWorkBadge";
 
 export default function Header() {
+  const [isRootRoute, setIsRootRoute] = useState<boolean>(true);
+
   /*
     Header phases:
     - top: di paling atas, full
@@ -149,6 +151,11 @@ export default function Header() {
     return () => document.removeEventListener("mousedown", onDocClick);
   }, [openDesktopMenu]);
 
+  useEffect(() => {
+    const isRootRoute = window.location.pathname === "/";
+    setIsRootRoute(isRootRoute);
+  }, []);
+
   const animClass =
     headerPhase === "hidden"
       ? "animate-[headerHideFromPeek_260ms_ease-out_forwards]"
@@ -156,8 +163,6 @@ export default function Header() {
 
   // X Icon only if the active menu in the current viewport is open
   const isOpenHere = isDesktop ? openDesktopMenu : openMobileMenu;
-
-  const isRootRoute = window.location.pathname === "/";
 
   const items = [
     { href: "/", label: "Home" },
