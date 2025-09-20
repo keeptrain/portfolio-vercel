@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import React, {useEffect, useRef, useState} from 'react';
+import React, { useEffect, useRef, useState } from "react";
 
 interface Props {
   onItemClick: (index: number) => () => void;
@@ -9,13 +9,13 @@ interface Props {
 type Item = { role: string; year: string; meta: string };
 
 const items: Item[] = [
-  {role: 'Laravel Developer', year: 'Current', meta: 'Freelance · Full time'},
-  {role: 'Laravel Developer', year: '2025', meta: 'On site · Full time'},
-  {role: 'Laravel Developer', year: '2024', meta: 'Hybrid · Full time'},
-  {role: 'View more', year: '', meta: ''},
+  { role: "Laravel Developer", year: "Current", meta: "Freelance · Full time" },
+  { role: "Laravel Developer", year: "2025", meta: "On site · Full time" },
+  { role: "Laravel Developer", year: "2024", meta: "Hybrid · Full time" },
+  { role: "View more", year: "", meta: "" },
 ];
 
-export default function ExperienceTimeline({onItemClick}: Props) {
+export default function ExperienceTimeline({ onItemClick }: Props) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [atBottom, setAtBottom] = useState(false);
 
@@ -27,8 +27,8 @@ export default function ExperienceTimeline({onItemClick}: Props) {
       setAtBottom(el.scrollTop >= end);
     };
     onScroll();
-    el.addEventListener('scroll', onScroll, {passive: true});
-    return () => el.removeEventListener('scroll', onScroll);
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => el.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
@@ -42,21 +42,19 @@ export default function ExperienceTimeline({onItemClick}: Props) {
 
         <ul className="space-y-4">
           {items.map((item, idx) => (
-            <li
-              key={idx}
-              className="relative">
+            <li key={idx} className="relative">
               {/* Dot */}
-              <span
-                className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 h-3 w-3
-                rounded-full bg-black/50 dark:bg-white"/>
+              <span className="absolute top-1/2 left-0 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-black/50 dark:bg-white" />
 
               {/* Content */}
               <div className="px-12">
-                <h3 className="text-lg font-semibold cursor-pointer hover:underline"
-                    onClick={onItemClick(idx)}>
+                <h3
+                  className="cursor-pointer text-lg font-semibold hover:underline"
+                  onClick={onItemClick(idx)}
+                >
                   {item.role}
                 </h3>
-                <p className="mt-1 text-sm sm:text-base text-gray-500 dark:text-gray-400">
+                <p className="mt-1 text-sm text-gray-500 sm:text-base dark:text-gray-400">
                   {item.year} — {item.meta}
                 </p>
               </div>

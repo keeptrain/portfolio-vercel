@@ -1,17 +1,17 @@
 export interface BlogPost {
-  id: string
-  title: string
-  excerpt: string
-  content: string
-  date: string
-  tags: string[]
-  readTime: number
-  featured?: boolean
+  id: string;
+  title: string;
+  excerpt: string;
+  content: string;
+  date: string;
+  tags: string[];
+  readTime: number;
+  featured?: boolean;
 }
 
 export interface BlogPostTranslations {
-  en: BlogPost
-  id: BlogPost
+  en: BlogPost;
+  id: BlogPost;
 }
 
 export const blogPosts: BlogPostTranslations[] = [
@@ -19,7 +19,8 @@ export const blogPosts: BlogPostTranslations[] = [
     en: {
       id: "my-coding-journey-2024",
       title: "My Coding Journey in 2024",
-      excerpt: "Reflecting on the challenges, learnings, and growth I've experienced as a developer this year.",
+      excerpt:
+        "Reflecting on the challenges, learnings, and growth I've experienced as a developer this year.",
       content: `# My Coding Journey in 2024
 
 This year has been incredible for my development as a software engineer. I've learned so much and faced challenges that have shaped me into a better developer.
@@ -52,12 +53,13 @@ The journey continues! 🚀`,
       date: "2024-12-20",
       tags: ["coding", "reflection", "typescript", "nextjs"],
       readTime: 3,
-      featured: true
+      featured: true,
     },
     id: {
       id: "my-coding-journey-2024",
       title: "Perjalanan Coding Saya di 2024",
-      excerpt: "Merefleksikan tantangan, pembelajaran, dan pertumbuhan yang saya alami sebagai developer tahun ini.",
+      excerpt:
+        "Merefleksikan tantangan, pembelajaran, dan pertumbuhan yang saya alami sebagai developer tahun ini.",
       content: `# Perjalanan Coding Saya di 2024
 
 Tahun ini luar biasa untuk perkembangan saya sebagai software engineer. Saya belajar banyak hal dan menghadapi tantangan yang membentuk saya menjadi developer yang lebih baik.
@@ -90,14 +92,15 @@ Perjalanan berlanjut! 🚀`,
       date: "2024-12-20",
       tags: ["coding", "refleksi", "typescript", "nextjs"],
       readTime: 3,
-      featured: true
-    }
+      featured: true,
+    },
   },
   {
     en: {
       id: "building-this-portfolio",
       title: "Building This Portfolio Website",
-      excerpt: "The story behind creating this minimalist portfolio with Next.js, TypeScript, and Tailwind CSS.",
+      excerpt:
+        "The story behind creating this minimalist portfolio with Next.js, TypeScript, and Tailwind CSS.",
       content: `# Building This Portfolio Website
 
 Today I want to share the process of building this portfolio website and the decisions I made along the way.
@@ -152,12 +155,13 @@ The biggest challenge was implementing the language switcher and dark mode while
 Building this portfolio was a great learning experience and I'm happy with how it turned out!`,
       date: "2024-12-18",
       tags: ["portfolio", "nextjs", "tailwind", "web development"],
-      readTime: 4
+      readTime: 4,
     },
     id: {
       id: "building-this-portfolio",
       title: "Membangun Website Portfolio Ini",
-      excerpt: "Cerita di balik pembuatan portfolio minimalis ini dengan Next.js, TypeScript, dan Tailwind CSS.",
+      excerpt:
+        "Cerita di balik pembuatan portfolio minimalis ini dengan Next.js, TypeScript, dan Tailwind CSS.",
       content: `# Membangun Website Portfolio Ini
 
 Hari ini saya ingin berbagi proses membangun website portfolio ini dan keputusan-keputusan yang saya buat di sepanjang jalan.
@@ -212,14 +216,15 @@ Tantangan terbesar adalah mengimplementasikan language switcher dan dark mode sa
 Membangun portfolio ini adalah pengalaman belajar yang luar biasa dan saya senang dengan hasilnya!`,
       date: "2024-12-18",
       tags: ["portfolio", "nextjs", "tailwind", "web development"],
-      readTime: 4
-    }
+      readTime: 4,
+    },
   },
   {
     en: {
       id: "daily-productivity-tips",
       title: "Daily Productivity Tips for Developers",
-      excerpt: "Simple habits and tools that have helped me become more productive as a developer.",
+      excerpt:
+        "Simple habits and tools that have helped me become more productive as a developer.",
       content: `# Daily Productivity Tips for Developers
 
 As developers, we're always looking for ways to be more productive. Here are some simple habits and tools that have made a big difference in my daily workflow.
@@ -277,12 +282,13 @@ Productivity is personal. What works for me might not work for you. The key is t
 What productivity tips have worked for you? I'd love to hear about them!`,
       date: "2024-12-15",
       tags: ["productivity", "tips", "workflow", "habits"],
-      readTime: 5
+      readTime: 5,
     },
     id: {
       id: "daily-productivity-tips",
       title: "Tips Produktivitas Harian untuk Developer",
-      excerpt: "Kebiasaan sederhana dan tools yang membantu saya menjadi lebih produktif sebagai developer.",
+      excerpt:
+        "Kebiasaan sederhana dan tools yang membantu saya menjadi lebih produktif sebagai developer.",
       content: `# Tips Produktivitas Harian untuk Developer
 
 Sebagai developer, kita selalu mencari cara untuk lebih produktif. Berikut adalah beberapa kebiasaan sederhana dan tools yang membuat perbedaan besar dalam workflow harian saya.
@@ -340,7 +346,7 @@ Produktivitas itu personal. Yang cocok untuk saya mungkin tidak cocok untuk Anda
 Tips produktivitas apa yang berhasil untuk Anda? Saya ingin mendengarnya!`,
       date: "2024-12-15",
       tags: ["produktivitas", "tips", "workflow", "kebiasaan"],
-      readTime: 5
-    }
-  }
-]
+      readTime: 5,
+    },
+  },
+];

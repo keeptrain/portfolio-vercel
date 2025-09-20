@@ -1,9 +1,9 @@
-import PortfolioContent from '@/components/PortfolioContent'
+import PortfolioContent from "@/components/PortfolioContent";
 
 export default function Page() {
   return (
     <main>
-      <PortfolioContent/>
+      <PortfolioContent />
     </main>
-  )
+  );
 }

@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import React, {useEffect, useRef, useState} from 'react';
-import Link from 'next/link';
+import React, { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
-import {Bars3BottomRight, XMark} from "@/components/icons/HeroIcons";
+import { Bars3BottomRight, XMark } from "@/components/icons/HeroIcons";
 import ThemeSwitcher from "@/components/ui/button/ThemeSwitcher";
 import LanguageSwitcher from "@/components/ui/button/LanguageSwitcher";
-import {IndonesiaFlag} from "@/components/icons/FlagIcons";
+import { IndonesiaFlag } from "@/components/icons/FlagIcons";
 import OpenToWorkBadge from "@/components/_/OpenToWorkBadge";
 
 export default function Header() {
@@ -17,7 +17,9 @@ export default function Header() {
     - peek: scroll ke bawah, peek dulu
     - hidden: scroll ke bawah terus, hidden
    */
-  const [headerPhase, setHeaderPhase] = useState<'top' | 'afterTop' | 'peek' | 'hidden'>('top');
+  const [headerPhase, setHeaderPhase] = useState<
+    "top" | "afterTop" | "peek" | "hidden"
+  >("top");
   const [isAtTop, setIsAtTop] = useState(true);
 
   // Header scroll logic refs
@@ -49,14 +51,15 @@ export default function Header() {
 
       // reset idle (kalau berhenti scroll, balikin header ke "top")
       if (idleRef.current) clearTimeout(idleRef.current);
-      idleRef.current = setTimeout(() => setHeaderPhase(
-          window.scrollY <= threshold ? 'top' : 'peek')
-        , 500);
+      idleRef.current = setTimeout(
+        () => setHeaderPhase(window.scrollY <= threshold ? "top" : "peek"),
+        500,
+      );
 
       if (y <= threshold) {
         if (afterTop.current) clearTimeout(afterTop.current);
         if (hideStepRef.current) clearTimeout(hideStepRef.current);
-        setHeaderPhase('top');
+        setHeaderPhase("top");
         lastScrollYRef.current = y;
         return;
       }
@@ -65,21 +68,21 @@ export default function Header() {
       if (lastScrollYRef.current <= threshold && y > threshold) {
         if (afterTop.current) clearTimeout(afterTop.current);
         if (hideStepRef.current) clearTimeout(hideStepRef.current);
-        setHeaderPhase('afterTop')
+        setHeaderPhase("afterTop");
 
         afterTop.current = setTimeout(() => {
-          setHeaderPhase('peek');
+          setHeaderPhase("peek");
         }, AFTER_TOP_DELAY);
         lastScrollYRef.current = y;
-        return
+        return;
       }
 
       if (down) {
         // scroll ke bawah → peek dulu lalu hidden
-        if (headerPhase === 'peek') {
+        if (headerPhase === "peek") {
           if (hideStepRef.current) clearTimeout(hideStepRef.current);
           hideStepRef.current = setTimeout(() => {
-            setHeaderPhase('hidden');
+            setHeaderPhase("hidden");
           }, HIDE_STEP_DELAY);
           setOpenDesktopMenu(false);
         }
@@ -87,15 +90,15 @@ export default function Header() {
         // scroll ke atas → munculkan
         if (afterTop.current) clearTimeout(afterTop.current);
         if (hideStepRef.current) clearTimeout(hideStepRef.current);
-        setHeaderPhase('peek');
+        setHeaderPhase("peek");
       }
 
       lastScrollYRef.current = y;
     };
 
-    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
-      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener("scroll", onScroll);
       if (afterTop.current) clearTimeout(afterTop.current);
       if (hideStepRef.current) clearTimeout(hideStepRef.current);
       if (idleRef.current) clearTimeout(idleRef.current);
@@ -105,16 +108,16 @@ export default function Header() {
   // Lock/unlock scroll when mobile menu open/close
   useEffect(() => {
     const html = document.documentElement;
-    if (openMobileMenu) html.style.overflow = 'hidden';
-    else html.style.overflow = '';
+    if (openMobileMenu) html.style.overflow = "hidden";
+    else html.style.overflow = "";
     return () => {
-      html.style.overflow = '';
+      html.style.overflow = "";
     };
   }, [openMobileMenu]);
 
   // Listen to viewport width changes
   useEffect(() => {
-    const mql = window.matchMedia('(min-width: 768px)');
+    const mql = window.matchMedia("(min-width: 768px)");
     const apply = () => {
       const d = mql.matches;
       setIsDesktop(d);
@@ -122,15 +125,15 @@ export default function Header() {
       if (d) {
         // Enter desktop mode -> mobile overlay must be closed & unlock
         setOpenMobileMenu(false);
-        document.documentElement.style.overflow = '';
+        document.documentElement.style.overflow = "";
       } else {
         // Enter mobile mode -> desktop dropdown must be closed
         setOpenDesktopMenu(false);
       }
     };
     apply();
-    mql.addEventListener('change', apply);
-    return () => mql.removeEventListener('change', apply);
+    mql.addEventListener("change", apply);
+    return () => mql.removeEventListener("change", apply);
   }, []);
 
   // Outside click behavior for desktop dropdown
@@ -142,43 +145,53 @@ export default function Header() {
         setOpenDesktopMenu(false);
       }
     };
-    document.addEventListener('mousedown', onDocClick);
-    return () => document.removeEventListener('mousedown', onDocClick);
+    document.addEventListener("mousedown", onDocClick);
+    return () => document.removeEventListener("mousedown", onDocClick);
   }, [openDesktopMenu]);
 
   const animClass =
-    headerPhase === 'hidden'
-      ? 'animate-[headerHideFromPeek_260ms_ease-out_forwards]' : '';
+    headerPhase === "hidden"
+      ? "animate-[headerHideFromPeek_260ms_ease-out_forwards]"
+      : "";
 
   // X Icon only if the active menu in the current viewport is open
   const isOpenHere = isDesktop ? openDesktopMenu : openMobileMenu;
 
-  const isRootRoute = window.location.pathname === '/';
+  const isRootRoute = window.location.pathname === "/";
 
   const items = [
-    {href: '/', label: 'Home'},
-    {href: '#about', label: 'My Skills'},
-    {href: '#projects', label: 'My Resume'},
-    {href: '#contact', label: 'Contact'},
+    { href: "/", label: "Home" },
+    { href: "#about", label: "My Skills" },
+    { href: "#projects", label: "My Resume" },
+    { href: "#contact", label: "Contact" },
   ];
 
   return (
     <>
       {/* HEADER */}
-      <header className={
-        ['fixed md:inset-x-0 top-0 right-0 z-11',
-          'bg-zinc-50/10  dark:bg-black backdrop-blur-lg',
-          'header-transition',
+      <header
+        className={[
+          "fixed top-0 right-0 z-11 md:inset-x-0",
+          "bg-zinc-50/10 backdrop-blur-lg dark:bg-black",
+          "header-transition",
           animClass,
-          headerPhase === 'hidden' ? '' : headerPhase === 'peek' ? 'translate-y-[15px]' :
-            headerPhase === 'afterTop' ? 'translate-y-[15px]' : !isAtTop ? 'translate-y-[15px]' : 'translate-y-0',
+          headerPhase === "hidden"
+            ? ""
+            : headerPhase === "peek"
+              ? "translate-y-[15px]"
+              : headerPhase === "afterTop"
+                ? "translate-y-[15px]"
+                : !isAtTop
+                  ? "translate-y-[15px]"
+                  : "translate-y-0",
           // If not on the top , always using mx-1
-          !isAtTop && 'mx-4 md:mx-12 lg:mx-28 rounded-4xl border-r border-black/10'
-        ].join(' ')}
+          !isAtTop &&
+            "mx-4 rounded-4xl border-r border-black/10 md:mx-12 lg:mx-28",
+        ].join(" ")}
       >
-        <div className={`mx-auto max-w-7xl h-12 md:h-16 flex items-center justify-between
-        ${isAtTop ? 'px-4 md:px-12' : 'px-2'}
-        `}>
+        <div
+          className={`mx-auto flex h-12 max-w-7xl items-center justify-between md:h-16 ${isAtTop ? "px-4 md:px-12" : "px-2"} `}
+        >
           {/* Left Logo */}
           {/*<Link href="/">*/}
           {/*  <div className="hidden md:block relative w-12 h-6 md:w-10 md:h-10">*/}
@@ -192,37 +205,38 @@ export default function Header() {
           {/*  </div>*/}
           {/*</Link>*/}
 
-          {isRootRoute ?
+          {isRootRoute ? (
             <Link href="/">
-              <div className="hidden md:block relative w-12 h-6 md:w-100 md:h-10">
-                <OpenToWorkBadge/>
+              <div className="relative hidden h-6 w-12 md:block md:h-10 md:w-100">
+                <OpenToWorkBadge />
               </div>
-            </Link> :
-            <span className="text-lg font-medium-ex gap-4 flex items-center">
+            </Link>
+          ) : (
+            <span className="font-medium-ex flex items-center gap-4 text-lg">
               <Link href={`/`}>
                 <span className="text-gray-400 hover:text-black">..</span>
               </Link>
               <span className="text-black dark:text-white">/ Projects</span>
             </span>
-          }
+          )}
 
           {/* Right button */}
           <div className="relative">
             <button
               ref={btnRef}
               onClick={() => {
-                if (isDesktop) setOpenDesktopMenu(v => !v);
-                else setOpenMobileMenu(v => !v);
+                if (isDesktop) setOpenDesktopMenu((v) => !v);
+                else setOpenMobileMenu((v) => !v);
               }}
               className="p-2 text-gray-800 dark:text-gray-200"
-              aria-label={isOpenHere ? 'Close menu' : 'Open menu'}
+              aria-label={isOpenHere ? "Close menu" : "Open menu"}
               aria-expanded={isOpenHere}
               aria-controls="menu"
             >
               {isOpenHere ? (
-                <XMark color={"text-black dark:text-white"}/>
+                <XMark color={"text-black dark:text-white"} />
               ) : (
-                <Bars3BottomRight color={"text-black dark:text-white"}/>
+                <Bars3BottomRight color={"text-black dark:text-white"} />
               )}
             </button>
 
@@ -230,11 +244,7 @@ export default function Header() {
             <div
               id="menu"
               ref={dropRef}
-              className={`absolute right-0 top-0 z-[60]
-              w-72 border border-gray-200 dark:border-chartreuse/25 bg-white dark:bg-black
-              transition-all duration-200 origin-top-right
-              ${openDesktopMenu ? 'opacity-100 scale-100' : 'pointer-events-none opacity-0 scale-95'}
-            `}
+              className={`absolute top-0 right-0 z-[60] w-72 origin-top-right border border-gray-200 bg-white transition-all duration-200 dark:border-chartreuse/25 dark:bg-black ${openDesktopMenu ? "scale-100 opacity-100" : "pointer-events-none scale-95 opacity-0"} `}
             >
               <div className="flex justify-end">
                 <button
@@ -242,11 +252,11 @@ export default function Header() {
                   className="p-2 text-gray-800 dark:text-gray-200"
                   aria-label="Close menu"
                 >
-                  <XMark color={"text-black dark:text-white"}/>
+                  <XMark color={"text-black dark:text-white"} />
                 </button>
               </div>
               <ul className="p-10 text-xl text-gray-700 dark:text-gray-200">
-                {items.map(it => (
+                {items.map((it) => (
                   <li key={it.href} className="hover:text-purple-500">
                     <Link
                       href={it.href}
@@ -257,9 +267,9 @@ export default function Header() {
                     </Link>
                   </li>
                 ))}
-                <div className="flex items-center justify-between mt-4">
-                  <ThemeSwitcher/>
-                  <IndonesiaFlag color={""}/>
+                <div className="mt-4 flex items-center justify-between">
+                  <ThemeSwitcher />
+                  <IndonesiaFlag color={""} />
                 </div>
               </ul>
             </div>
@@ -269,39 +279,37 @@ export default function Header() {
 
       {/* OVERLAY MOBILE (FULLSCREEN) */}
       <div
-        className={`md:hidden fixed inset-0 z-[55] transition-opacity duration-200
-          ${openMobileMenu ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}
-        `}
+        className={`fixed inset-0 z-[55] transition-opacity duration-200 md:hidden ${openMobileMenu ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"} `}
       >
         {/* background */}
-        <div className="absolute inset-0 bg-white dark:bg-gray-900"/>
+        <div className="absolute inset-0 bg-white dark:bg-gray-900" />
 
         {/* bar atas di overlay (posisi sama) */}
-        <div className="relative z-10 mx-auto max-w-7xl h-16 px-4 md:px-12 flex items-center justify-end">
+        <div className="relative z-10 mx-auto flex h-16 max-w-7xl items-center justify-end px-4 md:px-12">
           <button
             onClick={() => setOpenMobileMenu(false)}
-            className="px-6 mt-14 text-gray-800 dark:text-gray-200"
+            className="mt-14 px-6 text-gray-800 dark:text-gray-200"
             aria-label="Close menu"
           >
-            <XMark color={"text-black dark:text-white"}/>
+            <XMark color={"text-black dark:text-white"} />
           </button>
         </div>
 
         {/* isi overlay */}
-        <nav className="relative z-10 h-[calc(100vh-4rem)] flex flex-col items-center justify-center gap-8">
-          {items.map(it => (
+        <nav className="relative z-10 flex h-[calc(100vh-4rem)] flex-col items-center justify-center gap-8">
+          {items.map((it) => (
             <Link
               key={it.href}
               href={it.href}
               onClick={() => setOpenMobileMenu(false)}
-              className="text-2xl font-bold text-gray-900 dark:text-white hover:text-sky-600 dark:hover:text-sky-300"
+              className="text-2xl font-bold text-gray-900 hover:text-sky-600 dark:text-white dark:hover:text-sky-300"
             >
               {it.label}
             </Link>
           ))}
-          <IndonesiaFlag color={""}/>
-          <div className="flex gap-12 items-center justify-between mt-4">
-            <ThemeSwitcher/>
+          <IndonesiaFlag color={""} />
+          <div className="mt-4 flex items-center justify-between gap-12">
+            <ThemeSwitcher />
           </div>
         </nav>
       </div>

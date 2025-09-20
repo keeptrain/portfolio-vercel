@@ -1,10 +1,13 @@
-
 import Header from "@/components/Header";
 
-export default function ProjectsLayout({children}: { children: React.ReactNode }) {
+export default function ProjectsLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <>
-      <Header/>
+      <Header />
       {children}
     </>
   );

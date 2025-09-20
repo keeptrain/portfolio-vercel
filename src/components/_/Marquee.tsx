@@ -1,25 +1,24 @@
-import React from 'react';
+import React from "react";
 
 interface MarqueeProps {
   children: React.ReactNode;
   speed?: number;
-  direction?: 'left' | 'right';
+  direction?: "left" | "right";
   className?: string;
   gradient?: boolean;
   gradientColor?: string;
 }
 
-export default function Marquee(
-  {
-    children,
-    speed = 50,
-    direction = 'left',
-    className = '',
-    gradient = true,
-    gradientColor = 'white',
-  }: MarqueeProps) {
-  
-  const animationDirection = direction === 'left' ? 'scroll-left' : 'scroll-right';
+export default function Marquee({
+  children,
+  speed = 50,
+  direction = "left",
+  className = "",
+  gradient = true,
+  gradientColor = "white",
+}: MarqueeProps) {
+  const animationDirection =
+    direction === "left" ? "scroll-left" : "scroll-right";
   const animationDuration = `${speed}s`;
 
   return (
@@ -28,15 +27,15 @@ export default function Marquee(
       {gradient && (
         <>
           <div
-            className="absolute left-0 top-0 w-full h-full z-10 pointer-events-none"
+            className="pointer-events-none absolute top-0 left-0 z-10 h-full w-full"
             style={{
-              background: `linear-gradient(to right, ${gradientColor}, transparent)`
+              background: `linear-gradient(to right, ${gradientColor}, transparent)`,
             }}
           />
           <div
-            className="absolute right-0 top-0 w-full h-full z-10 pointer-events-none"
+            className="pointer-events-none absolute top-0 right-0 z-10 h-full w-full"
             style={{
-              background: `linear-gradient(to left, ${gradientColor}, transparent)`
+              background: `linear-gradient(to left, ${gradientColor}, transparent)`,
             }}
           />
         </>
@@ -53,25 +52,24 @@ export default function Marquee(
       </div>
 
       <style jsx>{`
-          @keyframes scroll-left {
-              0% {
-                  transform: translateX(0%);
-              }
-              100% {
-                  transform: translateX(-100%);
-              }
+        @keyframes scroll-left {
+          0% {
+            transform: translateX(0%);
           }
+          100% {
+            transform: translateX(-100%);
+          }
+        }
 
-          @keyframes scroll-right {
-              0% {
-                  transform: translateX(-100%);
-              }
-              100% {
-                  transform: translateX(0%);
-              }
+        @keyframes scroll-right {
+          0% {
+            transform: translateX(-100%);
           }
+          100% {
+            transform: translateX(0%);
+          }
+        }
       `}</style>
     </div>
   );
-};
-
+}

@@ -1,9 +1,9 @@
 import React from "react";
-import {Clock, HandThumbUp} from "@/components/icons/HeroIcons";
+import { Clock, HandThumbUp } from "@/components/icons/HeroIcons";
 
 type Props = {
-  overflowX?: boolean,
-}
+  overflowX?: boolean;
+};
 
 type Project = {
   title: string;
@@ -39,8 +39,8 @@ const dataProjects: Project[] = [
     description: "React web application with modern UI",
     tags: ["Mobile", "Android", "Kotlin"],
     link: "#",
-  }
-]
+  },
+];
 
 const dataBlogs: Blog[] = [
   {
@@ -66,16 +66,14 @@ const dataBlogs: Blog[] = [
     like: 300,
     readingTime: "5 min",
     link: "#",
-  }
-]
+  },
+];
 
-const Cards = ({overflowX}: Props) => {
-  const containerClasses = overflowX
-    ? 'overflow-x-auto'
-    : 'overflow-y-auto';
+const Cards = ({ overflowX }: Props) => {
+  const containerClasses = overflowX ? "overflow-x-auto" : "overflow-y-auto";
   const flexDirection = overflowX
-    ? 'flex gap-4 mb-4'
-    : 'flex-row space-y-4 mr-4 h-40';
+    ? "flex gap-4 mb-4"
+    : "flex-row space-y-4 mr-4 h-40";
   const data = overflowX ? dataProjects : dataBlogs;
 
   return (
@@ -85,37 +83,50 @@ const Cards = ({overflowX}: Props) => {
           if (overflowX) {
             const project = item as Project;
             return (
-              <div key={index}
-                   className="bg-white/10 backdrop-blur-sm rounded-lg p-4 min-w-[280px] border border-chartreuse/30">
-                <h3 className="text-lg font-bold text-white mb-2">{project.title}</h3>
-                <p className="text-sm text-lime-100 mb-3">{project.description}</p>
-                <div className="flex flex-wrap gap-1 mb-3">
+              <div
+                key={index}
+                className="min-w-[280px] rounded-lg border border-chartreuse/30 bg-white/10 p-4 backdrop-blur-sm"
+              >
+                <h3 className="mb-2 text-lg font-bold text-white">
+                  {project.title}
+                </h3>
+                <p className="mb-3 text-sm text-lime-100">
+                  {project.description}
+                </p>
+                <div className="mb-3 flex flex-wrap gap-1">
                   {project.tags.map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
-                      className="px-2 py-1 bg-chartreuse/20 text-chartreuse rounded text-xs">{tag}</span>
+                      className="rounded bg-chartreuse/20 px-2 py-1 text-xs text-chartreuse"
+                    >
+                      {tag}
+                    </span>
                   ))}
                 </div>
               </div>
-            )
+            );
           } else {
             const blog = item as Blog;
             return (
-              <div key={index}
-                   className="bg-white/10 backdrop-blur-sm rounded-lg p-4 min-w-[280px] border border-chartreuse/30">
-                <h3 className="text-lg font-bold text-chartreuse mb-2">{blog.title}</h3>
-                <p className="text-sm text-lime-100 mb-3">{blog.description}</p>
-                <div className="flex flex-wrap gap-1 mb-3">
-                  <HandThumbUp color={undefined}/>
-                  <Clock color={undefined}/>
+              <div
+                key={index}
+                className="min-w-[280px] rounded-lg border border-chartreuse/30 bg-white/10 p-4 backdrop-blur-sm"
+              >
+                <h3 className="mb-2 text-lg font-bold text-chartreuse">
+                  {blog.title}
+                </h3>
+                <p className="mb-3 text-sm text-lime-100">{blog.description}</p>
+                <div className="mb-3 flex flex-wrap gap-1">
+                  <HandThumbUp color={undefined} />
+                  <Clock color={undefined} />
                 </div>
               </div>
-            )
+            );
           }
         })}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Cards
+export default Cards;
