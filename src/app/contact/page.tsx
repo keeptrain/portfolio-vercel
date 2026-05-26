@@ -53,7 +53,7 @@ const RadioGroup = () => {
               name="list-radio"
               className="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-500 dark:bg-gray-600 dark:ring-offset-gray-700 dark:focus:ring-blue-600 dark:focus:ring-offset-gray-700"
             />
-            <label className="ms-2 w-full py-3 font-inter text-sm text-gray-900 dark:text-gray-300">
+            <label className="ms-2 w-full py-3 text-sm text-gray-900 dark:text-gray-300">
               Say hello{" "}
             </label>
           </div>
@@ -145,7 +145,7 @@ const EmailInput = () => {
               Send
               <span className="ml-1 inline-block">&rarr;</span>
             </span>
-            <span className="absolute inset-0 -z-0 w-0 bg-blue-old transition-all duration-300 group-hover:w-full" />
+            <span className="bg-blue-old absolute inset-0 -z-0 w-0 transition-all duration-300 group-hover:w-full" />
           </button>
         </div>
       </div>
