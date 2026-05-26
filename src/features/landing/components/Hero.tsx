@@ -1,7 +1,3 @@
-"use client";
-
-import Image from "next/image";
-import { useLanguage } from "@/contexts/LanguageContext";
 import ProfileImage from "@/components/_/ProfileImage";
 import SectionContainer from "@/components/_/SectionContainer";
 import OpenToWorkBadge from "@/components/_/OpenToWorkBadge";
@@ -13,13 +9,11 @@ import {
 import { Underline } from "@/components/icons/HandyArrows";
 import Link from "next/link";
 
-const Hero = () => {
-  const { t } = useLanguage();
-
+export default function Hero() {
   return (
     <section
       id="hero"
-      className="pt-20 md:min-h-screen md:pt-16 dark:bg-[#080808]"
+      className="pt-20 md:min-h-screen md:pt-10 dark:bg-[#080808]"
     >
       <SectionContainer>
         <div className="grid grid-rows-[1fr,auto] md:h-screen">
@@ -74,38 +68,4 @@ const Hero = () => {
       </SectionContainer>
     </section>
   );
-};
-
-export const TechStack = () => {
-  const color = "text-black/20 dark:text-white/20";
-  return (
-    <div className="flex flex-wrap items-center justify-center gap-8 md:flex-nowrap md:gap-24">
-      <div className="relative h-20 w-20 md:h-30 md:w-30">
-        <Image
-          alt="logo"
-          src="/images/logo/bangkit.svg"
-          fill
-          className="object-contain grayscale dark:invert"
-        />
-      </div>
-      <div className="relative h-20 w-20 md:h-30 md:w-30">
-        <Image
-          alt="logo"
-          src="/images/logo/rptra.png"
-          fill
-          className="object-contain grayscale dark:invert"
-        />
-      </div>
-      <div className="relative h-20 w-20 md:h-30 md:w-30">
-        <Image
-          alt="logo"
-          src="/images/logo/pusdatin.png"
-          fill
-          className="object-contain grayscale dark:invert"
-        />
-      </div>
-    </div>
-  );
-};
-
-export default Hero;
+}

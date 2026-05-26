@@ -2,49 +2,12 @@
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import SectionContainer from "@/components/_/SectionContainer";
-import HowIWork from "@/components/about/HowIWork";
-import SkillCards from "@/components/ui/SkillCards";
-import {
-  DesktopComputer,
-  DevicePhoneMobile,
-  RectangleGroup,
-} from "@/components/icons/HeroIcons";
-import { TechStack } from "@/components/Hero";
-
-const skillsData = [
-  {
-    icon: <RectangleGroup color={"text-white dark:text-chartreuse"} />,
-    title: "Responsive Design",
-    description:
-      "Designing web pages that look good on and perform equally well on all devices screen sizes.",
-  },
-  {
-    icon: <DesktopComputer color={"text-white dark:text-chartreuse"} />,
-    title: "Web",
-    description:
-      "Designing web pages that look good on and perform equally well on all devices screen sizes.",
-  },
-  {
-    icon: <DevicePhoneMobile color={"text-white dark:text-chartreuse"} />,
-    title: "Mobile apps",
-    description:
-      "Designing web pages that look good on and perform equally well on all devices screen sizes.",
-  },
-  // {
-  //   icon: <MultiStarts color={"text-chartreuse"}/>,
-  //   title: "More skills",
-  //   description: "Hungryyy!",
-  // }
-];
+import Image from "next/image";
+import HowIWork from "./HowIWork";
 
 const About = () => {
-  const { t } = useLanguage();
-
   return (
-    <section
-      id="about"
-      className="bg-zinc-50 md:min-h-screen dark:bg-[#080808]"
-    >
+    <section id="about" className="bg-primary md:min-h-screen">
       <div className="grid grid-rows-1 gap-12 md:h-screen lg:grid-rows-2">
         <div className="col-span-1 mt-6 flex items-center md:mt-8">
           <SectionContainer>
@@ -56,7 +19,7 @@ const About = () => {
                 <p className="text-sm font-light text-black/80 md:text-center md:text-lg dark:text-white/80">
                   I&#39;ve spent the last{" "}
                   <span className="font-medium text-black dark:text-white">
-                    11 months
+                    1 Year 5 months
                   </span>{" "}
                   actively contributing as a Junior Developer in a fast-paced
                   setting. I have a proven ability to quickly learn and apply
@@ -80,5 +43,29 @@ const About = () => {
     </section>
   );
 };
+
+const COMPANY_LOGOS: Array<{ src: string; alt: string }> = [
+  { src: "/images/logo/bangkit.svg", alt: "Bangkit" },
+  { src: "/images/logo/rptra.png", alt: "Rptra" },
+  { src: "/images/logo/pusdatin.png", alt: "Pusdatin" },
+  { src: "/images/logo/kkp.webp", alt: "Kkp" },
+];
+
+function TechStack() {
+  return (
+    <div className="flex flex-wrap items-center justify-center gap-8 md:flex-nowrap md:gap-24">
+      {COMPANY_LOGOS.map((logo) => (
+        <div key={logo.alt} className="relative size-20 md:size-30">
+          <Image
+            alt={logo.alt}
+            src={logo.src}
+            fill
+            className="object-contain grayscale dark:invert"
+          />
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export default About;
