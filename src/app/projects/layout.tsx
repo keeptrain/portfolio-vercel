@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+import NavBar from "@/components/NavBar";
 
 export default function ProjectsLayout({
   children,
@@ -7,7 +7,7 @@ export default function ProjectsLayout({
 }) {
   return (
     <>
-      <Header />
+      <NavBar />
       {children}
     </>
   );
