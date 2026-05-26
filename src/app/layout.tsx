@@ -1,16 +1,9 @@
 import type { Metadata } from "next";
-import { Inter, Montserrat } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import "@/app/globals.css";
-import Header from "@/components/Header";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
+import Footer from "@/components/Footer";
 const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
@@ -21,7 +14,7 @@ export const metadata: Metadata = {
   title: "KeepTrain",
   description: "A modern, minimalist portfolio showcasing my work and skills.",
   keywords: "portfolio junior developer",
-  authors: [{ name: "Gilang" }],
+  authors: { name: "Gilang" },
   creator: "Gilang",
   openGraph: {
     title: "Portfolio | Gilang",
@@ -48,14 +41,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="antialiased">
+    <html lang="en">
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+          name="viewport"
+          charSet="UTF-8"
+          content="width=device-width, initial-scale=1.0"
+        />
         <title>KeepDev</title>
       </head>
-      <body className={`${montserrat.className} bg-zinc-50 dark:bg-[#080808]`}>
+      <body className={`${montserrat.className} bg-primary`}>
         <ThemeProvider>
-          <LanguageProvider>{children}</LanguageProvider>
+          <LanguageProvider>
+            <main>{children}</main>
+            <Footer />
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>
