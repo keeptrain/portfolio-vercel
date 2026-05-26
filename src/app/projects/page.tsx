@@ -1,9 +1,8 @@
 "use client";
-import Link from "next/link";
+
 import SectionContainer from "@/components/_/SectionContainer";
+import ProjectAdapter from "@/components/shared/ProjectAdapter";
 import React, { useState } from "react";
-import { ProjectAdapter } from "@/components/ProjectsBlogs";
-import { ArrowsUpDown } from "@/components/icons/HeroIcons";
 
 export default function ProjectsPage() {
   type ProjectAdapterProps = {
@@ -64,7 +63,7 @@ export default function ProjectsPage() {
               >
                 Latest
               </p>
-              {/*<ArrowsUpDown color={""}/>*/}
+              {/*<ArrowsUpDown color={""}/>*/}å
             </span>
           </h1>
           {projectData.map((project: ProjectAdapterProps, index) => (

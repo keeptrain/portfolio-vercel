@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const Projects = () => {
+export default function Projects() {
   const { t } = useLanguage();
 
   const projects = [
@@ -52,7 +52,7 @@ const Projects = () => {
               key={project.id}
               className="card group overflow-hidden rounded-xl shadow-sm transition-shadow duration-300 hover:shadow-lg"
             >
-              <div className="flex h-48 items-center justify-center bg-linear-to-br from-primary-100 to-primary-200 text-6xl dark:from-primary-900/20 dark:to-primary-800/20">
+              <div className="from-primary-100 to-primary-200 dark:from-primary-900/20 dark:to-primary-800/20 flex h-48 items-center justify-center bg-linear-to-br text-6xl">
                 {project.image}
               </div>
 
@@ -79,7 +79,7 @@ const Projects = () => {
                 <div className="flex gap-4">
                   <Link
                     href={project.github}
-                    className="flex items-center gap-2 text-gray-600 transition-colors hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400"
+                    className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-2 text-gray-600 transition-colors dark:text-gray-400"
                   >
                     <svg
                       className="h-5 w-5"
@@ -93,7 +93,7 @@ const Projects = () => {
 
                   <Link
                     href={project.demo}
-                    className="flex items-center gap-2 text-gray-600 transition-colors hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400"
+                    className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-2 text-gray-600 transition-colors dark:text-gray-400"
                   >
                     <svg
                       className="h-5 w-5"
@@ -118,6 +118,4 @@ const Projects = () => {
       </div>
     </section>
   );
-};
-
-export default Projects;
+}
