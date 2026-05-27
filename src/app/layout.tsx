@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Montserrat, Inter } from "next/font/google";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import "@/app/globals.css";
 import Footer from "@/components/Footer";
+import { cn } from "@/lib/utils";
+
+const inter = Inter({subsets:['latin'],variable:'--font-sans'});
+
 const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
@@ -41,7 +45,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={cn(montserrat.className, "font-sans", inter.variable)}>
       <head>
         <meta
           name="viewport"
@@ -50,7 +54,7 @@ export default function RootLayout({
         />
         <title>KeepDev</title>
       </head>
-      <body className={`${montserrat.className} bg-primary`}>
+      <body className={`${montserrat.className}`}>
         <ThemeProvider>
           <LanguageProvider>
             <main>{children}</main>
