@@ -19,7 +19,7 @@ const Footer = () => {
     <footer id="footer" className="dark:bg-black">
       {/*Contact Section*/}
       <div className="relative mx-4 h-50 md:mx-0 md:h-30">
-        <div className="absolute top-1/2 left-1/2 flex h-30 w-full -translate-x-1/2 -translate-y-1/2 justify-between gap-12 space-y-2 rounded-2xl border border-gray-200 bg-white px-6 shadow-sm shadow-blue-old/30 md:w-1/2 md:-translate-y-[25%] md:p-12 md:shadow-md dark:border-none dark:bg-black dark:shadow-blue-old">
+        <div className="absolute top-1/2 left-1/2 flex h-30 w-full -translate-x-1/2 -translate-y-1/2 justify-between gap-12 space-y-2 rounded-2xl border border-gray-200 bg-white px-6 shadow-sm shadow-blue-old/30 md:w-1/2 md:translate-y-[-25%] md:p-12 md:shadow-md dark:border-none dark:bg-black dark:shadow-blue-old">
           <h2 className="flex items-center justify-center text-start font-serif text-sm text-blue-grey md:justify-start md:text-xl dark:text-blue-300/80 dark:shadow-blue-old">
             Got a question, or <br /> just want to say hello?
           </h2>
@@ -37,12 +37,12 @@ const Footer = () => {
 
       {/* Footer Section */}
       <div className="rounded-4xl bg-white p-2 shadow-[0_-1px_3px_rgba(0,0,0,0.08)] md:p-12 dark:bg-black dark:shadow-[0_-1px_3px_rgba(255,255,255,0.08)]">
-        <div className="mx-2 flex flex-col rounded-4xl border-1 border-gray-200 shadow-lg shadow-zinc-200/50 md:mx-14 md:flex-row md:justify-between dark:border-none dark:shadow-zinc-700">
+        <div className="mx-2 flex flex-col rounded-4xl border border-gray-200 shadow-lg shadow-zinc-200/50 md:mx-14 md:flex-row md:justify-between dark:border-none dark:shadow-zinc-700">
           <div className="flex flex-1 flex-col px-6 py-6 md:px-8">
             <div className="flex items-baseline justify-between">
               <div className="font-serif text-sm tracking-widest text-black md:text-lg dark:text-white">
                 <span className="gap-2 text-black dark:text-white">
-                  &copy; 2025 <br />
+                  &copy; 2026 <br />
                 </span>
                 Based in Jakarta,
                 <span className="flex items-start gap-2">Indonesia</span>
@@ -61,7 +61,7 @@ const Footer = () => {
             </div>
             <div className="relative flex h-10 items-center justify-center">
               {/* Left border */}
-              <div className="flex-grow border-b border-black/10 dark:border-white/30" />
+              <div className="grow border-b border-black/10 dark:border-white/30" />
 
               {/* Center signature */}
               <div className="relative mx-4 h-1/2 w-15 md:h-full md:w-24">
@@ -74,7 +74,7 @@ const Footer = () => {
               </div>
 
               {/* Right border */}
-              <div className="flex-grow border-b border-black/10 dark:border-white/30" />
+              <div className="grow border-b border-black/10 dark:border-white/30" />
             </div>
             <div className="grid grid-cols-2">
               <div className="flex font-serif tracking-widest text-black dark:text-white">
