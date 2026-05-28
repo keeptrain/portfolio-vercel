@@ -29,10 +29,7 @@ const projectData: ProjectItem[] = [
 
 const IBuildStuff = () => {
   return (
-    <section
-      id="projects-blogs"
-      className="mt-12 bg-zinc-50 md:mt-0 md:min-h-screen dark:bg-black"
-    >
+    <section id="projects-blogs" className="mt-12 md:mt-0 md:min-h-screen">
       <SectionContainer>
         <div className="flex items-center md:h-screen">
           <div className="w-full space-y-2 md:space-y-4">

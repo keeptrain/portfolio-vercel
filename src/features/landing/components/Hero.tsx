@@ -39,7 +39,7 @@ export default function Hero() {
               </div>
 
               <p className="text-md w-60 font-medium text-gray-900 sm:text-3xl md:w-full md:text-5xl dark:text-white/90">
-                Hi i&#39;m junior developer who like minimalist design
+                Hi i&#39;m a Software Engineer who loves clean and simple code.
               </p>
             </div>
 

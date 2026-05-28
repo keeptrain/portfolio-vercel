@@ -1,13 +1,10 @@
-"use client";
-
-import { useLanguage } from "@/contexts/LanguageContext";
 import SectionContainer from "@/components/_/SectionContainer";
 import Image from "next/image";
 import HowIWork from "./HowIWork";
 
 const About = () => {
   return (
-    <section id="about" className="bg-primary md:min-h-screen">
+    <section id="about" className="md:min-h-screen">
       <div className="grid grid-rows-1 gap-12 md:h-screen lg:grid-rows-2">
         <div className="col-span-1 mt-6 flex items-center md:mt-8">
           <SectionContainer>
