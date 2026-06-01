@@ -49,10 +49,6 @@ export default function ProjectsPage() {
             <h2>List of Projects</h2>
 
             <div className="flex gap-2">
-              {/*<Link href={`/`}>*/}
-              {/*  <span className="text-gray-400 hover:text-black">..</span>*/}
-              {/*</Link>*/}
-              {/*<span className="text-black dark:text-white">/ Projects</span>*/}
             </div>
             <span
               onClick={() => setIsLatest(!isLatest)}
@@ -63,7 +59,6 @@ export default function ProjectsPage() {
               >
                 Latest
               </p>
-              {/*<ArrowsUpDown color={""}/>*/}å
             </span>
           </h1>
           {projectData.map((project: ProjectAdapterProps, index) => (

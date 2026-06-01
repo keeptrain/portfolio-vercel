@@ -1,15 +1,17 @@
 import About from "./components/About";
-import NavBar from "@/components/NavBar";
 import Hero from "./components/Hero";
 import IBuildStuff from "./components/IBuildStuff";
 
-export default function LandingPage() {
+interface LandingPageProps {
+  locale: string;
+}
+
+export default function LandingPage({ locale }: LandingPageProps) {
   return (
     <>
-      <NavBar />
       <Hero />
       <About />
-      <IBuildStuff />
+      <IBuildStuff locale={locale} />
     </>
   );
 }

@@ -27,13 +27,17 @@ const projectData: ProjectItem[] = [
   },
 ];
 
-const IBuildStuff = () => {
+interface IBuildStuffProps {
+  locale: string;
+}
+
+const IBuildStuff = ({ locale }: IBuildStuffProps) => {
   return (
     <section id="projects-blogs" className="mt-12 md:mt-0 md:min-h-screen">
       <SectionContainer>
         <div className="flex items-center md:h-screen">
           <div className="w-full space-y-2 md:space-y-4">
-            <h1 className="font-medium-ex leading-tight text-black md:text-3xl dark:text-white">
+            <h1 className="font-medium-ex text-2xl leading-tight text-black md:text-3xl dark:text-white">
               I build &
               <br />
               design stuff
@@ -47,8 +51,7 @@ const IBuildStuff = () => {
             {projectData.map((project: ProjectItem, index) => (
               <div
                 key={index}
-                onClick={() => project.links}
-                className="flex flex-row border-b border-gray-300 py-2 text-black/60 opacity-95 transition-colors duration-300 hover:cursor-pointer hover:text-black hover:opacity-100 dark:border-zinc-700"
+                className="flex flex-row border-b border-gray-300 py-2 text-black/60 opacity-95 transition-colors duration-300 hover:text-black hover:opacity-100 dark:border-zinc-700"
               >
                 <ProjectAdapter
                   imageSrc={project.imageSrc}
@@ -60,7 +63,7 @@ const IBuildStuff = () => {
             ))}
             <div className="flex justify-center">
               <Link
-                href={"/projects"}
+                href={`/${locale}/projects`}
                 className="font-medium-ex rounded-4xl bg-white px-4 py-2 text-sm shadow-sm md:px-8 md:py-3 md:text-lg dark:bg-zinc-900 dark:text-white"
               >
                 View more

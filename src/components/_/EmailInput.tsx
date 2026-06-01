@@ -1,13 +1,11 @@
 "use client";
 
 import React from "react";
-import { useLanguage } from "@/contexts/LanguageContext";
 import InputUnderline from "@/components/ui/input/InputUnderline";
 import Image from "next/image";
 import MoreButton from "@/components/ui/button/MoreButton";
 
 export default function EmailInput() {
-  const { t } = useLanguage();
   const currentDate = new Date();
   const day = currentDate.getDate().toString().padStart(2, "0");
   const month = currentDate

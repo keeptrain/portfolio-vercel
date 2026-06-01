@@ -2,12 +2,29 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useLanguage } from "@/contexts/LanguageContext";
 
-const BlogHeader = () => {
+interface BlogHeaderProps {
+  locale: string;
+}
+
+const translations: Record<string, Record<string, string>> = {
+  en: {
+    "nav.about": "About",
+    "nav.contact": "Contact",
+  },
+  id: {
+    "nav.about": "Tentang",
+    "nav.contact": "Kontak",
+  },
+};
+
+function t(locale: string, key: string): string {
+  return translations[locale]?.[key] || key;
+}
+
+const BlogHeader = ({ locale }: BlogHeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,10 +36,10 @@ const BlogHeader = () => {
   }, []);
 
   const navItems = [
-    { href: "/", label: "Portfolio" },
-    { href: "/blog", label: "Blog" },
-    { href: "/#about", label: t("nav.about") },
-    { href: "/#contact", label: t("nav.contact") },
+    { href: `/${locale}`, label: "Portfolio" },
+    { href: `/${locale}/blog`, label: "Blog" },
+    { href: `/${locale}/#about`, label: t(locale, "nav.about") },
+    { href: `/${locale}/#contact`, label: t(locale, "nav.contact") },
   ];
 
   return (
@@ -36,7 +53,7 @@ const BlogHeader = () => {
       <nav className="container-max section-padding">
         <div className="flex h-16 items-center justify-between">
           <Link
-            href="/"
+            href={`/${locale}`}
             className="text-xl font-bold text-gray-900 transition-colors hover:text-primary-600 dark:text-gray-100 dark:hover:text-primary-400"
           >
             Portfolio

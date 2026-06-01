@@ -1,0 +1,74 @@
+{
+  "nav": {
+    "about": "Tentang",
+    "projects": "Proyek",
+    "contact": "Kontak"
+  },
+  "hero": {
+    "greeting": "Halo, saya",
+    "name": "Nama Anda",
+    "roleGreeting": "Saya seorang",
+    "role": "Junior Developer",
+    "description": "Seorang Full Stack Developer yang bersemangat menciptakan pengalaman digital yang indah, fungsional, dan berpusat pada pengguna.",
+    "viewWork": "Lihat Karya Saya",
+    "getInTouch": "Hubungi Saya"
+  },
+  "about": {
+    "title": "Tentang Saya",
+    "description1": "Saya adalah seorang full-stack developer yang bersemangat dengan pengalaman lebih dari 3 tahun dalam menciptakan solusi digital yang menggabungkan desain indah dengan fungsionalitas yang kuat. Saya suka mengubah masalah kompleks menjadi desain yang sederhana dan elegan.",
+    "description2": "Ketika tidak sedang coding, Anda dapat menemukan saya menjelajahi teknologi baru, berkontribusi pada proyek open-source, atau berbagi pengetahuan dengan komunitas developer."
+  },
+  "projects": {
+    "title": "Proyek Unggulan",
+    "ecommerce": {
+      "title": "Platform E-Commerce",
+      "description": "Solusi e-commerce full-stack yang dibangun dengan Next.js, menampilkan autentikasi pengguna, pemrosesan pembayaran, dan dashboard admin."
+    },
+    "taskmanager": {
+      "title": "Aplikasi Manajemen Tugas",
+      "description": "Aplikasi manajemen tugas kolaboratif dengan pembaruan real-time, fungsionalitas drag-and-drop, dan fitur kolaborasi tim."
+    },
+    "weather": {
+      "title": "Dashboard Cuaca",
+      "description": "Dashboard cuaca responsif yang menyediakan prakiraan detail, peta interaktif, dan peringatan cuaca berbasis lokasi."
+    },
+    "code": "Kode",
+    "demo": "Demo"
+  },
+  "contact": {
+    "title": "Hubungi Saya",
+    "subtitle": "Mari bekerja sama",
+    "description": "Saya selalu tertarik dengan peluang baru dan proyek yang menarik. Baik Anda memiliki pertanyaan atau hanya ingin menyapa, jangan ragu untuk menghubungi!",
+    "email": "Email",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "form": {
+      "name": "Nama",
+      "email": "Email",
+      "message": "Pesan",
+      "namePlaceholder": "Nama Anda",
+      "emailPlaceholder": "email.anda@example.com",
+      "messagePlaceholder": "Ceritakan tentang proyek Anda...",
+      "send": "Kirim Pesan"
+    }
+  },
+  "footer": {
+    "tagline": "Membangun masa depan, satu baris kode pada satu waktu.",
+    "copyright": "Hak cipta dilindungi."
+  },
+  "blog": {
+    "title": "Blog & Diary Harian",
+    "subtitle": "Berbagi pemikiran, pengalaman, dan pembelajaran saya sebagai developer.",
+    "searchPlaceholder": "Cari postingan...",
+    "clearFilters": "Hapus Filter",
+    "noPostsFound": "Tidak ada postingan ditemukan",
+    "noPostsDescription": "Coba sesuaikan kriteria pencarian atau filter Anda.",
+    "backToPortfolio": "Kembali ke Portfolio",
+    "readMore": "Baca selengkapnya",
+    "minRead": "menit baca",
+    "featured": "Unggulan",
+    "relatedPosts": "Postingan Terkait",
+    "sharePost": "Bagikan postingan ini:",
+    "backToBlog": "Kembali ke Blog"
+  }
+}

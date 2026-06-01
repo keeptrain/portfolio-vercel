@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { getPostBySlug, getRelatedPosts, formatDate } from "@/lib/blog";
 import { BlogPost } from "@/data/blogPosts";
 import BlogHeader from "@/components/blog/BlogHeader";
@@ -11,10 +10,11 @@ import MarkdownRenderer from "@/components/blog/MarkdownRenderer";
 
 interface BlogContentProps {
   slug: string;
+  locale: string;
 }
 
-const BlogContent = ({ slug }: BlogContentProps) => {
-  const { language } = useLanguage();
+const BlogContent = ({ slug, locale }: BlogContentProps) => {
+  const isEnglish = locale === "en";
   const [mounted, setMounted] = useState(false);
   const [post, setPost] = useState<BlogPost | null>(null);
   const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([]);
@@ -27,11 +27,11 @@ const BlogContent = ({ slug }: BlogContentProps) => {
   useEffect(() => {
     if (mounted && slug) {
       setIsLoading(true);
-      const foundPost = getPostBySlug(slug, language);
+      const foundPost = getPostBySlug(slug, locale as "en" | "id");
 
       if (foundPost) {
         setPost(foundPost);
-        const related = getRelatedPosts(foundPost, language, 3);
+        const related = getRelatedPosts(foundPost, locale as "en" | "id", 3);
         setRelatedPosts(related);
       } else {
         setPost(null);
@@ -40,7 +40,7 @@ const BlogContent = ({ slug }: BlogContentProps) => {
 
       setIsLoading(false);
     }
-  }, [mounted, slug, language]);
+  }, [mounted, slug, locale]);
 
   if (!mounted || isLoading) {
     return (
@@ -53,22 +53,20 @@ const BlogContent = ({ slug }: BlogContentProps) => {
   if (!post) {
     return (
       <div className="min-h-screen bg-white dark:bg-gray-900">
-        <BlogHeader />
+        <BlogHeader locale={locale} />
         <main className="container-max section-padding py-20">
           <div className="py-16 text-center">
-            <div className="mb-4 text-6xl">📝</div>
+            <div className="mb-4 text-6xl"></div>
             <h1 className="mb-4 text-3xl font-bold text-gray-900 dark:text-gray-100">
-              {language === "en"
-                ? "Post Not Found"
-                : "Postingan Tidak Ditemukan"}
+              {isEnglish ? "Post Not Found" : "Postingan Tidak Ditemukan"}
             </h1>
             <p className="mb-8 text-gray-600 dark:text-gray-400">
-              {language === "en"
+              {isEnglish
                 ? "The blog post you are looking for does not exist or has been moved."
                 : "Postingan blog yang Anda cari tidak ada atau telah dipindahkan."}
             </p>
-            <Link href="/blog" className="btn-primary">
-              {language === "en" ? "Back to Blog" : "Kembali ke Blog"}
+            <Link href={`/${locale}/blog`} className="btn-primary">
+              {isEnglish ? "Back to Blog" : "Kembali ke Blog"}
             </Link>
           </div>
         </main>
@@ -78,7 +76,7 @@ const BlogContent = ({ slug }: BlogContentProps) => {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
-      <BlogHeader />
+      <BlogHeader locale={locale} />
 
       <main className="container-max section-padding py-20">
         {/* Breadcrumb */}
@@ -86,7 +84,7 @@ const BlogContent = ({ slug }: BlogContentProps) => {
           <ol className="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
             <li>
               <Link
-                href="/"
+                href={`/${locale}`}
                 className="transition-colors hover:text-primary-600 dark:hover:text-primary-400"
               >
                 Portfolio
@@ -95,7 +93,7 @@ const BlogContent = ({ slug }: BlogContentProps) => {
             <li>/</li>
             <li>
               <Link
-                href="/blog"
+                href={`/${locale}/blog`}
                 className="transition-colors hover:text-primary-600 dark:hover:text-primary-400"
               >
                 Blog
@@ -114,7 +112,7 @@ const BlogContent = ({ slug }: BlogContentProps) => {
             {post.featured && (
               <div className="mb-4">
                 <span className="inline-flex items-center rounded-full bg-primary-100 px-3 py-1 text-sm font-medium text-primary-800 dark:bg-primary-900/20 dark:text-primary-300">
-                  {language === "en" ? "Featured Post" : "Postingan Unggulan"}
+                  {isEnglish ? "Featured Post" : "Postingan Unggulan"}
                 </span>
               </div>
             )}
@@ -138,7 +136,7 @@ const BlogContent = ({ slug }: BlogContentProps) => {
                     d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                   />
                 </svg>
-                {formatDate(post.date, language)}
+                {formatDate(post.date, locale as "en" | "id")}
               </time>
 
               <span className="flex items-center gap-2">
@@ -155,7 +153,7 @@ const BlogContent = ({ slug }: BlogContentProps) => {
                     d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                {post.readTime} {language === "en" ? "min read" : "menit baca"}
+                {post.readTime} {isEnglish ? "min read" : "menit baca"}
               </span>
             </div>
 
@@ -163,7 +161,7 @@ const BlogContent = ({ slug }: BlogContentProps) => {
               {post.tags.map((tag) => (
                 <Link
                   key={tag}
-                  href={`/blog?tag=${encodeURIComponent(tag)}`}
+                  href={`/${locale}/blog?tag=${encodeURIComponent(tag)}`}
                   className="rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-700 transition-colors hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
                 >
                   #{tag}
@@ -181,7 +179,7 @@ const BlogContent = ({ slug }: BlogContentProps) => {
           <footer className="border-t border-gray-200 pt-8 dark:border-gray-700">
             <div className="flex items-center justify-between">
               <Link
-                href="/blog"
+                href={`/${locale}/blog`}
                 className="inline-flex items-center gap-2 font-medium text-primary-600 transition-colors hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300"
               >
                 <svg
@@ -197,12 +195,12 @@ const BlogContent = ({ slug }: BlogContentProps) => {
                     d="M10 19l-7-7m0 0l7-7m-7 7h18"
                   />
                 </svg>
-                {language === "en" ? "Back to Blog" : "Kembali ke Blog"}
+                {isEnglish ? "Back to Blog" : "Kembali ke Blog"}
               </Link>
 
               <div className="flex items-center gap-4">
                 <span className="text-sm text-gray-600 dark:text-gray-400">
-                  {language === "en"
+                  {isEnglish
                     ? "Share this post:"
                     : "Bagikan postingan ini:"}
                 </span>
@@ -239,11 +237,11 @@ const BlogContent = ({ slug }: BlogContentProps) => {
         {relatedPosts.length > 0 && (
           <section className="mt-16">
             <h2 className="mb-8 text-2xl font-bold text-gray-900 dark:text-gray-100">
-              {language === "en" ? "Related Posts" : "Postingan Terkait"}
+              {isEnglish ? "Related Posts" : "Postingan Terkait"}
             </h2>
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {relatedPosts.map((relatedPost) => (
-                <BlogCard key={relatedPost.id} post={relatedPost} />
+                <BlogCard key={relatedPost.id} post={relatedPost} locale={locale} />
               ))}
             </div>
           </section>

@@ -15,19 +15,19 @@ import ThemeSwitcher from "@/components/ui/button/ThemeSwitcher";
 import { IndonesiaFlag } from "@/components/icons/FlagIcons";
 import OpenToWorkBadge from "@/components/_/OpenToWorkBadge";
 
-const ITEMS = [
-  { href: "#projects", label: "My Resume" },
-  { href: "#blogs", label: "Blogs" },
-  { href: "#contact", label: "Contact" },
+const getItems = (locale: string) => [
+  { href: `/${locale}/#projects`, label: "My Resume" },
+  { href: `/${locale}/#blogs`, label: "Blogs" },
+  { href: `/${locale}/#contact`, label: "Contact" },
 ];
 
 const CENTER_SECTIONS = ["about", "projects-blogs"];
 
 type HeaderPhase = "top" | "floating" | "hidden" | "peek";
 
-export default function NavBar() {
+export default function NavBar({ locale = "en" }: { locale?: string }) {
   const pathname = usePathname();
-  const isRootRoute = pathname === "/";
+  const isRootRoute = pathname === `/${locale}` || pathname === "/";
   const isMobile = useIsMobile();
 
   const [headerPhase, setHeaderPhase] = useState<HeaderPhase>("top");
@@ -167,9 +167,9 @@ export default function NavBar() {
     <>
       <header className={headerClassName}>
         <div className="relative mx-auto flex h-12 max-w-7xl items-center justify-between px-4 md:h-16 md:px-12">
-          <HeaderLogo isRootRoute={isRootRoute} />
+          <HeaderLogo locale={locale} isRootRoute={isRootRoute} />
 
-          {isRootRoute && <DesktopNavLinks getLinkClass={getLinkClass} />}
+          {isRootRoute && <DesktopNavLinks locale={locale} getLinkClass={getLinkClass} />}
 
           <div className="relative">
             <MenuToggleButton
@@ -181,7 +181,8 @@ export default function NavBar() {
             <DesktopDropdown
               ref={dropRef}
               isOpen={!isMobile && isMenuOpen}
-              items={ITEMS}
+              items={getItems(locale)}
+              locale={locale}
               onClose={closeMenu}
             />
           </div>
@@ -191,7 +192,8 @@ export default function NavBar() {
       <MobileOverlay
         isOpen={isMobile && isMenuOpen}
         isFloating={isFloating}
-        items={ITEMS}
+        items={getItems(locale)}
+        locale={locale}
         onClose={closeMenu}
       />
     </>
@@ -214,7 +216,7 @@ function buildHeaderClass(phase: HeaderPhase): string {
       : "mx-4 rounded-4xl shadow-sm shadow-black/5 md:mx-12 lg:mx-28 dark:shadow-none";
 
   return [
-    "fixed top-0 right-0 z-11 md:inset-x-0",
+    "fixed top-0 right-0 z-10 md:inset-x-0",
     "bg-white/30 backdrop-blur-md dark:bg-zinc-950/30",
     "header-transition",
     anim,
@@ -234,11 +236,11 @@ function computeLinkClass(id: string, active: string): string {
 }
 
 /* ── Logo / breadcrumb ── */
-function HeaderLogo({ isRootRoute }: { isRootRoute: boolean }) {
+function HeaderLogo({ locale, isRootRoute }: { locale: string; isRootRoute: boolean }) {
   if (!isRootRoute) {
     return (
       <span className="font-medium-ex flex items-center gap-4 text-lg">
-        <Link href="/">
+        <Link href={`/${locale}`}>
           <span className="text-gray-400 hover:text-black">..</span>
         </Link>
         <span className="text-black dark:text-white">/ Projects</span>
@@ -247,7 +249,7 @@ function HeaderLogo({ isRootRoute }: { isRootRoute: boolean }) {
   }
 
   return (
-    <div className="relative hidden h-6 w-12 md:block md:h-10 md:w-100">
+    <div className="relative hidden h-6 w-12 md:block md:h-10 md:w-96">
       <OpenToWorkBadge />
     </div>
   );
@@ -255,16 +257,18 @@ function HeaderLogo({ isRootRoute }: { isRootRoute: boolean }) {
 
 /* ── Desktop inline nav links ── */
 function DesktopNavLinks({
+  locale,
   getLinkClass,
 }: {
+  locale: string;
   getLinkClass: (id: string) => string;
 }) {
   return (
     <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-6 md:flex">
-      <Link href="#about" className={getLinkClass("about")}>
+      <Link href={`/${locale}/#about`} className={getLinkClass("about")}>
         About
       </Link>
-      <Link href="#projects-blogs" className={getLinkClass("projects-blogs")}>
+      <Link href={`/${locale}/#projects-blogs`} className={getLinkClass("projects-blogs")}>
         My Projects
       </Link>
     </div>
@@ -299,15 +303,16 @@ const DesktopDropdown = React.forwardRef<
   HTMLDivElement,
   {
     isOpen: boolean;
-    items: typeof ITEMS;
+    items: ReturnType<typeof getItems>;
+    locale: string;
     onClose: () => void;
   }
->(function DesktopDropdown({ isOpen, items, onClose }, ref) {
+>(function DesktopDropdown({ isOpen, items, locale, onClose }, ref) {
   return (
     <div
       id="menu"
       ref={ref}
-      className={`dark:border-chartreuse/25 absolute top-0 right-0 z-60 w-72 origin-top-right border border-gray-200 bg-white transition-all duration-200 dark:bg-black ${
+      className={`dark:border-chartreuse/25 absolute top-0 right-0 z-50 w-72 origin-top-right border border-gray-200 bg-white transition-all duration-200 dark:bg-black ${
         isOpen
           ? "scale-100 opacity-100"
           : "pointer-events-none scale-95 opacity-0"
@@ -344,16 +349,18 @@ function MobileOverlay({
   isOpen,
   isFloating,
   items,
+  locale,
   onClose,
 }: {
   isOpen: boolean;
   isFloating: boolean;
-  items: typeof ITEMS;
+  items: ReturnType<typeof getItems>;
+  locale: string;
   onClose: () => void;
 }) {
   return (
     <div
-      className={`fixed inset-0 z-55 transition-opacity duration-200 md:hidden ${
+      className={`fixed inset-0 z-50 transition-opacity duration-200 md:hidden ${
         isOpen
           ? "pointer-events-auto opacity-100"
           : "pointer-events-none opacity-0"
@@ -369,7 +376,7 @@ function MobileOverlay({
       >
         <button
           onClick={onClose}
-          className="p-2 text-gray-800 dark:text-gray-200"
+          className="flex items-center justify-center rounded-lg p-3 text-gray-800 dark:text-gray-200"
           aria-label="Close menu"
         >
           <XMark color="text-black dark:text-white" />
@@ -383,7 +390,7 @@ function MobileOverlay({
             key={it.href}
             href={it.href}
             onClick={onClose}
-            className="text-2xl font-bold text-gray-900 hover:text-sky-600 dark:text-white dark:hover:text-sky-300"
+            className="rounded-lg px-4 py-3 text-2xl font-bold text-gray-900 hover:text-sky-600 dark:text-white dark:hover:text-sky-300"
           >
             {it.label}
           </Link>

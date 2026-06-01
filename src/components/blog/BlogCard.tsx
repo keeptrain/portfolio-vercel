@@ -1,16 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { BlogPost } from "@/data/blogPosts";
 import { formatDate } from "@/lib/blog";
 
 interface BlogCardProps {
   post: BlogPost;
+  locale: string;
 }
 
-const BlogCard = ({ post }: BlogCardProps) => {
-  const { language } = useLanguage();
+const BlogCard = ({ post, locale }: BlogCardProps) => {
+  const isEnglish = locale === "en";
 
   return (
     <article className="card group overflow-hidden rounded-xl shadow-sm transition-all duration-300 hover:shadow-lg">
@@ -19,23 +19,23 @@ const BlogCard = ({ post }: BlogCardProps) => {
         {post.featured && (
           <div className="mb-4">
             <span className="inline-flex items-center rounded-full bg-primary-100 px-2.5 py-0.5 text-xs font-medium text-primary-800 dark:bg-primary-900/20 dark:text-primary-300">
-              {language === "en" ? "Featured" : "Unggulan"}
+              {isEnglish ? "Featured" : "Unggulan"}
             </span>
           </div>
         )}
 
         {/* Post meta */}
         <div className="mb-3 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
-          <time dateTime={post.date}>{formatDate(post.date, language)}</time>
+          <time dateTime={post.date}>{formatDate(post.date, locale as "en" | "id")}</time>
           <span>•</span>
           <span>
-            {post.readTime} {language === "en" ? "min read" : "menit baca"}
+            {post.readTime} {isEnglish ? "min read" : "menit baca"}
           </span>
         </div>
 
         {/* Title */}
         <h2 className="mb-3 text-xl font-bold text-gray-900 transition-colors group-hover:text-primary-600 dark:text-gray-100 dark:group-hover:text-primary-400">
-          <Link href={`/blog/${post.id}`}>{post.title}</Link>
+          <Link href={`/${locale}/blog/${post.id}`}>{post.title}</Link>
         </h2>
 
         {/* Excerpt */}
@@ -55,17 +55,17 @@ const BlogCard = ({ post }: BlogCardProps) => {
           ))}
           {post.tags.length > 3 && (
             <span className="px-2 py-1 text-sm text-gray-500 dark:text-gray-400">
-              +{post.tags.length - 3} {language === "en" ? "more" : "lagi"}
+              +{post.tags.length - 3} {isEnglish ? "more" : "lagi"}
             </span>
           )}
         </div>
 
         {/* Read more link */}
         <Link
-          href={`/blog/${post.id}`}
+          href={`/${locale}/blog/${post.id}`}
           className="group inline-flex items-center gap-2 font-medium text-primary-600 transition-colors hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300"
         >
-          {language === "en" ? "Read more" : "Baca selengkapnya"}
+          {isEnglish ? "Read more" : "Baca selengkapnya"}
           <svg
             className="h-4 w-4 transition-transform group-hover:translate-x-1"
             fill="none"
