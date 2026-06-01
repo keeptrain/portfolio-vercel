@@ -2,13 +2,13 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@10.23.0",
   "scripts": {
-    "clean": "rm -rf .next",
-    "dev": "rm -rf .next && next dev --turbopack",
-    "build": "next build",
+    "predev": "rm -rf .next",
+    "dev": "next dev",
     "start": "next start",
-    "lint": "next lint"
+    "build": "next build",
+    "lint": "next lint",
+    "clean": "rm -rf .next"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
