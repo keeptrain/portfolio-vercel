@@ -26,19 +26,19 @@ export default function Hero() {
                 <OpenToWorkBadge />
                 <Link
                   href={"/contact"}
-                  className="md:text-md inline-flex items-center gap-2 rounded-3xl border border-gray-300 bg-white px-4 py-2 text-xs font-medium text-black dark:border-zinc-800 dark:bg-zinc-900 dark:text-white/80"
+                  className="inline-flex items-center gap-2 rounded-3xl border border-gray-300 bg-white px-4 py-2 text-xs font-medium text-black dark:border-zinc-800 dark:bg-zinc-900 dark:text-white/80"
                 >
                   <PaperAirplane color={""} /> Reach out
                 </Link>
                 <Link
                   href={"/contact"}
-                  className="md:text-md inline-flex items-center gap-2 rounded-3xl border border-gray-300 bg-white px-4 py-2 text-xs font-medium text-black dark:border-zinc-800 dark:bg-zinc-900 dark:text-white/80"
+                  className="inline-flex items-center gap-2 rounded-3xl border border-gray-300 bg-white px-4 py-2 text-xs font-medium text-black dark:border-zinc-800 dark:bg-zinc-900 dark:text-white/80"
                 >
                   <DocumentText color={""} /> Resume
                 </Link>
               </div>
 
-              <p className="text-md w-60 font-medium text-gray-900 sm:text-3xl md:w-full md:text-5xl dark:text-white/90">
+              <p className="w-full break-words text-xl font-medium text-gray-900 sm:text-3xl md:text-5xl dark:text-white/90">
                 Hi i&#39;m a Software Engineer who loves clean and simple code.
               </p>
             </div>
@@ -57,7 +57,7 @@ export default function Hero() {
           {/* Second row */}
           <div className="flex flex-col justify-center pb-10 text-black md:items-center md:pb-6 dark:text-white">
             <div className="flex flex-row gap-1 md:gap-2">
-              <h1 className="font-medium-ex text-md md:text-2xl">
+              <h1 className="font-medium-ex text-lg md:text-2xl">
                 Less is More
               </h1>
               <MultiStarts color={""} />

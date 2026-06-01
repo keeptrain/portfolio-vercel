@@ -31,6 +31,9 @@
     @apply antialiased font-sans;
     scroll-behavior: smooth;
   }
+  body {
+    overflow-x: hidden;
+  }
   * {
     @apply border-border outline-ring/50;
   }

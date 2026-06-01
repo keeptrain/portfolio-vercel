@@ -55,7 +55,7 @@ export default function HowIWork() {
           >
             <Card className="relative h-full min-h-[200px] rounded-2xl border border-gray-300 p-4 shadow-none ring-0 dark:border-white/30 md:min-h-[240px] md:p-6">
               <CardHeader className="p-0">
-                <CardTitle className="text-md mb-2 font-medium text-black md:text-2xl dark:text-white">
+                <CardTitle className="text-lg mb-2 font-medium text-black md:text-2xl dark:text-white">
                   {item.title}
                 </CardTitle>
               </CardHeader>
