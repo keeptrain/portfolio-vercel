@@ -1,7 +1,9 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { locales, Locale, defaultLocale } from "@/i18n/locales";
+import { locales, Locale } from "@/i18n/locales";
 import { getTranslations } from "@/i18n/getTranslations";
+import { loadMessages } from "@/i18n/loadMessages";
+import { TranslationProvider } from "@/i18n/TranslationContext";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import LocaleHtmlLang from "@/components/LocaleHtmlLang";
@@ -12,7 +14,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations(locale);
+  const t = getTranslations(locale);
 
   return {
     title: "KeepTrain",
@@ -54,12 +56,14 @@ export default async function LocaleLayout({
     notFound();
   }
 
+  const messages = loadMessages(locale);
+
   return (
-    <>
+    <TranslationProvider messages={messages} locale={locale}>
       <LocaleHtmlLang locale={locale} />
       <NavBar locale={locale} />
       {children}
       <Footer />
-    </>
+    </TranslationProvider>
   );
 }

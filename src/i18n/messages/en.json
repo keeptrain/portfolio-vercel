@@ -2,73 +2,41 @@
   "nav": {
     "about": "About",
     "projects": "Projects",
-    "contact": "Contact"
+    "contact": "Contact",
+    "myProjects": "My Projects",
+    "myResume": "My Resume",
+    "blogs": "Blogs"
   },
   "hero": {
-    "greeting": "Hi, I'm",
-    "name": "Chef Gilang",
-    "roleGreeting": "I'am a",
-    "role": "Junior Developer",
-    "description": "Iam a passionate Junior Developer creating beautiful, functional, and user-centered digital experiences.",
-    "viewWork": "View My Work",
-    "getInTouch": "Get In Touch"
+    "headline": "Hi I'm a Software Engineer who loves clean and simple code.",
+    "reachOut": "Reach out",
+    "resume": "Resume",
+    "lessIsMore": "Less is More"
   },
   "about": {
-    "title": "About Me",
-    "description1": "I'm a passionate full-stack developer with over 3 years of experience creating digital solutions that combine beautiful design with robust functionality. I love turning complex problems into simple, elegant designs.",
-    "description2": "When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community."
+    "title": "Experience",
+    "description": "I've spent the last {duration} actively contributing as a Junior Developer in a fast-paced setting. I have a proven ability to quickly learn and apply new skills, and my work on various projects reflects my dedication to continuous improvement and delivering value.",
+    "howIWork": "How I Work"
   },
   "projects": {
-    "title": "Featured Projects",
-    "ecommerce": {
-      "title": "E-Commerce Platform",
-      "description": "A full-stack e-commerce solution built with Next.js, featuring user authentication, payment processing, and admin dashboard."
-    },
-    "taskmanager": {
-      "title": "Task Management App",
-      "description": "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features."
-    },
-    "weather": {
-      "title": "Weather Dashboard",
-      "description": "A responsive weather dashboard that provides detailed forecasts, interactive maps, and location-based weather alerts."
-    },
-    "code": "Code",
-    "demo": "Demo"
-  },
-  "contact": {
-    "title": "Get In Touch",
-    "subtitle": "Email me and lets work together",
-    "description": "I'm always interested in new opportunities and exciting projects. Whether you have a question or just want to say hi, feel free to reach out!",
-    "email": "Email",
-    "github": "GitHub",
-    "linkedin": "LinkedIn",
-    "form": {
-      "name": "Name",
-      "email": "Email",
-      "message": "Message",
-      "namePlaceholder": "Gilang",
-      "emailPlaceholder": "your.email@example.com",
-      "messagePlaceholder": "Tell me about your project...",
-      "send": "Send Message"
-    }
+    "title": "I build &",
+    "subtitle": "design stuff",
+    "description": "Open source projects, web apps and experimentals.",
+    "viewMore": "View more",
+    "latest": "Latest"
   },
   "footer": {
-    "tagline": "Building the future, one line of code at a time.",
-    "copyright": "All rights reserved."
+    "contactCta": "Got a question, or just want to say hello?",
+    "sendMessage": "Send me a message!",
+    "backToTop": "Back to Top",
+    "basedIn": "Based in Jakarta, Indonesia",
+    "iconsBy": "Icons by"
   },
   "blog": {
     "title": "Blog & Daily Diary",
     "subtitle": "Sharing my thoughts, experiences, and learnings as a developer.",
-    "searchPlaceholder": "Search posts...",
-    "clearFilters": "Clear Filters",
-    "noPostsFound": "No posts found",
-    "noPostsDescription": "Try adjusting your search or filter criteria.",
-    "backToPortfolio": "Back to Portfolio",
     "readMore": "Read more",
-    "minRead": "min read",
-    "featured": "Featured",
-    "relatedPosts": "Related Posts",
-    "sharePost": "Share this post:",
+    "backToPortfolio": "Back to Portfolio",
     "backToBlog": "Back to Blog"
   }
 }

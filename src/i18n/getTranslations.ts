@@ -1,11 +1,15 @@
 import type { Locale } from "./locales";
+import en from "./messages/en.json";
+import id from "./messages/id.json";
 
-export async function getTranslations(locale: Locale) {
-  const messages: Record<string, unknown> = await import(`./messages/${locale}.json`);
+const messagesMap: Record<string, Record<string, unknown>> = { en, id };
+
+export function getTranslations(locale: Locale) {
+  const messages = messagesMap[locale] || messagesMap.en;
 
   return function t(key: string): string {
     const parts = key.split(".");
-    let current: unknown = messages.default || messages;
+    let current: unknown = messages;
 
     for (const part of parts) {
       if (typeof current === "object" && current !== null) {
