@@ -11,24 +11,27 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useIsMobile } from "@/hooks/useIsMobile";
 import { Bars3BottomRight, XMark } from "@/components/icons/HeroIcons";
-import ThemeSwitcher from "@/components/ui/button/ThemeSwitcher";
-import { IndonesiaFlag } from "@/components/icons/FlagIcons";
 import OpenToWorkBadge from "@/components/_/OpenToWorkBadge";
-
-const getItems = (locale: string) => [
-  { href: `/${locale}/#projects`, label: "My Resume" },
-  { href: `/${locale}/#blogs`, label: "Blogs" },
-  { href: `/${locale}/#contact`, label: "Contact" },
-];
+import { useTranslations } from "@/i18n/TranslationContext";
 
 const CENTER_SECTIONS = ["about", "projects-blogs"];
 
 type HeaderPhase = "top" | "floating" | "hidden" | "peek";
 
 export default function NavBar({ locale = "en" }: { locale?: string }) {
+  const { t } = useTranslations();
   const pathname = usePathname();
   const isRootRoute = pathname === `/${locale}` || pathname === "/";
   const isMobile = useIsMobile();
+
+  const items = useMemo(
+    () => [
+      { href: `/${locale}/#projects`, label: t("nav.myResume") },
+      { href: `/${locale}/#blogs`, label: t("nav.blogs") },
+      { href: `/${locale}/#contact`, label: t("nav.contact") },
+    ],
+    [locale, t],
+  );
 
   const [headerPhase, setHeaderPhase] = useState<HeaderPhase>("top");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -169,22 +172,30 @@ export default function NavBar({ locale = "en" }: { locale?: string }) {
         <div className="relative mx-auto flex h-12 max-w-7xl items-center justify-between px-4 md:h-16 md:px-12">
           <HeaderLogo locale={locale} isRootRoute={isRootRoute} />
 
-          {isRootRoute && <DesktopNavLinks locale={locale} getLinkClass={getLinkClass} />}
-
-          <div className="relative">
-            <MenuToggleButton
-              ref={btnRef}
-              isOpen={isMenuOpen}
-              onClick={toggleMenu}
-            />
-
-            <DesktopDropdown
-              ref={dropRef}
-              isOpen={!isMobile && isMenuOpen}
-              items={getItems(locale)}
+          {isRootRoute && (
+            <DesktopNavLinks
               locale={locale}
-              onClose={closeMenu}
+              getLinkClass={getLinkClass}
+              t={t}
             />
+          )}
+
+          <div className="flex items-center gap-2">
+            <div className="relative">
+              <MenuToggleButton
+                ref={btnRef}
+                isOpen={isMenuOpen}
+                onClick={toggleMenu}
+              />
+
+              <DesktopDropdown
+                ref={dropRef}
+                isOpen={!isMobile && isMenuOpen}
+                items={items}
+                locale={locale}
+                onClose={closeMenu}
+              />
+            </div>
           </div>
         </div>
       </header>
@@ -192,7 +203,7 @@ export default function NavBar({ locale = "en" }: { locale?: string }) {
       <MobileOverlay
         isOpen={isMobile && isMenuOpen}
         isFloating={isFloating}
-        items={getItems(locale)}
+        items={items}
         locale={locale}
         onClose={closeMenu}
       />
@@ -236,7 +247,13 @@ function computeLinkClass(id: string, active: string): string {
 }
 
 /* ── Logo / breadcrumb ── */
-function HeaderLogo({ locale, isRootRoute }: { locale: string; isRootRoute: boolean }) {
+function HeaderLogo({
+  locale,
+  isRootRoute,
+}: {
+  locale: string;
+  isRootRoute: boolean;
+}) {
   if (!isRootRoute) {
     return (
       <span className="font-medium-ex flex items-center gap-4 text-lg">
@@ -259,17 +276,22 @@ function HeaderLogo({ locale, isRootRoute }: { locale: string; isRootRoute: bool
 function DesktopNavLinks({
   locale,
   getLinkClass,
+  t,
 }: {
   locale: string;
   getLinkClass: (id: string) => string;
+  t: (key: string) => string;
 }) {
   return (
     <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-6 md:flex">
       <Link href={`/${locale}/#about`} className={getLinkClass("about")}>
-        About
+        {t("nav.about")}
       </Link>
-      <Link href={`/${locale}/#projects-blogs`} className={getLinkClass("projects-blogs")}>
-        My Projects
+      <Link
+        href={`/${locale}/#projects-blogs`}
+        className={getLinkClass("projects-blogs")}
+      >
+        {t("nav.myProjects")}
       </Link>
     </div>
   );
@@ -303,7 +325,7 @@ const DesktopDropdown = React.forwardRef<
   HTMLDivElement,
   {
     isOpen: boolean;
-    items: ReturnType<typeof getItems>;
+    items: Array<{ href: string; label: string }>;
     locale: string;
     onClose: () => void;
   }
@@ -335,10 +357,6 @@ const DesktopDropdown = React.forwardRef<
             </Link>
           </li>
         ))}
-        <div className="mt-4 flex items-center justify-between">
-          <ThemeSwitcher />
-          <IndonesiaFlag color="" />
-        </div>
       </ul>
     </div>
   );
@@ -354,7 +372,7 @@ function MobileOverlay({
 }: {
   isOpen: boolean;
   isFloating: boolean;
-  items: ReturnType<typeof getItems>;
+  items: Array<{ href: string; label: string }>;
   locale: string;
   onClose: () => void;
 }) {
@@ -395,10 +413,6 @@ function MobileOverlay({
             {it.label}
           </Link>
         ))}
-        <IndonesiaFlag color="" />
-        <div className="mt-4 flex items-center justify-between gap-12">
-          <ThemeSwitcher />
-        </div>
       </nav>
     </div>
   );

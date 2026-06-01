@@ -8,8 +8,14 @@ import {
 } from "@/components/icons/HeroIcons";
 import { Underline } from "@/components/icons/HandyArrows";
 import Link from "next/link";
+import { Locale } from "@/i18n/locales";
 
-export default function Hero() {
+interface HeroProps {
+  t: (key: string) => string;
+  locale: Locale;
+}
+
+export default function Hero({ t, locale }: HeroProps) {
   return (
     <section
       id="hero"
@@ -25,21 +31,21 @@ export default function Hero() {
               <div className="flex flex-wrap items-center gap-2 md:hidden">
                 <OpenToWorkBadge />
                 <Link
-                  href={"/contact"}
+                  href={`/${locale}/contact`}
                   className="inline-flex items-center gap-2 rounded-3xl border border-gray-300 bg-white px-4 py-2 text-xs font-medium text-black dark:border-zinc-800 dark:bg-zinc-900 dark:text-white/80"
                 >
-                  <PaperAirplane color={""} /> Reach out
+                  <PaperAirplane color={""} /> {t("hero.reachOut")}
                 </Link>
                 <Link
-                  href={"/contact"}
+                  href={`/${locale}/contact`}
                   className="inline-flex items-center gap-2 rounded-3xl border border-gray-300 bg-white px-4 py-2 text-xs font-medium text-black dark:border-zinc-800 dark:bg-zinc-900 dark:text-white/80"
                 >
-                  <DocumentText color={""} /> Resume
+                  <DocumentText color={""} /> {t("hero.resume")}
                 </Link>
               </div>
 
               <p className="w-full break-words text-xl font-medium text-gray-900 sm:text-3xl md:text-5xl dark:text-white/90">
-                Hi i&#39;m a Software Engineer who loves clean and simple code.
+                {t("hero.headline")}
               </p>
             </div>
 
@@ -58,7 +64,7 @@ export default function Hero() {
           <div className="flex flex-col justify-center pb-10 text-black md:items-center md:pb-6 dark:text-white">
             <div className="flex flex-row gap-1 md:gap-2">
               <h1 className="font-medium-ex text-lg md:text-2xl">
-                Less is More
+                {t("hero.lessIsMore")}
               </h1>
               <MultiStarts color={""} />
             </div>

@@ -1,10 +1,17 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUp } from "@/components/icons/HeroIcons";
 import { ArrowUpRight } from "@/components/icons/HandyArrows";
+import ThemeSwitcher from "@/components/ui/button/ThemeSwitcher";
+import LanguageSwitcher from "@/components/ui/button/LanguageSwitcher";
+import { useTranslations } from "@/i18n/TranslationContext";
 
 const Footer = () => {
+  const { t } = useTranslations();
+
   const options: Intl.DateTimeFormatOptions = {
     hour: "numeric",
     minute: "numeric",
@@ -19,16 +26,16 @@ const Footer = () => {
     <footer id="footer" className="dark:bg-black">
       {/*Contact Section*/}
       <div className="relative mx-4 h-48 md:mx-0 md:h-32">
-        <div className="absolute top-1/2 left-1/2 flex h-28 w-full -translate-x-1/2 -translate-y-1/2 justify-between gap-4 space-y-2 rounded-2xl border border-gray-200 bg-white px-6 shadow-sm shadow-blue-old/30 md:w-1/2 md:gap-12 md:translate-y-[-25%] md:p-12 md:shadow-md dark:border-none dark:bg-black dark:shadow-blue-old">
-          <h2 className="flex items-center justify-center break-words text-start font-serif text-sm text-blue-grey md:justify-start md:text-xl dark:text-blue-300/80 dark:shadow-blue-old">
-            Got a question, or <br /> just want to say hello?
+        <div className="shadow-blue-old/30 dark:shadow-blue-old absolute top-1/2 left-1/2 flex h-28 w-full -translate-x-1/2 -translate-y-1/2 justify-between gap-4 space-y-2 rounded-2xl border border-gray-200 bg-white px-6 shadow-sm md:w-1/2 md:translate-y-[-25%] md:gap-12 md:p-12 md:shadow-md dark:border-none dark:bg-black">
+          <h2 className="text-blue-grey dark:shadow-blue-old flex items-center justify-center text-start font-serif text-sm break-words md:justify-start md:text-xl dark:text-blue-300/80">
+            {t("footer.contactCta")}
           </h2>
           <Link
             href={"/contact"}
-            className="font-medium-ex flex items-center justify-center rounded-lg px-4 py-3 text-center text-sm tracking-tight text-blue-old md:justify-start md:px-0 md:py-0 md:text-xl dark:text-blue-300/80"
+            className="font-medium-ex text-blue-old flex items-center justify-center rounded-lg px-4 py-3 text-center text-sm tracking-tight md:justify-start md:px-0 md:py-0 md:text-xl dark:text-blue-300/80"
           >
             <span className="hidden underline hover:decoration-wavy md:flex">
-              Send me a message!
+              {t("footer.sendMessage")}
             </span>
             <ArrowUpRight color={"text-blue-old"} />
           </Link>
@@ -44,9 +51,8 @@ const Footer = () => {
                 <span className="gap-2 text-black dark:text-white">
                   &copy; 2026 <br />
                 </span>
-                Based in Jakarta,
-                <span className="flex items-start gap-2">Indonesia</span>
-                {jakartaTime}
+                {t("footer.basedIn")}
+                <span className="flex items-start gap-2">{jakartaTime}</span>
               </div>
 
               <div className="flex gap-8">
@@ -54,7 +60,9 @@ const Footer = () => {
                   href={"#hero"}
                   className="flex items-center gap-2 rounded-lg px-3 py-2 font-serif text-sm text-zinc-700 hover:text-black md:px-0 md:py-0 md:text-lg dark:text-white dark:hover:text-white"
                 >
-                  <span className="hidden md:flex">Back to Top</span>
+                  <span className="hidden md:flex">
+                    {t("footer.backToTop")}
+                  </span>
                   <ArrowUp color={""} />
                 </a>
               </div>
@@ -80,20 +88,12 @@ const Footer = () => {
               <div className="flex font-serif tracking-widest text-black dark:text-white">
                 <SocialLink />
               </div>
-              <div className="hidden flex-col items-end justify-start text-xs font-light tracking-widest text-zinc-500 md:flex dark:text-white">
-                <p>
-                  Icons by
-                  <a
-                    href={"https://heroicons.com/"}
-                    className="font-semibold text-black"
-                  >
-                    {" "}
-                    Heroicons,
-                  </a>
-                  <a className="font-semibold text-black">Devicons,</a>
-                  <a className="font-semibold text-black">Flagicons</a>
-                </p>
-                {/*<p>Design by <a className="text-black font-semibold">me</a> </p>*/}
+              <div className="flex items-center justify-end text-xs font-light tracking-widest text-zinc-500 dark:text-white">
+                <div className="flex items-center gap-2 md:gap-6">
+                  <LanguageSwitcher />
+                  <div className="hidden h-6 w-px bg-black/10 md:block dark:bg-white/30" />
+                  <ThemeSwitcher />
+                </div>
               </div>
             </div>
           </div>
