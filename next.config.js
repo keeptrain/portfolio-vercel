@@ -7,16 +7,7 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   reactStrictMode: true,
-  // Disable webpack persistent cache in dev to prevent vendor-chunk corruption
-  // on fast refresh / incremental rebuild.
-  webpack(config, { isServer, dev }) {
-    if (dev) {
-      config.cache = {
-        type: "memory",
-      };
-    }
-    return config;
-  },
+  turbopack: {},
 };
 
 module.exports = nextConfig;
