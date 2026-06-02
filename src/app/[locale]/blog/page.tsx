@@ -5,10 +5,10 @@ import BlogCard from "@/components/blog/BlogCard";
 export default async function BlogPage({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const posts = getAllPosts(locale);
+  const posts = getAllPosts(locale as Locale);
 
   return (
     <main className="min-h-screen bg-white py-24 dark:bg-gray-900">
@@ -18,7 +18,7 @@ export default async function BlogPage({
         </h1>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((post) => (
-            <BlogCard key={post.id} post={post} locale={locale} />
+            <BlogCard key={post.id} post={post} locale={locale as Locale} />
           ))}
         </div>
       </div>

@@ -6,15 +6,16 @@ import { loadMessages } from "@/i18n/loadMessages";
 import { TranslationProvider } from "@/i18n/TranslationContext";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import BottomNav from "@/components/BottomNav";
 import LocaleHtmlLang from "@/components/LocaleHtmlLang";
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  const t = getTranslations(locale);
+  const t = getTranslations(locale as Locale);
 
   return {
     title: "KeepTrain",
@@ -48,22 +49,26 @@ export default async function LocaleLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
 
-  if (!locales.includes(locale)) {
+  if (!locales.includes(locale as Locale)) {
     notFound();
   }
 
-  const messages = loadMessages(locale);
+  const messages = loadMessages(locale as Locale);
 
   return (
     <TranslationProvider messages={messages} locale={locale}>
       <LocaleHtmlLang locale={locale} />
-      <NavBar locale={locale} />
+      <div className="hidden md:block">
+        <NavBar locale={locale} />
+      </div>
       {children}
       <Footer />
+      <div className="h-30 md:hidden" />
+      <BottomNav locale={locale as Locale} />
     </TranslationProvider>
   );
 }

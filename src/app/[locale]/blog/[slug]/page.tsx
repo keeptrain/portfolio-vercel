@@ -6,12 +6,12 @@ import BlogContent from "@/components/blog/BlogContent";
 export async function generateStaticParams({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: { locale: string; slug: string };
 }) {
-  const { locale } = await params;
+  const { locale } = params;
   const posts = (await import("@/data/blogPosts")).blogPosts;
   return posts.map((post) => ({
-    slug: post[locale].id,
+    slug: post[locale as Locale].id,
     locale,
   }));
 }
@@ -19,10 +19,10 @@ export async function generateStaticParams({
 export default async function BlogPostPage({
   params,
 }: {
-  params: Promise<{ locale: Locale; slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }) {
   const { locale, slug } = await params;
-  const post = getPostBySlug(slug, locale);
+  const post = getPostBySlug(slug, locale as Locale);
 
   if (!post) {
     notFound();

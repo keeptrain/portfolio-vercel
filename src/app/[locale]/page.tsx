@@ -4,8 +4,8 @@ import LandingPage from "@/features/landing/LandingPage";
 export default async function HomePage({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  return <LandingPage locale={locale} />;
+  return <LandingPage locale={locale as Locale} />;
 }
