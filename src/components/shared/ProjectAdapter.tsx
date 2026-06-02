@@ -19,6 +19,8 @@ export default function ProjectAdapter({
           alt="project thumbnail"
           src={imageSrc}
           fill
+          sizes="(max-width: 768px) 128px, 375px"
+          loading="eager"
           className="rounded-lg opacity-80 hover:opacity-100"
         />
       </div>

@@ -19,7 +19,7 @@ export default function Hero({ t, locale }: HeroProps) {
   return (
     <section
       id="hero"
-      className="pt-20 md:min-h-screen md:pt-10 dark:bg-[#080808]"
+      className="pt-5 md:min-h-screen md:pt-10 dark:bg-[#080808]"
     >
       <SectionContainer>
         <div className="grid grid-rows-[1fr,auto] md:h-screen">
@@ -44,7 +44,7 @@ export default function Hero({ t, locale }: HeroProps) {
                 </Link>
               </div>
 
-              <p className="w-full break-words text-xl font-medium text-gray-900 sm:text-3xl md:text-5xl dark:text-white/90">
+              <p className="w-full text-xl font-medium wrap-break-word text-gray-900 sm:text-3xl md:text-5xl dark:text-white/90">
                 {t("hero.headline")}
               </p>
             </div>

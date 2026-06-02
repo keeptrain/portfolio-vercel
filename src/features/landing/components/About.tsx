@@ -56,6 +56,7 @@ function TechStack() {
             alt={logo.alt}
             src={logo.src}
             fill
+            sizes="(max-width: 768px) 80px, 112px"
             className="object-contain grayscale dark:invert"
           />
         </div>

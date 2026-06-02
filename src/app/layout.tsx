@@ -29,6 +29,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={cn(montserrat.className, "font-sans", inter.variable)}
     >
       <head>
@@ -37,7 +38,7 @@ export default function RootLayout({
           charSet="UTF-8"
           content="width=device-width, initial-scale=1.0"
         />
-        <title>KeepDev</title>
+        <title>KeepTrain</title>
       </head>
       <body className={`${montserrat.className}`}>
         <ThemeProvider>{children}</ThemeProvider>

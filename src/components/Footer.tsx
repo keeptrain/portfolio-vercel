@@ -27,7 +27,7 @@ const Footer = () => {
       {/*Contact Section*/}
       <div className="relative mx-4 h-48 md:mx-0 md:h-32">
         <div className="shadow-blue-old/30 dark:shadow-blue-old absolute top-1/2 left-1/2 flex h-28 w-full -translate-x-1/2 -translate-y-1/2 justify-between gap-4 space-y-2 rounded-2xl border border-gray-200 bg-white px-6 shadow-sm md:w-1/2 md:translate-y-[-25%] md:gap-12 md:p-12 md:shadow-md dark:border-none dark:bg-black">
-          <h2 className="text-blue-grey dark:shadow-blue-old flex items-center justify-center text-start font-serif text-sm break-words md:justify-start md:text-xl dark:text-blue-300/80">
+          <h2 className="text-blue-grey dark:shadow-blue-old flex items-center justify-center text-start font-serif text-sm wrap-break-word md:justify-start md:text-xl dark:text-blue-300/80">
             {t("footer.contactCta")}
           </h2>
           <Link
