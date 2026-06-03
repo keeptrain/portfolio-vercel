@@ -19,6 +19,12 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "Gilang Portfolio",
+  },
 };
 
 export default function RootLayout({
@@ -41,7 +47,15 @@ export default function RootLayout({
         <title>KeepTrain</title>
       </head>
       <body className={`${montserrat.className}`}>
-        <ThemeProvider>{children}</ThemeProvider>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-black focus:px-4 focus:py-2 focus:text-white focus:shadow-lg dark:focus:bg-white dark:focus:text-black"
+        >
+          Skip to main content
+        </a>
+        <ThemeProvider>
+          <main id="main-content">{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   );
