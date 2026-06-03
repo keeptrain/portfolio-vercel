@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import InputUnderline from "@/components/ui/input/InputUnderline";
 import Image from "next/image";
 import MoreButton from "@/components/ui/button/MoreButton";
@@ -34,10 +33,10 @@ export default function EmailInput() {
       </div>
 
       <div className="col-span-2 grid-cols-2 gap-6 lg:grid">
-        <h1 className="font-medium-ex col-span-2 flex text-3xl text-blue-old">
+        <h1 className="font-medium-ex text-blue-old col-span-2 flex text-3xl">
           Send me a message!
         </h1>
-        <h2 className="col-span-2 text-xl text-blue-grey">
+        <h2 className="text-blue-grey col-span-2 text-xl">
           Got a question or proposal, or just want to say hello? Go aheads.
         </h2>
         <InputUnderline
@@ -67,7 +66,7 @@ export default function EmailInput() {
               Send
               <span className="ml-1 inline-block">&rarr;</span>
             </span>
-            <span className="absolute inset-0 -z-0 w-0 bg-blue-old transition-all duration-300 group-hover:w-full" />
+            <span className="bg-blue-old absolute inset-0 z-0 w-0 transition-all duration-300 group-hover:w-full" />
           </button>
         </div>
       </div>
