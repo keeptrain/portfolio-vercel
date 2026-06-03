@@ -39,5 +39,19 @@
     "readMore": "Read more",
     "backToPortfolio": "Back to Portfolio",
     "backToBlog": "Back to Blog"
+  },
+  "contact": {
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "selectSubject": "Select a subject",
+    "subjectProject": "Project Inquiry",
+    "subjectCollaboration": "Collaboration",
+    "subjectOther": "Other",
+    "message": "Message",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "success": "Message sent successfully! I'll get back to you soon.",
+    "error": "Failed to send message. Please try again."
   }
 }

@@ -39,5 +39,19 @@
     "readMore": "Baca selengkapnya",
     "backToPortfolio": "Kembali ke Portfolio",
     "backToBlog": "Kembali ke Blog"
+  },
+  "contact": {
+    "name": "Nama",
+    "email": "Email",
+    "subject": "Subjek",
+    "selectSubject": "Pilih subjek",
+    "subjectProject": "Pertanyaan Proyek",
+    "subjectCollaboration": "Kolaborasi",
+    "subjectOther": "Lainnya",
+    "message": "Pesan",
+    "send": "Kirim Pesan",
+    "sending": "Mengirim...",
+    "success": "Pesan berhasil dikirim! Saya akan segera membalas.",
+    "error": "Gagal mengirim pesan. Silakan coba lagi."
   }
 }
