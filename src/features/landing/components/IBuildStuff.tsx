@@ -1,6 +1,6 @@
 "use client";
 
-import SectionContainer from "@/components/_/SectionContainer";
+import { Container } from "@/components/ui/Container";
 import Link from "next/link";
 import ProjectAdapter from "@/components/shared/ProjectAdapter";
 import FilterLatestButton from "./button/FilterLatestButton";
@@ -37,25 +37,25 @@ const IBuildStuff = ({ locale }: IBuildStuffProps) => {
   const { t } = useTranslations();
 
   return (
-    <section id="projects-blogs" className="mt-12 md:mt-0 md:min-h-screen">
-      <SectionContainer>
-        <div className="flex items-center md:h-screen">
-          <div className="w-full space-y-2 md:space-y-4">
-            <h1 className="font-medium-ex text-2xl leading-tight text-black md:text-3xl dark:text-white">
-              {t("projects.title")}
-              <br />
-              {t("projects.subtitle")}
-            </h1>
-            <div className="flex flex-col space-y-2 md:flex-row md:justify-between">
-              <p className="text-sm text-black md:text-2xl dark:text-white/80">
-                {t("projects.description")}
-              </p>
-              <FilterLatestButton />
-            </div>
+    <section id="projects-blogs" className="py-16 sm:py-20 md:py-24 lg:py-32">
+      <Container>
+        <div className="w-full space-y-4 sm:space-y-6 md:space-y-8">
+          <h1 className="font-medium-ex text-2xl sm:text-3xl leading-tight text-black md:text-4xl dark:text-white">
+            {t("projects.title")}
+            <br />
+            {t("projects.subtitle")}
+          </h1>
+          <div className="flex flex-col space-y-2 sm:flex-row sm:justify-between">
+            <p className="text-sm sm:text-base text-black md:text-2xl dark:text-white/80">
+              {t("projects.description")}
+            </p>
+            <FilterLatestButton />
+          </div>
+          <div className="divide-y divide-gray-300 dark:divide-zinc-700">
             {projectData.map((project: ProjectItem, index) => (
               <div
                 key={index}
-                className="flex flex-row border-b border-gray-300 py-2 text-black/60 opacity-95 transition-colors duration-300 hover:text-black hover:opacity-100 dark:border-zinc-700"
+                className="flex flex-row py-3 sm:py-4 text-black/60 opacity-95 transition-colors duration-300 hover:text-black hover:opacity-100"
               >
                 <ProjectAdapter
                   imageSrc={project.imageSrc}
@@ -65,17 +65,17 @@ const IBuildStuff = ({ locale }: IBuildStuffProps) => {
                 />
               </div>
             ))}
-            <div className="flex justify-center">
-              <Link
-                href={`/${locale}/projects`}
-                className="font-medium-ex rounded-4xl bg-white px-4 py-2 text-sm shadow-sm md:px-8 md:py-3 md:text-lg dark:bg-zinc-900 dark:text-white"
-              >
-                {t("projects.viewMore")}
-              </Link>
-            </div>
+          </div>
+          <div className="flex justify-center">
+            <Link
+              href={`/${locale}/projects`}
+              className="font-medium-ex rounded-full bg-white px-5 py-2 text-sm sm:text-base shadow-sm md:px-8 md:py-3 md:text-lg dark:bg-zinc-900 dark:text-white"
+            >
+              {t("projects.viewMore")}
+            </Link>
           </div>
         </div>
-      </SectionContainer>
+      </Container>
     </section>
   );
 };

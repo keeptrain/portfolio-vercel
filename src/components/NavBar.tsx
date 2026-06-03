@@ -13,6 +13,8 @@ import { useIsMobile } from "@/hooks/useIsMobile";
 import { Bars3BottomRight, XMark } from "@/components/icons/HeroIcons";
 import OpenToWorkBadge from "@/components/_/OpenToWorkBadge";
 import { useTranslations } from "@/i18n/TranslationContext";
+import { cn } from "@/lib/utils";
+import { Container } from "@/components/ui/Container";
 
 const CENTER_SECTIONS = ["about", "projects-blogs"];
 
@@ -43,12 +45,10 @@ export default function NavBar({ locale = "en" }: { locale?: string }) {
   const btnRef = useRef<HTMLButtonElement>(null);
   const dropRef = useRef<HTMLDivElement>(null);
 
-  /* ── Sync ref ── */
   useEffect(() => {
     headerPhaseRef.current = headerPhase;
   }, [headerPhase]);
 
-  /* ── Scroll-driven header phase ── */
   useEffect(() => {
     const threshold = 10;
     const deadzone = 4;
@@ -92,7 +92,6 @@ export default function NavBar({ locale = "en" }: { locale?: string }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  /* ── Active section detection ── */
   useEffect(() => {
     if (!isRootRoute) return;
 
@@ -122,7 +121,6 @@ export default function NavBar({ locale = "en" }: { locale?: string }) {
     };
   }, [isRootRoute]);
 
-  /* ── Lock body scroll on mobile menu ── */
   useEffect(() => {
     const html = document.documentElement;
     if (isMobile && isMenuOpen) html.style.overflow = "hidden";
@@ -132,13 +130,11 @@ export default function NavBar({ locale = "en" }: { locale?: string }) {
     };
   }, [isMobile, isMenuOpen]);
 
-  /* ── Close menu on breakpoint switch ── */
   useEffect(() => {
     setIsMenuOpen(false);
     document.documentElement.style.overflow = "";
   }, [isMobile]);
 
-  /* ── Outside click closes desktop dropdown ── */
   useEffect(() => {
     if (isMobile || !isMenuOpen) return;
     const onDocClick = (e: MouseEvent) => {
@@ -151,7 +147,6 @@ export default function NavBar({ locale = "en" }: { locale?: string }) {
     return () => document.removeEventListener("mousedown", onDocClick);
   }, [isMobile, isMenuOpen]);
 
-  /* ── Derived values ── */
   const toggleMenu = useCallback(() => setIsMenuOpen((v) => !v), []);
   const closeMenu = useCallback(() => setIsMenuOpen(false), []);
   const isFloating = headerPhase !== "top";
@@ -169,7 +164,7 @@ export default function NavBar({ locale = "en" }: { locale?: string }) {
   return (
     <>
       <header className={headerClassName}>
-        <div className="relative mx-auto flex h-12 max-w-7xl items-center justify-between px-4 md:h-16 md:px-12">
+        <Container className="flex h-12 items-center justify-between md:h-16">
           <HeaderLogo locale={locale} isRootRoute={isRootRoute} />
 
           {isRootRoute && (
@@ -197,7 +192,7 @@ export default function NavBar({ locale = "en" }: { locale?: string }) {
               />
             </div>
           </div>
-        </div>
+        </Container>
       </header>
 
       <MobileOverlay
@@ -211,42 +206,33 @@ export default function NavBar({ locale = "en" }: { locale?: string }) {
   );
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   Sub-components & helpers (declared below the main component)
-   ═══════════════════════════════════════════════════════════════ */
-
 function buildHeaderClass(phase: HeaderPhase): string {
-  const anim =
-    phase === "hidden"
-      ? "animate-[headerHideFromPeek_260ms_ease-out_forwards]"
-      : "";
-  const translate = phase === "top" ? "translate-y-0" : "translate-y-[15px]";
-  const capsule =
-    phase === "top"
-      ? ""
-      : "mx-4 rounded-4xl shadow-sm shadow-black/5 md:mx-12 lg:mx-28 dark:shadow-none";
-
-  return [
-    "fixed top-0 right-0 z-10 md:inset-x-0",
+  return cn(
+    "fixed inset-x-0 top-0 z-50",
     "bg-white/30 backdrop-blur-md dark:bg-zinc-950/30",
     "header-transition",
-    anim,
-    translate,
-    capsule,
-  ]
-    .filter(Boolean)
-    .join(" ");
+    phase === "hidden" && "-translate-y-full",
+    phase === "top" ? "translate-y-0" : "translate-y-[15px]",
+    phase !== "top" &&
+      "mx-4 rounded-4xl shadow-sm shadow-black/5 md:mx-12 lg:mx-28 dark:shadow-none",
+  );
 }
 
 function computeLinkClass(id: string, active: string): string {
   const base = "text-sm font-medium transition-colors duration-200";
-  if (active === id) return `${base} text-black dark:text-white font-semibold`;
+  if (active === id)
+    return cn(base, "text-black dark:text-white font-semibold");
   if (active !== "" && active !== id)
-    return `${base} text-zinc-300 dark:text-zinc-600 hover:text-black dark:hover:text-white`;
-  return `${base} text-zinc-500 dark:text-zinc-400 hover:text-black dark:hover:text-white`;
+    return cn(
+      base,
+      "text-zinc-300 dark:text-zinc-600 hover:text-black dark:hover:text-white",
+    );
+  return cn(
+    base,
+    "text-zinc-500 dark:text-zinc-400 hover:text-black dark:hover:text-white",
+  );
 }
 
-/* ── Logo / breadcrumb ── */
 function HeaderLogo({
   locale,
   isRootRoute,
@@ -272,7 +258,6 @@ function HeaderLogo({
   );
 }
 
-/* ── Desktop inline nav links ── */
 function DesktopNavLinks({
   locale,
   getLinkClass,
@@ -297,7 +282,6 @@ function DesktopNavLinks({
   );
 }
 
-/* ── Hamburger / Close toggle ── */
 const MenuToggleButton = React.forwardRef<
   HTMLButtonElement,
   { isOpen: boolean; onClick: () => void }
@@ -306,7 +290,10 @@ const MenuToggleButton = React.forwardRef<
     <button
       ref={ref}
       onClick={onClick}
-      className="p-2 text-gray-800 dark:text-gray-200"
+      className={cn(
+        "p-2 text-gray-800 dark:text-gray-200",
+        "focus:outline-none focus:ring-2 focus:ring-blue-500",
+      )}
       aria-label={isOpen ? "Close menu" : "Open menu"}
       aria-expanded={isOpen}
       aria-controls="menu"
@@ -320,7 +307,6 @@ const MenuToggleButton = React.forwardRef<
   );
 });
 
-/* ── Desktop dropdown panel ── */
 const DesktopDropdown = React.forwardRef<
   HTMLDivElement,
   {
@@ -334,16 +320,20 @@ const DesktopDropdown = React.forwardRef<
     <div
       id="menu"
       ref={ref}
-      className={`dark:border-chartreuse/25 absolute top-0 right-0 z-50 w-72 origin-top-right border border-gray-200 bg-white transition-all duration-200 dark:bg-black ${
+      className={cn(
+        "dark:border-chartreuse/25 absolute top-0 right-0 z-50 w-72 origin-top-right border border-gray-200 bg-white transition-all duration-200 dark:bg-black",
         isOpen
           ? "scale-100 opacity-100"
-          : "pointer-events-none scale-95 opacity-0"
-      }`}
+          : "pointer-events-none scale-95 opacity-0",
+      )}
     >
       <div className="flex justify-end">
         <button
           onClick={onClose}
-          className="p-2 text-gray-800 dark:text-gray-200"
+          className={cn(
+            "p-2 text-gray-800 dark:text-gray-200",
+            "focus:outline-none focus:ring-2 focus:ring-blue-500",
+          )}
           aria-label="Close menu"
         >
           <XMark color="text-black dark:text-white" />
@@ -362,7 +352,6 @@ const DesktopDropdown = React.forwardRef<
   );
 });
 
-/* ── Mobile fullscreen overlay ── */
 function MobileOverlay({
   isOpen,
   isFloating,
@@ -378,30 +367,33 @@ function MobileOverlay({
 }) {
   return (
     <div
-      className={`fixed inset-0 z-50 transition-opacity duration-200 md:hidden ${
+      className={cn(
+        "fixed inset-0 z-50 transition-opacity duration-200 md:hidden",
         isOpen
           ? "pointer-events-auto opacity-100"
-          : "pointer-events-none opacity-0"
-      }`}
+          : "pointer-events-none opacity-0",
+      )}
     >
       <div className="absolute inset-0 bg-white dark:bg-gray-900" />
 
-      {/* Top bar mirroring header position */}
-      <div
-        className={`relative z-10 mx-auto flex h-12 max-w-7xl items-center justify-end px-4 transition-all duration-200 md:h-16 md:px-12 ${
-          isFloating ? "mx-4 md:mx-12 lg:mx-28" : ""
-        }`}
+      <Container
+        className={cn(
+          "relative z-10 flex h-12 items-center justify-end transition-all duration-200 md:h-16",
+          isFloating && "mx-4 md:mx-12 lg:mx-28",
+        )}
       >
         <button
           onClick={onClose}
-          className="flex items-center justify-center rounded-lg p-3 text-gray-800 dark:text-gray-200"
+          className={cn(
+            "flex items-center justify-center rounded-lg p-3 text-gray-800 dark:text-gray-200",
+            "focus:outline-none focus:ring-2 focus:ring-blue-500",
+          )}
           aria-label="Close menu"
         >
           <XMark color="text-black dark:text-white" />
         </button>
-      </div>
+      </Container>
 
-      {/* Menu content */}
       <nav className="relative z-10 flex h-[calc(100vh-4rem)] flex-col items-center justify-center gap-8">
         {items.map((it) => (
           <Link

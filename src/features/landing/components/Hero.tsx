@@ -1,4 +1,4 @@
-import SectionContainer from "@/components/_/SectionContainer";
+import { Container } from "@/components/ui/Container";
 import OpenToWorkBadge from "@/components/_/OpenToWorkBadge";
 import {
   DocumentText,
@@ -17,12 +17,11 @@ interface HeroProps {
 
 export default function Hero({ t, locale }: HeroProps) {
   return (
-    <section id="hero" className="mx-auto max-w-7xl md:h-screen">
-      <div className="grid h-full grid-rows-[1fr,auto]">
-        {/* First row */}
-        <div className="grid grid-cols-1 md:grid-cols-2 md:pt-16 md:px-14">
+    <section id="hero" className="pt-20 sm:pt-24 md:pt-32 lg:pt-40">
+      <Container>
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12">
           {/* Role and Description */}
-          <div className="order-2 col-span-1 flex flex-col items-start justify-center gap-6 pt-6 md:order-1 md:pt-4">
+          <div className="order-2 flex flex-col items-start justify-center gap-6 md:order-1">
             {/* Badge and Reach out in mobile mode */}
             <div className="flex flex-wrap items-center gap-2 md:hidden">
               <OpenToWorkBadge />
@@ -40,24 +39,23 @@ export default function Hero({ t, locale }: HeroProps) {
               </Link>
             </div>
 
-            <p className="w-full text-xl font-medium wrap-break-word text-gray-900 sm:text-3xl md:text-5xl dark:text-white/90">
+            <p className="w-full break-words text-2xl font-medium text-gray-900 sm:text-3xl md:text-4xl lg:text-5xl dark:text-white/90">
               {t("hero.headline")}
             </p>
           </div>
 
-          <div className="order-1 col-span-1 flex items-end justify-start md:order-2 md:flex-col md:items-end md:justify-center">
-            {/* Container untuk gambar profil, badge, dan tombol */}
+          {/* Profile Image */}
+          <div className="order-1 flex items-end justify-start md:order-2 md:flex-col md:items-end md:justify-center">
             <div className="flex flex-row items-end md:flex-col md:items-center">
-              {/* Profile Image */}
-              <div className="size-40 md:h-[360px] md:w-80">
+              <div className="aspect-square w-40 sm:w-48 md:w-72 lg:w-80">
                 <div className="relative h-full w-full">
                   <Image
                     loading="eager"
                     src="/images/photos.png"
                     alt="Profile"
                     fill
-                    sizes="(max-width: 768px) 160px, 320px"
-                    className="rounded-4xl bg-white object-cover object-top p-1 shadow-md md:rounded-4xl md:p-2 dark:bg-zinc-800"
+                    sizes="(max-width: 640px) 160px, (max-width: 768px) 192px, (max-width: 1024px) 288px, 320px"
+                    className="rounded-3xl bg-white object-cover object-top p-1 shadow-md md:p-2 dark:bg-zinc-800"
                   />
                 </div>
               </div>
@@ -65,8 +63,8 @@ export default function Hero({ t, locale }: HeroProps) {
           </div>
         </div>
 
-        {/* Second row */}
-        <div className="flex flex-col justify-center pb-10 text-black md:items-center md:pb-6 dark:text-white">
+        {/* Less is More tagline */}
+        <div className="flex flex-col justify-center py-10 text-black md:items-center md:py-16 dark:text-white">
           <div className="flex flex-row gap-1 md:gap-2">
             <h1 className="font-medium-ex text-lg md:text-2xl">
               {t("hero.lessIsMore")}
@@ -75,7 +73,7 @@ export default function Hero({ t, locale }: HeroProps) {
           </div>
           <Underline color={"text-black dark:text-zinc-700"} />
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

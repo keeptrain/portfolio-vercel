@@ -8,6 +8,7 @@ import { ArrowUpRight } from "@/components/icons/HandyArrows";
 import ThemeSwitcher from "@/components/ui/button/ThemeSwitcher";
 import LanguageSwitcher from "@/components/ui/button/LanguageSwitcher";
 import { useTranslations } from "@/i18n/TranslationContext";
+import { Container } from "@/components/ui/Container";
 
 const Footer = () => {
   const { t } = useTranslations();
@@ -24,80 +25,85 @@ const Footer = () => {
 
   return (
     <footer id="footer" className="dark:bg-black">
-      {/*Contact Section*/}
-      <div className="relative mx-4 h-48 md:mx-0 md:h-32">
-        <div className="shadow-blue-old/30 dark:shadow-blue-old absolute top-1/2 left-1/2 flex h-28 w-full -translate-x-1/2 -translate-y-1/2 justify-between gap-4 space-y-2 rounded-2xl border border-gray-200 bg-white px-6 shadow-sm md:w-1/2 md:translate-y-[-25%] md:gap-12 md:p-12 md:shadow-md dark:border-none dark:bg-black">
-          <h2 className="text-blue-grey dark:shadow-blue-old flex items-center justify-center text-start font-serif text-sm wrap-break-word md:justify-start md:text-xl dark:text-blue-300/80">
-            {t("footer.contactCta")}
-          </h2>
-          <Link
-            href={"/contact"}
-            className="font-medium-ex text-blue-old flex items-center justify-center rounded-lg px-4 py-3 text-center text-sm tracking-tight md:justify-start md:px-0 md:py-0 md:text-xl dark:text-blue-300/80"
-          >
-            <span className="hidden underline hover:decoration-wavy md:flex">
-              {t("footer.sendMessage")}
-            </span>
-            <ArrowUpRight color={"text-blue-old"} />
-          </Link>
+      <Container>
+        {/*Contact Section*/}
+        <div className="flex justify-center py-12 sm:py-16">
+          <div className="shadow-blue-old/30 dark:shadow-blue-old flex w-full flex-col items-center justify-between gap-4 rounded-2xl border border-gray-200 bg-white px-6 py-8 shadow-sm sm:flex-row sm:gap-8 sm:px-10 sm:py-8 md:w-1/2 md:gap-12 md:px-12 md:py-10 md:shadow-md dark:border-none dark:bg-black">
+            <h2 className="text-blue-grey dark:shadow-blue-old text-center font-serif text-sm break-words sm:text-left sm:text-base md:text-xl dark:text-blue-300/80">
+              {t("footer.contactCta")}
+            </h2>
+            <Link
+              href={"/contact"}
+              className="font-medium-ex text-blue-old flex items-center justify-center rounded-lg px-4 py-3 text-center text-sm tracking-tight sm:justify-start sm:px-0 sm:py-0 sm:text-base md:text-xl dark:text-blue-300/80"
+            >
+              <span className="hidden underline hover:decoration-wavy sm:flex">
+                {t("footer.sendMessage")}
+              </span>
+              <ArrowUpRight color={"text-blue-old"} />
+            </Link>
+          </div>
         </div>
-      </div>
+      </Container>
 
       {/* Footer Section */}
-      <div className="rounded-4xl bg-white p-2 shadow-[0_-1px_3px_rgba(0,0,0,0.08)] md:p-12 dark:bg-black dark:shadow-[0_-1px_3px_rgba(255,255,255,0.08)]">
-        <div className="mx-4 flex flex-col rounded-4xl border border-gray-200 shadow-lg shadow-zinc-200/50 md:mx-14 md:flex-row md:justify-between dark:border-none dark:shadow-zinc-700">
-          <div className="flex flex-1 flex-col px-6 py-6 md:px-8">
-            <div className="flex items-baseline justify-between">
-              <div className="font-serif text-sm tracking-widest text-black md:text-lg dark:text-white">
-                <span className="gap-2 text-black dark:text-white">
-                  &copy; 2026 <br />
-                </span>
-                {t("footer.basedIn")}
-                <span className="flex items-start gap-2">{jakartaTime}</span>
-              </div>
-
-              <div className="flex gap-8">
-                <a
-                  href={"#hero"}
-                  className="flex items-center gap-2 rounded-lg px-3 py-2 font-serif text-sm text-zinc-700 hover:text-black md:px-0 md:py-0 md:text-lg dark:text-white dark:hover:text-white"
-                >
-                  <span className="hidden md:flex">
-                    {t("footer.backToTop")}
+      <div className="rounded-4xl bg-white p-2 shadow-[0_-1px_3px_rgba(0,0,0,0.08)] sm:p-6 md:p-12 dark:bg-black dark:shadow-[0_-1px_3px_rgba(255,255,255,0.08)]">
+        <Container>
+          <div className="flex flex-col rounded-4xl border border-gray-200 shadow-lg shadow-zinc-200/50 sm:flex-row sm:justify-between dark:border-none dark:shadow-zinc-700">
+            <div className="flex flex-1 flex-col px-4 py-6 sm:px-6 md:px-8">
+              <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-baseline sm:gap-0">
+                <div className="font-serif text-sm tracking-widest text-black sm:text-base md:text-lg dark:text-white">
+                  <span className="gap-2 text-black dark:text-white">
+                    &copy; 2026 <br />
                   </span>
-                  <ArrowUp color={""} />
-                </a>
-              </div>
-            </div>
-            <div className="relative flex h-10 items-center justify-center">
-              {/* Left border */}
-              <div className="grow border-b border-black/10 dark:border-white/30" />
+                  {t("footer.basedIn")}
+                  <span className="flex items-start gap-2">{jakartaTime}</span>
+                </div>
 
-              {/* Center signature */}
-              <div className="relative mx-4 h-1/2 w-14 md:h-full md:w-24">
-                <Image
-                  alt={"logo"}
-                  src={"/signature.svg"}
-                  fill
-                  className="pointer-none opacity-30 select-none dark:opacity-100 dark:brightness-0 dark:invert dark:filter"
-                />
+                <div className="flex gap-4 sm:gap-8">
+                  <a
+                    href={"#hero"}
+                    className="flex items-center gap-2 rounded-lg px-3 py-2 font-serif text-sm text-zinc-700 hover:text-black sm:px-0 sm:py-0 sm:text-base md:text-lg dark:text-white dark:hover:text-white"
+                  >
+                    <span className="hidden sm:flex">
+                      {t("footer.backToTop")}
+                    </span>
+                    <ArrowUp color={""} />
+                  </a>
+                </div>
               </div>
+              <div className="relative flex h-10 items-center justify-center">
+                {/* Left border */}
+                <div className="grow border-b border-black/10 dark:border-white/30" />
 
-              {/* Right border */}
-              <div className="grow border-b border-black/10 dark:border-white/30" />
-            </div>
-            <div className="grid grid-cols-2">
-              <div className="flex font-serif tracking-widest text-black dark:text-white">
-                <SocialLink />
+                {/* Center signature */}
+                <div className="relative mx-4 h-1/2 w-14 sm:h-full sm:w-20 md:w-24">
+                  <Image
+                    alt={"logo"}
+                    src={"/signature.svg"}
+                    fill
+                    sizes="(max-width: 640px) 56px, (max-width: 768px) 80px, 96px"
+                    className="pointer-none opacity-30 select-none dark:opacity-100 dark:brightness-0 dark:invert dark:filter"
+                  />
+                </div>
+
+                {/* Right border */}
+                <div className="grow border-b border-black/10 dark:border-white/30" />
               </div>
-              <div className="flex items-center justify-end text-xs font-light tracking-widest text-zinc-500 dark:text-white">
-                <div className="flex items-center gap-2 md:gap-6">
-                  <LanguageSwitcher />
-                  <div className="hidden h-6 w-px bg-black/10 md:block dark:bg-white/30" />
-                  <ThemeSwitcher />
+              <div className="flex flex-col gap-4 sm:grid sm:grid-cols-2">
+                <div className="flex font-serif tracking-widest text-black dark:text-white">
+                  <SocialLink />
+                </div>
+                <div className="flex items-center justify-start text-xs font-light tracking-widest text-zinc-500 sm:justify-end dark:text-white">
+                  <div className="flex items-center gap-2 sm:gap-4 md:gap-6">
+                    <LanguageSwitcher />
+                    <div className="hidden h-6 w-px bg-black/10 sm:block dark:bg-white/30" />
+                    <ThemeSwitcher />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </div>
     </footer>
   );
