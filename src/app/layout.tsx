@@ -44,7 +44,6 @@ export default function RootLayout({
           charSet="UTF-8"
           content="width=device-width, initial-scale=1.0"
         />
-        <title>KeepTrain</title>
       </head>
       <body className={`${montserrat.className}`}>
         <a

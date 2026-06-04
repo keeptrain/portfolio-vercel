@@ -22,7 +22,9 @@ export async function POST(request: Request) {
 
     const { name, email, subject, message } = result.data;
 
-    console.log("Contact form submission:", { name, email, subject, message });
+    if (process.env.NODE_ENV === "development") {
+      console.log("Contact form received:", { name, subject });
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {

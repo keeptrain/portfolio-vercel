@@ -24,7 +24,12 @@
     "subtitle": "design stuff",
     "description": "Open source projects, web apps and experimentals.",
     "viewMore": "View more",
-    "latest": "Latest"
+    "latest": "Latest",
+    "ecommerce": { "title": "E-Commerce Platform" },
+    "taskmanager": { "title": "Task Manager" },
+    "weather": { "title": "Weather App" },
+    "code": "Code",
+    "demo": "Demo"
   },
   "footer": {
     "contactCta": "Got a question, or just want to say hello?",

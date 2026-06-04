@@ -14,28 +14,16 @@ export default function ProjectsPage() {
 
   const projectData: ProjectAdapterProps[] = [
     {
-      links: "",
-      imageSrc: "/test-png.jpg",
+      links: "/projects/jakreq",
+      imageSrc: "/images/projects/jakreq-thumb.jpg",
       stack: ["Laravel", "Livewire"],
-      title: "A apps for bla bla bla bla",
+      title: "JakReq — Request Management System",
     },
     {
-      links: "",
-      imageSrc: "/test-png.jpg",
-      stack: ["Laravel"],
-      title: "A apps for bla bla bla bla",
-    },
-    {
-      links: "",
-      imageSrc: "/test-png.jpg",
-      stack: ["Laravel", "Livewire"],
-      title: "A apps for bla bla bla bla",
-    },
-    {
-      links: "",
-      imageSrc: "/test-png.jpg",
-      stack: ["Laravel"],
-      title: "A apps for bla bla bla bla",
+      links: "/projects/cullinarix",
+      imageSrc: "/images/projects/cullinarix-thumb.jpg",
+      stack: ["Android", "Kotlin", "XML"],
+      title: "Cullinarix — Food Discovery App",
     },
   ];
 
@@ -45,22 +33,18 @@ export default function ProjectsPage() {
     <>
       <div className="bg-zinc-50 pt-24 md:min-h-screen dark:bg-black">
         <SectionContainer>
-          <h1 className="flex items-center justify-between font-serif text-lg md:text-3xl">
-            <h2>List of Projects</h2>
-
+          <div className="flex items-center justify-between">
+            <h1 className="font-serif text-lg md:text-3xl">List of Projects</h1>
             <div className="flex gap-2">
+              <button onClick={() => setIsLatest(!isLatest)} className="flex items-center gap-2" aria-label="Toggle latest">
+                <p
+                  className={`text-md md:text-2xl ${isLatest ? "text-black underline dark:text-lime-100" : "text-gray-400"} cursor-pointer`}
+                >
+                  Latest
+                </p>
+              </button>
             </div>
-            <span
-              onClick={() => setIsLatest(!isLatest)}
-              className="flex items-center gap-2"
-            >
-              <p
-                className={`text-md md:text-2xl ${isLatest ? "text-black underline dark:text-lime-100" : "text-gray-400"} cursor-pointer`}
-              >
-                Latest
-              </p>
-            </span>
-          </h1>
+          </div>
           {projectData.map((project: ProjectAdapterProps, index) => (
             <div
               key={index}

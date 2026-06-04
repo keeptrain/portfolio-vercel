@@ -1,69 +1,55 @@
-"use client";
+import React from "react";
 
 interface MarkdownRendererProps {
   content: string;
 }
 
-const MarkdownRenderer = ({ content }: MarkdownRendererProps) => {
-  // Simple markdown to HTML conversion
-  const renderMarkdown = (text: string) => {
-    let html = text;
+function escapeHtml(text: string): string {
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
 
-    // Headers
-    html = html.replace(/^### (.*$)/gim, "<h3>$1</h3>");
-    html = html.replace(/^## (.*$)/gim, "<h2>$1</h2>");
-    html = html.replace(/^# (.*$)/gim, "<h1>$1</h1>");
+function parseMarkdown(md: string): string {
+  let html = escapeHtml(md);
 
-    // Bold
-    html = html.replace(/\*\*(.*?)\*\*/gim, "<strong>$1</strong>");
+  // Headers
+  html = html.replace(/^### (.*$)/gm, "<h3>$1</h3>");
+  html = html.replace(/^## (.*$)/gm, "<h2>$1</h2>");
+  html = html.replace(/^# (.*$)/gm, "<h1>$1</h1>");
 
-    // Italic
-    html = html.replace(/\*(.*?)\*/gim, "<em>$1</em>");
+  // Bold and italic
+  html = html.replace(/\*\*\*(.*?)\*\*\*/g, "<strong><em>$1</em></strong>");
+  html = html.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+  html = html.replace(/\*(.*?)\*/g, "<em>$1</em>");
 
-    // Code blocks
-    html = html.replace(/```([\s\S]*?)```/gim, "<pre><code>$1</code></pre>");
+  // Code blocks
+  html = html.replace(/```([\s\S]*?)```/g, "<pre><code>$1</code></pre>");
+  html = html.replace(/`(.*?)`/g, "<code>$1</code>");
 
-    // Inline code
-    html = html.replace(/`(.*?)`/gim, "<code>$1</code>");
+  // Links (safe - opens in new tab with noopener)
+  html = html.replace(
+    /\[(.*?)\]\((.*?)\)/g,
+    '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline dark:text-blue-400">$1</a>',
+  );
 
-    // Links
-    html = html.replace(
-      /\[([^\]]+)\]\(([^)]+)\)/gim,
-      '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>',
-    );
+  // Line breaks
+  html = html.replace(/\n\n/g, "</p><p>");
+  html = html.replace(/\n/g, "<br>");
 
-    // Lists
-    html = html.replace(/^- (.*$)/gim, "<li>$1</li>");
-    html = html.replace(/(<li>.*<\/li>)/gim, "<ul>$1</ul>");
+  return `<p>${html}</p>`;
+}
 
-    // Line breaks
-    html = html.replace(/\n\n/gim, "</p><p>");
-    html = html.replace(/\n/gim, "<br>");
-
-    // Wrap in paragraphs
-    html = "<p>" + html + "</p>";
-
-    // Clean up empty paragraphs
-    html = html.replace(/<p><\/p>/gim, "");
-    html = html.replace(/<p>(<h[1-6]>)/gim, "$1");
-    html = html.replace(/(<\/h[1-6]>)<\/p>/gim, "$1");
-    html = html.replace(/<p>(<ul>)/gim, "$1");
-    html = html.replace(/(<\/ul>)<\/p>/gim, "$1");
-    html = html.replace(/<p>(<pre>)/gim, "$1");
-    html = html.replace(/(<\/pre>)<\/p>/gim, "$1");
-
-    return html;
-  };
+export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
+  const html = parseMarkdown(content);
 
   return (
     <div
-      className="markdown-content"
-      dangerouslySetInnerHTML={{ __html: renderMarkdown(content) }}
-      style={{
-        lineHeight: "1.7",
-      }}
+      className="prose prose-lg max-w-none dark:prose-invert prose-headings:font-semibold prose-a:text-blue-600 dark:prose-a:text-blue-400"
+      dangerouslySetInnerHTML={{ __html: html }}
     />
   );
-};
-
-export default MarkdownRenderer;
+}

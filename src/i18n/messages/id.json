@@ -24,7 +24,12 @@
     "subtitle": "mendesain sesuatu",
     "description": "Proyek open source, aplikasi web, dan eksperimental.",
     "viewMore": "Lihat lebih banyak",
-    "latest": "Terbaru"
+    "latest": "Terbaru",
+    "ecommerce": { "title": "Platform E-Commerce" },
+    "taskmanager": { "title": "Manajer Tugas" },
+    "weather": { "title": "Aplikasi Cuaca" },
+    "code": "Kode",
+    "demo": "Demo"
   },
   "footer": {
     "contactCta": "Ada pertanyaan, atau hanya ingin menyapa?",

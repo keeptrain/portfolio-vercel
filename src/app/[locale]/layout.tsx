@@ -34,11 +34,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       description: t("hero.description"),
       type: "website",
       locale: locale === "id" ? "id_ID" : "en_US",
+      images: [{ url: "/images/og-cover.jpg", width: 1200, height: 630 }],
     },
     twitter: {
       card: "summary_large_image",
       title: "Portfolio | Gilang",
       description: t("hero.description"),
+      images: ["/images/og-cover.jpg"],
     },
     robots: { index: true, follow: true },
   };

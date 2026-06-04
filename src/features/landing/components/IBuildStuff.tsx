@@ -16,16 +16,16 @@ type ProjectItem = {
 
 const projectData: ProjectItem[] = [
   {
-    links: "",
-    imageSrc: "/test-png.jpg",
-    stack: ["Laravel,", "Livewire"],
-    title: "JakReq - A apps for bla bla bla bla",
+    links: "/projects/jakreq",
+    imageSrc: "/images/projects/jakreq-thumb.jpg",
+    stack: ["Laravel", "Livewire"],
+    title: "JakReq — Request Management System",
   },
   {
-    links: "",
-    imageSrc: "/test-png.jpg",
-    stack: ["Android,", "Kotlin,", "XML"],
-    title: "Cullinarix - A apps for bla bla bla bla",
+    links: "/projects/cullinarix",
+    imageSrc: "/images/projects/cullinarix-thumb.jpg",
+    stack: ["Android", "Kotlin", "XML"],
+    title: "Cullinarix — Food Discovery App",
   },
 ];
 
