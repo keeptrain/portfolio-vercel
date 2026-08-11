@@ -64,12 +64,9 @@ export default async function LocaleLayout({
   return (
     <TranslationProvider messages={messages} locale={locale}>
       <LocaleHtmlLang locale={locale} />
-      <div className="hidden md:block">
-        <NavBar locale={locale} />
-      </div>
+      <div className="mb-20"></div>
       {children}
       <Footer />
-      <div className="h-30 md:hidden" />
       <BottomNav locale={locale as Locale} />
     </TranslationProvider>
   );
