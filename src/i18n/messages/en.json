@@ -58,5 +58,27 @@
     "sending": "Sending...",
     "success": "Message sent successfully! I'll get back to you soon.",
     "error": "Failed to send message. Please try again."
+  },
+  "bentoHero": {
+    "available": "Available for new projects",
+    "greeting": "Hi, I'm Gilang 👋",
+    "role": "Full Stack Software Engineer",
+    "bio": "Building high-performance web applications & modern systems with a focus on clean code and user experience.",
+    "contact": "Reach Out",
+    "resume": "Resume",
+    "location": "Jakarta, ID 🇮🇩",
+    "featuredProjectBadge": "Latest Work",
+    "featuredProjectTitle": "JakReq — Request Management System",
+    "featuredProjectDesc": "High-performance internal request management system & workflow.",
+    "viewProject": "View Project",
+    "learningBadge": "Currently Learning",
+    "learningTitle": "AI Agents & Web Performance",
+    "learningDesc": "Exploring LLM tools, Next.js Compiler & App Router optimizations.",
+    "learningStatus": "Actively Exploring",
+    "statsBadge": "Focus & Stats",
+    "expLabel": "Experience",
+    "expValue": "1.5+ Years",
+    "projectsLabel": "Completed",
+    "projectsValue": "10+ Projects"
   }
 }

@@ -58,5 +58,27 @@
     "sending": "Mengirim...",
     "success": "Pesan berhasil dikirim! Saya akan segera membalas.",
     "error": "Gagal mengirim pesan. Silakan coba lagi."
+  },
+  "bentoHero": {
+    "available": "Tersedia untuk proyek baru",
+    "greeting": "Halo, Saya Gilang 👋",
+    "role": "Full Stack Software Engineer",
+    "bio": "Membangun aplikasi web & sistem modern berkinerja tinggi dengan fokus pada kebersihan kode dan pengalaman pengguna.",
+    "contact": "Hubungi Saya",
+    "resume": "Resume",
+    "location": "Jakarta, ID 🇮🇩",
+    "featuredProjectBadge": "Proyek Terbaru",
+    "featuredProjectTitle": "JakReq — Request Management System",
+    "featuredProjectDesc": "Sistem pengelolaan pengajuan & workflow internal dengan performa tinggi.",
+    "viewProject": "Lihat Proyek",
+    "learningBadge": "Sedang Dipelajari",
+    "learningTitle": "AI Agents & Web Performance",
+    "learningDesc": "Eksplorasi LLM tools, Next.js Compiler & optimasi App Router.",
+    "learningStatus": "Aktif Eksplorasi",
+    "statsBadge": "Fokus & Statistik",
+    "expLabel": "Pengalaman",
+    "expValue": "1.5+ Tahun",
+    "projectsLabel": "Proyek Selesai",
+    "projectsValue": "10+ Proyek"
   }
 }
