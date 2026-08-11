@@ -1,9 +1,7 @@
-import React from "react";
-
 export const ArrowUpRight = ({ color }) => {
   return (
     <svg
-      className={`size-10 ${color} md:hidden`}
+      className={`size-8 ${color}`}
       viewBox="0 0 76 72"
       fill="currentcolor"
       xmlns="http://www.w3.org/2000/svg"
