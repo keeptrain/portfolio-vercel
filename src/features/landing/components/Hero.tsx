@@ -39,7 +39,7 @@ export default function Hero({ t, locale }: HeroProps) {
               </Link>
             </div>
 
-            <p className="w-full break-words text-2xl font-medium text-gray-900 sm:text-3xl md:text-4xl lg:text-5xl dark:text-white/90">
+            <p className="w-full text-2xl font-medium wrap-break-word text-gray-900 sm:text-3xl md:text-4xl lg:text-5xl dark:text-white/90">
               {t("hero.headline")}
             </p>
           </div>

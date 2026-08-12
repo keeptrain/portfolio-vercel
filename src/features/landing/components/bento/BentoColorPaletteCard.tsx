@@ -41,7 +41,7 @@ export default function BentoColorPaletteCard({
       </div>
 
       {/* Top Section: Palette Title */}
-      <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+      <h3 className="text-xl font-medium tracking-tight text-gray-900 dark:text-white">
         Monochrome
       </h3>
     </BentoCardWrapper>

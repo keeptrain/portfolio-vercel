@@ -22,7 +22,7 @@ export default function BentoLearningCard({
     >
       {/* Title & Description */}
       <div className="space-y-2">
-        <h3 className="text-lg font-bold tracking-tight text-gray-900 sm:text-xl dark:text-white">
+        <h3 className="text-lg font-medium tracking-tight text-gray-900 sm:text-xl dark:text-white">
           {t("bentoHero.learningTitle")}
         </h3>
         <p className="text-xs leading-relaxed text-gray-600 sm:text-sm dark:text-gray-300">

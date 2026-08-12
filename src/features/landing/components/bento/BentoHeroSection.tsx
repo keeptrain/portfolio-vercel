@@ -25,7 +25,7 @@ export default function BentoHeroSection({ t, locale }: BentoHeroSectionProps) {
           {/* Baris 2: Project (5col) + Learning (4col) + Social Carousel (3col) */}
           <BentoColorPaletteCard className="sm:col-span-1 lg:col-span-3" />
 
-          <BentoLearningCard t={t} className="sm:col-span-1 lg:col-span-4" />
+          <BentoLearningCard t={t} className="sm:col-span-2 lg:col-span-4" />
           <BentoProjectCard
             t={t}
             locale={locale}

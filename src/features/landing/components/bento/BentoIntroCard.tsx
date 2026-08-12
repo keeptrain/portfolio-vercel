@@ -25,7 +25,7 @@ export default function BentoIntroCard({
 
       {/* Section 2: About Me */}
       <div>
-        <h3 className="text-lg font-bold tracking-tight text-gray-900 sm:text-xl dark:text-white">
+        <h3 className="text-lg font-medium tracking-tight text-gray-900 sm:text-xl dark:text-white">
           About Me
         </h3>
         <p className="text-xs leading-relaxed text-gray-600 sm:text-sm dark:text-gray-300">
