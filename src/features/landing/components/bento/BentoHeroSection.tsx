@@ -4,7 +4,7 @@ import BentoIntroCard from "./BentoIntroCard";
 import BentoProfileCard from "./BentoProfileCard";
 import BentoProjectCard from "./BentoProjectCard";
 import BentoLearningCard from "./BentoLearningCard";
-import BentoColorPaletteCard from "./BentoColorPaletteCard";
+import BentoClientCard from "./BentoClientCard";
 
 interface BentoHeroSectionProps {
   t: (key: string) => string;
@@ -23,13 +23,13 @@ export default function BentoHeroSection({ t, locale }: BentoHeroSectionProps) {
           <BentoProfileCard t={t} className="sm:col-span-1 lg:col-span-3" />
 
           {/* Baris 2: Project (5col) + Learning (4col) + Social Carousel (3col) */}
-          <BentoColorPaletteCard className="sm:col-span-1 lg:col-span-3" />
+          <BentoClientCard className="sm:col-span-1 lg:col-span-5" />
 
-          <BentoLearningCard t={t} className="sm:col-span-2 lg:col-span-4" />
+          <BentoLearningCard t={t} className="sm:col-span-2 lg:col-span-3" />
           <BentoProjectCard
             t={t}
             locale={locale}
-            className="sm:col-span-2 lg:col-span-5"
+            className="sm:col-span-2 lg:col-span-4"
           />
         </div>
       </Container>
