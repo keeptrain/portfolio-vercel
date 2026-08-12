@@ -30,7 +30,7 @@ const SOCIAL_ITEMS: SocialItem[] = [
 
 export default function BentoSocialCard() {
   return (
-    <div className="grid grid-cols-2 gap-4 sm:gap-2 md:grid-cols-3 w-1/2">
+    <div className="grid w-1/2 grid-cols-2 gap-4 sm:gap-2 md:grid-cols-3">
       {/*social cards*/}
       {SOCIAL_ITEMS.map((item) => (
         <Link
