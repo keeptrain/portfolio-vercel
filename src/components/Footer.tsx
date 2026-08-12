@@ -25,26 +25,6 @@ const Footer = () => {
 
   return (
     <footer id="footer" className="dark:bg-black">
-      <Container>
-        {/*Contact Section*/}
-        <div className="flex justify-center py-12 sm:py-16">
-          <div className="shadow-blue-old/30 dark:shadow-blue-old flex w-full flex-col items-center justify-between gap-4 rounded-2xl border border-gray-200 bg-white px-6 py-8 shadow-sm sm:flex-row sm:gap-8 sm:px-10 sm:py-8 md:w-1/2 md:gap-12 md:px-12 md:py-10 md:shadow-md dark:border-none dark:bg-black">
-            <h2 className="text-blue-grey dark:shadow-blue-old text-center font-serif text-sm break-words sm:text-left sm:text-base md:text-xl dark:text-blue-300/80">
-              {t("footer.contactCta")}
-            </h2>
-            <Link
-              href={"/contact"}
-              className="font-medium-ex text-blue-old flex items-center justify-center rounded-lg px-4 py-3 text-center text-sm tracking-tight sm:justify-start sm:px-0 sm:py-0 sm:text-base md:text-xl dark:text-blue-300/80"
-            >
-              <span className="hidden underline hover:decoration-wavy sm:flex">
-                {t("footer.sendMessage")}
-              </span>
-              <ArrowUpRight color={"text-blue-old"} />
-            </Link>
-          </div>
-        </div>
-      </Container>
-
       {/* Footer Section */}
       <div className="rounded-4xl bg-white p-2 shadow-[0_-1px_3px_rgba(0,0,0,0.08)] sm:p-6 md:p-12 dark:bg-black dark:shadow-[0_-1px_3px_rgba(255,255,255,0.08)]">
         <Container>
@@ -90,9 +70,7 @@ const Footer = () => {
                 <div className="grow border-b border-black/10 dark:border-white/30" />
               </div>
               <div className="flex flex-col gap-4 sm:grid sm:grid-cols-2">
-                <div className="flex font-serif tracking-widest text-black dark:text-white">
-                  <SocialLink />
-                </div>
+                <div className="flex font-serif tracking-widest text-black dark:text-white"></div>
                 <div className="flex items-center justify-start text-xs font-light tracking-widest text-zinc-500 sm:justify-end dark:text-white">
                   <div className="flex items-center gap-2 sm:gap-4 md:gap-6">
                     <LanguageSwitcher />
