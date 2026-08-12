@@ -1,6 +1,5 @@
 import { Container } from "@/components/ui/Container";
 import Image from "next/image";
-import HowIWork from "./HowIWork";
 
 interface AboutProps {
   t: (key: string) => string;
@@ -30,7 +29,6 @@ const About = ({ t }: AboutProps) => {
             <h1 className="text-xl font-medium text-black sm:text-2xl md:text-3xl dark:text-white">
               {t("about.howIWork")}
             </h1>
-            <HowIWork />
           </div>
         </div>
       </Container>
