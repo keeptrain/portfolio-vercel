@@ -9,7 +9,7 @@ export default function BentoIntroCard({
   className = "",
 }: BentoIntroCardProps) {
   return (
-    <BentoCardWrapper className={`flex flex-col justify-between ${className}`}>
+    <BentoCardWrapper className={`flex flex-col ${className}`}>
       {/* Section 1: Intro */}
       <div>
         <p className="text-xs leading-relaxed text-gray-600 sm:text-sm dark:text-gray-300">
@@ -21,7 +21,7 @@ export default function BentoIntroCard({
       </div>
 
       {/* Subtle Divider */}
-      <div className="-my-4 border-t border-gray-100 dark:border-zinc-800/80" />
+      <div className="my-2 border-t border-gray-100 dark:border-zinc-800/80" />
 
       {/* Section 2: About Me */}
       <div>
