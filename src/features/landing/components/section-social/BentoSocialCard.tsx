@@ -1,13 +1,19 @@
 import Link from "next/link";
 
 interface SocialItem {
-  id: "linkedin" | "github";
+  id: "email" | "linkedin" | "github";
   url: string;
   bgColor: string;
   hoverColor: string;
 }
 
 const SOCIAL_ITEMS: SocialItem[] = [
+  {
+    id: "email",
+    url: "https://linkedin.com",
+    bgColor: "bg-gray-200",
+    hoverColor: "hover:bg-[#78C8EE]",
+  },
   {
     id: "linkedin",
     url: "https://linkedin.com",
@@ -24,19 +30,7 @@ const SOCIAL_ITEMS: SocialItem[] = [
 
 export default function BentoSocialCard() {
   return (
-    <div className="grid grid-cols-2 gap-4 sm:mt-6 sm:gap-6 md:grid-cols-3">
-      {/*empty card left*/}
-      <div className="col-span-2 h-full w-full shrink-0 md:col-span-1">
-        <p className="text-lg">Got a question, or just want to say hello?</p>
-        <Link
-          href={"/contact"}
-          className="font-medium-ex text-blue-old text-center text-sm tracking-tight sm:text-base md:text-xl dark:text-blue-300/80"
-        >
-          <span className="underline hover:decoration-wavy">
-            Send me a message
-          </span>
-        </Link>
-      </div>
+    <div className="grid grid-cols-2 gap-4 sm:gap-2 md:grid-cols-3 w-1/2">
       {/*social cards*/}
       {SOCIAL_ITEMS.map((item) => (
         <Link
@@ -45,7 +39,11 @@ export default function BentoSocialCard() {
           target="_blank"
           className={`flex h-full w-full shrink-0 items-center justify-center sm:col-span-1 ${item.bgColor} ${item.hoverColor} rounded-xl text-white transition-colors duration-300`}
         >
-          {item.id === "linkedin" ? (
+          {item.id === "email" ? (
+            <span className="text-3xl font-light tracking-tighter sm:text-4xl">
+              email
+            </span>
+          ) : item.id === "linkedin" ? (
             <span className="text-3xl font-bold tracking-tighter sm:text-4xl">
               in
             </span>
