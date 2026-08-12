@@ -45,7 +45,7 @@ export default function RootLayout({
           content="width=device-width, initial-scale=1.0"
         />
       </head>
-      <body className={`${montserrat.className}`}>
+      <body className={`${montserrat.className} bg-accent`}>
         <ThemeProvider>
           <main id="main-content">{children}</main>
         </ThemeProvider>
