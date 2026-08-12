@@ -36,39 +36,30 @@ const data: DataItem[] = [
 export default function HowIWork() {
   return (
     <div className="flex flex-col gap-6 md:flex-row">
-      <p className="w-full md:w-1/2">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas,
-        explicabo. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Quas, explicabo. Lorem ipsum dolor sit amet consectetur adipisicing
-        elit. Quas, explicabo. Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Quas, explicabo.
+      <p className="w-full text-sm leading-relaxed font-light text-gray-700 sm:text-base md:w-1/2 md:text-lg dark:text-gray-300">
+        As software development rapidly shifts into an automated and AI-driven
+        era, I adopt a modern workflow that balances rapid velocity with
+        engineering rigor. By leveraging automated systems and cutting-edge
+        tools, I focus on clean architecture, continuous iteration, and thorough
+        validation to deliver high-quality digital experiences.
       </p>
-      <Carousel
-        opts={{
-          align: "start",
-          loop: true,
-        }}
-        orientation="vertical"
-        className="w-full md:w-1/2"
-      >
-        <CarouselContent className="-ml-4 h-50 sm:h-100">
+      <Carousel orientation="vertical" className="w-full md:w-1/2">
+        <CarouselContent className="h-100">
           {data.map((item, index) => (
-            <CarouselItem key={index} className="basis-[45%] pl-4">
-              <Card className="relative h-full min-h-50 rounded-2xl border border-gray-300 p-4 shadow-none ring-0 md:min-h-60 md:p-6 dark:border-white/30">
-                <CardHeader>
-                  <CardTitle className="text-lg font-medium text-black md:text-2xl dark:text-white">
-                    {item.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-xs font-light text-black md:text-lg dark:text-white/80">
-                    {item.desc}
-                  </p>
-                  <span className="absolute -bottom-2 left-10 text-4xl text-black/10 md:-bottom-3 md:text-6xl dark:text-white/15">
-                    0{index + 1}
-                  </span>
-                </CardContent>
-              </Card>
+            <CarouselItem key={index} className="basis-[25%]">
+              <div className="p-1">
+                <Card>
+                  <CardHeader className="relative">
+                    <CardTitle>{item.title}</CardTitle>
+                    <span className="absolute right-10 bottom-0.5 text-4xl text-black/10 md:text-6xl dark:text-white/15">
+                      0{index + 1}
+                    </span>
+                  </CardHeader>
+                  <CardContent>
+                    <p>{item.desc}</p>
+                  </CardContent>
+                </Card>
+              </div>
             </CarouselItem>
           ))}
         </CarouselContent>
