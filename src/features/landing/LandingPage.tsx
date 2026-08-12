@@ -15,7 +15,6 @@ export default function LandingPage({ locale }: LandingPageProps) {
     <>
       <BentoHeroSection t={t} locale={locale} />
       <SectionTwo />
-      <SectionSocial />
     </>
   );
 }
