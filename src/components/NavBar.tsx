@@ -207,7 +207,7 @@ export default function NavBar({ locale = "en" }: { locale?: string }) {
 
 function buildHeaderClass(phase: HeaderPhase): string {
   return cn(
-    "fixed inset-x-0 top-0 z-50",
+    "fixed inset-x-0 top-0 z-40",
     "bg-white/30 backdrop-blur-md dark:bg-zinc-950/30",
     "header-transition",
     phase === "hidden" && "-translate-y-full",
