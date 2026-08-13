@@ -16,7 +16,7 @@
 - Detail
 - Mobile design first thinking
 
-## Issue
+## Planning
 
-- Bug
-
+- read global.css apa yang tidak di perlukan dan harus di tambahkan
+- improve features/projects secara performances, code , layouting
