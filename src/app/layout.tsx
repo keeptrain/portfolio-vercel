@@ -1,15 +1,5 @@
 import type { Metadata } from "next";
-import { Montserrat, Inter } from "next/font/google";
-import { ThemeProvider } from "@/contexts/ThemeContext";
 import "@/app/globals.css";
-
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
-
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  variable: "--font-montserrat",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "KeepTrain",
@@ -26,33 +16,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
-  params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
-
-  return (
-    <html
-      lang={locale}
-      data-scroll-behavior="smooth"
-      className={`${montserrat.className} font-sans ${inter.variable}`}
-    >
-      <head>
-        <meta
-          name="viewport"
-          charSet="UTF-8"
-          content="width=device-width, initial-scale=1.0"
-        />
-      </head>
-      <body className="bg-accent">
-        <ThemeProvider>
-          <main id="main-content">{children}</main>
-        </ThemeProvider>
-      </body>
-    </html>
-  );
+  return children;
 }

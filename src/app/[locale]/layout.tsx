@@ -1,11 +1,21 @@
 import { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { Montserrat, Inter } from "next/font/google";
 import { locales, Locale } from "@/i18n/locales";
 import { getTranslations } from "@/i18n/getTranslations";
 import { loadMessages } from "@/i18n/loadMessages";
 import { TranslationProvider } from "@/i18n/TranslationContext";
+import { ThemeProvider } from "@/contexts/ThemeContext";
+import { setRequestLocale } from "@/i18n/server";
 import Footer from "@/components/Footer";
 import BottomNav from "@/components/BottomNav";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+  display: "swap",
+});
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -57,18 +67,36 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params;
 
-  if (!locales.includes(locale as Locale)) {
-    notFound();
-  }
+  // Set locale ke request context cache agar server component di bawahnya bisa baca tanpa props
+  setRequestLocale(locale as Locale);
 
   const messages = loadMessages(locale as Locale);
 
   return (
-    <TranslationProvider messages={messages} locale={locale}>
-      <div id="top" className="mb-15" />
-      {children}
-      <Footer />
-      <BottomNav locale={locale as Locale} />
-    </TranslationProvider>
+    <html
+      lang={locale}
+      data-scroll-behavior="smooth"
+      className={`${montserrat.className} font-sans ${inter.variable}`}
+    >
+      <head>
+        <meta
+          name="viewport"
+          charSet="UTF-8"
+          content="width=device-width, initial-scale=1.0"
+        />
+      </head>
+      <body className="bg-accent">
+        <ThemeProvider>
+          <TranslationProvider messages={messages} locale={locale}>
+            <main id="main-content">
+              <div id="top" className="mb-15" />
+              {children}
+            </main>
+            <Footer />
+            <BottomNav locale={locale as Locale} />
+          </TranslationProvider>
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }
