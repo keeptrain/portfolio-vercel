@@ -18,7 +18,13 @@
 
 ## Issue
 
-- Saat ini bottomnav.tsx hanya berlaku di mobile nah berlakukan juga untuk desktop
-- fix sisi areanya agar bisa di click karna sekarang itu tidak bisa click di karenakan sepertinya mengikuti bar utamanya
-- solusikan agar footer terlihat jika sampai di bawah content
+- Refactor ProjectsPage.tsx
+    - agar server-side components first yang bisa di buat
+    - pindahkan data dari projects tersebut ke dalam features/projects/data
+
+- Feature click ProjectAdapter
+    - Install pnpm dlx shadcn@latest add drawer
+    - Gunakan drawer ini untuk menampilkan detail dari project tersebut gunakan posisi bottom untuk drawernya jangan lupa responsive
+    - Buat standarisasi tentang isi dari detail agar nanti yang ada di features/projects/data mudah di isi 
+    - Saya akan menaruh screenshoot contoh data apa saja yang akan di taruh pada detail tersebut 
 
