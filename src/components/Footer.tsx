@@ -6,6 +6,7 @@ import { IndonesiaFlag, USFlag } from "./icons/FlagIcons";
 import Link from "next/link";
 import { getT, getLocale } from "@/i18n/server";
 import { getPathname } from "@/lib/server-utils";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 export default function Footer() {
   const t = getT();
@@ -68,6 +69,7 @@ export default function Footer() {
                   <div className="flex items-center gap-2 sm:gap-4 md:gap-6">
                     <LanguageSwitcher />
                     <div className="hidden h-6 w-px bg-black/10 sm:block dark:bg-white/30" />
+                    <ThemeSwitcher />
                   </div>
                 </div>
               </div>

@@ -1,3 +1,5 @@
+"use client";
+
 import { Theme, useTheme } from "@/contexts/ThemeContext";
 
 const ThemeSwitcher = () => {
