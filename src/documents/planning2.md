@@ -16,3 +16,7 @@
 - Detail
 - Mobile design first thinking
 
+## Issue
+
+- Saat ini ketika switch language pada footer untuk server component tidak berubah hanya yang lewat client saja
+- Perbaiki dan bila perlu improve
