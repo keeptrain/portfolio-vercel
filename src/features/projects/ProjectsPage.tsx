@@ -1,6 +1,6 @@
 import { Container } from "@/components/ui";
-import ProjectAdapter from "@/features/projects/components/ProjectAdapter";
 import ProjectFilterBar from "@/features/projects/components/ProjectFilterBar";
+import ProjectList from "@/features/projects/components/ProjectList";
 import { projectsData } from "@/features/projects/data/projects";
 
 export default function ProjectsPage() {
@@ -14,11 +14,7 @@ export default function ProjectsPage() {
             </h1>
             <ProjectFilterBar />
           </div>
-          <div className="flex flex-col gap-4 divide-y divide-gray-300 dark:divide-zinc-700">
-            {projectsData.map((project, index) => (
-              <ProjectAdapter key={index} project={project} />
-            ))}
-          </div>
+          <ProjectList projects={projectsData} />
         </section>
       </Container>
     </div>

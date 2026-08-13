@@ -5,7 +5,7 @@ import Link from "next/link";
 import FilterLatestButton from "./button/FilterLatestButton";
 import { useTranslations } from "@/i18n/TranslationContext";
 import { Locale } from "@/i18n/locales";
-import ProjectAdapter from "@/features/projects/components/ProjectAdapter";
+import ProjectList from "@/features/projects/components/ProjectList";
 import { projectsData } from "@/features/projects/data/projects";
 
 interface IBuildStuffProps {
@@ -30,11 +30,7 @@ const IBuildStuff = ({ locale }: IBuildStuffProps) => {
             </p>
             <FilterLatestButton />
           </div>
-          <div className="divide-y divide-gray-300 dark:divide-zinc-700">
-            {projectsData.map((project, index) => (
-              <ProjectAdapter key={index} project={project} />
-            ))}
-          </div>
+          <ProjectList projects={projectsData} />
           <div className="flex justify-center">
             <Link
               href={`/${locale}/projects`}

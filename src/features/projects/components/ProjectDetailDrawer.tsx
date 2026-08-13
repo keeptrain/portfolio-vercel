@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
 import { Project } from "../data/projects";
 import {
@@ -9,21 +8,21 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerDescription,
-  DrawerTrigger,
 } from "@/components/ui/drawer";
 
 interface ProjectDetailDrawerProps {
   project: Project;
-  children: React.ReactNode;
+  open: boolean;
+  onClose: () => void;
 }
 
 export default function ProjectDetailDrawer({
   project,
-  children,
+  open,
+  onClose,
 }: ProjectDetailDrawerProps) {
   return (
-    <Drawer>
-      <DrawerTrigger asChild>{children}</DrawerTrigger>
+    <Drawer open={open} onOpenChange={(isOpen) => !isOpen && onClose()}>
       <DrawerContent>
         <div className="mx-auto w-full max-w-5xl overflow-y-auto p-6">
           <DrawerHeader>
@@ -58,7 +57,7 @@ export default function ProjectDetailDrawer({
                 <span className="text-xs font-semibold tracking-wider text-zinc-400 uppercase">
                   STACK
                 </span>
-                <p className="mt-1 text-sm leading-relaxed font-semibold sm:text-base">
+                <p className="mt-1 text-sm font-semibold leading-relaxed sm:text-base">
                   {project.stack.join(" / ")}
                 </p>
               </div>
