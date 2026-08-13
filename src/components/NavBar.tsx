@@ -208,12 +208,12 @@ export default function NavBar({ locale = "en" }: { locale?: string }) {
 function buildHeaderClass(phase: HeaderPhase): string {
   return cn(
     "fixed inset-x-0 top-0 z-40",
-    "bg-white/30 backdrop-blur-md dark:bg-zinc-950/30",
+    "bg-white/40 backdrop-blur-2xl saturate-180 dark:bg-zinc-950/40 border-b border-white/40 dark:border-white/10",
     "header-transition",
     phase === "hidden" && "-translate-y-full",
     phase === "top" ? "translate-y-0" : "translate-y-[15px]",
     phase !== "top" &&
-      "mx-4 rounded-4xl shadow-sm shadow-black/5 md:mx-12 lg:mx-28 dark:shadow-none",
+      "mx-4 rounded-4xl border border-white/60 shadow-[0_8px_32px_0_rgba(0,0,0,0.06)] md:mx-12 lg:mx-28 dark:border-white/10 dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]",
   );
 }
 
