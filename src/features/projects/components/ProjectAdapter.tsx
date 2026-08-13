@@ -1,11 +1,10 @@
 import Image from "next/image";
+import { Project } from "../data/projects";
 
-type ProjectAdapterProps = {
-  links: string;
-  imageSrc: string;
-  stack: string[];
-  title: string;
-};
+type ProjectAdapterProps = Pick<
+  Project,
+  "imageSrc" | "title" | "stack" | "links"
+>;
 
 export default function ProjectAdapter({
   imageSrc,
