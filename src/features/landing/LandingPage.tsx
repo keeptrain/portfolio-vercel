@@ -6,12 +6,10 @@ import { Locale } from "@/i18n/locales";
 export default async function LandingPage({
   params,
 }: {
-  params?: Promise<{ locale: string }>;
+  params: Promise<{ locale: string }>;
 }) {
-  if (params) {
-    const { locale } = await params;
-    setRequestLocale(locale as Locale);
-  }
+  const { locale } = await params;
+  setRequestLocale(locale as Locale);
 
   return (
     <>
