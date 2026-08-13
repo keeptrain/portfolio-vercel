@@ -14,7 +14,7 @@ export default function ProjectAdapter({
 }: ProjectAdapterProps) {
   return (
     <>
-      <div className="relative h-20 w-32 md:h-[250px] md:w-[375px]">
+      <div className="relative h-20 w-32 md:h-62.5 md:w-93.75">
         <Image
           alt="project thumbnail"
           src={imageSrc}
@@ -30,7 +30,7 @@ export default function ProjectAdapter({
             <p key={index}>{tech}</p>
           ))}
         </div>
-        <h2 className="break-words text-sm md:text-3xl dark:text-white">
+        <h2 className="text-sm wrap-break-word md:text-3xl dark:text-white">
           {title}
         </h2>
       </div>

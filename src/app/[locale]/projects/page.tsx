@@ -1,8 +1,8 @@
 "use client";
 
-import SectionContainer from "@/components/_/SectionContainer";
-import ProjectAdapter from "@/components/shared/ProjectAdapter";
-import React, { useState } from "react";
+import ProjectAdapter from "@/features/projects/components/ProjectAdapter";
+import SectionContainer from "@/features/projects/components/SectionContainer";
+import { useState } from "react";
 
 export default function ProjectsPage() {
   type ProjectAdapterProps = {
@@ -36,7 +36,11 @@ export default function ProjectsPage() {
           <div className="flex items-center justify-between">
             <h1 className="font-serif text-lg md:text-3xl">List of Projects</h1>
             <div className="flex gap-2">
-              <button onClick={() => setIsLatest(!isLatest)} className="flex items-center gap-2" aria-label="Toggle latest">
+              <button
+                onClick={() => setIsLatest(!isLatest)}
+                className="flex items-center gap-2"
+                aria-label="Toggle latest"
+              >
                 <p
                   className={`text-md md:text-2xl ${isLatest ? "text-black underline dark:text-lime-100" : "text-gray-400"} cursor-pointer`}
                 >
