@@ -1,13 +1,13 @@
 import Image from "next/image";
 import { ArrowUp } from "@/components/icons/HeroIcons";
 import { Container } from "@/components/ui/Container";
-import { Locale } from "@/i18n/locales";
 import { ArrowRightLeftIcon } from "lucide-react";
 import { IndonesiaFlag, USFlag } from "./icons/FlagIcons";
 import Link from "next/link";
-import { getT } from "@/i18n/server";
+import { getT, getLocale } from "@/i18n/server";
+import { getPathname } from "@/lib/server-utils";
 
-export default function Footer({ locale }: { locale: Locale }) {
+export default function Footer() {
   const t = getT();
 
   const jakartaTime = new Intl.DateTimeFormat("id-ID", {
@@ -66,7 +66,7 @@ export default function Footer({ locale }: { locale: Locale }) {
                 <div className="flex font-serif tracking-widest text-black dark:text-white"></div>
                 <div className="flex items-center justify-start text-xs font-light tracking-widest text-zinc-500 sm:justify-end dark:text-white">
                   <div className="flex items-center gap-2 sm:gap-4 md:gap-6">
-                    <LanguageSwitcher currentLang={locale} />
+                    <LanguageSwitcher />
                     <div className="hidden h-6 w-px bg-black/10 sm:block dark:bg-white/30" />
                   </div>
                 </div>
@@ -79,13 +79,21 @@ export default function Footer({ locale }: { locale: Locale }) {
   );
 }
 
-function LanguageSwitcher({ currentLang }: { currentLang: Locale }) {
+async function LanguageSwitcher() {
+  const currentLang = getLocale();
+  const currentPathname = await getPathname();
   const isEn = currentLang === "en";
   const targetLocale = isEn ? "id" : "en";
 
+  // Bentuk target pathname sub-route di Server Side 100% tanpa props
+  const targetPathname = currentPathname.replace(
+    `/${currentLang}`,
+    `/${targetLocale}`,
+  );
+
   return (
     <Link
-      href={`/${targetLocale}`}
+      href={targetPathname}
       scroll={false}
       prefetch={true}
       className="inline-flex items-center gap-2 font-medium transition-colors hover:text-black dark:hover:text-white"

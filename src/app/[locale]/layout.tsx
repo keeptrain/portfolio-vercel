@@ -30,7 +30,7 @@ export async function generateMetadata({
   const t = getT();
 
   return {
-    title: "KeepTrain",
+    title: "KeepTrain - Software Engineer",
     description: t("hero.description"),
     keywords: "portfolio junior developer",
     authors: { name: "Gilang" },
@@ -92,7 +92,7 @@ export default async function LocaleLayout({
               <div id="top" className="mb-15" />
               {children}
             </main>
-            <Footer locale={locale as Locale} />
+            <Footer />
             <BottomNav locale={locale as Locale} />
           </TranslationProvider>
         </ThemeProvider>
