@@ -2,17 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-  Home,
-  FolderOpen,
-  BookOpen,
-  HomeIcon,
-  FoldersIcon,
-  FolderIcon,
-  BookIcon,
-  BookOpenIcon,
-  HouseIcon,
-} from "lucide-react";
+import { FolderIcon, BookOpenIcon, HouseIcon } from "lucide-react";
 import { Locale } from "@/i18n/locales";
 import { useTranslations } from "@/i18n/TranslationContext";
 
