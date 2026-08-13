@@ -7,14 +7,10 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-@theme {
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-border: var(--border);
-}
-
 @layer base {
+  * {
+    border-color: var(--border);
+  }
   html {
     scroll-behavior: smooth;
     @apply font-sans antialiased;
