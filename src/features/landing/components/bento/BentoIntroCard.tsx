@@ -1,7 +1,6 @@
 import BentoCardWrapper from "./BentoCardWrapper";
 
 interface BentoIntroCardProps {
-  t?: (key: string) => string;
   className?: string;
 }
 

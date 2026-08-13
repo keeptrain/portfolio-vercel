@@ -7,15 +7,13 @@ import {
 } from "@/components/icons/HeroIcons";
 import { Underline } from "@/components/icons/HandyArrows";
 import Link from "next/link";
-import { Locale } from "@/i18n/locales";
 import Image from "next/image";
+import { getT, getLocale } from "@/i18n/server";
 
-interface HeroProps {
-  t: (key: string) => string;
-  locale: Locale;
-}
+export default function Hero() {
+  const t = getT();
+  const locale = getLocale();
 
-export default function Hero({ t, locale }: HeroProps) {
   return (
     <section id="hero" className="pt-20 sm:pt-24 md:pt-32 lg:pt-40">
       <Container>

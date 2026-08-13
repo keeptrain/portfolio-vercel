@@ -1,14 +1,15 @@
 import BentoCardWrapper from "./BentoCardWrapper";
+import { getT } from "@/i18n/server";
 
 interface BentoLearningCardProps {
-  t: (key: string) => string;
   className?: string;
 }
 
 export default function BentoLearningCard({
-  t,
   className = "",
 }: BentoLearningCardProps) {
+  const t = getT();
+
   return (
     <BentoCardWrapper
       style={{

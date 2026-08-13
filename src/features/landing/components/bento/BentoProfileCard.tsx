@@ -2,7 +2,6 @@ import Image from "next/image";
 import BentoCardWrapper from "./BentoCardWrapper";
 
 interface BentoProfileCardProps {
-  t?: (key: string) => string;
   className?: string;
 }
 

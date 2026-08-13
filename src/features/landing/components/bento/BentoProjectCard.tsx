@@ -1,20 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import BentoCardWrapper from "./BentoCardWrapper";
-import { Locale } from "@/i18n/locales";
 import { ArrowUpRight } from "@/components/icons/HandyArrows";
+import { getT, getLocale } from "@/i18n/server";
 
 interface BentoProjectCardProps {
-  t: (key: string) => string;
-  locale: Locale;
   className?: string;
 }
 
 export default function BentoProjectCard({
-  t,
-  locale,
   className = "",
 }: BentoProjectCardProps) {
+  const t = getT();
+  const locale = getLocale();
+
   return (
     <BentoCardWrapper
       style={{
