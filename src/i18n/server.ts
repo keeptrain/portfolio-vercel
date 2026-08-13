@@ -7,7 +7,7 @@ import id from "./messages/id.json";
 
 const messagesMap: Record<string, Record<string, unknown>> = { en, id };
 
-// React.cache() menjamin objek ini singleton per HTTP request
+// React.cache() menjamin objek per-request ini ter-isolate
 const requestLocale = cache(() => {
   return { current: "en" as Locale };
 });
@@ -29,7 +29,7 @@ export function getLocale(): Locale {
 /**
  * Mendapatkan fungsi translator t() untuk locale saat ini di Server Component manapun tanpa props
  */
-export const getT = cache(() => {
+export function getT() {
   const locale = getLocale();
   const messages = messagesMap[locale] || messagesMap.en;
 
@@ -47,4 +47,4 @@ export const getT = cache(() => {
 
     return typeof current === "string" ? current : key;
   };
-});
+}

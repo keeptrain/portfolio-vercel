@@ -2,7 +2,7 @@
 
 import { ArrowRightLeft } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { IndonesiaFlag, USFlag } from "@/components/icons/FlagIcons";
 
 const locales = ["en", "id"] as const;
@@ -13,14 +13,21 @@ export default function LanguageSwitcher({
   currentLocale?: string;
 }) {
   const pathname = usePathname();
-  
+  const router = useRouter();
+
   // Auto-detect locale from pathname if not provided
-  const detectedLocale = currentLocale || (pathname.split('/')[1] as typeof locales[number]) || 'en';
+  const detectedLocale =
+    currentLocale ||
+    (pathname.split("/")[1] as (typeof locales)[number]) ||
+    "en";
 
   const switchLocale = locales.find((l) => l !== detectedLocale);
   if (!switchLocale) return null;
 
-  const newPathname = pathname.replace(`/${detectedLocale}`, `/${switchLocale}`);
+  const newPathname = pathname.replace(
+    `/${detectedLocale}`,
+    `/${switchLocale}`,
+  );
   const isEn = detectedLocale === "en";
 
   return (
@@ -28,6 +35,10 @@ export default function LanguageSwitcher({
       href={newPathname}
       scroll={false}
       prefetch={false}
+      onClick={() => {
+        // Panggil refresh agar Server Component di-render ulang secara instan dengan locale baru
+        setTimeout(() => router.refresh(), 0);
+      }}
       className="inline-flex items-center gap-2 text-sm font-medium text-gray-600 transition-colors duration-200 hover:text-black dark:text-gray-400 dark:hover:text-white"
       aria-label={`Switch to ${switchLocale}`}
     >
