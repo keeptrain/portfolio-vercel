@@ -1,38 +1,36 @@
 import Image from "next/image";
 import { Project } from "../data/projects";
+import ProjectDetailDrawer from "./ProjectDetailDrawer";
 
-type ProjectAdapterProps = Pick<
-  Project,
-  "imageSrc" | "title" | "stack" | "links"
->;
+type ProjectAdapterProps = {
+  project: Project;
+};
 
-export default function ProjectAdapter({
-  imageSrc,
-  title,
-  stack,
-}: ProjectAdapterProps) {
+export default function ProjectAdapter({ project }: ProjectAdapterProps) {
   return (
-    <>
-      <div className="relative h-20 w-32 md:h-62.5 md:w-93.75">
-        <Image
-          alt="project thumbnail"
-          src={imageSrc}
-          fill
-          sizes="(max-width: 768px) 128px, 375px"
-          loading="lazy"
-          className="rounded-lg opacity-80 hover:opacity-100"
-        />
-      </div>
-      <div className="flex min-w-0 flex-col justify-center space-y-1 pl-4 md:space-y-2 md:pl-12 lg:pl-16">
-        <div className="flex flex-wrap items-center gap-2 text-xs text-zinc-500 md:text-sm dark:text-white/80">
-          {stack.map((tech, index) => (
-            <p key={index}>{tech}</p>
-          ))}
+    <ProjectDetailDrawer project={project}>
+      <div className="flex w-full cursor-pointer flex-row py-4 text-black/60 opacity-95 transition-colors duration-300 hover:text-black hover:opacity-100 dark:text-white/60 dark:hover:text-white">
+        <div className="relative h-20 w-32 shrink-0 md:h-62.5 md:w-93.75">
+          <Image
+            alt={`${project.title} thumbnail`}
+            src={project.imageSrc}
+            fill
+            sizes="(max-width: 768px) 128px, 375px"
+            loading="lazy"
+            className="rounded-lg opacity-80 hover:opacity-100"
+          />
         </div>
-        <h2 className="text-sm wrap-break-word md:text-3xl dark:text-white">
-          {title}
-        </h2>
+        <div className="flex min-w-0 flex-col justify-center space-y-1 pl-4 text-left md:space-y-2 md:pl-12 lg:pl-16">
+          <div className="flex flex-wrap items-center gap-2 text-xs text-zinc-500 md:text-sm dark:text-white/80">
+            {project.stack.map((tech, index) => (
+              <span key={index}>{tech}</span>
+            ))}
+          </div>
+          <span className="block text-sm wrap-break-word font-semibold md:text-3xl dark:text-white">
+            {project.title}
+          </span>
+        </div>
       </div>
-    </>
+    </ProjectDetailDrawer>
   );
 }

@@ -14,19 +14,9 @@ export default function ProjectsPage() {
             </h1>
             <ProjectFilterBar />
           </div>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 divide-y divide-gray-300 dark:divide-zinc-700">
             {projectsData.map((project, index) => (
-              <div
-                key={index}
-                className="flex flex-row border-b border-gray-300 py-4 text-black/60 opacity-95 transition-colors duration-300 hover:cursor-pointer hover:text-black hover:opacity-100 dark:border-zinc-700"
-              >
-                <ProjectAdapter
-                  imageSrc={project.imageSrc}
-                  stack={project.stack}
-                  title={project.title}
-                  links={project.links}
-                />
-              </div>
+              <ProjectAdapter key={index} project={project} />
             ))}
           </div>
         </section>

@@ -6,28 +6,7 @@ import FilterLatestButton from "./button/FilterLatestButton";
 import { useTranslations } from "@/i18n/TranslationContext";
 import { Locale } from "@/i18n/locales";
 import ProjectAdapter from "@/features/projects/components/ProjectAdapter";
-
-type ProjectItem = {
-  links: string;
-  imageSrc: string;
-  stack: string[];
-  title: string;
-};
-
-const projectData: ProjectItem[] = [
-  {
-    links: "/projects/jakreq",
-    imageSrc: "/images/projects/jakreq-thumb.jpg",
-    stack: ["Laravel", "Livewire"],
-    title: "JakReq — Request Management System",
-  },
-  {
-    links: "/projects/cullinarix",
-    imageSrc: "/images/projects/cullinarix-thumb.jpg",
-    stack: ["Android", "Kotlin", "XML"],
-    title: "Cullinarix — Food Discovery App",
-  },
-];
+import { projectsData } from "@/features/projects/data/projects";
 
 interface IBuildStuffProps {
   locale: Locale;
@@ -52,18 +31,8 @@ const IBuildStuff = ({ locale }: IBuildStuffProps) => {
             <FilterLatestButton />
           </div>
           <div className="divide-y divide-gray-300 dark:divide-zinc-700">
-            {projectData.map((project: ProjectItem, index) => (
-              <div
-                key={index}
-                className="flex flex-row py-3 text-black/60 opacity-95 transition-colors duration-300 hover:text-black hover:opacity-100 sm:py-4"
-              >
-                <ProjectAdapter
-                  imageSrc={project.imageSrc}
-                  stack={project.stack}
-                  title={project.title}
-                  links={project.links}
-                />
-              </div>
+            {projectsData.map((project, index) => (
+              <ProjectAdapter key={index} project={project} />
             ))}
           </div>
           <div className="flex justify-center">
