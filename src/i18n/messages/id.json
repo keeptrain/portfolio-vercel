@@ -34,8 +34,8 @@
   "footer": {
     "contactCta": "Ada pertanyaan, atau hanya ingin menyapa?",
     "sendMessage": "Kirim pesan!",
-    "backToTop": "Kembali ke Atas",
-    "basedIn": "Berdasarkan di Jakarta, Indonesia",
+    "backToTop": "ke Atas",
+    "basedIn": "Domisili Jakarta, Indonesia",
     "iconsBy": "Ikon oleh"
   },
   "blog": {
@@ -66,7 +66,6 @@
     "bio": "Membangun aplikasi web & sistem modern berkinerja tinggi dengan fokus pada kebersihan kode dan pengalaman pengguna.",
     "contact": "Hubungi Saya",
     "resume": "Resume",
-    "location": "Jakarta, ID 🇮🇩",
     "featuredProjectBadge": "Proyek Terbaru",
     "featuredProjectTitle": "JakReq — Request Management System",
     "featuredProjectDesc": "Sistem pengelolaan pengajuan & workflow internal dengan performa tinggi.",
