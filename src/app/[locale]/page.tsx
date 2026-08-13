@@ -1,5 +1,2 @@
-import LandingPage from "@/features/landing/LandingPage";
-
-export default function HomePage() {
-  return <LandingPage />;
-}
+// Move to searchable component Landing Page in /search directory
+export { default } from "@/features/landing/LandingPage";
