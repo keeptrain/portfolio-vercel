@@ -92,7 +92,7 @@ export default async function LocaleLayout({
               <div id="top" className="mb-15" />
               {children}
             </main>
-            <Footer />
+            <Footer locale={locale as Locale} />
             <BottomNav locale={locale as Locale} />
           </TranslationProvider>
         </ThemeProvider>

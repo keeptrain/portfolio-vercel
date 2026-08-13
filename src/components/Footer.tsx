@@ -1,24 +1,20 @@
-"use client";
-
 import Image from "next/image";
 import { ArrowUp } from "@/components/icons/HeroIcons";
-import ThemeSwitcher from "@/components/ui/button/ThemeSwitcher";
-import LanguageSwitcher from "@/components/ui/button/LanguageSwitcher";
-import { useTranslations } from "@/i18n/TranslationContext";
 import { Container } from "@/components/ui/Container";
+import { Locale } from "@/i18n/locales";
+import { ArrowRightLeftIcon } from "lucide-react";
+import { IndonesiaFlag, USFlag } from "./icons/FlagIcons";
+import Link from "next/link";
+import { getT } from "@/i18n/server";
 
-const Footer = () => {
-  const { t } = useTranslations();
+export default function Footer({ locale }: { locale: Locale }) {
+  const t = getT();
 
-  const options: Intl.DateTimeFormatOptions = {
+  const jakartaTime = new Intl.DateTimeFormat("id-ID", {
     hour: "numeric",
     minute: "numeric",
     timeZone: "Asia/Jakarta",
-  };
-
-  const jakartaTime = new Intl.DateTimeFormat("id-ID", options).format(
-    new Date(),
-  );
+  }).format(new Date());
 
   return (
     <footer>
@@ -70,9 +66,8 @@ const Footer = () => {
                 <div className="flex font-serif tracking-widest text-black dark:text-white"></div>
                 <div className="flex items-center justify-start text-xs font-light tracking-widest text-zinc-500 sm:justify-end dark:text-white">
                   <div className="flex items-center gap-2 sm:gap-4 md:gap-6">
-                    <LanguageSwitcher />
+                    <LanguageSwitcher currentLang={locale} />
                     <div className="hidden h-6 w-px bg-black/10 sm:block dark:bg-white/30" />
-                    <ThemeSwitcher />
                   </div>
                 </div>
               </div>
@@ -82,6 +77,26 @@ const Footer = () => {
       </div>
     </footer>
   );
-};
+}
 
-export default Footer;
+function LanguageSwitcher({ currentLang }: { currentLang: Locale }) {
+  const isEn = currentLang === "en";
+  const targetLocale = isEn ? "id" : "en";
+
+  return (
+    <Link
+      href={`/${targetLocale}`}
+      scroll={false}
+      prefetch={true}
+      className="inline-flex items-center gap-2 font-medium transition-colors hover:text-black dark:hover:text-white"
+    >
+      <ArrowRightLeftIcon className="size-4" />
+      {isEn ? (
+        <IndonesiaFlag className="size-5" />
+      ) : (
+        <USFlag className="size-5" />
+      )}
+      <span>{targetLocale.toUpperCase()}</span>
+    </Link>
+  );
+}
