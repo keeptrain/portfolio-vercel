@@ -4,10 +4,8 @@ import { locales, Locale } from "@/i18n/locales";
 import { getTranslations } from "@/i18n/getTranslations";
 import { loadMessages } from "@/i18n/loadMessages";
 import { TranslationProvider } from "@/i18n/TranslationContext";
-import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import BottomNav from "@/components/BottomNav";
-import LocaleHtmlLang from "@/components/LocaleHtmlLang";
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -67,7 +65,6 @@ export default async function LocaleLayout({
 
   return (
     <TranslationProvider messages={messages} locale={locale}>
-      <LocaleHtmlLang locale={locale} />
       <div className="mb-15"></div>
       {children}
       <Footer />
