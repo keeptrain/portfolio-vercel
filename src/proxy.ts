@@ -1,26 +1,30 @@
 import { NextRequest, NextResponse } from "next/server";
-import { locales } from "@/i18n/locales";
+import { Locale, locales } from "@/i18n/locales";
 import { getLocaleFromHeader } from "@/i18n/locale-detection";
-
-const localeRegex = new RegExp(`^/(${locales.join("|")})(/|$)`);
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Check if locale is already in pathname
-  const match = pathname.match(localeRegex);
-  if (match) {
-    return NextResponse.next();
+  // Check if pathname already has a supported locale
+  const firstSegment = pathname.split("/")[1];
+  if (locales.includes(firstSegment as Locale)) {
+    return;
   }
 
-  // Detect locale and redirect
-  const locale = getLocaleFromHeader(request.headers.get("accept-language"));
-  const newUrl = new URL(`/${locale}${pathname}`, request.url);
+  // Detect locale from header (fallback to defaultLocale/en)
+  const targetLocale = getLocaleFromHeader(
+    request.headers.get("accept-language"),
+  );
 
-  // Preserve search params
-  newUrl.search = request.nextUrl.search;
+  // If the first segment is an unknown 2-character language code
+  // (e.g. /fr, /de), remove it
+  const isUnknownLocale = firstSegment && firstSegment.length === 2;
+  const cleanPath = isUnknownLocale
+    ? pathname.slice(firstSegment.length + 1)
+    : pathname;
 
-  return NextResponse.redirect(newUrl);
+  request.nextUrl.pathname = `/${targetLocale}${cleanPath}`;
+  return NextResponse.redirect(request.nextUrl);
 }
 
 export const config = {
