@@ -85,7 +85,7 @@ export default async function LocaleLayout({
           content="width=device-width, initial-scale=1.0"
         />
       </head>
-      <body className="bg-accent">
+      <body>
         <ThemeProvider>
           <TranslationProvider messages={messages} locale={locale}>
             <main id="main-content">
