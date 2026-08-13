@@ -5,10 +5,18 @@ import { getLocaleFromHeader } from "@/i18n/locale-detection";
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // Set header x-pathname agar Server Components dapat membaca pathname saat ini via headers()
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set("x-pathname", pathname);
+
   // Check if pathname already has a supported locale
   const firstSegment = pathname.split("/")[1];
   if (locales.includes(firstSegment as Locale)) {
-    return;
+    return NextResponse.next({
+      request: {
+        headers: requestHeaders,
+      },
+    });
   }
 
   // Detect locale from header (fallback to defaultLocale/en)
