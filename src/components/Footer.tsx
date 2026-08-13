@@ -22,7 +22,7 @@ export default function Footer() {
       {/* Footer Section */}
       <div className="rounded-4xl bg-white p-2 shadow-[0_-1px_3px_rgba(0,0,0,0.08)] sm:p-6 md:p-12 dark:bg-black dark:shadow-[0_-1px_3px_rgba(255,255,255,0.08)]">
         <Container>
-          <div className="flex flex-col rounded-4xl border border-gray-200 shadow-lg shadow-zinc-200/50 sm:flex-row sm:justify-between dark:border-none dark:shadow-zinc-700">
+          <div className="flex flex-col rounded-4xl border border-gray-200 pb-16 shadow-lg shadow-zinc-200/50 sm:flex-row sm:justify-between sm:pb-20 dark:border-none dark:shadow-zinc-700">
             <div className="flex-1 px-4 py-6 sm:px-6 md:px-8">
               <div className="flex justify-between gap-4 sm:flex-row sm:items-baseline sm:gap-0">
                 <div className="font-serif text-sm tracking-widest text-black sm:text-base md:text-lg dark:text-white">
