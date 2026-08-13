@@ -4,9 +4,9 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { getPostBySlug, getRelatedPosts, formatDate } from "@/lib/blog";
 import { BlogPost } from "@/data/blogPosts";
-import BlogHeader from "@/components/blog/BlogHeader";
-import BlogCard from "@/components/blog/BlogCard";
-import MarkdownRenderer from "@/components/blog/MarkdownRenderer";
+import BlogHeader from "@/features/blog/components/BlogHeader";
+import BlogCard from "@/features/blog/components/BlogCard";
+import MarkdownRenderer from "@/features/blog/components/MarkdownRenderer";
 
 interface BlogContentProps {
   slug: string;

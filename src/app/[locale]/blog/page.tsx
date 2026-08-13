@@ -1,6 +1,6 @@
 import { Locale } from "@/i18n/locales";
 import { getAllPosts } from "@/lib/blog";
-import BlogCard from "@/components/blog/BlogCard";
+import BlogCard from "@/features/blog/components/BlogCard";
 
 export default async function BlogPage({
   params,

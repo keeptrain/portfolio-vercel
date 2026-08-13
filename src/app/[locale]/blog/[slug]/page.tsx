@@ -1,7 +1,7 @@
 import { Locale } from "@/i18n/locales";
 import { getPostBySlug } from "@/lib/blog";
 import { notFound } from "next/navigation";
-import BlogContent from "@/components/blog/BlogContent";
+import BlogContent from "@/features/blog/components/BlogContent";
 
 export async function generateStaticParams({
   params,
