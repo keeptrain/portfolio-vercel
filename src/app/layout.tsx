@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Montserrat, Inter } from "next/font/google";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import "@/app/globals.css";
-import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -40,7 +39,7 @@ export default async function RootLayout({
     <html
       lang={locale}
       data-scroll-behavior="smooth"
-      className={cn(montserrat.className, "font-sans", inter.variable)}
+      className={`${montserrat.className} font-sans ${inter.variable}`}
     >
       <head>
         <meta
@@ -49,7 +48,7 @@ export default async function RootLayout({
           content="width=device-width, initial-scale=1.0"
         />
       </head>
-      <body className={`${montserrat.className} bg-accent`}>
+      <body className="bg-accent">
         <ThemeProvider>
           <main id="main-content">{children}</main>
         </ThemeProvider>
