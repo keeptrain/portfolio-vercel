@@ -1,11 +1,10 @@
 import { Metadata } from "next";
 import { Montserrat, Inter } from "next/font/google";
 import { locales, Locale } from "@/i18n/locales";
-import { getTranslations } from "@/i18n/getTranslations";
 import { loadMessages } from "@/i18n/loadMessages";
 import { TranslationProvider } from "@/i18n/TranslationContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
-import { setRequestLocale } from "@/i18n/server";
+import { setRequestLocale, getT } from "@/i18n/server";
 import Footer from "@/components/Footer";
 import BottomNav from "@/components/BottomNav";
 
@@ -27,7 +26,8 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = getTranslations(locale as Locale);
+  setRequestLocale(locale as Locale);
+  const t = getT();
 
   return {
     title: "KeepTrain",
