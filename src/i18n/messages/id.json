@@ -79,6 +79,9 @@
     "expLabel": "Pengalaman",
     "expValue": "1.5+ Tahun",
     "projectsLabel": "Proyek Selesai",
-    "projectsValue": "10+ Proyek"
+    "projectsValue": "10+ Proyek",
+    "introText": "Terima kasih telah meluangkan waktu untuk berkunjung. Jadikan ini sebagai titik awal—sebuah ruang untuk mengenal siapa saya, apa yang saya bangun, dan gagasan yang membentuk karya saya. Semoga ini membantu Anda memutuskan apakah kita cocok untuk bekerja sama.",
+    "aboutTitle": "Tentang Saya",
+    "aboutDesc": "Saya Gilang — seorang Software Engineer dengan pengalaman 1.5+ tahun mengubah ide menjadi produk digital yang andal melalui kode yang bersih, sistem yang scalable, serta pengalaman yang intuitif—dengan fokus kuat pada performa, kejelasan penggunaan, dan kemudahan pemeliharaan jangka panjang."
   }
 }

@@ -1,4 +1,5 @@
 import BentoCardWrapper from "./BentoCardWrapper";
+import { getT } from "@/i18n/server";
 
 interface BentoIntroCardProps {
   className?: string;
@@ -7,15 +8,13 @@ interface BentoIntroCardProps {
 export default function BentoIntroCard({
   className = "",
 }: BentoIntroCardProps) {
+  const t = getT();
   return (
     <BentoCardWrapper className={`flex flex-col ${className}`}>
       {/* Section 1: Intro */}
       <div>
         <p className="text-xs leading-relaxed text-gray-600 sm:text-sm dark:text-gray-300">
-          Thank you for taking the time to visit. Consider this a starting
-          point—a space to explore who I am, what I build, and the ideas that
-          shape my work. I hope it helps you decide whether we're a great fit to
-          work together.
+          {t("bentoHero.introText")}
         </p>
       </div>
 
@@ -25,13 +24,10 @@ export default function BentoIntroCard({
       {/* Section 2: About Me */}
       <div>
         <h3 className="text-lg font-medium tracking-tight text-gray-900 sm:text-xl dark:text-white">
-          About Me
+          {t("bentoHero.aboutTitle")}
         </h3>
         <p className="text-xs leading-relaxed text-gray-600 sm:text-sm dark:text-gray-300">
-          I'm Gilang — a Software Engineer with 1.5+ years of experience turning
-          ideas into reliable digital products through clean code, scalable
-          systems, and intuitive experiences—with a strong focus on performance,
-          usability, and long-term maintainability.
+          {t("bentoHero.aboutDesc")}
         </p>
       </div>
     </BentoCardWrapper>

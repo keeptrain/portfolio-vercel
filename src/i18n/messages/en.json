@@ -79,6 +79,9 @@
     "expLabel": "Experience",
     "expValue": "1.5+ Years",
     "projectsLabel": "Completed",
-    "projectsValue": "10+ Projects"
+    "projectsValue": "10+ Projects",
+    "introText": "Thank you for taking the time to visit. Consider this a starting point—a space to explore who I am, what I build, and the ideas that shape my work. I hope it helps you decide whether we're a great fit to work together.",
+    "aboutTitle": "About Me",
+    "aboutDesc": "I'm Gilang — a Software Engineer with 1.5+ years of experience turning ideas into reliable digital products through clean code, scalable systems, and intuitive experiences—with a strong focus on performance, usability, and long-term maintainability."
   }
 }
