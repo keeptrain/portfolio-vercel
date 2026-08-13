@@ -1,5 +1,4 @@
 import { Container } from "@/components/ui/Container";
-import OpenToWorkBadge from "@/components/_/OpenToWorkBadge";
 import {
   DocumentText,
   MultiStarts,
@@ -22,7 +21,6 @@ export default function Hero() {
           <div className="order-2 flex flex-col items-start justify-center gap-6 md:order-1">
             {/* Badge and Reach out in mobile mode */}
             <div className="flex flex-wrap items-center gap-2 md:hidden">
-              <OpenToWorkBadge />
               <Link
                 href={`/${locale}/contact`}
                 className="inline-flex items-center gap-2 rounded-3xl border border-gray-300 bg-white px-4 py-2 text-xs font-medium text-black dark:border-zinc-800 dark:bg-zinc-900 dark:text-white/80"
