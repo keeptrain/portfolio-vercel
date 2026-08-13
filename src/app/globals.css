@@ -240,15 +240,7 @@
     --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-    }
-  }
+  /* prefers-reduced-motion: handled natively by tw-animate-css and vaul */
 }
 
 @layer utilities {
