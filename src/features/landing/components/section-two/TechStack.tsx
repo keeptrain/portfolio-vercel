@@ -1,94 +1,138 @@
-import {
-  Atom,
-  Boxes,
-  Braces,
-  Code2,
-  CodeXml,
-  Component,
-  Container,
-  Database,
-  DatabaseZap,
-  GitBranch,
-  Palette,
-  Server,
-  SquareTerminal,
-  Triangle,
-  type LucideIcon,
-} from "lucide-react";
-import { useTranslations } from "@/i18n/TranslationContext";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-type Tech = { name: string; icon: LucideIcon };
+type Category = {
+  key: string;
+  title: string;
+  items: string[];
+};
 
-const CATEGORIES: { key: string; icon: LucideIcon; items: Tech[] }[] = [
+const TOP_CATEGORIES: Category[] = [
   {
-    key: "frontend",
-    icon: Component,
-    items: [
-      { name: "React", icon: Atom },
-      { name: "Next.js", icon: Component },
-      { name: "TypeScript", icon: Braces },
-      { name: "TailwindCSS", icon: Palette },
-    ],
+    key: "languages",
+    title: "Languages",
+    items: ["TypeScript", "PHP", "Kotlin"],
   },
   {
-    key: "backend",
-    icon: Server,
+    key: "frameworks",
+    title: "Frameworks & Libraries",
     items: [
-      { name: "Node.js", icon: Code2 },
-      { name: "Laravel", icon: CodeXml },
-      { name: "REST APIs", icon: Server },
-    ],
-  },
-  {
-    key: "database",
-    icon: Database,
-    items: [
-      { name: "PostgreSQL", icon: Database },
-      { name: "MongoDB", icon: Boxes },
-      { name: "MySQL", icon: DatabaseZap },
-    ],
-  },
-  {
-    key: "tools",
-    icon: Triangle,
-    items: [
-      { name: "Git", icon: GitBranch },
-      { name: "Docker", icon: Container },
-      { name: "Vercel", icon: Triangle },
-      { name: "VS Code", icon: SquareTerminal },
+      "React",
+      "Next.js",
+      "Laravel",
+      "Livewire",
+      "Jetpack Compose",
+      "Android Views / XML",
+      "TailwindCSS",
+      "shadcn/ui",
     ],
   },
 ];
 
-export default function TechStack() {
-  const { t } = useTranslations();
+const ROW_TWO_CATEGORIES: Category[] = [
+  {
+    key: "database_baas",
+    title: "Database & BaaS",
+    items: ["PostgreSQL", "MySQL", "SQLite", "Redis", "Supabase", "Firebase"],
+  },
+  {
+    key: "cloud_devops_infra",
+    title: "Cloud, DevOps & Infrastructure",
+    items: [
+      "Vercel",
+      "AWS",
+      "Google Cloud",
+      "Docker",
+      "Podman",
+      "Git",
+      "GitHub",
+    ],
+  },
+];
 
+const API_CATEGORY: Category = {
+  key: "api_architecture",
+  title: "API & Architecture",
+  items: ["REST APIs", "CI/CD", "Modular Monolith"],
+};
+
+export default function TechStack() {
   return (
-    <div className="grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-4">
-      {CATEGORIES.map((category) => (
-        <div
-          key={category.key}
-          className="rounded-2xl border border-gray-200/80 bg-white/60 p-4 shadow-sm backdrop-blur-md md:p-5 dark:border-zinc-800/80 dark:bg-zinc-900/50"
-        >
-          <div className="mb-3 flex items-center gap-2">
-            <category.icon className="size-4 text-gray-500 dark:text-gray-400" />
-            <h4 className="text-sm font-semibold text-black dark:text-white">
-              {t(`sectionTwo.techStack.${category.key}`)}
-            </h4>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            {category.items.map((tech) => (
+    <div className="flex flex-col gap-4 md:gap-6 p-1">
+      {/* Baris 1: Languages (Kiri) | Frameworks & Libraries (Kanan) */}
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6">
+        {TOP_CATEGORIES.map((category) => (
+          <Card key={category.key} size="sm">
+            <CardHeader>
+              <CardTitle>{category.title}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-wrap gap-2">
+                {category.items.map((item) => (
+                  <span
+                    key={item}
+                    className="inline-flex items-center rounded-full border border-gray-200 bg-white/80 px-3 py-1.5 text-xs font-medium text-gray-700 transition-transform duration-300 hover:scale-105 hover:border-gray-300 hover:shadow-sm dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-gray-300 dark:hover:border-zinc-600"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+
+      {/* Baris 2: Database & BaaS (Kiri) | Cloud, DevOps & Infrastructure (Kanan) */}
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6">
+        {ROW_TWO_CATEGORIES.map((category) => (
+          <Card
+            key={category.key}
+            size="sm"
+            className="border-gray-200/80 bg-white/60 shadow-sm backdrop-blur-md dark:border-zinc-800/80 dark:bg-zinc-900/50"
+          >
+            <CardHeader className="pb-2">
+              <CardTitle className="text-base font-semibold text-black dark:text-white">
+                {category.title}
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-wrap gap-2">
+                {category.items.map((item) => (
+                  <span
+                    key={item}
+                    className="inline-flex items-center rounded-full border border-gray-200 bg-white/80 px-3 py-1.5 text-xs font-medium text-gray-700 transition-transform duration-300 hover:scale-105 hover:border-gray-300 hover:shadow-sm dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-gray-300 dark:hover:border-zinc-600"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+
+      {/* Baris 3: API & Architecture */}
+      <Card
+        size="sm"
+        className="border-gray-200/80 bg-white/60 shadow-sm backdrop-blur-md dark:border-zinc-800/80 dark:bg-zinc-900/50"
+      >
+        <CardHeader className="pb-2">
+          <CardTitle className="text-base font-semibold text-black dark:text-white">
+            {API_CATEGORY.title}
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="flex flex-wrap gap-2 sm:gap-2.5">
+            {API_CATEGORY.items.map((item) => (
               <span
-                key={tech.name}
-                className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 px-2.5 py-1 text-xs font-medium text-gray-600 transition-transform duration-300 hover:scale-105 hover:border-gray-300 hover:shadow-sm dark:border-zinc-700 dark:text-gray-300 dark:hover:border-zinc-600"
+                key={item}
+                className="inline-flex items-center rounded-full border border-gray-200 bg-white/80 px-3 py-1.5 text-xs font-medium text-gray-700 transition-transform duration-300 hover:scale-105 hover:border-gray-300 hover:shadow-sm dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-gray-300 dark:hover:border-zinc-600"
               >
-                <tech.icon className="size-3.5 text-gray-400 dark:text-gray-500" />
-                {tech.name}
+                {item}
               </span>
             ))}
           </div>
-        </div>
-      ))}
+        </CardContent>
+      </Card>
     </div>
   );
 }
