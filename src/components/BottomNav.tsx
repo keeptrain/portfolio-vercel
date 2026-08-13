@@ -40,15 +40,15 @@ export default function BottomNav({ locale }: BottomNavProps) {
   ];
 
   return (
-    <nav className="fixed right-0 bottom-0 left-0 z-10 pb-8 md:hidden">
-      <div className="mx-auto flex w-fit items-center gap-1.5 rounded-xl border border-gray-200/60 bg-white/90 p-2 shadow-md shadow-black/10 backdrop-blur-xl dark:border-zinc-700/60 dark:bg-zinc-900/90 dark:shadow-black/30">
+    <nav className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2 pb-4 md:bottom-6 md:pb-0">
+      <div className="mx-auto flex w-fit items-center gap-1.5 rounded-xl border border-gray-200/60 bg-white/90 p-2 shadow-lg shadow-black/10 backdrop-blur-xl md:rounded-full md:px-3 md:py-2.5 dark:border-zinc-700/60 dark:bg-zinc-900/90 dark:shadow-black/30">
         {items.map((item) => (
           <Link
             key={item.href}
             href={item.href}
-            className={`relative flex items-center justify-center rounded-full transition-all duration-300 ease-in-out ${
+            className={`relative flex items-center justify-center rounded-full transition-all duration-300 ease-in-out hover:scale-105 ${
               item.active
-                ? "gap-2 px-4 py-2"
+                ? "gap-2 px-4 py-2 text-black dark:text-white bg-gray-100 dark:bg-zinc-800/80"
                 : "p-2 text-gray-400 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-200"
             }`}
           >
