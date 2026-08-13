@@ -11,7 +11,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useIsMobile } from "@/hooks/useIsMobile";
 import { Bars3BottomRight, XMark } from "@/components/icons/HeroIcons";
-import OpenToWorkBadge from "@/components/_/OpenToWorkBadge";
 import { useTranslations } from "@/i18n/TranslationContext";
 import { cn } from "@/lib/utils";
 import { Container } from "@/components/ui/Container";
@@ -252,9 +251,7 @@ function HeaderLogo({
   }
 
   return (
-    <div className="relative hidden h-6 w-12 md:block md:h-10 md:w-96">
-      <OpenToWorkBadge />
-    </div>
+    <div className="relative hidden h-6 w-12 md:block md:h-10 md:w-96"></div>
   );
 }
 
@@ -292,7 +289,7 @@ const MenuToggleButton = React.forwardRef<
       onClick={onClick}
       className={cn(
         "p-2 text-gray-800 dark:text-gray-200",
-        "focus:outline-none focus:ring-2 focus:ring-blue-500",
+        "focus:ring-2 focus:ring-blue-500 focus:outline-none",
       )}
       aria-label={isOpen ? "Close menu" : "Open menu"}
       aria-expanded={isOpen}
@@ -332,7 +329,7 @@ const DesktopDropdown = React.forwardRef<
           onClick={onClose}
           className={cn(
             "p-2 text-gray-800 dark:text-gray-200",
-            "focus:outline-none focus:ring-2 focus:ring-blue-500",
+            "focus:ring-2 focus:ring-blue-500 focus:outline-none",
           )}
           aria-label="Close menu"
         >
@@ -386,7 +383,7 @@ function MobileOverlay({
           onClick={onClose}
           className={cn(
             "flex items-center justify-center rounded-lg p-3 text-gray-800 dark:text-gray-200",
-            "focus:outline-none focus:ring-2 focus:ring-blue-500",
+            "focus:ring-2 focus:ring-blue-500 focus:outline-none",
           )}
           aria-label="Close menu"
         >
