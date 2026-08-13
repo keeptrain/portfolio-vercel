@@ -75,7 +75,6 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      data-scroll-behavior="smooth"
       className={`${montserrat.className} font-sans ${inter.variable}`}
     >
       <head>
@@ -88,10 +87,7 @@ export default async function LocaleLayout({
       <body>
         <ThemeProvider>
           <TranslationProvider messages={messages} locale={locale}>
-            <main id="main-content">
-              <div id="top" className="mb-15" />
-              {children}
-            </main>
+            <main>{children}</main>
             <Footer />
             <BottomNav locale={locale as Locale} />
           </TranslationProvider>

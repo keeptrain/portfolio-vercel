@@ -7,7 +7,7 @@ import BentoClientCard from "./BentoClientCard";
 
 export default function BentoHeroSection() {
   return (
-    <section id="hero">
+    <section id="hero" className="mt-10 md:mt-16">
       <Container>
         {/* Responsive Grid Layout Container */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-12 lg:gap-6">

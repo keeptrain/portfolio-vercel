@@ -20,7 +20,7 @@
     @apply font-sans antialiased;
   }
   body {
-    @apply bg-accent;
+    @apply flex min-h-screen flex-col bg-accent;
   }
 }
 
