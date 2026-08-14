@@ -15,7 +15,8 @@ import {
 import { IndonesiaFlag, USFlag } from "./icons/FlagIcons";
 import { Button } from "./ui/button";
 
-const resumeUrl = "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID";
+const resumeUrl =
+  "https://drive.google.com/uc?export=download&id=1k8stK1faQBL-zetngLBsN_XKCttD9Sxr";
 
 interface MoreDrawerProps {
   locale: Locale;
