@@ -1,5 +1,6 @@
 export interface Project {
   slug: string;
+  name: string;
   title: string;
   imageSrc: string;
   stack: string[];
@@ -15,6 +16,7 @@ export interface Project {
 export const projectsData: Project[] = [
   {
     slug: "jakreq",
+    name: "JakReq",
     title: "JakReq — Request Management System",
     imageSrc: "/test-png.jpg",
     stack: ["Laravel", "Livewire"],
@@ -28,6 +30,7 @@ export const projectsData: Project[] = [
   },
   {
     slug: "cullinarix",
+    name: "Cullinarix",
     title: "Cullinarix — Food Discovery App",
     imageSrc: "/test-png.jpg",
     stack: ["Android", "Kotlin"],
