@@ -75,6 +75,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
+      data-scroll-behavior="smooth"
       className={`${montserrat.className} font-sans ${inter.variable}`}
     >
       <head>

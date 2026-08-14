@@ -12,8 +12,10 @@
     border-color: var(--border);
   }
   html {
-    scroll-behavior: smooth;
     @apply font-sans antialiased;
+  }
+  html[data-scroll-behavior="smooth"] {
+    scroll-behavior: smooth;
   }
   body {
     @apply flex min-h-screen flex-col bg-accent;
