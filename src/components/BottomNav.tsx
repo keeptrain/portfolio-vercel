@@ -1,13 +1,8 @@
-import { Locale } from "@/i18n/locales";
 import { getT, getLocale } from "@/i18n/server";
 import BottomNavClient, { NavItemConfig } from "./BottomNavClient";
 
-interface BottomNavProps {
-  locale?: Locale;
-}
-
-export default function BottomNav({ locale }: BottomNavProps) {
-  const currentLocale = locale || getLocale();
+export default function BottomNav() {
+  const currentLocale = getLocale();
   const t = getT();
 
   const navItems: NavItemConfig[] = [

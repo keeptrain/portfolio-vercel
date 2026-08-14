@@ -89,7 +89,7 @@ export default async function LocaleLayout({
           <TranslationProvider messages={messages} locale={locale}>
             <main>{children}</main>
             <Footer />
-            <BottomNav locale={locale as Locale} />
+            <BottomNav />
           </TranslationProvider>
         </ThemeProvider>
       </body>
