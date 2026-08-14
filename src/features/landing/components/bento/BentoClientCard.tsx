@@ -86,7 +86,7 @@ export default function BentoClientCard({
         <span className="relative z-10">My Experience</span>
       </div>
       <Link
-        href={`/projects/jakreq`}
+        href={""}
         className="absolute right-6 bottom-2 text-xs font-medium text-gray-500 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
       >
         <ArrowUpRight color={"text-blue-old"} />

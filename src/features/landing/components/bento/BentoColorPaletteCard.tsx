@@ -1,5 +1,3 @@
-"use client";
-
 import BentoCardWrapper from "./BentoCardWrapper";
 
 interface PaletteColor {
@@ -19,31 +17,28 @@ export default function BentoColorPaletteCard({
 }: {
   className?: string;
 }) {
-  const handleCopy = (hex: string) => {
-    navigator.clipboard.writeText(`#${hex}`);
-  };
-
   return (
     <BentoCardWrapper
-      className={`hidden flex-col justify-between sm:flex ${className}`}
+      className={`hidden flex-col justify-between overflow-hidden p-0 sm:flex ${className} `}
     >
       {/* Bottom Section: 4 Solid Monochrome Color Blocks Stretching Full Height */}
-      <div className="grid h-full w-full flex-1 grid-cols-4 overflow-hidden">
+      <div className="grid h-24 w-full flex-1 grid-cols-4">
         {COLORS.map((color) => (
-          <button
+          <div
             key={color.hex}
-            onClick={() => handleCopy(color.hex)}
             style={{ backgroundColor: color.bgHex }}
-            className="h-full w-full border-t border-gray-100 transition-all hover:brightness-105 active:scale-95 dark:border-zinc-800"
-            title={`Copy #${color.hex}`}
+            className="h-full w-full border-t border-gray-100 dark:border-zinc-800"
+            title={`#${color.hex}`}
           />
         ))}
       </div>
 
       {/* Top Section: Palette Title */}
-      <h3 className="text-xl font-medium tracking-tight text-gray-900 dark:text-white">
-        Monochrome
-      </h3>
+      <div>
+        <h3 className="text-xl font-medium tracking-tight text-gray-900 dark:text-white">
+          Monochrome
+        </h3>
+      </div>
     </BentoCardWrapper>
   );
 }
