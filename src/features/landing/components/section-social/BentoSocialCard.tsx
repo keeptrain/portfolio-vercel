@@ -64,21 +64,19 @@ export default function BentoSocialCard() {
             <Link href={item.url} target="_blank" rel="noopener noreferrer">
               {/* Card Container with Social Background */}
               <div
-                className={`relative flex aspect-5/4 w-full items-center justify-center rounded-xl ${item.bgColor} transition-colors`}
+                className={`relative flex aspect-4/3 w-full items-center justify-center rounded-xl ${item.bgColor} transition-colors`}
               >
                 {/* Center Social Icon / Brand */}
                 {item.id === "linkedin" ? (
-                  <span className="font-sans text-5xl font-extrabold tracking-tighter text-white sm:text-6xl">
+                  <span className="font-sans text-4xl font-extrabold tracking-tighter text-white sm:text-5xl">
                     in
                   </span>
                 ) : item.id === "email" ? (
-                  <div className="flex flex-col gap-1 text-white">
-                    <p className="text-xl leading-relaxed tracking-tighter">
+                  <div className="flex flex-col items-center gap-1 text-white">
+                    <p className="text-base font-medium tracking-tight sm:text-lg">
                       email me
                     </p>
-                    <div className="flex justify-center">
-                      <MailIcon />
-                    </div>
+                    <MailIcon className="size-4 sm:size-5" />
                   </div>
                 ) : (
                   <GithubIcon />
@@ -90,22 +88,22 @@ export default function BentoSocialCard() {
       </CarouselContent>
 
       {/* Clear & Visible Pagination Dots at Bottom-Left */}
-      <div className="absolute bottom-3 left-4 z-20 flex items-center gap-1">
+      <div className="absolute bottom-2.5 left-3 z-20 flex items-center gap-1">
         {SOCIAL_ITEMS.map((_, index) => (
           <button
             key={index}
             onClick={() => api?.scrollTo(index)}
             className={`h-1 rounded-full transition-all duration-300 ${
               current === index
-                ? "w-5 bg-white"
-                : "w-2 bg-white/40 hover:bg-white/70"
+                ? "w-4 bg-white"
+                : "w-1.5 bg-white/40 hover:bg-white/70"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </div>
 
-      <div className="absolute right-4 bottom-3 z-5">
+      <div className="absolute right-3 bottom-2.5 z-5">
         <ArrowUpRight color={"text-white"} />
       </div>
     </Carousel>
@@ -114,7 +112,7 @@ export default function BentoSocialCard() {
 
 function GithubIcon() {
   return (
-    <svg className="size-16 fill-white sm:size-20" viewBox="0 0 24 24">
+    <svg className="size-10 fill-white sm:size-14" viewBox="0 0 24 24">
       <path
         fillRule="evenodd"
         clipRule="evenodd"

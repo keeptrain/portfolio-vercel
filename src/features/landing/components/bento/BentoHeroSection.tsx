@@ -16,9 +16,10 @@ export default function BentoHeroSection() {
           <BentoIntroCard className="sm:col-span-2 lg:col-span-9" />
           <BentoProfileCard className="sm:col-span-1 lg:col-span-3" />
 
-          {/* Baris 2: Client Card (5col) + Learning (3col) + Project (4col) */}
+          {/* Baris 2: Left Group (8col) & Right Group (4col) */}
           <div className="lg:col-span-8">
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-3 gap-4 sm:gap-6">
+              {/* Company Experience */}
               <div className="col-span-3">
                 <div className="relative mx-6 inline-flex items-center justify-center py-1.5 text-xs font-semibold tracking-wide">
                   {/* Hand-drawn SVG frame wrapping the text */}
@@ -42,15 +43,20 @@ export default function BentoHeroSection() {
                 </div>
                 <CompanysCarousel />
               </div>
-              <div className="col-span-1">
+
+              {/* Social Card (hidden on mobile to keep DOM light) */}
+              <div className="hidden sm:col-span-1 sm:block">
                 <BentoSocialCard />
               </div>
-              <div className="col-span-2">
+
+              {/* Learning Card (full-width on mobile col-span-3, 2-col on sm) */}
+              <div className="col-span-3 sm:col-span-2">
                 <BentoLearningCard />
               </div>
             </div>
           </div>
 
+          {/* Latest Work Project Card */}
           <BentoProjectCard className="sm:col-span-2 lg:col-span-4" />
         </div>
       </Container>
