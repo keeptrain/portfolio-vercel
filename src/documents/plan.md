@@ -18,5 +18,4 @@
 
 ## Planning
 
-- read global.css apa yang tidak di perlukan dan harus di tambahkan
-- improve features/projects secara performances, code , layouting
+- Buat loading.ts pada route projects khusus 
