@@ -4,16 +4,6 @@ import { useState } from "react";
 import { Project } from "../data/projects";
 import ProjectAdapter from "./ProjectAdapter";
 import ProjectDetailDrawer from "./ProjectDetailDrawer";
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
 
 interface ProjectListProps {
   projects: Project[];
@@ -30,7 +20,7 @@ export default function ProjectList({ projects }: ProjectListProps) {
 
   return (
     <>
-      <div className="flex flex-col gap-4 divide-y divide-gray-300 dark:divide-zinc-700">
+      <div className="flex flex-col gap-4 divide-y divide-gray-300 dark:divide-zinc-700 pb-6">
         {projects.map((project, index) => (
           <ProjectAdapter
             key={project.slug || index}

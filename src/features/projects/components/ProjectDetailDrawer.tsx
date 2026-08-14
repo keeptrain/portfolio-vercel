@@ -8,7 +8,10 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerDescription,
+  DrawerFooter,
+  DrawerClose,
 } from "@/components/ui/drawer";
+import { Button } from "@/components/ui/button";
 
 interface ProjectDetailDrawerProps {
   project: Project;
@@ -24,15 +27,13 @@ export default function ProjectDetailDrawer({
   return (
     <Drawer open={open} onOpenChange={(isOpen) => !isOpen && onClose()}>
       <DrawerContent className="sm:mx-auto sm:max-w-3xl">
-        <div className="w-full overflow-y-auto p-4 sm:p-6">
-          <DrawerHeader className="px-0">
-            <DrawerTitle className="text-xl font-bold sm:text-2xl md:text-3xl">
-              {project.title}
-            </DrawerTitle>
+        <div className="overflow-y-auto">
+          <DrawerHeader>
+            <DrawerTitle>{project.title}</DrawerTitle>
           </DrawerHeader>
 
           {/* Content Layout */}
-          <div className="mt-4 grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-8">
+          <div className="mt-4 grid grid-cols-1 gap-6 px-6 md:grid-cols-12 md:gap-8">
             {/* Metadata Column */}
             <div className="space-y-4 md:col-span-5">
               <div className="border-t border-zinc-200 pt-3 dark:border-zinc-800">
@@ -94,9 +95,26 @@ export default function ProjectDetailDrawer({
             <div className="pt-2 pb-4 md:col-span-12">
               <DrawerDescription className="text-sm leading-relaxed text-zinc-600 sm:text-base dark:text-zinc-300">
                 {project.description}
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
+                quos beatae vitae excepturi possimus quis, debitis aspernatur
+                quod, modi doloribus atque maxime minima natus ipsam aliquid
+                iure vero corporis sapiente. Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Fuga quos beatae vitae excepturi
+                possimus quis, debitis aspernatur quod, modi doloribus atque
+                maxime minima natus ipsam aliquid iure vero corporis sapiente.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
+                quos beatae vitae excepturi possimus quis, debitis aspernatur
+                quod, modi doloribus atque maxime minima natus ipsam aliquid
+                iure vero corporis sapiente.
               </DrawerDescription>
             </div>
           </div>
+
+          <DrawerFooter>
+            <DrawerClose asChild>
+              <Button variant="outline">Close</Button>
+            </DrawerClose>
+          </DrawerFooter>
         </div>
       </DrawerContent>
     </Drawer>

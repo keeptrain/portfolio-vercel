@@ -14,32 +14,10 @@ export interface Project {
 
 export const projectsData: Project[] = [
   {
-    slug: "sim-ors",
-    title: "SIM — ORS",
-    imageSrc: "/images/projects/jakreq-thumb.jpg",
-    stack: [
-      "React.js",
-      "Typescript",
-      "Laravel",
-      "MySQL",
-      "Zustand",
-      "Tailwind",
-      "Shadcn",
-      "Docker",
-    ],
-    category: "Website Development",
-    year: "2025 - 2026",
-    client: "Swakarya Insan Mandiri",
-    description:
-      "ORS (Outsourcing Recruitment System) is an outsourcing recruitment platform that simplifies the hiring process, helping teams manage job requests, track candidates, and oversee recruitment from sourcing to placement.",
-    isNda: true,
-    links: "/projects/sim-ors",
-  },
-  {
     slug: "jakreq",
     title: "JakReq — Request Management System",
-    imageSrc: "/images/projects/jakreq-thumb.jpg",
-    stack: ["Laravel", "Livewire", "Tailwind CSS", "MySQL"],
+    imageSrc: "/test-png.jpg",
+    stack: ["Laravel", "Livewire"],
     category: "Website Development",
     year: "2024 - 2025",
     client: "Internal / Corporate",
@@ -51,8 +29,8 @@ export const projectsData: Project[] = [
   {
     slug: "cullinarix",
     title: "Cullinarix — Food Discovery App",
-    imageSrc: "/images/projects/cullinarix-thumb.jpg",
-    stack: ["Android", "Kotlin", "XML", "Retrofit", "Room"],
+    imageSrc: "/test-png.jpg",
+    stack: ["Android", "Kotlin"],
     category: "Mobile App Development",
     year: "2024",
     client: "Personal Project",
