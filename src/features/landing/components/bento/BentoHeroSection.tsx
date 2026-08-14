@@ -5,6 +5,7 @@ import BentoProjectCard from "./BentoProjectCard";
 import BentoLearningCard from "./BentoLearningCard";
 import BentoSocialCard from "../section-social/BentoSocialCard";
 import CompanysCarousel from "./CompanysCarousel";
+import HandDrawnWrappingText from "@/components/shared/HandDrawnWrappingText";
 
 export default function BentoHeroSection() {
   return (
@@ -17,33 +18,17 @@ export default function BentoHeroSection() {
           <BentoProfileCard className="sm:col-span-1 lg:col-span-3" />
 
           {/* Baris 2: Left Group (8col) & Right Group (4col) */}
-          <div className="lg:col-span-8">
-            <div className="grid grid-cols-3 gap-4 sm:gap-6">
-              {/* Company Experience */}
-              <div className="col-span-3">
-                <div className="relative mx-6 inline-flex items-center justify-center py-1.5 text-xs font-semibold tracking-wide">
-                  {/* Hand-drawn SVG frame wrapping the text */}
-                  <svg
-                    className="pointer-events-none absolute inset-0 h-full w-full overflow-visible text-gray-900/90 dark:text-white/90"
-                    viewBox="0 0 120 40"
-                    preserveAspectRatio="none"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M 12,20 C 10,7 28,4 60,5 C 92,4 110,7 108,20 C 110,33 92,36 60,35 C 28,36 10,33 12,20 Z"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      vectorEffect="non-scaling-stroke"
-                    />
-                  </svg>
-                  <span className="relative z-5">Company Experience</span>
-                </div>
-                <CompanysCarousel />
-              </div>
+          <div className="flex flex-col justify-between lg:col-span-8">
+            {/* Top Part: Company Experience */}
+            <div>
+              <HandDrawnWrappingText className="mx-6">
+                Company Experience
+              </HandDrawnWrappingText>
+              <CompanysCarousel />
+            </div>
 
+            {/* Bottom Part: Social Card & Learning Card */}
+            <div className="grid grid-cols-3 gap-4 sm:gap-6">
               {/* Social Card (hidden on mobile to keep DOM light) */}
               <div className="hidden sm:col-span-1 sm:block">
                 <BentoSocialCard />
@@ -56,8 +41,8 @@ export default function BentoHeroSection() {
             </div>
           </div>
 
-          {/* Latest Work Project Card */}
-          <BentoProjectCard className="sm:col-span-2 lg:col-span-4" />
+          {/* Latest Work Project Card (4col - drives row height) */}
+          <BentoProjectCard className="h-full sm:col-span-2 lg:col-span-4" />
         </div>
       </Container>
     </section>
