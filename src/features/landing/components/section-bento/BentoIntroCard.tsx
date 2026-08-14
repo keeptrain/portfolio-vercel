@@ -1,5 +1,8 @@
 import BentoCardWrapper from "./BentoCardWrapper";
 import { getT } from "@/i18n/server";
+import { Underline } from "@/components/icons/HandyArrows";
+import HandDrawnWrappingText from "@/components/shared/HandDrawnWrappingText";
+import RotatingGreeting from "./RotatingGreeting";
 
 interface BentoIntroCardProps {
   className?: string;
@@ -10,25 +13,19 @@ export default function BentoIntroCard({
 }: BentoIntroCardProps) {
   const t = getT();
   return (
-    <BentoCardWrapper className={`flex flex-col ${className}`}>
-      {/* Section 1: Intro */}
-      <div>
-        <p className="text-xs leading-relaxed text-gray-600 sm:text-sm dark:text-gray-300">
-          {t("bentoHero.introText")}
-        </p>
-      </div>
+    <BentoCardWrapper className={className}>
+      <div className="flex h-full flex-col justify-between gap-4 sm:gap-2">
+        {/* Section 1: Dynamic Animated Greetings */}
+        <RotatingGreeting />
 
-      {/* Subtle Divider */}
-      <div className="my-2 border-t border-gray-100 dark:border-zinc-800/80" />
+        {/* Subtle Decorative Underline */}
+        <Underline color={"dark:text-zinc-700"} />
 
-      {/* Section 2: About Me */}
-      <div>
-        <h3 className="text-lg font-medium tracking-tight text-gray-900 sm:text-xl dark:text-white">
-          {t("bentoHero.aboutTitle")}
-        </h3>
-        <p className="text-xs leading-relaxed text-gray-600 sm:text-sm dark:text-gray-300">
-          {t("bentoHero.aboutDesc")}
-        </p>
+        {/* Section 2: About Me */}
+        <div>
+          <HandDrawnWrappingText>About me</HandDrawnWrappingText>
+          <p className="leading-relaxed">{t("bentoHero.aboutDesc")}</p>
+        </div>
       </div>
     </BentoCardWrapper>
   );

@@ -41,11 +41,13 @@ export default function BentoCardWrapper({
     : "";
 
   return (
-    <Card className={cn(hoverStyles, className)}>
+    <Card className={cn("flex h-full flex-col", hoverStyles, className)}>
       {tagCard?.enabled && (
         <BentoCardHeader label={tagCard.label} action={tagCard.action} />
       )}
-      <CardContent>{children}</CardContent>
+      <CardContent className="flex h-full flex-1 flex-col">
+        {children}
+      </CardContent>
     </Card>
   );
 }

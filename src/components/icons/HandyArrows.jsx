@@ -27,7 +27,7 @@ export const ArrowUpRight = ({ color }) => {
 export const Underline = ({ color }) => {
   return (
     <svg
-      className={`h-3 w-30 md:w-100 ${color}`}
+      className={`h-3 w-30 md:w-40 ${color}`}
       viewBox="0 0 345 23"
       fill="currentcolor"
       xmlns="http://www.w3.org/2000/svg"
