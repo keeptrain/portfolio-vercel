@@ -32,29 +32,16 @@ export default function Footer() {
                   {t("footer.basedIn")}
                   <span className="flex items-start gap-2">{jakartaTime}</span>
                 </div>
-                <div>
-                  <div className="mb-4 flex justify-end">
-                    <a
-                      href="#"
-                      className="flex items-center gap-2 rounded-lg px-3 py-2 font-serif text-sm text-zinc-700 hover:text-black sm:px-0 sm:py-0 sm:text-base md:text-lg dark:text-white dark:hover:text-white"
-                    >
-                      <span className="hidden sm:flex">
-                        {t("footer.backToTop")}
-                      </span>
-                      <ArrowUp color={""} />
-                    </a>
-                  </div>
-
-                  <div className="flex justify-end">
-                    <div className="flex font-serif tracking-widest text-black dark:text-white"></div>
-                    <div className="flex items-center justify-end text-xs font-light tracking-widest text-zinc-500 dark:text-white">
-                      <div className="flex items-center gap-2 sm:gap-4 md:gap-6">
-                        <LanguageSwitcher />
-                        <div className="hidden h-6 w-px bg-black/10 sm:block dark:bg-white/30" />
-                        <ThemeSwitcher />
-                      </div>
-                    </div>
-                  </div>
+                <div className="flex justify-end">
+                  <a
+                    href="#"
+                    className="flex items-center gap-2 rounded-lg px-3 py-2 font-serif text-sm text-zinc-700 hover:text-black sm:px-0 sm:py-0 sm:text-base md:text-lg dark:text-white dark:hover:text-white"
+                  >
+                    <span className="hidden sm:flex">
+                      {t("footer.backToTop")}
+                    </span>
+                    <ArrowUp color={""} />
+                  </a>
                 </div>
               </div>
               <div className="relative flex h-10 items-center justify-center">
@@ -102,11 +89,11 @@ async function LanguageSwitcher() {
       prefetch={true}
       className="inline-flex items-center gap-2 font-medium transition-colors hover:text-black dark:hover:text-white"
     >
-      <ArrowRightLeftIcon className="size-4" />
+      <ArrowRightLeftIcon className="size-3 md:size-5" />
       {isEn ? (
-        <IndonesiaFlag className="size-5" />
+        <IndonesiaFlag className="size-3 md:size-5" />
       ) : (
-        <USFlag className="size-5" />
+        <USFlag className="size-3 md:size-5" />
       )}
       <span>{targetLocale.toUpperCase()}</span>
     </Link>
