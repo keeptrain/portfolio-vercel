@@ -57,7 +57,7 @@ const API_CATEGORY: Category = {
 
 export default function TechStack() {
   return (
-    <div className="flex flex-col gap-4 md:gap-6 p-1">
+    <div className="flex flex-col gap-4 p-1 md:gap-6">
       {/* Baris 1: Languages (Kiri) | Frameworks & Libraries (Kanan) */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6">
         {TOP_CATEGORIES.map((category) => (
@@ -84,15 +84,9 @@ export default function TechStack() {
       {/* Baris 2: Database & BaaS (Kiri) | Cloud, DevOps & Infrastructure (Kanan) */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6">
         {ROW_TWO_CATEGORIES.map((category) => (
-          <Card
-            key={category.key}
-            size="sm"
-            className="border-gray-200/80 bg-white/60 shadow-sm backdrop-blur-md dark:border-zinc-800/80 dark:bg-zinc-900/50"
-          >
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base font-semibold text-black dark:text-white">
-                {category.title}
-              </CardTitle>
+          <Card key={category.key} size="sm">
+            <CardHeader>
+              <CardTitle>{category.title}</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="flex flex-wrap gap-2">
@@ -111,14 +105,9 @@ export default function TechStack() {
       </div>
 
       {/* Baris 3: API & Architecture */}
-      <Card
-        size="sm"
-        className="border-gray-200/80 bg-white/60 shadow-sm backdrop-blur-md dark:border-zinc-800/80 dark:bg-zinc-900/50"
-      >
-        <CardHeader className="pb-2">
-          <CardTitle className="text-base font-semibold text-black dark:text-white">
-            {API_CATEGORY.title}
-          </CardTitle>
+      <Card size="sm">
+        <CardHeader>
+          <CardTitle>{API_CATEGORY.title}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="flex flex-wrap gap-2 sm:gap-2.5">
