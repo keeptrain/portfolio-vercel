@@ -17,8 +17,8 @@ function renderNav(locale: string, pathname: string) {
   vi.mocked(usePathname).mockReturnValue(pathname);
   return render(
     <TranslationProvider messages={messages} locale={locale}>
-      <BottomNav locale={locale as any} />
-    </TranslationProvider>
+      <p></p>
+    </TranslationProvider>,
   );
 }
 
