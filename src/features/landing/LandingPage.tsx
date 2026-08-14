@@ -1,7 +1,7 @@
-import BentoHeroSection from "./components/bento/BentoHeroSection";
 import SectionTwo from "./components/SectionTwo";
 import { setRequestLocale } from "@/i18n/server";
 import { Locale } from "@/i18n/locales";
+import SectionHero from "./components/SectionHero";
 
 export default async function LandingPage({
   params,
@@ -13,7 +13,7 @@ export default async function LandingPage({
 
   return (
     <>
-      <BentoHeroSection />
+      <SectionHero />
       <SectionTwo />
     </>
   );

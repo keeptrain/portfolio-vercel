@@ -1,13 +1,13 @@
 import { Container } from "@/components/ui/Container";
-import BentoIntroCard from "./BentoIntroCard";
-import BentoProfileCard from "./BentoProfileCard";
-import BentoProjectCard from "./BentoProjectCard";
-import BentoLearningCard from "./BentoLearningCard";
-import BentoSocialCard from "../section-social/BentoSocialCard";
-import CompanysCarousel from "./CompanysCarousel";
+import BentoIntroCard from "./section-bento/BentoIntroCard";
+import BentoProfileCard from "./section-bento/BentoProfileCard";
+import BentoProjectCard from "./section-bento/BentoProjectCard";
+import BentoLearningCard from "./section-bento/BentoLearningCard";
+import CompanysCarousel from "./section-bento/CompanysCarousel";
+import BentoSocialCard from "./section-social/BentoSocialCard";
 import HandDrawnWrappingText from "@/components/shared/HandDrawnWrappingText";
 
-export default function BentoHeroSection() {
+export default function SectionHero() {
   return (
     <section id="hero" className="mt-6 sm:mt-10 md:mt-16">
       <Container>
