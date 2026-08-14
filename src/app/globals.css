@@ -7,26 +7,16 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-@theme {
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-border: var(--border);
-}
-
 @layer base {
-  html {
-    @apply antialiased font-sans;
-    scroll-behavior: smooth;
-  }
-  body {
-    overflow-x: hidden;
-  }
   * {
-    @apply border-border outline-ring/50;
+    border-color: var(--border);
+  }
+  html {
+    scroll-behavior: smooth;
+    @apply font-sans antialiased;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply flex min-h-screen flex-col bg-accent;
   }
 }
 
@@ -246,15 +236,7 @@
     --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-    }
-  }
+  /* prefers-reduced-motion: handled natively by tw-animate-css and vaul */
 }
 
 @layer utilities {
@@ -277,23 +259,45 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeScale {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Component Classes */

@@ -1,8 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 import BentoCardWrapper from "./BentoCardWrapper";
-import { ArrowUpRight } from "@/components/icons/HandyArrows";
-import { getT, getLocale } from "@/i18n/server";
+import { getT } from "@/i18n/server";
 
 interface BentoProjectCardProps {
   className?: string;
@@ -12,7 +10,6 @@ export default function BentoProjectCard({
   className = "",
 }: BentoProjectCardProps) {
   const t = getT();
-  const locale = getLocale();
 
   return (
     <BentoCardWrapper
@@ -21,29 +18,19 @@ export default function BentoProjectCard({
         tagCard: {
           enabled: true,
           label: t("bentoHero.featuredProjectBadge"),
-          action: (
-            <Link
-              href={`/${locale}/projects/jakreq`}
-              className="text-xs font-medium text-gray-500 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-            >
-              <ArrowUpRight color={"text-blue-old"} />
-            </Link>
-          ),
         },
       }}
-      className={`flex flex-col justify-between ${className}`}
+      className={` ${className}`}
     >
       {/* Project Image Showcase */}
-      <div className="flex flex-col gap-3">
-        <div className="relative aspect-5/2 w-full overflow-hidden rounded-xl border border-gray-200/80 bg-gray-100 dark:border-zinc-700/80 dark:bg-zinc-800">
-          <Image
-            src="/test-png.jpg"
-            alt="JakReq Showcase"
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-        </div>
+      <div className="relative aspect-4/3 w-full">
+        <Image
+          src="/test-png.jpg"
+          alt="latest project"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="rounded-xl"
+        />
       </div>
     </BentoCardWrapper>
   );

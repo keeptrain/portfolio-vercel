@@ -3,11 +3,12 @@ import BentoIntroCard from "./BentoIntroCard";
 import BentoProfileCard from "./BentoProfileCard";
 import BentoProjectCard from "./BentoProjectCard";
 import BentoLearningCard from "./BentoLearningCard";
-import BentoClientCard from "./BentoClientCard";
+import BentoSocialCard from "../section-social/BentoSocialCard";
+import CompanysCarousel from "./CompanysCarousel";
 
 export default function BentoHeroSection() {
   return (
-    <section id="hero">
+    <section id="hero" className="mt-10 md:mt-16">
       <Container>
         {/* Responsive Grid Layout Container */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-12 lg:gap-6">
@@ -16,8 +17,40 @@ export default function BentoHeroSection() {
           <BentoProfileCard className="sm:col-span-1 lg:col-span-3" />
 
           {/* Baris 2: Client Card (5col) + Learning (3col) + Project (4col) */}
-          <BentoClientCard className="sm:col-span-1 lg:col-span-5" />
-          <BentoLearningCard className="sm:col-span-2 lg:col-span-3" />
+          <div className="lg:col-span-8">
+            <div className="grid grid-cols-3 gap-6">
+              <div className="col-span-3">
+                <div className="relative mx-6 inline-flex items-center justify-center py-1.5 text-xs font-semibold tracking-wide">
+                  {/* Hand-drawn SVG frame wrapping the text */}
+                  <svg
+                    className="pointer-events-none absolute inset-0 h-full w-full overflow-visible text-gray-900/90 dark:text-white/90"
+                    viewBox="0 0 120 40"
+                    preserveAspectRatio="none"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M 12,20 C 10,7 28,4 60,5 C 92,4 110,7 108,20 C 110,33 92,36 60,35 C 28,36 10,33 12,20 Z"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      vectorEffect="non-scaling-stroke"
+                    />
+                  </svg>
+                  <span className="relative z-5">Company Experience</span>
+                </div>
+                <CompanysCarousel />
+              </div>
+              <div className="col-span-1">
+                <BentoSocialCard />
+              </div>
+              <div className="col-span-2">
+                <BentoLearningCard />
+              </div>
+            </div>
+          </div>
+
           <BentoProjectCard className="sm:col-span-2 lg:col-span-4" />
         </div>
       </Container>
