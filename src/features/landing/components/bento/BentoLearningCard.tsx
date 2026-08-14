@@ -19,7 +19,7 @@ export default function BentoLearningCard({
           label: "Current Focus",
         },
       }}
-      className={`${className} flex h-fit flex-col justify-between`}
+      className={`flex h-full flex-col justify-between ${className}`}
     >
       {/* Title & Description */}
       <div className="space-y-2">

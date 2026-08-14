@@ -19,14 +19,34 @@ export default function BentoHeroSection() {
           {/* Baris 2: Client Card (5col) + Learning (3col) + Project (4col) */}
           <div className="lg:col-span-8">
             <div className="grid grid-cols-3 gap-6">
+              <div className="col-span-3">
+                <div className="relative inline-flex items-center justify-center py-1.5 text-xs font-semibold tracking-wide mx-6">
+                  {/* Hand-drawn SVG frame wrapping the text */}
+                  <svg
+                    className="pointer-events-none absolute inset-0 h-full w-full overflow-visible text-gray-900/90 dark:text-white/90"
+                    viewBox="0 0 120 40"
+                    preserveAspectRatio="none"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M 12,20 C 10,7 28,4 60,5 C 92,4 110,7 108,20 C 110,33 92,36 60,35 C 28,36 10,33 12,20 Z"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      vectorEffect="non-scaling-stroke"
+                    />
+                  </svg>
+                  <span className="relative z-5">Company Experience</span>
+                </div>
+                <TechStack />
+              </div>
               <div className="col-span-1">
                 <BentoSocialCard />
               </div>
               <div className="col-span-2">
                 <BentoLearningCard />
-              </div>
-              <div className="col-span-3">
-                <TechStack />
               </div>
             </div>
           </div>
@@ -47,7 +67,7 @@ const COMPANY_LOGOS: Array<{ src: string; alt: string }> = [
 
 function TechStack() {
   return (
-    <div className="flex flex-wrap items-center justify-center gap-8 md:flex-nowrap md:gap-24">
+    <div className="flex flex-wrap justify-center gap-8 md:flex-nowrap md:gap-24">
       {COMPANY_LOGOS.map((logo) => (
         <div
           key={logo.alt}
