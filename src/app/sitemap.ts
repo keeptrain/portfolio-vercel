@@ -4,7 +4,7 @@ import { blogPosts } from "@/data/blogPosts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://keeptrain.vercel.app";
-  const routes = ["", "/projects", "/contact", "/blog"];
+  const routes = ["", "/projects", "/blog"];
 
   const entries: MetadataRoute.Sitemap = [];
 
