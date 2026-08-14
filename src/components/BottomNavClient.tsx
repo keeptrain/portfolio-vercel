@@ -48,8 +48,8 @@ export default function BottomNavClient({
               href={item.href}
               className={`group relative flex min-h-11 min-w-11 items-center justify-center rounded-xl transition-all duration-300 ease-in-out hover:scale-105 ${
                 isActive
-                  ? "gap-2 bg-white/80 px-4 py-2 text-black shadow-sm dark:bg-zinc-800/80 dark:text-white"
-                  : "p-2.5 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
+                  ? "gap-2 px-2 dark:text-white"
+                  : "p-2.5 text-zinc-400 hover:text-zinc-800 dark:text-zinc-700 dark:hover:text-zinc-100"
               }`}
             >
               <IconComponent className="size-5 shrink-0 animate-in duration-200 zoom-in-95 fade-in" />
