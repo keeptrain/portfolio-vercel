@@ -3,7 +3,6 @@
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 import Image from "next/image";
-import { EmblaOptionsType } from "embla-carousel";
 
 const COMPANY_LOGOS: Array<{ src: string; alt: string }> = [
   { src: "/images/logo/bangkit.svg", alt: "Bangkit" },
@@ -15,7 +14,10 @@ const COMPANY_LOGOS: Array<{ src: string; alt: string }> = [
 // Duplicate logos array so embla has enough items to continuously loop smoothly
 const REPEATED_LOGOS = [...COMPANY_LOGOS, ...COMPANY_LOGOS];
 
-const OPTIONS: EmblaOptionsType = { loop: true, watchDrag: false };
+const OPTIONS: { loop: boolean; watchDrag: boolean } = {
+  loop: true,
+  watchDrag: false,
+};
 
 export default function CompanysCarousel() {
   const [emblaRef] = useEmblaCarousel(OPTIONS, [
