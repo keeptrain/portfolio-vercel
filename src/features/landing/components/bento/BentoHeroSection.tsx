@@ -9,16 +9,16 @@ import HandDrawnWrappingText from "@/components/shared/HandDrawnWrappingText";
 
 export default function BentoHeroSection() {
   return (
-    <section id="hero" className="mt-10 md:mt-16">
+    <section id="hero" className="mt-6 sm:mt-10 md:mt-16">
       <Container>
-        {/* Responsive Grid Layout Container */}
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-12 lg:gap-6">
-          {/* Baris 1: Intro (9col) + Profile (3col) */}
-          <BentoIntroCard className="sm:col-span-2 lg:col-span-9" />
-          <BentoProfileCard className="sm:col-span-1 lg:col-span-3" />
+        {/* Harmonious Responsive Grid Layout */}
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-5 lg:gap-6">
+          {/* Baris 1: Intro (8col md / 9col lg) + Profile (4col md / 3col lg) */}
+          <BentoIntroCard className="md:col-span-8 lg:col-span-9" />
+          <BentoProfileCard className="md:col-span-4 lg:col-span-3" />
 
-          {/* Baris 2: Left Group (8col) & Right Group (4col) */}
-          <div className="flex flex-col justify-between lg:col-span-8">
+          {/* Baris 2: Left Group (7col md / 8col lg) & Right Project Card (5col md / 4col lg) */}
+          <div className="flex flex-col justify-between gap-4 md:col-span-7 lg:col-span-8">
             {/* Top Part: Company Experience */}
             <div>
               <HandDrawnWrappingText className="mx-6">
@@ -28,21 +28,21 @@ export default function BentoHeroSection() {
             </div>
 
             {/* Bottom Part: Social Card & Learning Card */}
-            <div className="grid grid-cols-3 gap-4 sm:gap-6">
-              {/* Social Card (hidden on mobile to keep DOM light) */}
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5">
+              {/* Social Card (hidden on mobile, visible on sm+) */}
               <div className="hidden sm:col-span-1 sm:block">
                 <BentoSocialCard />
               </div>
 
-              {/* Learning Card (full-width on mobile col-span-3, 2-col on sm) */}
-              <div className="col-span-3 sm:col-span-2">
+              {/* Learning Card */}
+              <div className="col-span-1 sm:col-span-2">
                 <BentoLearningCard />
               </div>
             </div>
           </div>
 
-          {/* Latest Work Project Card (4col - drives row height) */}
-          <BentoProjectCard className="h-full sm:col-span-2 lg:col-span-4" />
+          {/* Latest Work Project Card */}
+          <BentoProjectCard className="h-full md:col-span-5 lg:col-span-4" />
         </div>
       </Container>
     </section>

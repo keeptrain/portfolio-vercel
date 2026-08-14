@@ -103,7 +103,7 @@ export default function BentoSocialCard() {
         ))}
       </div>
 
-      <div className="absolute right-3 bottom-2.5 z-5">
+      <div className="absolute right-3 bottom-2.5 z-5 hidden lg:block">
         <ArrowUpRight color={"text-white"} />
       </div>
     </Carousel>
