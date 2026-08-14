@@ -19,14 +19,14 @@ export default function BentoLearningCard({
           label: "Current Focus",
         },
       }}
-      className={`flex flex-col justify-between ${className}`}
+      className={`${className} flex h-fit flex-col justify-between`}
     >
       {/* Title & Description */}
       <div className="space-y-2">
-        <h3 className="text-lg font-medium tracking-tight text-gray-900 sm:text-xl dark:text-white">
+        <h3 className="text-lg font-medium tracking-tight sm:text-xl">
           {t("bentoHero.learningTitle")}
         </h3>
-        <p className="text-xs leading-relaxed text-gray-600 sm:text-sm dark:text-gray-300">
+        <p className="text-xs leading-relaxed sm:text-sm">
           {t("bentoHero.learningDesc")}
         </p>
       </div>
