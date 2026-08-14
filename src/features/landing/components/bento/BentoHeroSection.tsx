@@ -3,8 +3,8 @@ import BentoIntroCard from "./BentoIntroCard";
 import BentoProfileCard from "./BentoProfileCard";
 import BentoProjectCard from "./BentoProjectCard";
 import BentoLearningCard from "./BentoLearningCard";
-import Image from "next/image";
 import BentoSocialCard from "../section-social/BentoSocialCard";
+import CompanysCarousel from "./CompanysCarousel";
 
 export default function BentoHeroSection() {
   return (
@@ -20,7 +20,7 @@ export default function BentoHeroSection() {
           <div className="lg:col-span-8">
             <div className="grid grid-cols-3 gap-6">
               <div className="col-span-3">
-                <div className="relative inline-flex items-center justify-center py-1.5 text-xs font-semibold tracking-wide mx-6">
+                <div className="relative mx-6 inline-flex items-center justify-center py-1.5 text-xs font-semibold tracking-wide">
                   {/* Hand-drawn SVG frame wrapping the text */}
                   <svg
                     className="pointer-events-none absolute inset-0 h-full w-full overflow-visible text-gray-900/90 dark:text-white/90"
@@ -40,7 +40,7 @@ export default function BentoHeroSection() {
                   </svg>
                   <span className="relative z-5">Company Experience</span>
                 </div>
-                <TechStack />
+                <CompanysCarousel />
               </div>
               <div className="col-span-1">
                 <BentoSocialCard />
@@ -55,33 +55,5 @@ export default function BentoHeroSection() {
         </div>
       </Container>
     </section>
-  );
-}
-
-const COMPANY_LOGOS: Array<{ src: string; alt: string }> = [
-  { src: "/images/logo/bangkit.svg", alt: "Bangkit" },
-  { src: "/images/logo/rptra.png", alt: "Rptra" },
-  { src: "/images/logo/pusdatin.png", alt: "Pusdatin" },
-  { src: "/images/logo/kkp.webp", alt: "Kkp" },
-];
-
-function TechStack() {
-  return (
-    <div className="flex flex-wrap justify-center gap-8 md:flex-nowrap md:gap-24">
-      {COMPANY_LOGOS.map((logo) => (
-        <div
-          key={logo.alt}
-          className="relative aspect-square size-20 md:size-28"
-        >
-          <Image
-            alt={logo.alt}
-            src={logo.src}
-            fill
-            sizes="(max-width: 768px) 80px, 112px"
-            className="object-contain grayscale dark:invert"
-          />
-        </div>
-      ))}
-    </div>
   );
 }
