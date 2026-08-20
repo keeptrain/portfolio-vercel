@@ -22,7 +22,7 @@ export default function ProjectAdapter({
           fill
           sizes="(max-width: 768px) 128px, 375px"
           loading="lazy"
-          className="rounded-lg opacity-80 hover:opacity-100"
+          className="rounded-lg object-cover opacity-80 transition-opacity duration-300 hover:opacity-100"
         />
       </div>
       <div className="flex min-w-0 flex-col justify-center space-y-1 pl-4 text-left md:space-y-2 md:pl-12 lg:pl-16">
@@ -31,7 +31,7 @@ export default function ProjectAdapter({
             <span key={index}>{tech}</span>
           ))}
         </div>
-        <span className="block text-sm wrap-break-word font-semibold md:text-3xl dark:text-white">
+        <span className="block text-sm font-semibold wrap-break-word md:text-3xl dark:text-white">
           {project.title}
         </span>
       </div>
