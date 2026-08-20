@@ -20,12 +20,12 @@ export default function BentoProjectCard({
           label: t("bentoHero.featuredProjectBadge"),
         },
       }}
-      className={` ${className}`}
+      className={`${className}`}
     >
       {/* Project Image Showcase */}
       <div className="relative aspect-4/3 w-full">
         <Image
-          src="/test-png.jpg"
+          src="/images/projects/rptra-cibubur-mockups.jpeg"
           alt="latest project"
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

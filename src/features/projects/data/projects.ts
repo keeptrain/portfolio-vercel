@@ -15,11 +15,12 @@ export interface Project {
 
 export const projectsData: Project[] = [
   {
-    slug: "jakreq",
-    name: "JakReq",
-    title: "JakReq — Request Management System",
-    imageSrc: "/test-png.jpg",
-    stack: ["Laravel", "Livewire"],
+    slug: "rptra-cibubur",
+    name: "RPTRA Cibubur",
+    title:
+      "RPTRA Cibubur — Public Information With Dashboard Management Website",
+    imageSrc: "/images/projects/rptra-cibubur-mockups.jpeg",
+    stack: ["Next.js", "Typescript"],
     category: "Website Development",
     year: "2024 - 2025",
     client: "Internal / Corporate",
@@ -32,11 +33,11 @@ export const projectsData: Project[] = [
     slug: "cullinarix",
     name: "Cullinarix",
     title: "Cullinarix — Food Discovery App",
-    imageSrc: "/test-png.jpg",
+    imageSrc: "/images/projects/cullinarix-mockups.jpeg",
     stack: ["Android", "Kotlin"],
     category: "Mobile App Development",
     year: "2024",
-    client: "Personal Project",
+    client: "Capstone Project",
     description:
       "Cullinarix is a modern Android food discovery application that helps users explore nearby culinary spots, search customized recipes, and manage favorite meals.",
     isNda: false,
