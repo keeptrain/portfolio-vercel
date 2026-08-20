@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { getPostBySlug, getRelatedPosts, formatDate } from "@/lib/blog";
-import { BlogPost } from "@/data/blogPosts";
+import { BlogPost } from "@/features/blog/data/blogPosts";
 import BlogHeader from "@/features/blog/components/BlogHeader";
 import BlogCard from "@/features/blog/components/BlogCard";
 import MarkdownRenderer from "@/features/blog/components/MarkdownRenderer";

@@ -1,4 +1,4 @@
-import { blogPosts, BlogPost, BlogPostTranslations } from "@/data/blogPosts";
+import { blogPosts, BlogPost, BlogPostTranslations } from "@/features/blog/data/blogPosts";
 
 export function getAllPosts(language: "en" | "id" = "en"): BlogPost[] {
   return blogPosts

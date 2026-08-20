@@ -9,7 +9,7 @@ export async function generateStaticParams({
   params: { locale: string; slug: string };
 }) {
   const { locale } = params;
-  const posts = (await import("@/data/blogPosts")).blogPosts;
+  const posts = (await import("@/features/blog/data/blogPosts")).blogPosts;
   return posts.map((post) => ({
     slug: post[locale as Locale].id,
     locale,

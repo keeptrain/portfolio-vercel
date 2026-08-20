@@ -8,7 +8,7 @@ import {
   formatDate,
   getRelatedPosts,
 } from "../blog";
-import { BlogPost } from "@/data/blogPosts";
+import { BlogPost } from "@/features/blog/data/blogPosts";
 
 describe("getAllPosts()", () => {
   test("returns array of posts", () => {

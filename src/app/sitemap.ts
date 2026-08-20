@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 import { locales } from "@/i18n/locales";
-import { blogPosts } from "@/data/blogPosts";
+import { blogPosts } from "@/features/blog/data/blogPosts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://keeptrain.vercel.app";

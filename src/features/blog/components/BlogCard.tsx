@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { BlogPost } from "@/data/blogPosts";
+import { BlogPost } from "@/features/blog/data/blogPosts";
 import { formatDate } from "@/lib/blog";
 
 interface BlogCardProps {
