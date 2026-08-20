@@ -24,11 +24,11 @@ export default function BentoProfileCard({
         {/* Avatar Profile Image */}
         <div className="relative size-32 overflow-hidden rounded-full border-2 border-white/90 from-gray-100 to-gray-200 shadow-md sm:size-36 dark:border-zinc-700/90 dark:from-zinc-800 dark:to-zinc-900">
           <Image
-            src="/images/photos.png"
+            src="/images/photo.jpg"
             alt="Profile Photo"
             fill
             sizes="(max-width: 640px) 128px, 144px"
-            className="object-cover object-top"
+            className="object-cover object-center"
             priority
           />
         </div>
