@@ -64,9 +64,9 @@ const REPEATED_HIGHLIGHTS = [
   ...highlights,
 ];
 
-export function HighlightTicker() {
+function HighlightTicker() {
   return (
-    <div className="my-6 w-full overflow-hidden border-y border-emerald-300/80 bg-[#A7F3D0] py-3.5">
+    <div className="my-6 w-full overflow-hidden border-y border-emerald-300/80 bg-[#A7F3D0] py-3">
       <div className="flex w-max space-x-16 whitespace-nowrap">
         {REPEATED_HIGHLIGHTS.map((item, idx) => {
           return (
