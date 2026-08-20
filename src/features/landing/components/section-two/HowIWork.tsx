@@ -8,6 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { useTranslations } from "@/i18n/TranslationContext";
 
 type DataItem = {
   title: string;
@@ -34,14 +35,11 @@ const data: DataItem[] = [
 ];
 
 export default function HowIWork() {
+  const { t } = useTranslations();
   return (
     <div className="flex flex-col gap-6 md:flex-row">
       <p className="w-full text-sm leading-relaxed font-light text-gray-700 sm:text-base md:w-1/2 md:text-lg dark:text-gray-300">
-        As software development rapidly shifts into an automated and AI-driven
-        era, I adopt a modern workflow that balances rapid velocity with
-        engineering rigor. By leveraging automated systems and cutting-edge
-        tools, I focus on clean architecture, continuous iteration, and thorough
-        validation to deliver high-quality digital experiences.
+        {t("sectionTwo.howIWorkIntro")}
       </p>
       <Carousel orientation="vertical" className="w-full md:w-1/2">
         <CarouselContent className="h-100">

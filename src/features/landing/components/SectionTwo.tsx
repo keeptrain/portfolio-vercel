@@ -31,11 +31,13 @@ function NavigationButton({
   activeTab: string;
   onTabChange: (tab: string) => void;
 }) {
+  const { t } = useTranslations();
+
   return (
     <div className="flex items-end gap-4">
       {[
-        { id: "howIWork", label: "How I Work?" },
-        { id: "techStack", label: "My Tech Stack" },
+        { id: "howIWork", label: t("sectionTwo.tab1") },
+        { id: "techStack", label: t("sectionTwo.tab2") },
       ].map((tab) => {
         const isActive = activeTab === tab.id;
         return (
