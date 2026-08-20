@@ -14,12 +14,14 @@ export default function BentoIntroCard({
   const t = getT();
   return (
     <BentoCardWrapper className={className}>
-      <div className="flex h-full flex-col justify-between gap-4 sm:gap-2">
+      <div className="flex h-full flex-col justify-between gap-4 sm:gap-6">
         {/* Section 1: Dynamic Animated Greetings */}
-        <RotatingGreeting />
+        <div>
+          <RotatingGreeting />
 
-        {/* Subtle Decorative Underline */}
-        <Underline color={"dark:text-zinc-700"} />
+          {/* Subtle Decorative Underline */}
+          <Underline color={"dark:text-zinc-700"} />
+        </div>
 
         {/* Section 2: About Me */}
         <div>
