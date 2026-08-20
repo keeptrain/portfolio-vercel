@@ -9,7 +9,8 @@ import HandDrawnWrappingText from "@/components/shared/HandDrawnWrappingText";
 
 export default function SectionHero() {
   return (
-    <section id="hero" className="mt-6 sm:mt-10 md:mt-16">
+    <section id="hero" className="mt-2 sm:mt-4 md:mt-6">
+      <HighlightTicker />
       <Container>
         {/* Harmonious Responsive Grid Layout */}
         <div className="grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-5 lg:gap-6">
@@ -46,5 +47,35 @@ export default function SectionHero() {
         </div>
       </Container>
     </section>
+  );
+}
+
+const highlights = [
+  { text: "AVAILABLE FOR" },
+  { text: "FULLTIME" },
+  { text: "FREELANCE" },
+];
+
+const REPEATED_HIGHLIGHTS = [
+  ...highlights,
+  ...highlights,
+  ...highlights,
+  ...highlights,
+  ...highlights,
+];
+
+export function HighlightTicker() {
+  return (
+    <div className="my-6 w-full overflow-hidden border-y border-emerald-300/80 bg-[#A7F3D0] py-3.5">
+      <div className="flex w-max space-x-16 whitespace-nowrap">
+        {REPEATED_HIGHLIGHTS.map((item, idx) => {
+          return (
+            <span key={idx} className="text-xs tracking-widest uppercase">
+              {item.text}
+            </span>
+          );
+        })}
+      </div>
+    </div>
   );
 }
