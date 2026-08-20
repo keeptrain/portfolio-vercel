@@ -11,13 +11,11 @@ export default function SectionTwo() {
   const [activeTab, setActiveTab] = useState<string>("howIWork");
 
   return (
-    <section id="section-2" className="my-6 lg:py-12">
-      <Container>
+    <section id="section-2" className="my-10 md:py-6">
+      <Container className="space-y-4 sm:space-y-6">
         <NavigationButton activeTab={activeTab} onTabChange={setActiveTab} />
-        <div className="overflow-hidden pt-6 md:pt-8">
-          <div key={activeTab} className="animate-fade-in min-h-80 md:min-h-90">
-            {activeTab === "howIWork" ? <HowIWork /> : <TechStack />}
-          </div>
+        <div key={activeTab} className="animate-fade-in min-h-80 md:min-h-90">
+          {activeTab === "howIWork" ? <HowIWork /> : <TechStack />}
         </div>
       </Container>
     </section>

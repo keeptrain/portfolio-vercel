@@ -37,11 +37,13 @@ const data: DataItem[] = [
 export default function HowIWork() {
   const { t } = useTranslations();
   return (
-    <div className="flex flex-col gap-6 md:flex-row">
-      <p className="w-full text-sm leading-relaxed font-light text-gray-700 sm:text-base md:w-1/2 md:text-lg dark:text-gray-300">
-        {t("sectionTwo.howIWorkIntro")}
-      </p>
-      <Carousel orientation="vertical" className="w-full md:w-1/2">
+    <div className="flex flex-col space-y-10">
+      <div>
+        <p className="w-full text-sm leading-relaxed font-light text-gray-700 sm:text-base md:w-2/3 md:text-lg dark:text-gray-300">
+          {t("sectionTwo.howIWorkIntro")}
+        </p>
+      </div>
+      <Carousel orientation="vertical" className="w-full">
         <CarouselContent className="h-100">
           {data.map((item, index) => (
             <CarouselItem key={index} className="basis-[25%]">
