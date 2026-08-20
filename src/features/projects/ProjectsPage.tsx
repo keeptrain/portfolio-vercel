@@ -31,7 +31,7 @@ export default async function ProjectsPage() {
 // Async component to stream ProjectList
 async function ProjectListAsync() {
   // Simulasi async data loading (misal dari Database/API)
-  await new Promise((resolve) => setTimeout(resolve, 400));
+  await new Promise((resolve) => setTimeout(resolve, 200));
 
   return <ProjectList projects={projectsData} />;
 }
