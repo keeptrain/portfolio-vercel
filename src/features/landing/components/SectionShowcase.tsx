@@ -16,33 +16,40 @@ export default function SectionShowcase() {
   const locale = getLocale();
 
   return (
-    <section id="showcase" className="my-20 py-12 md:py-20">
-      <h2 className="mb-10 text-center text-3xl font-semibold">
-        Projects I've Built.
-      </h2>
+    <section id="showcase" className="my-20 md:my-40">
       {/* Off-screen bleeding 2-Column Grid Wall */}
       <div className="relative overflow-hidden">
-        <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 md:gap-20">
+        <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 md:items-end md:gap-20">
           {/* Left Project */}
-          <div className="relative aspect-16/10 w-full shadow-xs">
-            <Image
-              src={leftProject.image}
-              alt={leftProject.title}
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover object-top"
-            />
+          <div>
+            <h2 className="mb-6 px-4 text-3xl font-semibold md:hidden">
+              Projects I've Built.
+            </h2>
+            <div className="relative aspect-16/10 w-full shadow-xs md:self-end">
+              <Image
+                src={leftProject.image}
+                alt={leftProject.title}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-top"
+              />
+            </div>
           </div>
 
-          {/* Right Project */}
-          <div className="relative aspect-16/10 w-full shadow-xs">
-            <Image
-              src={rightProject.image}
-              alt={rightProject.title}
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover object-top"
-            />
+          <div>
+            <h2 className="mb-10 hidden text-4xl font-semibold md:block">
+              Projects I've Built.
+            </h2>
+            {/* Right Project */}
+            <div className="relative aspect-16/10 w-full shadow-xs">
+              <Image
+                src={rightProject.image}
+                alt={rightProject.title}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-top"
+              />
+            </div>
           </div>
         </div>
 
