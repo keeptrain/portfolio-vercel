@@ -4,6 +4,8 @@ import BentoProfileCard from "./section-bento/BentoProfileCard";
 import BentoLearningCard from "./section-bento/BentoLearningCard";
 import CompanysCarousel from "./section-bento/CompanysCarousel";
 import BentoSocialCard from "./section-social/BentoSocialCard";
+import LinkedinCard from "./section-social/LinkedinCard";
+import GithubCard from "./section-social/GithubCard";
 
 export default function SectionHero() {
   return (
@@ -17,11 +19,11 @@ export default function SectionHero() {
           <BentoProfileCard className="md:col-span-4 lg:col-span-3" />
 
           <div className="md:col-span-4 lg:col-span-3">
-            <BentoSocialCard />
+            <LinkedinCard />
           </div>
 
           <div className="md:col-span-4 lg:col-span-3">
-            <BentoSocialCard />
+            <GithubCard />
           </div>
 
           <BentoLearningCard className="md:col-span-4 lg:col-span-6" />
