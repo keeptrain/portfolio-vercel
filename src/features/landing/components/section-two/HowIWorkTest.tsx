@@ -9,9 +9,9 @@ export default function HowIWorkTest() {
   const bottomSections = workflowSections.slice(2);
 
   return (
-    <div className="flex flex-col gap-3.5 sm:gap-12">
+    <div className="flex flex-col gap-3.5 md:gap-12">
       {/* Row 1: 2 Cards (Centered on desktop) */}
-      <div className="mx-auto grid w-full max-w-3xl grid-cols-1 gap-3.5 sm:grid-cols-2 sm:gap-12">
+      <div className="mx-auto grid w-full max-w-3xl grid-cols-1 gap-3.5 sm:grid-cols-2 md:gap-12">
         {topSections.map((section, index) => (
           <Link
             key={section.id}
@@ -32,7 +32,7 @@ export default function HowIWorkTest() {
       </div>
 
       {/* Row 2: 3 Cards */}
-      <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-3 sm:gap-12">
+      <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-3 md:gap-12">
         {bottomSections.map((section, index) => (
           <Link
             key={section.id}

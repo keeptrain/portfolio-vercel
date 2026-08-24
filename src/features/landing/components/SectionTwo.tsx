@@ -6,16 +6,14 @@ export default function SectionTwo() {
   const t = getT();
   return (
     <section id="section-2" className="my-20 md:py-6">
-      <Container className="space-y-10">
-        <div className="flex items-baseline justify-center gap-3">
-          <h2 className="text-3xl font-semibold">How I Work?</h2>
-          <p>Currently i adopt modern worflow and standarazie by myself.</p>
-        </div>
+      <div className="mx-4 mb-10 flex items-baseline gap-3">
+        <h2 className="text-4xl font-semibold">How I Work?</h2>
+        <p className="text-lg">
+          Currently i adopt modern worflow and standarazie by myself.
+        </p>
+      </div>
+      <Container>
         <HowIWorkTest />
-        {/* <NavigationButton activeTab={activeTab} onTabChange={setActiveTab} /> */}
-        {/* <div key={activeTab} className="animate-fade-in min-h-80 md:min-h-90">
-          {activeTab === "howIWork" ? <HowIWorkTest /> : <TechStack />}
-        </div> */}
       </Container>
     </section>
   );
