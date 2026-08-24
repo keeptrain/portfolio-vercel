@@ -36,7 +36,7 @@ export default function CompanysCarousel() {
             key={`${logo.alt}-${index}`}
             className="min-w-0 shrink-0 grow-0 basis-1/2 transform-[translate3d(0,0,0)] pl-4 sm:basis-1/3 md:basis-1/4"
           >
-            <div className="relative aspect-square size-26">
+            <div className="relative aspect-square size-30">
               <Image
                 alt={logo.alt}
                 src={logo.src}
