@@ -1,8 +1,6 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useTranslations } from "@/i18n/TranslationContext";
+import { getLocale } from "@/i18n/server";
 
 const leftProject = {
   title: "Cullinarix",
@@ -15,7 +13,7 @@ const rightProject = {
 };
 
 export default function SectionShowcase() {
-  const { locale } = useTranslations();
+  const locale = getLocale();
 
   return (
     <section id="showcase" className="my-20 py-12 md:py-20">
