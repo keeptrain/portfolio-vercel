@@ -1,24 +1,16 @@
 import Image from "next/image";
 import BentoCardWrapper from "./BentoCardWrapper";
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 
 interface BentoProfileCardProps {
   className?: string;
 }
-
-const SOCIAL_LINKS = [
-  { name: "LinkedIn", url: "https://linkedin.com" },
-  { name: "GitHub", url: "https://github.com" },
-  { name: "Email", url: "mailto:yourname@email.com" },
-];
 
 export default function BentoProfileCard({
   className = "",
 }: BentoProfileCardProps) {
   return (
     <BentoCardWrapper
-      className={`relative flex flex-col items-center justify-center overflow-hidden p-6 ${className}`}
+      className={`relative flex items-center justify-center overflow-hidden p-6 ${className}`}
     >
       <div className="relative flex items-center justify-center">
         {/* Avatar Profile Image */}
@@ -35,7 +27,7 @@ export default function BentoProfileCard({
       </div>
 
       {/* Mobile-Only Text Social Links Below Photo */}
-      <div className="mt-6 flex items-center gap-12 sm:hidden">
+      {/* <div className="mt-6 flex items-center gap-12 sm:hidden">
         {SOCIAL_LINKS.map((link) => (
           <Link
             key={link.name}
@@ -48,7 +40,7 @@ export default function BentoProfileCard({
             <ArrowUpRight className="size-3" />
           </Link>
         ))}
-      </div>
+      </div> */}
     </BentoCardWrapper>
   );
 }
