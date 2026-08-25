@@ -3,13 +3,10 @@ import BentoIntroCard from "./section-bento/BentoIntroCard";
 import BentoProfileCard from "./section-bento/BentoProfileCard";
 import BentoLearningCard from "./section-bento/BentoLearningCard";
 import BentoServicesCard from "./section-bento/BentoServicesCard";
-import CompanysCarousel from "./section-bento/CompanysCarousel";
-import LinkedinCard from "./section-social/LinkedinCard";
-import GithubCard from "./section-social/GithubCard";
 
 export default function SectionHero() {
   return (
-    <section id="hero" className="mt-2 flex flex-col gap-12 overflow-x-hidden sm:mt-4 md:mt-6">
+    <section id="hero" className="flex flex-col gap-12 overflow-x-hidden pb-1">
       <HighlightTicker />
       <Container>
         {/* Harmonious Responsive Grid Layout */}
@@ -18,14 +15,10 @@ export default function SectionHero() {
           <BentoIntroCard className="md:col-span-8 lg:col-span-9" />
           <BentoProfileCard className="md:col-span-4 lg:col-span-3" />
 
-
           <BentoLearningCard className="md:col-span-4 lg:col-span-6" />
-          <BentoServicesCard className="md:col-span-4 lg:col-span-6 md:-mr-[calc((100vw-100%)/2)]" />
+          <BentoServicesCard className="md:col-span-4 md:-mr-[calc((100vw-100%)/2)] lg:col-span-6" />
         </div>
       </Container>
-      <div>
-        <CompanysCarousel />
-      </div>
     </section>
   );
 }

@@ -3,6 +3,7 @@ import SectionShowcase from "./components/SectionShowcase";
 import { setRequestLocale } from "@/i18n/server";
 import { Locale } from "@/i18n/locales";
 import SectionHero from "./components/SectionHero";
+import SectionSocialCopy from "./components/SectionSocialCopy";
 
 export default async function LandingPage({
   params,
@@ -17,6 +18,7 @@ export default async function LandingPage({
       <SectionHero />
       <SectionTwo />
       <SectionShowcase />
+      <SectionSocialCopy />
     </>
   );
 }

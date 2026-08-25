@@ -5,7 +5,7 @@ import HowIWorkTest from "./section-two/HowIWorkTest";
 export default function SectionTwo() {
   const t = getT();
   return (
-    <section id="section-2" className="my-20 md:py-6">
+    <section id="section-2" className="my-16 md:py-6">
       <div className="mx-4 mb-10 flex items-baseline gap-3">
         <h2 className="text-4xl font-semibold">How I Work?</h2>
         <p className="text-lg">
