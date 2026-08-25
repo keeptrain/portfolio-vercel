@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Container } from "@/components/ui/Container";
 import {
   Drawer,
@@ -8,7 +9,7 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-import { WorkflowStepNav } from "./components/WorkflowStepNav";
+import WorkflowSideTab from "./components/WorkflowSideTab";
 import { workflowSections } from "./data";
 import { useWorkflowScrollspy } from "./hooks/useWorkflowScrollspy";
 import { ChevronRight } from "lucide-react";
@@ -36,7 +37,7 @@ export default function WorkflowPage() {
       <Container>
         <div className="grid grid-cols-1 pb-16 md:grid-cols-12 md:pb-24">
           {/* Desktop Left Side: Sticky Vertical Tabs */}
-          <WorkflowStepNav
+          <WorkflowSideTab
             activeId={activeId}
             scrollToSection={scrollToSection}
             className="sticky top-24 hidden self-start md:col-span-4 md:flex lg:col-span-3"
@@ -89,12 +90,14 @@ function ListWorkflowMobileDrawer({
   activeId: string;
   scrollToSection: (id: string) => void;
 }) {
+  const [open, setOpen] = useState(false);
+
   return (
-    <Drawer>
+    <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
         <button className="sticky top-0 z-10 flex w-full p-6 font-medium backdrop-blur-md md:hidden">
           <span className="flex items-center gap-1.5">
-            List Step <ChevronRight className="size-4 text-zinc-500" />
+            Menu <ChevronRight className="size-4 text-zinc-500" />
           </span>
         </button>
       </DrawerTrigger>
@@ -102,10 +105,10 @@ function ListWorkflowMobileDrawer({
         <DrawerHeader className="px-0 pb-4 text-left">
           <DrawerTitle>Workflow Steps</DrawerTitle>
         </DrawerHeader>
-        <WorkflowStepNav
+        <WorkflowSideTab
           activeId={activeId}
           scrollToSection={scrollToSection}
-          className="space-y-5 pb-6"
+          onItemClick={() => setOpen(false)}
         />
       </DrawerContent>
     </Drawer>
