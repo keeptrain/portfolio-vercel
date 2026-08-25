@@ -21,7 +21,7 @@ const CAROUSEL_ITEMS = [
     description:
       "Building scalable digital products across web and mobile platforms.",
     icon: Briefcase,
-    href: "/about#experiences",
+    query: "experiences",
   },
   {
     title: "Tech Stack",
@@ -29,7 +29,7 @@ const CAROUSEL_ITEMS = [
     description:
       "Next.js, TypeScript, Android (Kotlin), Node.js, and Tailwind CSS.",
     icon: Layers,
-    href: "/about#techstack",
+    query: "techstack",
   },
   {
     title: "Services",
@@ -37,7 +37,7 @@ const CAROUSEL_ITEMS = [
     description:
       "Full-stack web apps, native Android applications, and UI/UX crafting.",
     icon: Sparkles,
-    href: "/about#services",
+    query: "services",
   },
 ];
 
@@ -71,7 +71,11 @@ export default function BentoServicesCard({
                 className="flex h-full basis-[85%] flex-col pl-3 sm:basis-[48%] sm:pl-4 md:basis-1/2"
               >
                 <Link
-                  href={item.href}
+                  href={{
+                    pathname: "/about",
+                    query: { tab: item.query },
+                  }}
+                  transitionTypes={["slide-in"]}
                   className="group relative flex min-h-50 flex-1 flex-col justify-end overflow-hidden rounded-xl border border-foreground/10 bg-white p-5 shadow-2xs transition-all duration-300 hover:border-foreground/30 active:scale-98 dark:bg-zinc-900"
                 >
                   <Icon className="pointer-events-none absolute -top-2 right-0 size-30 text-black/10 select-none dark:text-white/15" />

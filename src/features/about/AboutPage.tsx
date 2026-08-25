@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { Container } from "@/components/ui/Container";
 import { ChevronRight } from "lucide-react";
 import {
@@ -10,29 +10,41 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+import { useSearchParams } from "next/navigation";
 import { AboutNav } from "./components/AboutNav";
 import { Section } from "./types";
 import { ABOUT_SECTIONS } from "./constants";
 
-export default function AboutPage() {
+function AboutContent() {
+  const searchParams = useSearchParams();
+  const tabParam = searchParams.get("tab") as Section | null;
+
   const [activeTab, setActiveTab] = useState<Section>("experiences");
 
   useEffect(() => {
+    // 1. Prioritize query parameter ?tab=
+    if (tabParam && (Section as readonly string[]).includes(tabParam)) {
+      setActiveTab(tabParam);
+      return;
+    }
+
+    // 2. Fallback check for hash #
     const handleHash = () => {
-      const hash = window.location.hash.replace("#", "") as Section;
-      if (hash && Section.includes(hash)) {
-        setActiveTab(hash);
+      if (typeof window === "undefined") return;
+      const hash = window.location.hash.replace("#", "");
+      if (hash && (Section as readonly string[]).includes(hash)) {
+        setActiveTab(hash as Section);
       }
     };
 
     handleHash();
     window.addEventListener("hashchange", handleHash);
     return () => window.removeEventListener("hashchange", handleHash);
-  }, []);
+  }, [tabParam]);
 
   const selectTab = (id: Section) => {
     setActiveTab(id);
-    window.history.replaceState(null, "", `#${id}`);
+    window.history.replaceState(null, "", `?tab=${id}`);
   };
 
   const ActiveComponent = ABOUT_SECTIONS[activeTab]?.component;
@@ -63,6 +75,14 @@ export default function AboutPage() {
         </div>
       </Container>
     </main>
+  );
+}
+
+export default function AboutPage() {
+  return (
+    <Suspense fallback={<div className="min-h-125" />}>
+      <AboutContent />
+    </Suspense>
   );
 }
 
