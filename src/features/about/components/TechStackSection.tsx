@@ -1,7 +1,7 @@
 export default function TechStackSection() {
   return (
     <section className="animate-in space-y-6 duration-200 fade-in-50">
-      <h2 className="text-xl font-bold tracking-tight sm:text-2xl">
+      <h2 className="text-xl font-semibold tracking-tight sm:text-2xl">
         Tech Stack
       </h2>
 

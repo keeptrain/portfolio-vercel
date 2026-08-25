@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { Container } from "@/components/ui/Container";
-import { AboutNav } from "@/features/about/components/AboutNav";
 import ListAboutMobileDrawer from "@/features/about/components/ListAboutMobileDrawer";
+import AboutSideTab from "@/features/about/components/AboutSideTab";
 
 export default function AboutLayout({ children }: { children: ReactNode }) {
   return (
@@ -17,7 +17,7 @@ export default function AboutLayout({ children }: { children: ReactNode }) {
       <Container>
         <div className="grid grid-cols-1 pb-16 md:grid-cols-12 md:pb-24">
           {/* Desktop Left Side: Persistent Navigation Sidebar */}
-          <AboutNav className="sticky top-24 hidden self-start md:col-span-4 md:flex lg:col-span-3" />
+          <AboutSideTab className="hidden md:col-span-4 md:flex lg:col-span-3" />
 
           {/* Right Side: Tab Sub-route Content */}
           <div className="min-h-125 md:col-span-8 lg:col-span-9">
