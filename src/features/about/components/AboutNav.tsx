@@ -1,10 +1,12 @@
+"use client";
+
+import Link from "next/link";
+import { useSelectedLayoutSegment } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Section } from "../types";
 import { ABOUT_SECTIONS } from "../constants";
 
 interface AboutNavProps {
-  activeTab: Section;
-  selectTab: (id: Section) => void;
   onItemClick?: () => void;
   className?: string;
   iconSizeClassName?: string;
@@ -12,13 +14,17 @@ interface AboutNavProps {
 }
 
 export function AboutNav({
-  activeTab,
-  selectTab,
   onItemClick,
   className,
   iconSizeClassName = "size-5",
   textSizeClassName = "font-medium",
 }: AboutNavProps) {
+  const segment = useSelectedLayoutSegment();
+  const activeTab: Section =
+    segment && (Section as readonly string[]).includes(segment)
+      ? (segment as Section)
+      : "experiences";
+
   return (
     <nav
       className={cn(
@@ -30,14 +36,13 @@ export function AboutNav({
         const isActive = activeTab === tab;
         const item = ABOUT_SECTIONS[tab];
         const Icon = item.icon;
+        const href = tab === "experiences" ? "/about" : `/about/${tab}`;
+
         return (
-          <button
+          <Link
             key={tab}
-            type="button"
-            onClick={() => {
-              selectTab(tab);
-              onItemClick?.();
-            }}
+            href={href}
+            onClick={onItemClick}
             className={cn(
               "-ml-px flex items-center gap-3 border-l-2 pl-4 text-left transition-all duration-300",
               isActive
@@ -47,7 +52,7 @@ export function AboutNav({
           >
             <Icon className={cn("shrink-0", iconSizeClassName)} />
             <span className={textSizeClassName}>{item.title}</span>
-          </button>
+          </Link>
         );
       })}
     </nav>

@@ -1,4 +1,4 @@
-import { Briefcase, Building2, Calendar } from "lucide-react";
+import { Building2, Calendar } from "lucide-react";
 
 interface ExperienceItem {
   role: string;

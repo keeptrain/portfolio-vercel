@@ -1,1 +1,5 @@
-export { default } from "@/features/about/AboutPage";
+import { redirect } from "next/navigation";
+
+export default function Page() {
+  redirect("/about/experiences");
+}

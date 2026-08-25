@@ -1,5 +1,3 @@
-import { Layers } from "lucide-react";
-
 export default function TechStackSection() {
   return (
     <section className="animate-in space-y-6 duration-200 fade-in-50">
