@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { Section } from "./types";
+import { Section, Sections } from "./types";
 import { ABOUT_SECTIONS } from "./constants";
 
 interface AboutTabPageProps {
@@ -12,7 +12,7 @@ export default async function AboutTabPage({ params }: AboutTabPageProps) {
   const { tab } = await params;
   const currentTab = tab as Section;
 
-  if (!Section.includes(currentTab)) {
+  if (!Sections.includes(currentTab)) {
     notFound();
   }
 

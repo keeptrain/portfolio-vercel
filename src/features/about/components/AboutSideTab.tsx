@@ -1,7 +1,7 @@
 "use client";
 
 import SectionNav, { SectionNavItem } from "@/components/shared/SectionNav";
-import { Section } from "../types";
+import { Section, Sections } from "../types";
 import { ABOUT_SECTIONS } from "../constants";
 import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
@@ -21,7 +21,7 @@ export default function AboutSideTab({
 
   return (
     <SectionNav className={className}>
-      {Section.map((tab) => (
+      {Sections.map((tab) => (
         <SectionNavItem key={tab}>
           <AboutSideTabItem
             tab={tab}
