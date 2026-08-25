@@ -45,15 +45,13 @@ function AboutSideTabItem({
   activeTab,
   onItemClick,
 }: AboutSideTabItemProps) {
-  const isActive = activeTab === tab;
-  const path = tab === "experiences" ? "/about" : `/about/${tab}`;
-  const title = ABOUT_SECTIONS[tab].title;
-  const Icon = ABOUT_SECTIONS[tab].icon;
+  const isActive = (activeTab || "experiences") === tab;
+  const item = ABOUT_SECTIONS[tab];
 
   return (
-    <TabLink href={path} isActive={isActive} onItemClick={onItemClick}>
-      <TabIcon Icon={Icon} isActive={isActive} />
-      <TabText title={title} isActive={isActive} />
+    <TabLink href={item.href} isActive={isActive} onItemClick={onItemClick}>
+      <TabIcon Icon={item.icon} isActive={isActive} />
+      <TabText title={item.title} isActive={isActive} />
     </TabLink>
   );
 }

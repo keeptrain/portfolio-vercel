@@ -7,21 +7,29 @@ import ServicesSection from "./components/ServicesSection";
 
 export const ABOUT_SECTIONS: Record<
   Section,
-  { component: React.ComponentType; icon: LucideIcon; title: string }
+  {
+    component: React.ComponentType;
+    icon: LucideIcon;
+    title: string;
+    href: string;
+  }
 > = {
   experiences: {
     component: ExperiencesSection,
     icon: Briefcase,
     title: "Experiences",
+    href: "/about/experiences",
   },
   techstack: {
     component: TechStackSection,
     icon: Layers,
     title: "Tech Stack",
+    href: "/about/techstack",
   },
   services: {
     component: ServicesSection,
     icon: Sparkles,
     title: "Services",
+    href: "/about/services",
   },
 };
