@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
-import { Code2, Zap, Layout, Smartphone } from "lucide-react";
+import Link from "next/link";
+import { Briefcase, Layers, Sparkles, ArrowUpRight } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -14,40 +14,40 @@ interface BentoServicesCardProps {
   className?: string;
 }
 
-const SERVICES = [
+const CAROUSEL_ITEMS = [
   {
-    icon: Code2,
-    title: "Full-stack Development",
+    title: "Experience",
+    subtitle: "1.5+ Years",
     description:
-      "Building scalable, modern end-to-end web applications with clean architecture.",
+      "Building scalable digital products across web and mobile platforms.",
+    icon: Briefcase,
+    href: "/about#experiences",
   },
   {
-    icon: Smartphone,
-    title: "Android Application",
+    title: "Tech Stack",
+    subtitle: "Core Suite",
     description:
-      "Developing native & cross-platform mobile apps with smooth performance and clean UX.",
+      "Next.js, TypeScript, Android (Kotlin), Node.js, and Tailwind CSS.",
+    icon: Layers,
+    href: "/about#techstack",
   },
   {
-    icon: Zap,
-    title: "High Performance Web",
+    title: "Services",
+    subtitle: "What I Do",
     description:
-      "Sub-second render speeds, SEO excellence, and bundle optimization.",
-  },
-  {
-    icon: Layout,
-    title: "UI/UX Crafting",
-    description:
-      "Pixel-perfect responsive interfaces with fluid micro-interactions.",
+      "Full-stack web apps, native Android applications, and UI/UX crafting.",
+    icon: Sparkles,
+    href: "/about#services",
   },
 ];
 
-const REPEATED_SERVICES = [...SERVICES, ...SERVICES];
+const REPEATED_ITEMS = [...CAROUSEL_ITEMS, ...CAROUSEL_ITEMS];
 
 export default function BentoServicesCard({
   className = "",
 }: BentoServicesCardProps) {
   return (
-    <div className={`relative ${className}`}>
+    <div className={`relative h-full ${className}`}>
       <Carousel
         opts={{
           align: "start",
@@ -62,21 +62,37 @@ export default function BentoServicesCard({
           </div>
         </div>
 
-        <CarouselContent className="-ml-3 h-full sm:-ml-4">
-          {REPEATED_SERVICES.map((service, index) => {
-            const Icon = service.icon;
+        <CarouselContent>
+          {REPEATED_ITEMS.map((item, index) => {
+            const Icon = item.icon;
             return (
               <CarouselItem
-                key={`${service.title}-${index}`}
+                key={`${item.title}-${index}`}
                 className="flex h-full basis-[85%] flex-col pl-3 sm:basis-[48%] sm:pl-4 md:basis-1/2"
               >
-                <div className="group relative flex min-h-50 flex-1 flex-col justify-end overflow-hidden rounded-xl border border-foreground/10 bg-white p-5 shadow-2xs transition-all duration-300 hover:border-foreground/30 dark:bg-zinc-900">
+                <Link
+                  href={item.href}
+                  className="group relative flex min-h-50 flex-1 flex-col justify-end overflow-hidden rounded-xl border border-foreground/10 bg-white p-5 shadow-2xs transition-all duration-300 hover:border-foreground/30 active:scale-98 dark:bg-zinc-900"
+                >
                   <Icon className="pointer-events-none absolute -top-2 right-0 size-30 text-black/10 select-none dark:text-white/15" />
-                  <div className="relative z-10 mt-auto space-y-2">
-                    <h3 className="font-semibold">{service.title}</h3>
-                    <p className="leading-relaxed">{service.description}</p>
+
+                  {/* Top-right Hover Arrow Indicator */}
+                  <div className="absolute top-4 right-4 z-10 flex size-7 items-center justify-center rounded-full bg-zinc-100 text-zinc-600 transition-all duration-300 group-hover:bg-zinc-900 group-hover:text-white dark:bg-zinc-800 dark:text-zinc-400 dark:group-hover:bg-white dark:group-hover:text-zinc-900">
+                    <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </div>
-                </div>
+
+                  <div className="relative z-10 mt-auto space-y-1.5">
+                    <span className="text-[11px] font-semibold tracking-wider text-zinc-400 uppercase dark:text-zinc-500">
+                      {item.subtitle}
+                    </span>
+                    <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs leading-relaxed text-zinc-500 dark:text-zinc-400">
+                      {item.description}
+                    </p>
+                  </div>
+                </Link>
               </CarouselItem>
             );
           })}
