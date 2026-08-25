@@ -1,25 +1,12 @@
-"use client";
-
-import { useState } from "react";
 import { Container } from "@/components/ui/Container";
-import {
-  Drawer,
-  DrawerContent,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
 import WorkflowSideTab from "./components/WorkflowSideTab";
+import ListWorkflowMobileDrawer from "./components/ListWorkflowMobileDrawer";
 import { workflowSections } from "./data";
-import { useWorkflowScrollspy } from "./hooks/useWorkflowScrollspy";
-import { ChevronRight } from "lucide-react";
 
 export default function WorkflowPage() {
-  const { activeId, scrollToSection } = useWorkflowScrollspy();
-
   return (
     <main className="mt-10 md:mt-16 md:mb-12">
-      {/* Page Header */}
+      {/* Page Header (Server Component) */}
       <Container className="md:mb-12">
         <h1 className="font-serif text-lg md:text-3xl">Explain My Workflow</h1>
         <p className="mt-2 text-sm text-zinc-500 md:text-base dark:text-zinc-400">
@@ -28,22 +15,15 @@ export default function WorkflowPage() {
         </p>
       </Container>
 
-      {/* Mobile Menu Trigger & Drawer */}
-      <ListWorkflowMobileDrawer
-        activeId={activeId}
-        scrollToSection={scrollToSection}
-      />
+      {/* Mobile Menu Trigger & Drawer (Client Component) */}
+      <ListWorkflowMobileDrawer />
 
       <Container>
         <div className="grid grid-cols-1 pb-16 md:grid-cols-12 md:pb-24">
-          {/* Desktop Left Side: Sticky Vertical Tabs */}
-          <WorkflowSideTab
-            activeId={activeId}
-            scrollToSection={scrollToSection}
-            className="sticky top-24 hidden self-start md:col-span-4 md:flex lg:col-span-3"
-          />
+          {/* Desktop Left Side: Sticky Vertical Tabs (Client Component) */}
+          <WorkflowSideTab className="sticky top-24 hidden self-start md:col-span-4 md:flex lg:col-span-3" />
 
-          {/* Right Side: Stacked Scrollable Workflow Content Sections */}
+          {/* Right Side: Stacked Scrollable Workflow Content Sections (Server Component) */}
           <div className="space-y-16 md:col-span-8 lg:col-span-9">
             {workflowSections.map((section) => (
               <section
@@ -80,37 +60,5 @@ export default function WorkflowPage() {
         </div>
       </Container>
     </main>
-  );
-}
-
-function ListWorkflowMobileDrawer({
-  activeId,
-  scrollToSection,
-}: {
-  activeId: string;
-  scrollToSection: (id: string) => void;
-}) {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <Drawer open={open} onOpenChange={setOpen}>
-      <DrawerTrigger asChild>
-        <button className="sticky top-0 z-10 flex w-full p-6 font-medium backdrop-blur-md md:hidden">
-          <span className="flex items-center gap-1.5">
-            Menu <ChevronRight className="size-4 text-zinc-500" />
-          </span>
-        </button>
-      </DrawerTrigger>
-      <DrawerContent className="p-6">
-        <DrawerHeader className="px-0 pb-4 text-left">
-          <DrawerTitle>Workflow Steps</DrawerTitle>
-        </DrawerHeader>
-        <WorkflowSideTab
-          activeId={activeId}
-          scrollToSection={scrollToSection}
-          onItemClick={() => setOpen(false)}
-        />
-      </DrawerContent>
-    </Drawer>
   );
 }

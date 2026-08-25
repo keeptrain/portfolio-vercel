@@ -2,21 +2,20 @@
 
 import SectionNav, { SectionNavItem } from "@/components/shared/SectionNav";
 import { workflowSections } from "../data";
+import { useWorkflowScrollspy } from "../hooks/useWorkflowScrollspy";
 import { cn } from "@/lib/utils";
 
 interface WorkflowSideTabProps {
-  activeId: string;
-  scrollToSection: (id: string) => void;
   className?: string;
   onItemClick?: () => void;
 }
 
 export default function WorkflowSideTab({
-  activeId,
-  scrollToSection,
   className,
   onItemClick,
 }: WorkflowSideTabProps) {
+  const { activeId, scrollToSection } = useWorkflowScrollspy();
+
   return (
     <SectionNav className={className}>
       {workflowSections.map((section) => (
