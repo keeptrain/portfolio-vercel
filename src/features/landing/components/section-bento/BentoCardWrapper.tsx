@@ -57,11 +57,7 @@ export function BentoCardHeader({ label, action }: BentoCardHeaderProps) {
 
   return (
     <CardHeader>
-      {label && (
-        <CardTitle>
-          <HandDrawnWrappingText>{label}</HandDrawnWrappingText>
-        </CardTitle>
-      )}
+      {label && <CardTitle>{label}:</CardTitle>}
       {action && <CardAction>{action}</CardAction>}
     </CardHeader>
   );

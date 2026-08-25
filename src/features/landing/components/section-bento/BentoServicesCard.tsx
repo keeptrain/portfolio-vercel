@@ -70,15 +70,11 @@ export default function BentoServicesCard({
                 key={`${service.title}-${index}`}
                 className="flex h-full basis-[85%] flex-col pl-3 sm:basis-[48%] sm:pl-4 md:basis-1/2"
               >
-                <div className="group relative flex min-h-48 flex-1 flex-col justify-end overflow-hidden rounded-xl border border-zinc-200/80 bg-white p-5 shadow-2xs transition-all duration-300 hover:border-zinc-400 dark:border-zinc-800/80 dark:bg-zinc-900 dark:hover:border-zinc-600">
-                  <Icon className="pointer-events-none absolute -top-2 right-0 size-20 text-black/10 select-none dark:text-white/15" />
+                <div className="group relative flex min-h-50 flex-1 flex-col justify-end overflow-hidden rounded-xl border border-foreground/10 bg-white p-5 shadow-2xs transition-all duration-300 hover:border-foreground/30 dark:bg-zinc-900">
+                  <Icon className="pointer-events-none absolute -top-2 right-0 size-30 text-black/10 select-none dark:text-white/15" />
                   <div className="relative z-10 mt-auto space-y-2">
-                    <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100">
-                      {service.title}
-                    </h3>
-                    <p className="text-xs leading-relaxed text-zinc-500 dark:text-zinc-400">
-                      {service.description}
-                    </p>
+                    <h3 className="font-semibold">{service.title}</h3>
+                    <p className="leading-relaxed">{service.description}</p>
                   </div>
                 </div>
               </CarouselItem>

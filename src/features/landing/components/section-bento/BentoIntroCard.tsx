@@ -25,7 +25,7 @@ export default function BentoIntroCard({
 
         {/* Section 2: About Me */}
         <div>
-          <HandDrawnWrappingText>About me</HandDrawnWrappingText>
+          
           <p className="leading-relaxed">{t("bentoHero.aboutDesc")}</p>
         </div>
       </div>
