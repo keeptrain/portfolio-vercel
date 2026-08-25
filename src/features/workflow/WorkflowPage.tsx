@@ -1,8 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
 import { Container } from "@/components/ui/Container";
-import { cn } from "@/lib/utils";
 import {
   Drawer,
   DrawerContent,
@@ -10,55 +8,23 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+import { WorkflowStepNav } from "./components/WorkflowStepNav";
 import { workflowSections } from "./data";
+import { useWorkflowScrollspy } from "./hooks/useWorkflowScrollspy";
 import { ChevronRight } from "lucide-react";
 
 export default function WorkflowPage() {
-  const [activeId, setActiveId] = useState("brainstorming");
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleEntry = entries.find((entry) => entry.isIntersecting);
-        if (visibleEntry) {
-          setActiveId(visibleEntry.target.id);
-        }
-      },
-      {
-        rootMargin: "-20% 0px -60% 0px",
-        threshold: 0.1,
-      },
-    );
-
-    workflowSections.forEach((section) => {
-      const el = document.getElementById(section.id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  const scrollToSection = (id: string) => {
-    setActiveId(id);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const { activeId, scrollToSection } = useWorkflowScrollspy();
 
   return (
-    <main>
+    <main className="mt-10 md:mt-16 md:mb-12">
       {/* Page Header */}
-      <Container>
-        <section id="workflow-header" className="mt-10 md:mt-16 md:mb-12">
-          <h1 className="font-serif text-lg md:text-3xl">
-            Explain My Workflow
-          </h1>
-          <p className="mt-2 text-sm text-zinc-500 md:text-base dark:text-zinc-400">
-            A detailed 5-step engineering process for building fast, reliable,
-            and scalable software.
-          </p>
-        </section>
+      <Container className="md:mb-12">
+        <h1 className="font-serif text-lg md:text-3xl">Explain My Workflow</h1>
+        <p className="mt-2 text-sm text-zinc-500 md:text-base dark:text-zinc-400">
+          A detailed 5-step engineering process for building fast, reliable, and
+          scalable software.
+        </p>
       </Container>
 
       {/* Mobile Menu Trigger & Drawer */}
@@ -68,31 +34,13 @@ export default function WorkflowPage() {
       />
 
       <Container>
-        <div className="grid grid-cols-1 gap-8 pb-16 md:grid-cols-12 md:gap-12 md:pb-24">
+        <div className="grid grid-cols-1 pb-16 md:grid-cols-12 md:pb-24">
           {/* Desktop Left Side: Sticky Vertical Tabs */}
-          <div className="sticky top-24 hidden flex-col space-y-6 self-start border-l border-zinc-200 pl-0 md:col-span-4 md:flex lg:col-span-3 dark:border-zinc-800">
-            {workflowSections.map((section) => {
-              const isActive = activeId === section.id;
-              return (
-                <button
-                  key={section.id}
-                  type="button"
-                  onClick={() => scrollToSection(section.id)}
-                  className={cn(
-                    "-ml-px flex flex-col items-start border-l-2 pl-4 text-left transition-all duration-300",
-                    isActive
-                      ? "border-zinc-500 text-zinc-900 dark:border-emerald-400 dark:text-zinc-100"
-                      : "border-transparent text-zinc-400 hover:text-zinc-600 dark:text-zinc-500 dark:hover:text-zinc-300",
-                  )}
-                >
-                  <span className="font-mono text-xs font-bold">
-                    {section.number}
-                  </span>
-                  <span className="text-sm font-medium">{section.title}</span>
-                </button>
-              );
-            })}
-          </div>
+          <WorkflowStepNav
+            activeId={activeId}
+            scrollToSection={scrollToSection}
+            className="sticky top-24 hidden self-start md:col-span-4 md:flex lg:col-span-3"
+          />
 
           {/* Right Side: Stacked Scrollable Workflow Content Sections */}
           <div className="space-y-16 md:col-span-8 lg:col-span-9">
@@ -154,31 +102,11 @@ function ListWorkflowMobileDrawer({
         <DrawerHeader className="px-0 pb-4 text-left">
           <DrawerTitle>Workflow Steps</DrawerTitle>
         </DrawerHeader>
-        <div className="flex flex-col space-y-5 border-l border-zinc-200 pb-6 pl-0 dark:border-zinc-800">
-          {workflowSections.map((section) => {
-            const isActive = activeId === section.id;
-            return (
-              <button
-                key={section.id}
-                type="button"
-                onClick={() => {
-                  scrollToSection(section.id);
-                }}
-                className={cn(
-                  "-ml-px flex flex-col items-start border-l-2 pl-4 text-left transition-all duration-300",
-                  isActive
-                    ? "border-emerald-500 text-zinc-900 dark:border-emerald-400 dark:text-zinc-100"
-                    : "border-transparent text-zinc-400 hover:text-zinc-600 dark:text-zinc-500 dark:hover:text-zinc-300",
-                )}
-              >
-                <span className="font-mono text-xs font-bold">
-                  {section.number}
-                </span>
-                <span className="text-sm font-medium">{section.title}</span>
-              </button>
-            );
-          })}
-        </div>
+        <WorkflowStepNav
+          activeId={activeId}
+          scrollToSection={scrollToSection}
+          className="space-y-5 pb-6"
+        />
       </DrawerContent>
     </Drawer>
   );
