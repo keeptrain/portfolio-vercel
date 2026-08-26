@@ -7,10 +7,6 @@ vi.mock("next/navigation", () => ({
   usePathname: vi.fn(() => "/en"),
 }));
 
-vi.mock("@/contexts/ThemeContext", () => ({
-  useTheme: () => ({ theme: "light", toggleTheme: () => {} }),
-}));
-
 const messages = {
   footer: {
     contactCta: "Got a question?",
