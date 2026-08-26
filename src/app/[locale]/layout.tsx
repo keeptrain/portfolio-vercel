@@ -2,11 +2,11 @@ import { Metadata } from "next";
 import { Montserrat, Inter } from "next/font/google";
 import { locales, Locale } from "@/i18n/locales";
 import { loadMessages } from "@/i18n/loadMessages";
-import { TranslationProvider } from "@/i18n/TranslationContext";
-import { ThemeProvider } from "@/contexts/ThemeContext";
-import { setRequestLocale, getT } from "@/i18n/server";
 import Footer from "@/components/Footer";
 import BottomNav from "@/components/BottomNav";
+import { ThemeProvider } from "@/components/theme-provider";
+import { getT } from "@/i18n/server";
+import { TranslationProvider } from "@/i18n/TranslationContext";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -23,10 +23,9 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  setRequestLocale(locale as Locale);
   const t = getT();
 
   return {
@@ -67,9 +66,6 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params;
 
-  // Set locale ke request context cache agar server component di bawahnya bisa baca tanpa props
-  setRequestLocale(locale);
-
   const messages = loadMessages(locale);
 
   return (
@@ -77,6 +73,7 @@ export default async function LocaleLayout({
       lang={locale}
       data-scroll-behavior="smooth"
       className={`${montserrat.className} font-sans ${inter.variable}`}
+      suppressHydrationWarning
     >
       <head>
         <meta
@@ -86,7 +83,12 @@ export default async function LocaleLayout({
         />
       </head>
       <body>
-        <ThemeProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           <TranslationProvider messages={messages} locale={locale}>
             <main>{children}</main>
             <Footer />
