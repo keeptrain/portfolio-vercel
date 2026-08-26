@@ -1,7 +1,6 @@
 import BentoCardWrapper from "./BentoCardWrapper";
 import { getT } from "@/i18n/server";
 import { Underline } from "@/components/icons/HandyArrows";
-import HandDrawnWrappingText from "@/components/shared/HandDrawnWrappingText";
 import RotatingGreeting from "./RotatingGreeting";
 
 interface BentoIntroCardProps {
@@ -25,8 +24,7 @@ export default function BentoIntroCard({
 
         {/* Section 2: About Me */}
         <div>
-          
-          <p className="leading-relaxed">{t("bentoHero.aboutDesc")}</p>
+          <p className="leading-loose">{t("sectionHero.intro")}</p>
         </div>
       </div>
     </BentoCardWrapper>

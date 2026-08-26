@@ -60,9 +60,6 @@
     "error": "Failed to send message. Please try again."
   },
   "bentoHero": {
-    "available": "Available for new projects",
-    "greeting": "Hi, I'm Gilang 👋",
-    "role": "Full Stack Software Engineer",
     "bio": "Building high-performance web applications & modern systems with a focus on clean code and user experience.",
     "contact": "Reach Out",
     "resume": "Resume",
@@ -79,9 +76,15 @@
     "expValue": "1.5+ Years",
     "projectsLabel": "Completed",
     "projectsValue": "10+ Projects",
-    "introText": "Thank you for taking the time to visit. Consider this a starting point—a space to explore who I am, what I build, and the ideas that shape my work. I hope it helps you decide whether we're a great fit to work together.",
-    "aboutTitle": "About Me",
-    "aboutDesc": "I'm Gilang — a Software Engineer with 1.5+ years of experience turning ideas into reliable digital products through clean code, scalable systems, and intuitive experiences—with a strong focus on performance, usability, and long-term maintainability."
+    "introText": "Thank you for taking the time to visit. Consider this a starting point—a space to explore who I am, what I build, and the ideas that shape my work. I hope it helps you decide whether we're a great fit to work together."
+  },
+  "sectionHero": {
+    "intro": "I'm Gilang — a Software Engineer with 1+ years of experience turning ideas into reliable digital products through clean code, scalable systems, and intuitive experiences—with a strong focus on performance, usability, and long-term maintainability.",
+    "currentFocus": {
+      "header": "Current Focus",
+      "title": "Automated Coding Workflow",
+      "desc": "Leveraging AI agents & developer automation to build software faster with engineering rigor."
+    }
   },
   "sectionTwo": {
     "tab1": "How I Work?",

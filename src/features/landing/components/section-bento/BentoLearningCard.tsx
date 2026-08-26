@@ -1,4 +1,4 @@
-import BentoCardWrapper from "./BentoCardWrapper";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getT } from "@/i18n/server";
 
 interface BentoLearningCardProps {
@@ -11,25 +11,19 @@ export default function BentoLearningCard({
   const t = getT();
 
   return (
-    <BentoCardWrapper
-      style={{
-        enableHover: false,
-        tagCard: {
-          enabled: true,
-          label: "Current Focus",
-        },
-      }}
-      className={`flex h-full flex-col justify-between ${className}`}
-    >
-      {/* Title & Description */}
-      <div className="space-y-2">
+    <Card className={`${className} flex flex-col justify-between`}>
+      <CardHeader>
+        <CardTitle>{t("sectionHero.currentFocus.header")}</CardTitle>
+      </CardHeader>
+      <CardContent>
+        {/* Title & Description */}
         <h3 className="text-lg font-medium tracking-tight sm:text-xl">
-          {t("bentoHero.learningTitle")}
+          {t("sectionHero.currentFocus.title")}
         </h3>
         <p className="text-xs leading-relaxed sm:text-sm">
-          {t("bentoHero.learningDesc")}
+          {t("sectionHero.currentFocus.desc")}
         </p>
-      </div>
-    </BentoCardWrapper>
+      </CardContent>
+    </Card>
   );
 }

@@ -6,7 +6,7 @@ import BentoServicesCard from "./section-bento/BentoServicesCard";
 
 export default function SectionHero() {
   return (
-    <section id="hero" className="flex flex-col gap-12 overflow-x-hidden pb-1">
+    <section id="hero" className="flex flex-col overflow-x-hidden pb-1">
       <HighlightTicker />
       <Container>
         {/* Harmonious Responsive Grid Layout */}
