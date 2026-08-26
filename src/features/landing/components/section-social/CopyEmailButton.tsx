@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Copy, Check } from "lucide-react";
+import { MailIcon } from "lucide-react";
 
 interface CopyEmailButtonProps {
   email: string;
@@ -21,10 +21,9 @@ export default function CopyEmailButton({ email }: CopyEmailButtonProps) {
   };
 
   return (
-    <div
+    <button
+      type="button"
       onClick={handleCopy}
-      role="button"
-      tabIndex={0}
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") handleCopy();
       }}
@@ -32,16 +31,12 @@ export default function CopyEmailButton({ email }: CopyEmailButtonProps) {
     >
       <div className="text-left">
         <span className="text-sm font-semibold text-white sm:text-base">
-          Email me
+          {copied ? "Copied!" : "Email me"}
         </span>
       </div>
       <div className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-white/15 text-white backdrop-blur-md transition-all duration-200 group-hover:bg-white group-hover:text-zinc-900">
-        {copied ? (
-          <Check className="size-4 text-zinc-400 group-hover:text-zinc-600" />
-        ) : (
-          <Copy className="size-4" />
-        )}
+        <MailIcon className="size-4" />
       </div>
-    </div>
+    </button>
   );
 }

@@ -13,13 +13,16 @@ export default function SectionHero() {
       <HighlightTicker />
       <Container>
         {/* Harmonious Responsive Grid Layout */}
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-5 lg:gap-12">
-          {/* Baris 1: Intro (8col md / 9col lg) + Profile (4col md / 3col lg) */}
-          <BentoIntroCard className="md:col-span-8 lg:col-span-9" />
-          <BentoProfileCard className="md:col-span-4 lg:col-span-3" />
+        <div className="grid grid-cols-12 gap-3 sm:gap-4 md:gap-5 lg:gap-12">
+          {/* Intro: 12col mobile / 8col md / 9col lg */}
+          <BentoIntroCard className="col-span-12 md:col-span-8 lg:col-span-9" />
 
-          <BentoLearningCard className="md:col-span-4 lg:col-span-6" />
-          <BentoAboutCarousel className="md:col-span-4 md:-mr-[calc((100vw-100%)/2)] lg:col-span-6" />
+          {/* Profile (Foto) + Learning (Focus): Side by side on mobile (4col + 8col) */}
+          <BentoProfileCard className="col-span-4 md:col-span-4 lg:col-span-3" />
+          <BentoLearningCard className="col-span-8 md:col-span-4 lg:col-span-6" />
+
+          {/* Carousel: 12col mobile / 4col md / 6col lg */}
+          <BentoAboutCarousel className="col-span-12 md:col-span-4 md:-mr-[calc((100vw-100%)/2)] lg:col-span-6" />
         </div>
       </Container>
     </section>

@@ -10,7 +10,7 @@ export default function BentoProfileCard({
   return (
     <div className={`flex h-full items-center justify-center ${className}`}>
       {/* Circular Avatar Profile Photo */}
-      <div className="relative size-36 overflow-hidden rounded-full border-2 border-white/90 shadow-md sm:size-44 dark:border-zinc-700/90">
+      <div className="relative size-24 overflow-hidden rounded-full border-2 border-white/90 shadow-md sm:size-36 md:size-44 dark:border-zinc-700/90">
         <Image
           src="/images/photo.jpg"
           alt="Profile Photo"

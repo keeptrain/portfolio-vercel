@@ -18,7 +18,7 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply flex min-h-screen flex-col bg-accent text-foreground;
+    @apply flex min-h-screen flex-col bg-white text-foreground dark:bg-black;
   }
   h1,
   h2,
