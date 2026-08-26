@@ -27,7 +27,7 @@ export const projectsData: Project[] = [
     description:
       "JakReq is a request management system designed to streamline internal workflow, ticket submission, and request approvals with automated status tracking.",
     isNda: false,
-    links: "/projects/jakreq",
+    links: "https://rptra-cibubur.vercel.app",
   },
   {
     slug: "cullinarix",
@@ -41,6 +41,6 @@ export const projectsData: Project[] = [
     description:
       "Cullinarix is a modern Android food discovery application that helps users explore nearby culinary spots, search customized recipes, and manage favorite meals.",
     isNda: false,
-    links: "/projects/cullinarix",
+    links: "https://github.com/keeptrain/Culinarix-App",
   },
 ];

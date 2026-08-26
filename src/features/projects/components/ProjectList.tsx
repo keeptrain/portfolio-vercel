@@ -14,6 +14,14 @@ export default function ProjectList({ projects }: ProjectListProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleSelectProject = (project: Project) => {
+    if (project.links) {
+      if (project.links.startsWith("http")) {
+        window.open(project.links, "_blank", "noopener,noreferrer");
+      } else {
+        window.location.href = project.links;
+      }
+      return;
+    }
     setSelectedProject(project);
     setIsOpen(true);
   };

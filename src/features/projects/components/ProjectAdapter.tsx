@@ -21,7 +21,7 @@ export default function ProjectAdapter({
           src={project.imageSrc}
           fill
           sizes="(max-width: 768px) 128px, 375px"
-          loading="lazy"
+          loading="eager"
           className="rounded-lg object-cover opacity-80 transition-opacity duration-300 hover:opacity-100"
         />
       </div>
