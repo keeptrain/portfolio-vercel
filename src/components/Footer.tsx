@@ -52,7 +52,7 @@ export default function Footer() {
                 <div className="relative mx-4 h-1/2 w-14 sm:h-full sm:w-20 md:w-24">
                   <Image
                     alt={"logo"}
-                    src={"/signature.svg"}
+                    src={"/assets/signature.svg"}
                     fill
                     sizes="(max-width: 640px) 56px, (max-width: 768px) 80px, 96px"
                     className="pointer-none opacity-30 select-none dark:opacity-100 dark:brightness-0 dark:invert dark:filter"

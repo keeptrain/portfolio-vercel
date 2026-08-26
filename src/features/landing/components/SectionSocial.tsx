@@ -13,7 +13,7 @@ export default function SectionSocial() {
         <div className="relative overflow-hidden rounded-3xl shadow-lg">
           {/* Background Image */}
           <Image
-            src="/pexels-harrison-candlin-2441454.jpg"
+            src="/assets/pexels-harrison-candlin-2441454.jpg"
             alt="Scenic background"
             fill
             sizes="100vw"
