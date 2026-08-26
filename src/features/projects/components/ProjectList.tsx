@@ -15,7 +15,7 @@ export default function ProjectList({ projects }: ProjectListProps) {
 
   const handleSelectProject = (project: Project) => {
     if (project.links) {
-      if (project.links.startsWith("http")) {
+      if (project.links.startsWith("https")) {
         window.open(project.links, "_blank", "noopener,noreferrer");
       } else {
         window.location.href = project.links;
