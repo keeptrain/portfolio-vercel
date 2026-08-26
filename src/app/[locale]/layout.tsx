@@ -63,14 +63,14 @@ export default async function LocaleLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }) {
   const { locale } = await params;
 
   // Set locale ke request context cache agar server component di bawahnya bisa baca tanpa props
-  setRequestLocale(locale as Locale);
+  setRequestLocale(locale);
 
-  const messages = loadMessages(locale as Locale);
+  const messages = loadMessages(locale);
 
   return (
     <html
