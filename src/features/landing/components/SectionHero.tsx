@@ -2,11 +2,14 @@ import { Container } from "@/components/ui/Container";
 import BentoIntroCard from "./section-bento/BentoIntroCard";
 import BentoProfileCard from "./section-bento/BentoProfileCard";
 import BentoLearningCard from "./section-bento/BentoLearningCard";
-import BentoServicesCard from "./section-bento/BentoServicesCard";
+import BentoAboutCarousel from "./section-bento/BentoAboutCarousel";
 
 export default function SectionHero() {
   return (
-    <section id="hero" className="flex flex-col overflow-x-hidden pb-1">
+    <section
+      id="hero"
+      className="flex flex-col gap-6 overflow-x-hidden sm:gap-10"
+    >
       <HighlightTicker />
       <Container>
         {/* Harmonious Responsive Grid Layout */}
@@ -16,7 +19,7 @@ export default function SectionHero() {
           <BentoProfileCard className="md:col-span-4 lg:col-span-3" />
 
           <BentoLearningCard className="md:col-span-4 lg:col-span-6" />
-          <BentoServicesCard className="md:col-span-4 md:-mr-[calc((100vw-100%)/2)] lg:col-span-6" />
+          <BentoAboutCarousel className="md:col-span-4 md:-mr-[calc((100vw-100%)/2)] lg:col-span-6" />
         </div>
       </Container>
     </section>

@@ -1,4 +1,10 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { getT } from "@/i18n/server";
 
 interface BentoLearningCardProps {
@@ -11,19 +17,18 @@ export default function BentoLearningCard({
   const t = getT();
 
   return (
-    <Card className={`${className} flex flex-col justify-between`}>
-      <CardHeader>
-        <CardTitle>{t("sectionHero.currentFocus.header")}</CardTitle>
-      </CardHeader>
-      <CardContent>
-        {/* Title & Description */}
-        <h3 className="text-lg font-medium tracking-tight sm:text-xl">
-          {t("sectionHero.currentFocus.title")}
-        </h3>
-        <p className="text-xs leading-relaxed sm:text-sm">
-          {t("sectionHero.currentFocus.desc")}
-        </p>
-      </CardContent>
-    </Card>
+    <div className={`pt-1 pr-1 pb-1 ${className}`}>
+      <Card className="flex h-full flex-col justify-between">
+        <CardHeader>
+          <CardTitle>{t("sectionHero.currentFocus.header")}</CardTitle>
+          <CardDescription>
+            {t("sectionHero.currentFocus.title")}
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p>{t("sectionHero.currentFocus.desc")}</p>
+        </CardContent>
+      </Card>
+    </div>
   );
 }

@@ -17,7 +17,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-interface BentoServicesCardProps {
+interface BentoAboutCarouselProps {
   className?: string;
 }
 
@@ -50,9 +50,9 @@ const CAROUSEL_ITEMS = [
 
 const REPEATED_ITEMS = [...CAROUSEL_ITEMS, ...CAROUSEL_ITEMS];
 
-export default function BentoServicesCard({
+export default function BentoAboutCarousel({
   className = "",
-}: BentoServicesCardProps) {
+}: BentoAboutCarouselProps) {
   return (
     <div className={`relative ${className}`}>
       <Carousel
@@ -91,7 +91,7 @@ export default function BentoServicesCard({
                         </CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <CardDescription>{item.description}</CardDescription>
+                        <p>{item.description}</p>
                       </CardContent>
                     </Card>
                   </Link>
