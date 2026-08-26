@@ -31,6 +31,7 @@ export default function SectionShowcase() {
                 alt={leftProject.title}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
+                loading="eager"
                 className="object-cover object-top"
               />
             </div>
