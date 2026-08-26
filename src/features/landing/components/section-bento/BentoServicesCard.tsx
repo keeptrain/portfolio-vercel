@@ -78,17 +78,23 @@ export default function BentoServicesCard({
                 className="flex h-full w-full basis-[85%] sm:basis-[48%]"
               >
                 <div className="p-1">
-                  <Card className="flex h-full flex-col justify-between">
-                    <CardHeader>
-                      <CardTitle className="relative">
-                        <Icon className="pointer-events-none absolute -top-10 -right-10 size-30 text-black/10 select-none dark:text-white/15" />
-                        {item.title}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <CardDescription>{item.description}</CardDescription>
-                    </CardContent>
-                  </Card>
+                  <Link href={item.href} className="group block h-full">
+                    <Card className="flex h-full flex-col justify-between transition-all duration-300 hover:border-foreground/30 hover:shadow-md active:scale-98">
+                      <CardHeader>
+                        <CardTitle className="relative">
+                          <Icon className="pointer-events-none absolute -top-10 -right-10 size-30 text-black/10 select-none dark:text-white/15" />
+                          {/* Top-right Hover Arrow Indicator */}
+                          <div className="absolute top-4 right-4 z-10 flex size-7 items-center justify-center rounded-full bg-zinc-100 text-zinc-600 transition-all duration-300 group-hover:bg-zinc-900 group-hover:text-white dark:bg-zinc-800 dark:text-zinc-400 dark:group-hover:bg-white dark:group-hover:text-zinc-900">
+                            <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                          </div>
+                          {item.title}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <CardDescription>{item.description}</CardDescription>
+                      </CardContent>
+                    </Card>
+                  </Link>
                 </div>
               </CarouselItem>
             );
