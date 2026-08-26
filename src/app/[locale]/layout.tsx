@@ -3,7 +3,7 @@ import { Montserrat, Inter } from "next/font/google";
 import { locales, Locale } from "@/i18n/locales";
 import { loadMessages } from "@/i18n/loadMessages";
 import Footer from "@/components/Footer";
-import BottomNav from "@/components/BottomNav";
+import BottomNav from "@/components/navigation/BottomNav";
 import { ThemeProvider } from "@/components/theme-provider";
 import { getT } from "@/i18n/server";
 import { TranslationProvider } from "@/i18n/TranslationContext";
