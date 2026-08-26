@@ -1,81 +1,61 @@
-"use client";
-
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import { useTranslations } from "@/i18n/TranslationContext";
 import Link from "next/link";
-
-type DataItem = {
-  id: string;
-  title: string;
-  desc: string;
-};
-
-const data: DataItem[] = [
-  {
-    id: "brainstorming",
-    title: "Brainstorming",
-    desc: "Before writing any code, I take the time to fully understand the problem or feature requirements.",
-  },
-  {
-    id: "develop",
-    title: "Develop",
-    desc: "I focus on writing clean, readable code and practice an iterative approach.",
-  },
-  {
-    id: "validate",
-    title: "Validate",
-    desc: "Once my code is written, I perform thorough self-testing to verify that it functions as expected and meets all requirements.",
-  },
-  {
-    id: "collaborate",
-    title: "Collaborate",
-    desc: "I believe in the power of teamwork. I submit my work for code review, viewing feedback as an invaluable opportunity for growth.",
-  },
-];
+import { ArrowUpRight } from "lucide-react";
+import { getLocale } from "@/i18n/server";
+import { workflowSections } from "@/features/workflow/data";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function HowIWork() {
-  const { t, locale } = useTranslations();
+  const locale = getLocale();
+  const topSections = workflowSections.slice(0, 2);
+  const bottomSections = workflowSections.slice(2);
+
   return (
-    <div className="flex flex-col space-y-10">
-      <div>
-        <p className="w-full text-sm leading-relaxed font-light text-gray-700 sm:text-base md:w-2/3 md:text-lg dark:text-gray-300">
-          {t("sectionTwo.howIWorkIntro")}
-        </p>
-      </div>
-      <Carousel orientation="vertical" className="w-full">
-        <CarouselContent className="h-100">
-          {data.map((item, index) => (
-            <CarouselItem key={index} className="basis-[25%]">
-              <Link href={`/${locale}/workflow#${item.id}`}>
-                <div className="p-1">
-                  <Card className="transition-all duration-300 hover:ring-foreground/30">
-                    <CardHeader className="relative">
-                      <CardTitle>{item.title}</CardTitle>
-                      <span className="absolute right-10 bottom-0.5 text-4xl text-black/10 md:text-6xl dark:text-white/15">
-                        0{index + 1}
-                      </span>
-                    </CardHeader>
-                    <CardContent>
-                      <p>{item.desc}</p>
-                    </CardContent>
-                  </Card>
+    <div className="flex flex-col gap-3.5 md:gap-12">
+      {/* Row 1: 2 Cards (Centered on desktop) */}
+      <div className="mx-auto grid w-full max-w-3xl grid-cols-1 gap-3.5 sm:grid-cols-2 md:gap-12">
+        {topSections.map((section, index) => (
+          <Link
+            key={section.id}
+            href={`/${locale}/workflow#${section.id}`}
+            className="group block"
+          >
+            <Card className="relative flex h-36 flex-col justify-end overflow-hidden transition-all duration-300 hover:border-foreground/30 hover:shadow-md active:scale-98 sm:h-40 md:h-40">
+              <span className="pointer-events-none absolute -top-4 right-2 text-7xl tracking-tighter text-black/5 select-none sm:-top-6 sm:text-8xl md:-top-8 md:text-9xl dark:text-white/10">
+                0{index + 1}
+              </span>
+              <CardHeader>
+                <div className="flex items-center justify-between">
+                  <CardTitle>{section.title}</CardTitle>
+                  <ArrowUpRight className="size-4 shrink-0 text-zinc-400 opacity-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100 dark:text-zinc-500 dark:group-hover:text-zinc-100" />
                 </div>
-              </Link>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <div className="absolute right-0 bottom-0 z-10 flex flex-row gap-2 md:flex-col">
-          <CarouselPrevious className="relative inset-auto translate-x-0 translate-y-0" />
-          <CarouselNext className="relative inset-auto translate-x-0 translate-y-0" />
-        </div>
-      </Carousel>
+              </CardHeader>
+            </Card>
+          </Link>
+        ))}
+      </div>
+
+      {/* Row 2: 3 Cards */}
+      <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-3 md:gap-12">
+        {bottomSections.map((section, index) => (
+          <Link
+            key={section.id}
+            href={`/${locale}/workflow#${section.id}`}
+            className="group block"
+          >
+            <Card className="relative flex h-36 flex-col justify-end overflow-hidden transition-all duration-300 hover:border-foreground/30 hover:shadow-md active:scale-98 sm:h-40 md:h-40">
+              <span className="pointer-events-none absolute -top-4 right-2 text-7xl tracking-tighter text-black/5 select-none sm:-top-6 sm:text-8xl md:-top-8 md:text-9xl dark:text-white/10">
+                0{index + 3}
+              </span>
+              <CardHeader>
+                <div className="flex items-center justify-between">
+                  <CardTitle>{section.title}</CardTitle>
+                  <ArrowUpRight className="size-4 shrink-0 text-zinc-400 opacity-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100 dark:text-zinc-500 dark:group-hover:text-zinc-100" />
+                </div>
+              </CardHeader>
+            </Card>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }

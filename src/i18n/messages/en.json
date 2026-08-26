@@ -84,11 +84,28 @@
       "header": "Current Focus",
       "title": "Automated Coding Workflow",
       "desc": "Leveraging AI agents & developer automation to build software faster with engineering rigor."
+    },
+    "about": {
+      "experience": {
+        "title": "Experience",
+        "description": ""
+      },
+      "techStack": {
+        "title": "Tech Stack",
+        "description": ""
+      },
+      "services": {
+        "title": "Services",
+        "description": ""
+      }
     }
   },
   "sectionTwo": {
     "tab1": "How I Work?",
     "tab2": "My Tech Stack",
-    "howIWorkIntro": "Currently i adopt a modern workflow to consistently balance development speed and code quality. Here is the workflow I have standardized myself:"
+    "howIWork": {
+      "title": "How I Work?",
+      "description": "Currently i adopt modern worflow and standarazie by myself."
+    }
   }
 }

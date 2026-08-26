@@ -1,7 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { Briefcase, Layers, Sparkles, ArrowUpRight } from "lucide-react";
+import {
+  ArrowUpRight,
+  ToolboxIcon,
+  CodeIcon,
+  BriefcaseBusinessIcon,
+} from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -9,13 +14,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface BentoAboutCarouselProps {
   className?: string;
@@ -27,7 +26,7 @@ const CAROUSEL_ITEMS = [
     subtitle: "1.5+ Years",
     description:
       "Building scalable digital products across web and mobile platforms.",
-    icon: Briefcase,
+    icon: BriefcaseBusinessIcon,
     href: "/about/experiences",
   },
   {
@@ -35,7 +34,7 @@ const CAROUSEL_ITEMS = [
     subtitle: "Core Suite",
     description:
       "Next.js, TypeScript, Android (Kotlin), Node.js, and Tailwind CSS.",
-    icon: Layers,
+    icon: CodeIcon,
     href: "/about/techstack",
   },
   {
@@ -43,7 +42,7 @@ const CAROUSEL_ITEMS = [
     subtitle: "What I Do",
     description:
       "Full-stack web apps, native Android applications, and UI/UX crafting.",
-    icon: Sparkles,
+    icon: ToolboxIcon,
     href: "/about/services",
   },
 ];
@@ -81,13 +80,13 @@ export default function BentoAboutCarousel({
                   <Link href={item.href} className="group block h-full">
                     <Card className="flex h-full flex-col justify-between transition-all duration-300 hover:border-foreground/30 hover:shadow-md active:scale-98">
                       <CardHeader>
-                        <CardTitle className="relative">
+                        <CardTitle className="relative flex items-center justify-between pr-25">
                           <Icon className="pointer-events-none absolute -top-10 -right-10 size-30 text-black/10 select-none dark:text-white/15" />
+                          <span>{item.title}</span>
                           {/* Top-right Hover Arrow Indicator */}
-                          <div className="absolute top-4 right-4 z-10 flex size-7 items-center justify-center rounded-full bg-zinc-100 text-zinc-600 transition-all duration-300 group-hover:bg-zinc-900 group-hover:text-white dark:bg-zinc-800 dark:text-zinc-400 dark:group-hover:bg-white dark:group-hover:text-zinc-900">
+                          <div className="z-10 flex size-7 items-center justify-center rounded-full bg-zinc-100 text-zinc-600 transition-all duration-300 group-hover:bg-zinc-900 group-hover:text-white dark:bg-zinc-800 dark:text-zinc-400 dark:group-hover:bg-white dark:group-hover:text-zinc-900">
                             <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                           </div>
-                          {item.title}
                         </CardTitle>
                       </CardHeader>
                       <CardContent>

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { HouseIcon, BriefcaseBusinessIcon } from "lucide-react";
+import { HouseIcon, FolderOpenIcon } from "lucide-react";
 import { Locale } from "@/i18n/locales";
 import MoreDrawer from "./MoreDrawer";
 
@@ -39,8 +39,7 @@ export default function BottomNavClient({
               ? pathname === `/${locale}` || pathname === "/"
               : pathname.startsWith(`/${locale}/projects`);
 
-          const IconComponent =
-            item.id === "home" ? HouseIcon : BriefcaseBusinessIcon;
+          const IconComponent = item.id === "home" ? HouseIcon : FolderOpenIcon;
 
           return (
             <Link

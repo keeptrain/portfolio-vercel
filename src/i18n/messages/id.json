@@ -83,9 +83,32 @@
     "aboutTitle": "Tentang Saya",
     "aboutDesc": "Saya Gilang — seorang Software Engineer dengan pengalaman 1.5+ tahun mengubah ide menjadi produk digital yang andal melalui kode yang bersih, sistem yang scalable, serta pengalaman yang intuitif—dengan fokus kuat pada performa, kejelasan penggunaan, dan kemudahan pemeliharaan jangka panjang."
   },
+  "sectionHero": {
+    "intro": "Saya Gilang — seorang Software Engineer dengan pengalaman 1 tahun lebih dengan mengubah ide menjadi produk digital melalui clean code, sistem yang scalable, serta pengalaman yang intuitif dengan fokus pada performance, kejelasan penggunaan, dan kemudahan maintenance jangka panjang.",
+    "currentFocus": {
+      "header": "Sekarang lagi fokus",
+      "title": "Automated Coding Workflow",
+      "desc": "Memanfaatkan AI agent & developer automation untuk membangun software lebih cepat dengan prinsip engineering yang kuat."
+    },
+    "about": {
+      "experience": {
+        "title": "Experience",
+        "description": ""
+      },
+      "techStack": {
+        "title": "Tech Stack",
+        "description": ""
+      },
+      "services": {
+        "title": "Services",
+        "description": ""
+      }
+    }
+  },
   "sectionTwo": {
-    "tab1": "Cara saya kerja",
-    "tab2": "Stack yang digunakan",
-    "howIWorkIntro": "Sekarang saya menerapkan alur kerja modern untuk menyeimbangkan kecepatan pengembangan dan kualitas kode secara konsisten. Berikut alur kerja yang saya standarisasi sendiri:"
+    "howIWork": {
+      "title": "Cara saya kerja?",
+      "description": "Sekarang saya menerapkan alur kerja modern dan menstandarisasi nya sendiri."
+    }
   }
 }
