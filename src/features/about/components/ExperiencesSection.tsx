@@ -1,4 +1,4 @@
-import { Building2, Calendar } from "lucide-react";
+import { Calendar } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -7,6 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { EXPERIENCES } from "../data";
+import Image from "next/image";
 
 export default function ExperiencesSection() {
   return (
@@ -26,11 +27,10 @@ export default function ExperiencesSection() {
                   {/* Period above card */}
                   <Period exp={exp} />
 
-                  <Card className="w-full max-w-3xl">
+                  <Card className="relative w-full max-w-3xl">
                     <CardHeader className="space-y-1">
                       <CardTitle>{exp.role}</CardTitle>
                       <CardDescription className="flex items-center gap-1.5 text-sm font-semibold">
-                        <Building2 className="size-4 shrink-0" />
                         <span>{exp.company}</span>
                       </CardDescription>
                     </CardHeader>
@@ -56,6 +56,13 @@ export default function ExperiencesSection() {
                         ))}
                       </div>
                     </CardContent>
+                    <Image
+                      alt={exp.company}
+                      src={exp.logo}
+                      width={100}
+                      height={100}
+                      className="pointer-events-none absolute -top-2 right-4 hidden size-25 object-contain grayscale md:block dark:invert"
+                    />
                   </Card>
                 </div>
               </div>

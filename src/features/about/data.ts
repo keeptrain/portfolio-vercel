@@ -2,6 +2,7 @@ export const EXPERIENCES = [
   {
     role: "Full-stack Web Developer",
     company: "Kementerian Kelautan dan Perikanan",
+    logo: "/images/logo/kkp.webp",
     period: "Nov 2025 – May 2026",
     type: "Internship",
     description:
@@ -15,6 +16,7 @@ export const EXPERIENCES = [
   {
     role: "Full-stack Web Developer",
     company: "UPT Dinas Kesehatan",
+    logo: "/images/logo/pusdatin.png",
     period: "May 2025 – Jul 2025",
     type: "Internship",
     description:
@@ -27,6 +29,7 @@ export const EXPERIENCES = [
   {
     role: "Full-stack Web Developer",
     company: "RPTRA Cibubur Berseri",
+    logo: "/images/logo/rptra.png",
     period: "Sep 2024 – Jan 2025",
     type: "Internship",
     description:
@@ -39,6 +42,7 @@ export const EXPERIENCES = [
   {
     role: "Android Developer",
     company: "Bangkit Academy — Jakarta, Indonesia",
+    logo: "/images/logo/bangkit.svg",
     period: "Aug 2023 – Jan 2024",
     type: "Cohort Program",
     description:

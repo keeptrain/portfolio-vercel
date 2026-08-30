@@ -24,7 +24,7 @@ export default function MobileAboutMenuDrawer() {
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
-        <div className="sticky top-0 z-10 ml-6 w-fit pt-4 md:hidden">
+        <div className="sticky top-0 z-10 w-fit pt-4 ml-4 md:ml-6 md:hidden">
           <Button variant="outline" size="sm">
             Menu
             <ChevronRight className="size-4" />

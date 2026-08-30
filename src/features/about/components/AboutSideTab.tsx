@@ -74,6 +74,7 @@ export function TabLink({
     <Link
       href={href}
       onClick={onItemClick}
+      prefetch={true}
       className={cn(
         "-ml-px flex items-center gap-3 border-l-2 pl-4 text-left transition-all duration-300",
         isActive
