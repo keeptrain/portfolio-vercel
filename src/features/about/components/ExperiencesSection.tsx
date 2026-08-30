@@ -12,44 +12,54 @@ interface ExperienceItem {
 
 const EXPERIENCES: ExperienceItem[] = [
   {
-    role: "Software Engineer",
-    company: "Independent / Client Projects",
-    period: "2023 - Present",
-    type: "Full-time & Freelance",
+    role: "Full-stack Web Developer",
+    company: "Kementerian Kelautan dan Perikanan",
+    period: "Nov 2025 – May 2026",
+    type: "Internship",
     description:
-      "Architecting and developing modern web and Android applications focused on performance, accessibility, and clean scalable codebases.",
+      "Contributed to internal digitalization initiatives supporting the 4 Priority Programs.",
     highlights: [
-      "Built responsive Next.js web applications with server-side rendering and sub-second load times.",
-      "Developed native Android applications using Kotlin, Jetpack Compose, and clean UI architecture.",
-      "Crafted custom design systems, fluid micro-interactions, and accessible UI component libraries.",
+      "Gave progress visibility to stakeholders by developing the 4 Priority Programs Monitoring Application.",
+      "Sped up internal request processing duration and increased transparency through UPT Service Digitalization.",
     ],
-    skills: [
-      "Next.js",
-      "TypeScript",
-      "React",
-      "Kotlin",
-      "Tailwind CSS",
-      "Node.js",
-    ],
+    skills: ["Next.js", "Laravel", "Supabase"],
   },
   {
-    role: "Mobile Developer & Cloud Fellow",
-    company: "Bangkit Academy (Google, Tokopedia, Gojek, Traveloka)",
-    period: "2023",
+    role: "Full-stack Web Developer",
+    company: "UPT Dinas Kesehatan",
+    period: "May 2025 – Jul 2025",
+    type: "Internship",
+    description:
+      "Built an internal service request management system to streamline health service operations.",
+    highlights: [
+      "Optimized internal workflow through the development of a service request management system equipped with end-to-end status tracking features and a discussion forum, speeding up communication between applicants and technical units and increasing service process accountability overall.",
+    ],
+    skills: ["Laravel", "Livewire"],
+  },
+  {
+    role: "Full-stack Web Developer",
+    company: "RPTRA Cibubur Berseri",
+    period: "Sep 2024 – Jan 2025",
+    type: "Internship",
+    description:
+      "Developed a program planning and management platform for community facility operations.",
+    highlights: [
+      "Developed a program planning management system with a reporting dashboard as the main feature to give data-driven results for RPTRA managers in optimizing operational activity effectiveness.",
+    ],
+    skills: ["Next.js", "Supabase"],
+  },
+  {
+    role: "Android Developer",
+    company: "Bangkit Academy — Jakarta, Indonesia",
+    period: "Aug 2023 – Jan 2024",
     type: "Cohort Program",
     description:
-      "Intensive software engineering program specializing in Android mobile architecture and cloud infrastructure.",
+      "Google-led cohort program in collaboration with Tokopedia, Gojek, and Traveloka, focused on Android development.",
     highlights: [
-      "Engineered mobile application architecture using Kotlin, Android Jetpack, and RESTful APIs.",
-      "Collaborated in cross-functional teams to deliver production-ready capstone software products.",
+      "Developed an Android application for a capstone project with the theme Tourism, implementing clean architecture with Kotlin.",
+      "Collaborated in a cross-functional team to deliver a production-ready mobile product and completed intensive cloud and soft-skill training.",
     ],
-    skills: [
-      "Android",
-      "Kotlin",
-      "Jetpack Compose",
-      "REST APIs",
-      "Cloud Infrastructure",
-    ],
+    skills: ["Android", "Kotlin"],
   },
 ];
 

@@ -3,19 +3,19 @@ export default function ServicesSection() {
     <section className="animate-in space-y-6 duration-200 fade-in-50">
       <h2 className="text-xl font-bold tracking-tight sm:text-2xl">Services</h2>
 
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+      <div className="flex flex-col gap-4">
         {[
           {
-            title: "Full-stack Web Dev",
-            desc: "End-to-end web applications with Next.js, clean architecture, and SEO excellence.",
+            title: "Full-stack Web Development",
+            desc: "End-to-end web applications focused on performance, scalability, and maintainable architecture.",
           },
           {
             title: "Android Applications",
-            desc: "Native and cross-platform mobile apps with fluid UI and reliable state management.",
+            desc: "Reliable mobile applications built with attention to performance and clean, maintainable code.",
           },
           {
-            title: "UI/UX Crafting",
-            desc: "Pixel-perfect responsive design systems with smooth micro-interactions.",
+            title: "UI/UX Attention",
+            desc: "While not primarily a UI/UX designer, I always prioritize user experience and clean, intuitive interfaces in every project to ensure accessibility, usability, and a delightful experience for users.",
           },
         ].map((service) => (
           <div
