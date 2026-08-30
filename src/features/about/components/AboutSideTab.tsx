@@ -7,13 +7,16 @@ import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { LucideIcon } from "lucide-react";
+import React from "react";
 
 interface AboutSideTabProps {
+  children?: React.ReactNode;
   className?: string;
   onItemClick?: () => void;
 }
 
 export default function AboutSideTab({
+  children,
   className,
   onItemClick,
 }: AboutSideTabProps) {
@@ -29,6 +32,7 @@ export default function AboutSideTab({
           />
         </SectionNavItem>
       ))}
+      {children}
     </SectionNav>
   );
 }
@@ -55,7 +59,7 @@ function AboutSideTabItem({
   );
 }
 
-function TabLink({
+export function TabLink({
   href,
   isActive,
   onItemClick,
@@ -82,7 +86,17 @@ function TabLink({
   );
 }
 
-function TabIcon({ Icon, isActive }: { Icon: LucideIcon; isActive: boolean }) {
+function SubTablink() {
+  return;
+}
+
+export function TabIcon({
+  Icon,
+  isActive,
+}: {
+  Icon: LucideIcon;
+  isActive: boolean;
+}) {
   return (
     <Icon
       className={cn(
@@ -95,7 +109,13 @@ function TabIcon({ Icon, isActive }: { Icon: LucideIcon; isActive: boolean }) {
   );
 }
 
-function TabText({ title, isActive }: { title: string; isActive: boolean }) {
+export function TabText({
+  title,
+  isActive,
+}: {
+  title: string;
+  isActive: boolean;
+}) {
   return (
     <span
       className={cn(

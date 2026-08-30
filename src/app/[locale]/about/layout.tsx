@@ -1,14 +1,14 @@
 import { ReactNode, Suspense } from "react";
 import { Container } from "@/components/ui/Container";
-import ListAboutMobileDrawer from "@/features/about/components/ListAboutMobileDrawer";
 import AboutSideTab from "@/features/about/components/AboutSideTab";
 import { Skeleton } from "@/components/ui";
+import MobileAboutMenuDrawer from "@/features/about/components/MobileAboutMenuDrawer";
 
 export default function AboutLayout({ children }: { children: ReactNode }) {
   return (
     <main className="mt-10 space-y-4 md:mt-16 md:mb-12">
       {/* Mobile Drawer */}
-      <ListAboutMobileDrawer />
+      <MobileAboutMenuDrawer />
 
       {/* Page Header */}
       <Container className="md:mb-12">

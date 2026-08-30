@@ -9,7 +9,7 @@ export default function TechStackSection() {
     <section className="animate-in space-y-6 duration-200 fade-in-50">
       <h2 className="text-xl tracking-tight sm:text-2xl">Tech Stack</h2>
       <p className="flex items-center gap-2">
-        I put a my knowledge on some card you can click the title or
+        I put a my knowledge maybe notes too on some card you can click the title or
         <ArrowUpRightIcon className="size-3" />
       </p>
 

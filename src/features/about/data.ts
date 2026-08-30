@@ -105,3 +105,33 @@ export const SERVICES = [
     desc: "While not primarily a UI/UX designer, I always prioritize user experience and clean, intuitive interfaces in every project to ensure accessibility, usability, and a delightful experience for users.",
   },
 ] as const;
+
+export interface TocItem {
+  id: string;
+  title: string;
+  level?: number; // 1 = top, 2 = indent, 3 = deeper
+}
+
+export const TOC: TocItem[] = [
+  { id: "what-is-scope", title: "What is Scope in JavaScript?" },
+  { id: "office-analogy", title: "The Office Building Analogy" },
+  { id: "why-scope", title: "Why Does Scope Exist?", level: 2 },
+  { id: "three-types", title: "The Three Types of Scope" },
+  { id: "global-scope", title: "1. Global Scope", level: 2 },
+  { id: "global-object", title: "The Global Object", level: 3 },
+  { id: "function-scope", title: "2. Function Scope", level: 2 },
+  { id: "hoisting", title: "var Hoisting", level: 3 },
+  { id: "block-scope", title: "3. Block Scope", level: 2 },
+  { id: "tdz", title: "The Temporal Dead Zone (TDZ)", level: 3 },
+  { id: "var-let-const", title: "var vs let vs const" },
+  { id: "for-loop", title: "The Classic for-loop Problem", level: 2 },
+  { id: "lexical-scope", title: "Lexical Scope" },
+  { id: "scope-chain", title: "The Scope Chain", level: 2 },
+  { id: "shadowing", title: "Variable Shadowing", level: 2 },
+  { id: "what-is-closure", title: "What is a Closure in JavaScript?" },
+  { id: "every-closure", title: "Every Function Creates a Closure", level: 2 },
+  { id: "how-closures", title: "How Closures Work: Step by Step", level: 2 },
+  { id: "closures-wild", title: "Closures in the Wild" },
+  { id: "data-privacy", title: "1. Data Privacy & Encapsulation", level: 2 },
+  { id: "factories", title: "2. Function Factories", level: 2 },
+] as const;
