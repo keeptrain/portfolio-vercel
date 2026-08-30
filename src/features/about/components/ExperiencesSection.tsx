@@ -16,15 +16,16 @@ export default function ExperiencesSection() {
       <div className="space-y-8">
         {EXPERIENCES.map((exp, idx) => (
           <Card key={idx}>
-            <CardHeader>
+            <CardHeader className="space-y-3">
               <CardTitle>{exp.role}</CardTitle>
-              <CardDescription className="flex items-center gap-2">
+              <CardDescription className="flex items-center gap-1.5 text-sm font-semibold">
                 <Building2 className="size-4 shrink-0" />
                 <span>{exp.company}</span>
               </CardDescription>
-              <div className="flex flex-wrap items-center gap-2.5 pt-1">
-                <span className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold tracking-wide">
-                  <Calendar className="size-4 shrink-0" />
+              <div className="flex items-center gap-3">
+                <div className="ml-1 h-6 w-px shrink-0 bg-zinc-200 dark:bg-zinc-800" />
+                <span className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-wide">
+                  <Calendar className="size-3.5 shrink-0" />
                   {exp.period}
                 </span>
                 <span className="rounded-full bg-zinc-100 px-3 py-1 text-[10px] font-semibold tracking-wide dark:bg-zinc-800">
