@@ -11,9 +11,7 @@ import { EXPERIENCES } from "../data";
 export default function ExperiencesSection() {
   return (
     <section className="animate-in space-y-6 duration-200 fade-in-50">
-      <h2 className="text-xl font-bold tracking-tight sm:text-2xl">
-        Experiences
-      </h2>
+      <h2 className="text-xl tracking-tight sm:text-2xl">Experiences</h2>
 
       <div className="space-y-8">
         {EXPERIENCES.map((exp, idx) => (
@@ -21,12 +19,12 @@ export default function ExperiencesSection() {
             <CardHeader>
               <CardTitle>{exp.role}</CardTitle>
               <CardDescription className="flex items-center gap-2">
-                <Building2 className="size-3.5 shrink-0" />
+                <Building2 className="size-4 shrink-0" />
                 <span>{exp.company}</span>
               </CardDescription>
               <div className="flex flex-wrap items-center gap-2.5 pt-1">
                 <span className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold tracking-wide">
-                  <Calendar className="size-3 shrink-0" />
+                  <Calendar className="size-4 shrink-0" />
                   {exp.period}
                 </span>
                 <span className="rounded-full bg-zinc-100 px-3 py-1 text-[10px] font-semibold tracking-wide dark:bg-zinc-800">
@@ -35,9 +33,7 @@ export default function ExperiencesSection() {
               </div>
             </CardHeader>
             <CardContent className="space-y-5">
-              <CardDescription className="pt-1 text-sm leading-relaxed">
-                {exp.description}
-              </CardDescription>
+              <CardDescription>{exp.description}</CardDescription>
 
               <ul className="list-disc space-y-2.5 pl-5 text-sm leading-relaxed">
                 {exp.highlights.map((item, itemIdx) => (
@@ -47,7 +43,7 @@ export default function ExperiencesSection() {
                 ))}
               </ul>
 
-                <div className="flex flex-wrap gap-2 pt-2">
+              <div className="flex flex-wrap gap-2 pt-2">
                 {exp.skills.map((skill) => (
                   <span
                     key={skill}

@@ -18,7 +18,6 @@ export default function AboutSideTab({
   onItemClick,
 }: AboutSideTabProps) {
   const currentSegment = useSelectedLayoutSegment() as Section;
-
   return (
     <SectionNav className={className}>
       {Sections.map((tab) => (

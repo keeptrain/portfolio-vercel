@@ -2,6 +2,12 @@ import { notFound } from "next/navigation";
 import { Section, Sections } from "./types";
 import { ABOUT_SECTIONS } from "./constants";
 
+export function generateStaticParams() {
+  return Sections.map((tab) => ({ tab }));
+}
+
+export const dynamicParams = false;
+
 interface AboutTabPageProps {
   params: Promise<{
     tab: string;

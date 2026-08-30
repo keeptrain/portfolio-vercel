@@ -10,6 +10,7 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import AboutSideTab from "./AboutSideTab";
+import { Button } from "@/components/ui/button";
 
 export default function ListAboutMobileDrawer() {
   const [open, setOpen] = useState(false);
@@ -17,14 +18,14 @@ export default function ListAboutMobileDrawer() {
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
-        <button className="sticky top-0 z-10 flex w-full p-6 font-medium backdrop-blur-md md:hidden">
-          <span className="flex items-center gap-1.5">
+        <div className="sticky top-0 z-10 ml-6 w-fit pt-4 md:hidden">
+          <Button variant="outline" size="sm">
             Menu
-            <ChevronRight className="size-4 text-zinc-500" />
-          </span>
-        </button>
+            <ChevronRight className="size-4" />
+          </Button>
+        </div>
       </DrawerTrigger>
-      <DrawerContent className="p-6">
+      <DrawerContent className="p-6 md:hidden">
         <DrawerHeader className="px-0 pb-4 text-left">
           <DrawerTitle>About Sections</DrawerTitle>
         </DrawerHeader>
