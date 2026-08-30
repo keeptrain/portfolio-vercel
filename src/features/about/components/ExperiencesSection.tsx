@@ -26,7 +26,7 @@ export default function ExperiencesSection() {
                   {/* Period above card */}
                   <Period exp={exp} />
 
-                  <Card className="w-full max-w-xl">
+                  <Card className="w-full max-w-3xl">
                     <CardHeader className="space-y-1">
                       <CardTitle>{exp.role}</CardTitle>
                       <CardDescription className="flex items-center gap-1.5 text-sm font-semibold">
