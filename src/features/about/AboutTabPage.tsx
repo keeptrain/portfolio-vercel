@@ -1,7 +1,12 @@
 import { notFound } from "next/navigation";
 import { Section, Sections } from "./types";
 import { ABOUT_SECTIONS } from "./constants";
-import { Button } from "@/components/ui/button";
+
+export function generateStaticParams() {
+  return Sections.map((tab) => ({ tab }));
+}
+
+export const dynamicParams = false;
 
 interface AboutTabPageProps {
   params: Promise<{
