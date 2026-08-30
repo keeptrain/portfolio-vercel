@@ -74,7 +74,7 @@ function TabLink({
       className={cn(
         "-ml-px flex items-center gap-3 border-l-2 pl-4 text-left transition-all duration-300",
         isActive
-          ? "border-zinc-500 text-zinc-900 dark:border-emerald-400 dark:text-zinc-100"
+          ? "border-zinc-500 text-zinc-900 dark:border-zinc-100 dark:text-zinc-100"
           : "border-transparent text-zinc-400 hover:text-zinc-600 dark:text-zinc-500 dark:hover:text-zinc-300",
       )}
     >
@@ -89,7 +89,7 @@ function TabIcon({ Icon, isActive }: { Icon: LucideIcon; isActive: boolean }) {
       className={cn(
         "size-5 shrink-0 transition-colors",
         isActive
-          ? "text-zinc-900 dark:text-emerald-400"
+          ? "text-zinc-900 dark:text-zinc-100"
           : "text-zinc-400 dark:text-zinc-500",
       )}
     />

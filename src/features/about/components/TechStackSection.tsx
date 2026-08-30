@@ -1,3 +1,5 @@
+import { TECH_STACK } from "../data";
+
 export default function TechStackSection() {
   return (
     <section className="animate-in space-y-6 duration-200 fade-in-50">
@@ -6,52 +8,7 @@ export default function TechStackSection() {
       </h2>
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        {[
-          {
-            title: "Languages",
-            items: ["TypeScript", "PHP", "Kotlin"],
-          },
-          {
-            title: "Frameworks & Libraries",
-            items: [
-              "React",
-              "Next.js",
-              "Laravel",
-              "Livewire",
-              "Jetpack Compose",
-              "Android Views / XML",
-              "TailwindCSS",
-              "shadcn/ui",
-            ],
-          },
-          {
-            title: "Database & BaaS",
-            items: [
-              "PostgreSQL",
-              "MySQL",
-              "SQLite",
-              "Redis",
-              "Supabase",
-              "Firebase",
-            ],
-          },
-          {
-            title: "Cloud, DevOps & Infrastructure",
-            items: [
-              "Vercel",
-              "AWS",
-              "Google Cloud",
-              "Docker",
-              "Podman",
-              "Git",
-              "GitHub",
-            ],
-          },
-          {
-            title: "API & Architecture",
-            items: ["REST APIs", "CI/CD", "Modular Monolith"],
-          },
-        ].map((category) => (
+        {TECH_STACK.map((category) => (
           <div
             key={category.title}
             className="space-y-3 rounded-2xl border border-zinc-200/80 p-5 dark:border-zinc-800/80"
