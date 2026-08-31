@@ -24,7 +24,7 @@ export default function MobileAboutMenuDrawer() {
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
-        <div className="sticky top-0 z-10 w-fit pt-4 ml-4 md:ml-6 md:hidden">
+        <div className="sticky top-0 z-10 ml-4 w-fit pt-4 md:ml-6 md:hidden">
           <Button variant="outline" size="sm">
             Menu
             <ChevronRight className="size-4" />
@@ -38,7 +38,7 @@ export default function MobileAboutMenuDrawer() {
         <div className="min-h-0 flex-1 overflow-y-hidden">
           <AboutSideTab onItemClick={() => setOpen(false)} />
           {pathname === "/en/about/techstack/languages" && (
-            <div className="mt-4">
+            <div className="py-4">
               <OnThisPageTab />
               <div className="max-h-100 overflow-y-auto">
                 <ListLanguagesMobileMenus items={TOC} />
@@ -47,7 +47,7 @@ export default function MobileAboutMenuDrawer() {
           )}
         </div>
         {pathname === "/en/about/techstack/languages" && (
-          <DrawerFooter>
+          <DrawerFooter className="-p-6">
             <DrawerClose asChild>
               <Button variant="outline" className="w-full">
                 Close

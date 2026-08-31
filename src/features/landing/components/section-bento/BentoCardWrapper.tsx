@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Card,
   CardHeader,
@@ -7,7 +6,6 @@ import {
   CardContent,
 } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import HandDrawnWrappingText from "@/components/shared/HandDrawnWrappingText";
 
 export interface BentoCardStyleOptions {
   enableHover?: boolean;

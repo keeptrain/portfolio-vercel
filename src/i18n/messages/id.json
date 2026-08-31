@@ -91,17 +91,21 @@
       "desc": "Memanfaatkan AI agent & developer automation untuk membangun software lebih cepat dengan prinsip engineering yang kuat."
     },
     "about": {
+      "howIWork": {
+        "title": "Cara saya bekerja?",
+        "description": "Saat ini saya menerapkan alur kerja modern dan menstandarisasinya sendiri."
+      },
       "experience": {
-        "title": "Experience",
-        "description": ""
+        "title": "Pengalaman",
+        "description": "Membangun produk digital yang scalable di platform web dan mobile."
       },
       "techStack": {
         "title": "Tech Stack",
-        "description": ""
+        "description": "Next.js, TypeScript, Android (Kotlin), Node.js, dan Tailwind CSS."
       },
       "services": {
-        "title": "Services",
-        "description": ""
+        "title": "Layanan",
+        "description": "Aplikasi web full-stack, aplikasi Android native, dan perancangan UI/UX."
       }
     }
   },
@@ -110,5 +114,16 @@
       "title": "Cara saya kerja?",
       "description": "Sekarang saya menerapkan alur kerja modern dan menstandarisasi nya sendiri."
     }
+  },
+  "sectionShowcase": {
+    "title": "Proyek yang saya bangun",
+    "highlight": {
+      "prefix": "Untuk",
+      "performance": "performa",
+      "efficiency": "efisiensi",
+      "and": "dan",
+      "userExperience": "pengalaman pengguna"
+    },
+    "explore": "Lihat lebih lengkap →"
   }
 }

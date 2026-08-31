@@ -16,7 +16,6 @@ export default async function LandingPage({
   return (
     <>
       <SectionHero />
-      <SectionTwo />
       <SectionShowcase />
       <SectionSocial />
     </>

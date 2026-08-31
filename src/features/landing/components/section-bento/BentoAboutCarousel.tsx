@@ -3,9 +3,10 @@
 import Link from "next/link";
 import {
   ArrowUpRight,
-  ToolboxIcon,
-  CodeIcon,
   BriefcaseBusinessIcon,
+  SquareChartGanttIcon,
+  LayersIcon,
+  HandPlatterIcon,
 } from "lucide-react";
 import {
   Carousel,
@@ -15,43 +16,51 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useTranslations } from "@/i18n/TranslationContext";
 
 interface BentoAboutCarouselProps {
   className?: string;
 }
 
-const CAROUSEL_ITEMS = [
-  {
-    title: "Experience",
-    subtitle: "1.5+ Years",
-    description:
-      "Building scalable digital products across web and mobile platforms.",
-    icon: BriefcaseBusinessIcon,
-    href: "/about/experiences",
-  },
-  {
-    title: "Tech Stack",
-    subtitle: "Core Suite",
-    description:
-      "Next.js, TypeScript, Android (Kotlin), Node.js, and Tailwind CSS.",
-    icon: CodeIcon,
-    href: "/about/techstack",
-  },
-  {
-    title: "Services",
-    subtitle: "What I Do",
-    description:
-      "Full-stack web apps, native Android applications, and UI/UX crafting.",
-    icon: ToolboxIcon,
-    href: "/about/services",
-  },
-];
-
-const REPEATED_ITEMS = [...CAROUSEL_ITEMS, ...CAROUSEL_ITEMS];
+function getCarouselItems(t: (key: string) => string, locale: string) {
+  return [
+    {
+      title: t("sectionHero.about.howIWork.title"),
+      subtitle: "1.5+ Years",
+      description: t("sectionHero.about.howIWork.description"),
+      icon: SquareChartGanttIcon,
+      href: `/${locale}/workflow`,
+    },
+    {
+      title: t("sectionHero.about.experience.title"),
+      subtitle: "1.5+ Years",
+      description: t("sectionHero.about.experience.description"),
+      icon: BriefcaseBusinessIcon,
+      href: `/${locale}/about/experiences`,
+    },
+    {
+      title: t("sectionHero.about.techStack.title"),
+      subtitle: "Core Suite",
+      description: t("sectionHero.about.techStack.description"),
+      icon: LayersIcon,
+      href: `/${locale}/about/techstack`,
+    },
+    {
+      title: t("sectionHero.about.services.title"),
+      subtitle: "What I Do",
+      description: t("sectionHero.about.services.description"),
+      icon: HandPlatterIcon,
+      href: `/${locale}/about/services`,
+    },
+  ];
+}
 
 export default function BentoAboutCarousel({
   className = "",
 }: BentoAboutCarouselProps) {
+  const { t, locale } = useTranslations();
+  const carouselItems = getCarouselItems(t, locale);
+
   return (
     <div className={`relative ${className}`}>
       <Carousel
@@ -61,15 +70,8 @@ export default function BentoAboutCarousel({
         }}
         className="flex h-full w-full flex-col justify-between **:data-[slot=carousel-content]:h-full"
       >
-        <div className="flex items-center justify-end pb-2 md:hidden">
-          <div className="flex items-center gap-4">
-            <CarouselPrevious className="static size-7 translate-y-0 border-zinc-200/80 dark:border-zinc-800" />
-            <CarouselNext className="static size-7 translate-y-0 border-zinc-200/80 dark:border-zinc-800" />
-          </div>
-        </div>
-
         <CarouselContent className="h-full">
-          {REPEATED_ITEMS.map((item, index) => {
+          {carouselItems.map((item, index) => {
             const Icon = item.icon;
             return (
               <CarouselItem
@@ -99,36 +101,14 @@ export default function BentoAboutCarousel({
             );
           })}
         </CarouselContent>
+
+        <div className="flex items-center justify-end pt-2 md:hidden">
+          <div className="flex items-center gap-3">
+            <CarouselPrevious className="static size-7 translate-y-0 border-zinc-200/80 dark:border-zinc-800" />
+            <CarouselNext className="static size-7 translate-y-0 border-zinc-200/80 dark:border-zinc-800" />
+          </div>
+        </div>
       </Carousel>
     </div>
-  );
-}
-
-function AnotherLink({ item }: { item: any }) {
-  const Icon = item.icon;
-  return (
-    <Link
-      href={item.href}
-      className="group relative flex min-h-50 flex-1 flex-col justify-end overflow-hidden rounded-xl border border-foreground/10 bg-white p-5 shadow-2xs transition-all duration-300 hover:border-foreground/30 active:scale-98 dark:bg-zinc-900"
-    >
-      <Icon className="pointer-events-none absolute -top-2 right-0 size-30 text-black/10 select-none dark:text-white/15" />
-
-      {/* Top-right Hover Arrow Indicator */}
-      <div className="absolute top-4 right-4 z-10 flex size-7 items-center justify-center rounded-full bg-zinc-100 text-zinc-600 transition-all duration-300 group-hover:bg-zinc-900 group-hover:text-white dark:bg-zinc-800 dark:text-zinc-400 dark:group-hover:bg-white dark:group-hover:text-zinc-900">
-        <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-      </div>
-
-      <div className="relative z-10 mt-auto space-y-1.5">
-        <span className="text-[11px] font-semibold tracking-wider text-zinc-400 uppercase dark:text-zinc-500">
-          {item.subtitle}
-        </span>
-        <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-          {item.title}
-        </h3>
-        <p className="text-xs leading-relaxed text-zinc-500 dark:text-zinc-400">
-          {item.description}
-        </p>
-      </div>
-    </Link>
   );
 }

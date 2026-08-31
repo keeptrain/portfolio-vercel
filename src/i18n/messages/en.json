@@ -86,17 +86,21 @@
       "desc": "Leveraging AI agents & developer automation to build software faster with engineering rigor."
     },
     "about": {
+      "howIWork": {
+        "title": "How I Work",
+        "description": "Currently I adopt modern workflow and standardize by myself."
+      },
       "experience": {
         "title": "Experience",
-        "description": ""
+        "description": "Building scalable digital products across web and mobile platforms."
       },
       "techStack": {
         "title": "Tech Stack",
-        "description": ""
+        "description": "Next.js, TypeScript, Android (Kotlin), Node.js, and Tailwind CSS."
       },
       "services": {
         "title": "Services",
-        "description": ""
+        "description": "Full-stack web apps, native Android applications, and UI/UX crafting."
       }
     }
   },
@@ -107,5 +111,16 @@
       "title": "How I Work?",
       "description": "Currently i adopt modern worflow and standarazie by myself."
     }
+  },
+  "sectionShowcase": {
+    "title": "Projects I've Built",
+    "highlight": {
+      "prefix": "For",
+      "performance": "performance",
+      "efficiency": "efficiency",
+      "and": "and",
+      "userExperience": "user experience"
+    },
+    "explore": "Explore Projects →"
   }
 }
