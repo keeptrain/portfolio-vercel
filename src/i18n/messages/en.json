@@ -92,15 +92,15 @@
       },
       "experience": {
         "title": "Experience",
-        "description": "Building scalable digital products across web and mobile platforms."
+        "description": "Hands-on experience across internships and projects building web and mobile products."
       },
       "techStack": {
         "title": "Tech Stack",
-        "description": "Next.js, TypeScript, Android (Kotlin), Node.js, and Tailwind CSS."
+        "description": "TypeScript, Next.js, Laravel, Supabase, and Kotlin — my core tools."
       },
       "services": {
         "title": "Services",
-        "description": "Full-stack web apps, native Android applications, and UI/UX crafting."
+        "description": "Web development, Android apps, and UX-focused interfaces."
       }
     }
   },

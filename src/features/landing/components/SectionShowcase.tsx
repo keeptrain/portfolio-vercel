@@ -12,7 +12,6 @@ export default function SectionShowcase() {
       <h2 className="mb-10 hidden text-center text-4xl font-semibold md:block">
         {t("sectionShowcase.title")}
       </h2>
-
       {/* Showcase Wall - flex 2 columns like mobile screenshot */}
       <div className="relative overflow-hidden">
         <div className="flex gap-4 sm:gap-8">
@@ -23,7 +22,7 @@ export default function SectionShowcase() {
             rel="noopener noreferrer"
             className="group relative flex w-1/2 gap-8 overflow-hidden"
           >
-            <div className="relative aspect-[4/5] w-1/2 overflow-hidden shadow-xs">
+            <div className="relative aspect-4/5 w-1/2 overflow-hidden shadow-xs">
               <Image
                 src="/images/projects/landing-rptra-ribubur-1.png"
                 alt="RPTRA Cibubur landing 1"
@@ -32,7 +31,7 @@ export default function SectionShowcase() {
                 className="object-cover object-top"
               />
             </div>
-            <div className="relative aspect-[4/5] w-1/2 overflow-hidden shadow-xs">
+            <div className="relative aspect-4/5 w-1/2 overflow-hidden shadow-xs">
               <Image
                 src="/images/projects/landing-rptra-cibubur-2.png"
                 alt="RPTRA Cibubur landing 2"
@@ -68,6 +67,7 @@ export default function SectionShowcase() {
                 fill
                 sizes="(max-width: 768px) 50vw, 25vw"
                 className="object-cover"
+                loading="eager"
               />
               <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                 <div className="absolute inset-0 bg-black/10 backdrop-blur-[1px]" />

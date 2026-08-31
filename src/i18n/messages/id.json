@@ -97,15 +97,15 @@
       },
       "experience": {
         "title": "Pengalaman",
-        "description": "Membangun produk digital yang scalable di platform web dan mobile."
+        "description": "Pengalaman hands-on di berbagai magang dan proyek membangun produk web dan mobile."
       },
       "techStack": {
         "title": "Tech Stack",
-        "description": "Next.js, TypeScript, Android (Kotlin), Node.js, dan Tailwind CSS."
+        "description": "TypeScript, Next.js, Laravel, Supabase, dan Kotlin — tools utama saya."
       },
       "services": {
         "title": "Layanan",
-        "description": "Aplikasi web full-stack, aplikasi Android native, dan perancangan UI/UX."
+        "description": "Pengembangan web, aplikasi Android, dan antarmuka berfokus UX."
       }
     }
   },

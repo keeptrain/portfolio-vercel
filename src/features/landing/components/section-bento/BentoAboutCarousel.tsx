@@ -4,9 +4,9 @@ import Link from "next/link";
 import {
   ArrowUpRight,
   BriefcaseBusinessIcon,
-  SquareChartGanttIcon,
   LayersIcon,
   HandPlatterIcon,
+  ListTodoIcon,
 } from "lucide-react";
 import {
   Carousel,
@@ -26,28 +26,24 @@ function getCarouselItems(t: (key: string) => string, locale: string) {
   return [
     {
       title: t("sectionHero.about.howIWork.title"),
-      subtitle: "1.5+ Years",
       description: t("sectionHero.about.howIWork.description"),
-      icon: SquareChartGanttIcon,
+      icon: ListTodoIcon,
       href: `/${locale}/workflow`,
     },
     {
       title: t("sectionHero.about.experience.title"),
-      subtitle: "1.5+ Years",
       description: t("sectionHero.about.experience.description"),
       icon: BriefcaseBusinessIcon,
       href: `/${locale}/about/experiences`,
     },
     {
       title: t("sectionHero.about.techStack.title"),
-      subtitle: "Core Suite",
       description: t("sectionHero.about.techStack.description"),
       icon: LayersIcon,
       href: `/${locale}/about/techstack`,
     },
     {
       title: t("sectionHero.about.services.title"),
-      subtitle: "What I Do",
       description: t("sectionHero.about.services.description"),
       icon: HandPlatterIcon,
       href: `/${locale}/about/services`,

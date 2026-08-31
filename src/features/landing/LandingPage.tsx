@@ -1,4 +1,3 @@
-import SectionTwo from "./components/SectionTwo";
 import SectionShowcase from "./components/SectionShowcase";
 import { setRequestLocale } from "@/i18n/server";
 import { Locale } from "@/i18n/locales";
