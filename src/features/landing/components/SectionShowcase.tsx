@@ -1,62 +1,110 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { getLocale, getT } from "@/i18n/server";
-
-const leftProject = {
-  title: "Cullinarix",
-  image: "/images/projects/cullinarix-mockups.jpeg",
-};
-
-const rightProject = {
-  title: "RPTRA Cibubur",
-  image: "/images/projects/rptra-cibubur-mockups.jpeg",
-};
 
 export default function SectionShowcase() {
   const t = getT();
   const locale = getLocale();
 
   return (
-    <section id="showcase" className="my-15 md:my-30">
-      {/* Off-screen bleeding 2-Column Grid Wall */}
-      <div className="relative overflow-hidden">
-        <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 md:items-end md:gap-12">
-          {/* Left Project */}
-          <div>
-            <h2 className="mb-6 px-4 text-3xl font-semibold md:hidden">
-              {t("sectionShowcase.title")}
-            </h2>
-            <div className="relative aspect-16/10 w-full shadow-xs md:self-end">
-              <Image
-                src={leftProject.image}
-                alt={leftProject.title}
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                loading="eager"
-                className="object-cover object-top"
-              />
-            </div>
-          </div>
+    <section id="showcase" className="my-15 md:my-25">
+      <h2 className="mb-10 hidden text-center text-4xl font-semibold md:block">
+        {t("sectionShowcase.title")}
+      </h2>
 
-          <div>
-            <h2 className="mb-10 hidden text-4xl font-semibold md:block">
-              {t("sectionShowcase.title")}
-            </h2>
-            {/* Right Project */}
-            <div className="relative aspect-16/10 w-full shadow-xs">
+      {/* Showcase Wall - flex 2 columns like mobile screenshot */}
+      <div className="relative overflow-hidden">
+        <div className="flex gap-4 sm:gap-8">
+          {/* Left vertical group: RPTRA 1 + 2 - hover popup to website */}
+          <Link
+            href="https://rptra-cibubur.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative flex w-1/2 gap-8 overflow-hidden"
+          >
+            <div className="relative aspect-3/4 w-1/2 overflow-hidden bg-zinc-100 shadow-xs">
               <Image
-                src={rightProject.image}
-                alt={rightProject.title}
+                src="/images/projects/landing-rptra-ribubur-1.png"
+                alt="RPTRA Cibubur landing 1"
                 fill
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 768px) 25vw, 20vw"
                 className="object-cover object-top"
               />
             </div>
+            <div className="relative aspect-3/4 w-1/2 overflow-hidden bg-zinc-100 shadow-xs">
+              <Image
+                src="/images/projects/landing-rptra-cibubur-2.png"
+                alt="RPTRA Cibubur landing 2"
+                fill
+                sizes="(max-width: 768px) 25vw, 20vw"
+                className="object-cover object-top"
+              />
+            </div>
+
+            {/* Hover popup link - centered over group like DICE */}
+            <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <div className="absolute inset-0 bg-black/10 backdrop-blur-[1px]" />
+              <span className="relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-zinc-900 text-sm font-medium text-white shadow-lg">
+                <span className="px-4 py-2">RPTRA Cibubur</span>
+                <span className="flex size-8 items-center justify-center border-l border-white/20 bg-white/10">
+                  <ArrowUpRight className="size-4" />
+                </span>
+              </span>
+            </div>
+          </Link>
+
+          {/* Right: separate groups - Culinarix top, Portfolio bottom */}
+          <div className="flex w-1/2 flex-col gap-4">
+            <Link
+              href="https://github.com/keeptrain/Culinarix-App.git"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative aspect-video w-full overflow-hidden bg-zinc-100 shadow-xs"
+            >
+              <Image
+                src="/images/projects/cullinarix-mockups.jpeg"
+                alt="Cullinarix mockups"
+                fill
+                sizes="(max-width: 768px) 50vw, 25vw"
+                className="object-cover object-top"
+              />
+              <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <div className="absolute inset-0 bg-black/10 backdrop-blur-[1px]" />
+                <span className="relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-zinc-900 text-xs font-medium text-white shadow-lg sm:text-sm">
+                  <span className="px-3 py-1.5 sm:px-4 sm:py-2">Culinarix</span>
+                  <span className="flex size-7 items-center justify-center border-l border-white/20 bg-white/10 sm:size-8">
+                    <ArrowUpRight className="size-3 sm:size-4" />
+                  </span>
+                </span>
+              </div>
+            </Link>
+            <Link
+              href="/"
+              className="group relative aspect-video w-full overflow-hidden bg-zinc-100 shadow-xs"
+            >
+              <Image
+                src="/images/projects/landing-portfolio-page.png"
+                alt="Portfolio landing"
+                fill
+                sizes="(max-width: 768px) 50vw, 25vw"
+                className="object-cover object-top"
+              />
+              <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <div className="absolute inset-0 bg-black/10 backdrop-blur-[1px]" />
+                <span className="relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-zinc-900 text-xs font-medium text-white shadow-lg sm:text-sm">
+                  <span className="px-3 py-1.5 sm:px-4 sm:py-2">Portfolio</span>
+                  <span className="flex size-7 items-center justify-center border-l border-white/20 bg-white/10 sm:size-8">
+                    <ArrowUpRight className="size-3 sm:size-4" />
+                  </span>
+                </span>
+              </div>
+            </Link>
           </div>
         </div>
 
         {/* Gradient Blur Overlay on the bottom of the grid */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-linear-to-t from-background via-background/80 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-35 bg-linear-to-t from-background via-background/80 to-transparent md:h-45" />
       </div>
 
       {/* Content & Action Button below the showcase wall */}
