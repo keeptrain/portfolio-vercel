@@ -1,12 +1,7 @@
 import Image from "next/image";
 import { ArrowUp } from "@/components/icons/HeroIcons";
 import { Container } from "@/components/ui/Container";
-import { ArrowRightLeftIcon } from "lucide-react";
-import { IndonesiaFlag, USFlag } from "./icons/FlagIcons";
-import Link from "next/link";
-import { getT, getLocale } from "@/i18n/server";
-import { getPathname } from "@/lib/server-utils";
-import ThemeSwitcher from "./ThemeSwitcher";
+import { getT } from "@/i18n/server";
 
 export default function Footer() {
   const t = getT();
@@ -22,7 +17,7 @@ export default function Footer() {
       {/* Footer Section */}
       <div className="rounded-4xl bg-white p-2 shadow-[0_-1px_3px_rgba(0,0,0,0.08)] sm:p-6 md:p-12 dark:bg-black dark:shadow-[0_-1px_3px_rgba(255,255,255,0.08)]">
         <Container>
-          <div className="flex flex-col rounded-4xl border border-gray-200 pb-16 shadow-lg shadow-zinc-200/50 sm:flex-row sm:justify-between sm:pb-12 md:pb-8 dark:border-none dark:shadow-zinc-700">
+          <div className="flex flex-col rounded-4xl border border-gray-200 pb-16 shadow-lg shadow-zinc-200/50 sm:flex-row sm:justify-between sm:pb-12 md:pb-4 dark:border-none dark:shadow-zinc-700">
             <div className="flex-1 px-4 py-6 sm:px-6 md:px-8">
               <div className="flex justify-between gap-4 sm:flex-row sm:items-baseline sm:gap-0">
                 <div className="font-serif text-sm tracking-widest text-black sm:text-base md:text-lg dark:text-white">
@@ -67,35 +62,5 @@ export default function Footer() {
         </Container>
       </div>
     </footer>
-  );
-}
-
-async function LanguageSwitcher() {
-  const currentLang = getLocale();
-  const currentPathname = await getPathname();
-  const isEn = currentLang === "en";
-  const targetLocale = isEn ? "id" : "en";
-
-  // Bentuk target pathname sub-route di Server Side 100% tanpa props
-  const targetPathname = currentPathname.replace(
-    `/${currentLang}`,
-    `/${targetLocale}`,
-  );
-
-  return (
-    <Link
-      href={targetPathname}
-      scroll={false}
-      prefetch={true}
-      className="inline-flex items-center gap-2 font-medium transition-colors hover:text-black dark:hover:text-white"
-    >
-      <ArrowRightLeftIcon className="size-3 md:size-5" />
-      {isEn ? (
-        <IndonesiaFlag className="size-3 md:size-5" />
-      ) : (
-        <USFlag className="size-3 md:size-5" />
-      )}
-      <span>{targetLocale.toUpperCase()}</span>
-    </Link>
   );
 }

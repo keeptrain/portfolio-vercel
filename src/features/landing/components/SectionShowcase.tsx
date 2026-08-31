@@ -9,7 +9,7 @@ export default function SectionShowcase() {
 
   return (
     <section id="showcase" className="my-15 md:my-25">
-      <h2 className="mb-10 hidden text-center text-4xl font-semibold md:block">
+      <h2 className="mb-10 text-center text-2xl font-semibold sm:text-4xl">
         {t("sectionShowcase.title")}
       </h2>
       {/* Showcase Wall - flex 2 columns like mobile screenshot */}

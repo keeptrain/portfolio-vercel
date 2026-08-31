@@ -31,7 +31,7 @@ export default function MobileAboutMenuDrawer() {
           </Button>
         </div>
       </DrawerTrigger>
-      <DrawerContent className="p-6 md:hidden">
+      <DrawerContent className="p-6">
         <DrawerHeader className="shrink-0 px-0 pb-4 text-left">
           <DrawerTitle>About Sections</DrawerTitle>
         </DrawerHeader>
