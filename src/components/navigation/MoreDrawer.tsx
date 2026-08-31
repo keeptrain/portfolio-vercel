@@ -11,6 +11,7 @@ import {
   DrawerContent,
   DrawerHeader,
   DrawerTitle,
+  DrawerTrigger,
 } from "@/components/ui/drawer";
 import { IndonesiaFlag, USFlag } from "../icons/FlagIcons";
 import { Button } from "../ui/button";
@@ -34,20 +35,23 @@ export default function MoreDrawer({
   const targetLocale = isEn ? "id" : "en";
   const targetPathname = pathname.replace(`/${locale}`, `/${targetLocale}`);
 
-  return (
-    <>
-      <Button
-        variant="ghost"
-        size="icon"
-        onClick={() => setIsOpen(true)}
-        className="group relative flex min-h-11 min-w-11 text-zinc-600 transition-all duration-300 ease-in-out hover:scale-105 hover:bg-white/60 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800/60 dark:hover:text-zinc-100"
-        aria-label={label}
-      >
-        <EllipsisIcon className="size-5 shrink-0 animate-in duration-200 zoom-in-95 fade-in" />
-      </Button>
+  const handleOpenChange = (open: boolean) => {
+    if (open) (document.activeElement as HTMLElement)?.blur();
+    setIsOpen(open);
+  };
 
-      {/* More Options Drawer Sheet */}
-      <Drawer open={isOpen} onOpenChange={setIsOpen}>
+  return (
+    <Drawer open={isOpen} onOpenChange={handleOpenChange}>
+      <DrawerTrigger asChild>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="group relative flex min-h-11 min-w-11 text-zinc-600 transition-all duration-300 ease-in-out hover:scale-105 hover:bg-white/60 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800/60 dark:hover:text-zinc-100"
+          aria-label={label}
+        >
+          <EllipsisIcon className="size-5 shrink-0 animate-in duration-200 zoom-in-95 fade-in" />
+        </Button>
+      </DrawerTrigger>
         <DrawerContent className="sm:mx-auto sm:max-w-md">
           {/* Header */}
           <DrawerHeader>
@@ -113,6 +117,5 @@ export default function MoreDrawer({
           </div>
         </DrawerContent>
       </Drawer>
-    </>
   );
 }
