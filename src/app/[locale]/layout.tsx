@@ -7,6 +7,7 @@ import BottomNav from "@/components/navigation/BottomNav";
 import { ThemeProvider } from "@/components/theme-provider";
 import { getT } from "@/i18n/server";
 import { TranslationProvider } from "@/i18n/TranslationContext";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -88,6 +89,7 @@ export default async function LocaleLayout({
             <BottomNav />
           </TranslationProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );

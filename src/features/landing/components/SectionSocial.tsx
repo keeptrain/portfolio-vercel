@@ -48,19 +48,19 @@ export default function SectionSocial() {
                   href="https://github.com/keeptrain"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center justify-between rounded-xl border border-white/20 bg-white/10 p-3.5 text-xs font-semibold text-white backdrop-blur-md transition-all duration-200 hover:bg-white/20 dark:bg-black/20"
+                  className="group flex items-center gap-2 rounded-xl border border-white/20 bg-white/10 p-3.5 text-xs font-semibold text-white backdrop-blur-md transition-all duration-200 hover:bg-white/20 dark:bg-black/20"
                 >
-                  <span>GitHub</span>
                   <GithubIcon />
+                  <span>GitHub</span>
                 </Link>
                 <Link
                   href="https://linkedin.com/in/ggilang/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center justify-between rounded-xl border border-white/20 bg-white/10 p-3.5 text-xs font-semibold text-white backdrop-blur-md transition-all duration-200 hover:bg-white/20 dark:bg-black/20"
+                  className="group flex items-center gap-2 rounded-xl border border-white/20 bg-white/10 p-3.5 text-xs font-semibold text-white backdrop-blur-md transition-all duration-200 hover:bg-white/20 dark:bg-black/20"
                 >
-                  <span>LinkedIn</span>
                   <span className="font-sans">in</span>
+                  <span>LinkedIn</span>
                 </Link>
               </div>
             </div>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { HouseIcon, FolderOpenIcon } from "lucide-react";
 import { Locale } from "@/i18n/locales";
+import { Button } from "@/components/ui/button";
 import MoreDrawer from "./MoreDrawer";
 
 export interface NavItemConfig {
@@ -24,9 +25,9 @@ export default function BottomNavClient({
   const pathname = usePathname();
 
   return (
-    <nav className="pointer-events-none fixed bottom-4 left-1/2 z-50 -translate-x-1/2 pb-4 md:bottom-6 md:pb-0">
-      {/* iOS Crystal Glass Effect */}
-      <div className="pointer-events-auto mx-auto flex w-fit items-center gap-1.5 rounded-xl border border-white/50 bg-white/40 p-2 shadow-[0_8px_32px_0_rgba(0,0,0,0.12)] saturate-180 backdrop-blur-2xl md:px-3 md:py-2.5 dark:border-white/10 dark:bg-zinc-950/40 dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.5)]">
+    <nav className="pointer-events-none fixed bottom-4 left-1/2 z-20 -translate-x-1/2 pb-4 md:bottom-6 md:pb-0">
+      {/* iOS Crystal Glass - stronger contrast for readability */}
+      <div className="pointer-events-auto mx-auto flex w-fit items-center gap-1.5 rounded-2xl border border-white/60 bg-white/85 p-2 shadow-[0_8px_32px_0_rgba(0,0,0,0.16)] saturate-150 backdrop-blur-xl md:px-2 md:py-1 dark:border-zinc-700/50 dark:bg-zinc-900/85 dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.6)]">
         {navItems.map((item) => {
           if (item.id === "more") {
             return (
@@ -42,22 +43,21 @@ export default function BottomNavClient({
           const IconComponent = item.id === "home" ? HouseIcon : FolderOpenIcon;
 
           return (
-            <Link
+            <Button
               key={item.id}
-              href={item.href}
-              className={`group relative flex min-h-11 min-w-11 items-center justify-center rounded-xl transition-all duration-300 ease-in-out hover:scale-105 ${
-                isActive
-                  ? "gap-2 px-2 dark:text-white"
-                  : "p-2.5 text-zinc-400 hover:text-zinc-800 dark:text-zinc-700 dark:hover:text-zinc-100"
-              }`}
+              asChild
+              variant={isActive ? "outline" : "ghost"}
+              size={isActive ? "default" : "icon"}
             >
-              <IconComponent className="size-5 shrink-0 animate-in duration-200 zoom-in-95 fade-in" />
-              {isActive && (
-                <span className="animate-in text-xs font-semibold tracking-wide duration-300 fade-in slide-in-from-left-2">
-                  {item.label}
-                </span>
-              )}
-            </Link>
+              <Link href={item.href} className="gap-2">
+                <IconComponent className="size-5 shrink-0" />
+                {isActive && (
+                  <span className="text-xs font-semibold tracking-wide">
+                    {item.label}
+                  </span>
+                )}
+              </Link>
+            </Button>
           );
         })}
       </div>

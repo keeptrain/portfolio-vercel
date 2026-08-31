@@ -22,7 +22,7 @@ export default function SectionShowcase() {
             rel="noopener noreferrer"
             className="group relative flex w-1/2 gap-8 overflow-hidden"
           >
-            <div className="relative aspect-4/5 w-1/2 overflow-hidden shadow-xs">
+            <div className="relative aspect-4/5 w-1/2 overflow-hidden border border-zinc-100 shadow-xs">
               <Image
                 src="/images/projects/landing-rptra-ribubur-1.png"
                 alt="RPTRA Cibubur landing 1"
@@ -31,7 +31,7 @@ export default function SectionShowcase() {
                 className="object-cover object-top"
               />
             </div>
-            <div className="relative aspect-4/5 w-1/2 overflow-hidden shadow-xs">
+            <div className="relative aspect-4/5 w-1/2 overflow-hidden border border-zinc-100 shadow-xs">
               <Image
                 src="/images/projects/landing-rptra-cibubur-2.png"
                 alt="RPTRA Cibubur landing 2"
@@ -59,7 +59,7 @@ export default function SectionShowcase() {
               href="https://github.com/keeptrain/Culinarix-App.git"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative aspect-video w-full overflow-hidden shadow-xs"
+              className="group relative aspect-video w-full overflow-hidden border border-zinc-100 shadow-xs"
             >
               <Image
                 src="/images/projects/cullinarix-mockups.jpeg"
@@ -81,7 +81,7 @@ export default function SectionShowcase() {
             </Link>
             <Link
               href="/"
-              className="group relative aspect-video w-full overflow-hidden shadow-xs"
+              className="group relative aspect-video w-full overflow-hidden border border-zinc-100 shadow-xs"
             >
               <Image
                 src="/images/projects/landing-portfolio-page.png"

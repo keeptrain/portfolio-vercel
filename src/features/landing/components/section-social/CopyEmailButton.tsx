@@ -29,15 +29,13 @@ export default function CopyEmailButton({ email }: CopyEmailButtonProps) {
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") handleCopy();
       }}
-      className="group flex cursor-pointer items-center justify-between gap-4 rounded-2xl border border-white/20 bg-white/10 p-4 shadow-md backdrop-blur-md transition-all duration-200 hover:bg-white/20 active:scale-98 dark:bg-black/20"
+      className="group flex cursor-pointer items-center gap-4 rounded-2xl border border-white/20 bg-white/10 p-4 shadow-md backdrop-blur-md transition-all duration-200 hover:bg-white/20 active:scale-98 dark:bg-black/20"
     >
+      <MailIcon className="size-4 text-white" />
       <div className="text-left">
         <span className="text-sm font-semibold text-white sm:text-base">
           {copied ? t("sectionSocial.copied") : t("sectionSocial.emailMe")}
         </span>
-      </div>
-      <div className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-white/15 text-white backdrop-blur-md transition-all duration-200 group-hover:bg-white group-hover:text-zinc-900">
-        <MailIcon className="size-4" />
       </div>
     </button>
   );

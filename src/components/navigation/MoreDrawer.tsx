@@ -40,7 +40,7 @@ export default function MoreDrawer({
         variant="ghost"
         size="icon"
         onClick={() => setIsOpen(true)}
-        className="group relative flex min-h-11 min-w-11 text-gray-500 transition-all duration-300 ease-in-out hover:scale-105 hover:bg-white/60 hover:text-gray-900 dark:text-zinc-600 dark:hover:bg-zinc-800/60 dark:hover:text-zinc-100"
+        className="group relative flex min-h-11 min-w-11 text-zinc-600 transition-all duration-300 ease-in-out hover:scale-105 hover:bg-white/60 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800/60 dark:hover:text-zinc-100"
         aria-label={label}
       >
         <EllipsisIcon className="size-5 shrink-0 animate-in duration-200 zoom-in-95 fade-in" />
