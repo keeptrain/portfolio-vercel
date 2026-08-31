@@ -124,6 +124,12 @@
       "and": "dan",
       "userExperience": "pengalaman pengguna"
     },
-    "explore": "Lihat lebih lengkap →"
+    "explore": "Jelajahi Proyek →"
+  },
+  "sectionSocial": {
+    "heading": "Mari buat sesuatu yang hebat.",
+    "description": "Punya pertanyaan, ide kolaborasi, atau hanya ingin menyapa? Kirim pesan kapan saja.",
+    "emailMe": "Email saya",
+    "copied": "Tersalin!"
   }
 }

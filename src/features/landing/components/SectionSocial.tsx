@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { ArrowUpRight } from "lucide-react";
 import CopyEmailButton from "./section-social/CopyEmailButton";
+import { getT } from "@/i18n/server";
 
 export default function SectionSocial() {
+  const t = getT();
   const email = "gilang.developer@gmail.com";
 
   return (
@@ -29,11 +30,10 @@ export default function SectionSocial() {
             {/* Heading & Tagline */}
             <div className="space-y-3 lg:max-w-lg">
               <h2 className="font-serif text-3xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl">
-                Let's build something great.
+                {t("sectionSocial.heading")}
               </h2>
               <p className="text-sm leading-relaxed text-zinc-200 sm:text-base">
-                Got a question, collaboration idea, or just want to say hello?
-                Drop me a message anytime.
+                {t("sectionSocial.description")}
               </p>
             </div>
 
@@ -54,7 +54,7 @@ export default function SectionSocial() {
                   <GithubIcon />
                 </Link>
                 <Link
-                  href="https://linkedin.com/ggilang/"
+                  href="https://linkedin.com/in/ggilang/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center justify-between rounded-xl border border-white/20 bg-white/10 p-3.5 text-xs font-semibold text-white backdrop-blur-md transition-all duration-200 hover:bg-white/20 dark:bg-black/20"

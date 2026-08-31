@@ -2,12 +2,14 @@
 
 import { useState } from "react";
 import { MailIcon } from "lucide-react";
+import { useTranslations } from "@/i18n/TranslationContext";
 
 interface CopyEmailButtonProps {
   email: string;
 }
 
 export default function CopyEmailButton({ email }: CopyEmailButtonProps) {
+  const { t } = useTranslations();
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
@@ -31,7 +33,7 @@ export default function CopyEmailButton({ email }: CopyEmailButtonProps) {
     >
       <div className="text-left">
         <span className="text-sm font-semibold text-white sm:text-base">
-          {copied ? "Copied!" : "Email me"}
+          {copied ? t("sectionSocial.copied") : t("sectionSocial.emailMe")}
         </span>
       </div>
       <div className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-white/15 text-white backdrop-blur-md transition-all duration-200 group-hover:bg-white group-hover:text-zinc-900">

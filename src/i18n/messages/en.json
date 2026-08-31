@@ -122,5 +122,11 @@
       "userExperience": "user experience"
     },
     "explore": "Explore Projects →"
+  },
+  "sectionSocial": {
+    "heading": "Let's build something great.",
+    "description": "Got a question, collaboration idea, or just want to say hello? Drop me a message anytime.",
+    "emailMe": "Email me",
+    "copied": "Copied!"
   }
 }

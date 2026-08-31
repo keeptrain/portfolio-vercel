@@ -5,6 +5,7 @@ import { loadMessages } from "@/i18n/loadMessages";
 import Footer from "@/components/Footer";
 import BottomNav from "@/components/navigation/BottomNav";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Analytics } from "@vercel/analytics/react";
 import { getT } from "@/i18n/server";
 import { TranslationProvider } from "@/i18n/TranslationContext";
 
@@ -95,6 +96,7 @@ export default async function LocaleLayout({
             <BottomNav />
           </TranslationProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
