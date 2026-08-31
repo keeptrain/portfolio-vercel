@@ -23,7 +23,7 @@ export default function SectionShowcase() {
             rel="noopener noreferrer"
             className="group relative flex w-1/2 gap-8 overflow-hidden"
           >
-            <div className="relative aspect-3/4 w-1/2 overflow-hidden bg-zinc-100 shadow-xs">
+            <div className="relative aspect-[4/5] w-1/2 overflow-hidden shadow-xs">
               <Image
                 src="/images/projects/landing-rptra-ribubur-1.png"
                 alt="RPTRA Cibubur landing 1"
@@ -32,7 +32,7 @@ export default function SectionShowcase() {
                 className="object-cover object-top"
               />
             </div>
-            <div className="relative aspect-3/4 w-1/2 overflow-hidden bg-zinc-100 shadow-xs">
+            <div className="relative aspect-[4/5] w-1/2 overflow-hidden shadow-xs">
               <Image
                 src="/images/projects/landing-rptra-cibubur-2.png"
                 alt="RPTRA Cibubur landing 2"
@@ -60,14 +60,14 @@ export default function SectionShowcase() {
               href="https://github.com/keeptrain/Culinarix-App.git"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative aspect-video w-full overflow-hidden bg-zinc-100 shadow-xs"
+              className="group relative aspect-video w-full overflow-hidden shadow-xs"
             >
               <Image
                 src="/images/projects/cullinarix-mockups.jpeg"
                 alt="Cullinarix mockups"
                 fill
                 sizes="(max-width: 768px) 50vw, 25vw"
-                className="object-cover object-top"
+                className="object-cover"
               />
               <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                 <div className="absolute inset-0 bg-black/10 backdrop-blur-[1px]" />
@@ -81,7 +81,7 @@ export default function SectionShowcase() {
             </Link>
             <Link
               href="/"
-              className="group relative aspect-video w-full overflow-hidden bg-zinc-100 shadow-xs"
+              className="group relative aspect-video w-full overflow-hidden shadow-xs"
             >
               <Image
                 src="/images/projects/landing-portfolio-page.png"
